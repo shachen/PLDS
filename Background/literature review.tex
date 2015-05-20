@@ -1,0 +1,69 @@
+%\documentclass[letterpaper, 11pt]{article}
+\documentclass[fleqn]{article}
+\usepackage{latexsym}
+\usepackage[usenames]{color}
+\usepackage{amssymb}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{caption}
+%\usepackage[in]{fullpage}
+\usepackage{amsmath,amsfonts,amsthm}
+\usepackage{graphicx}
+\usepackage[left=3cm,top=3cm,right=3cm,nohead,nofoot]{geometry}
+\usepackage {tikz}
+\usetikzlibrary {positioning}
+%\usepackage {xcolor}
+\definecolor {processblue}{cmyk}{0.96,0,0,0}
+
+\begin{document}
+
+\title{Literature Review: time series models in FMRI data analysis}
+\author{\bf{Shaojie CHEN}}
+\maketitle
+A wide class of time series models are adopted by researchers in FMRI data analysis. Here I will briefly review some of them related to Kalman filter.
+\section{ICA and Granger causality}
+In 2009, Oguz Demirci et.al applied Granger causality to analysing the outputs from ICA analysis. Granger causality test is a technique put forward by Granger in 1969 to test whether there are causal relationships between two time series. The paper examined possible causal relationships among the networks found by ICA and found out some significant results. For instance, they showed the causal relationship between default mode network and cerebellum from
+the SIRP(Sternberg item recognition paradigm) task in two directions. This paper does not involve time series models or Kalman filter, but generalized models related to this paper involve Multivariate Autogregressive models and Kalman filter.
+\section{Dynamic Granger Causality}
+The above normal Granger causality model (based on Multivariate Autoregressive modles) is only valid when the FMRI time series are stationary, which is not the case. Martin Havlicek et.al in 2010 came up with a dynamic Granger causality model which use time-varying coefficients(which is basically a LDS with time varying coefficients) for the MAR model and then solve this model using Kalman filter. The core of the model is $a_t=a_{t-1}+v_t\quad y_t=C_{t-1}a_t+w_t$
+\section{Switching Linear Dynamical Systems}
+In 2010, Jason F. Smith (from NIH) et.al used a switching linear dynamical systems to identify effective connectivity networks fMRI data. Compared to the LDS, SLDS added a further layer of hiddens states to the model. The model looks like
+\begin{align*}
+&p(u_{t+1}=i|u_t=j)=\Pi(i,j)\\
+&x_{t+1}=A^ux_t+D^uv_t+\epsilon_{t+1}\\
+&y_t=Cx_t+v_t
+\end{align*}
+With this model, they find out the dominant modes of connectivity in three cognitive regimes(left tapping, right tapping finger, resting state) among S/M(primary sensory-motor cortex),PM(premotor cortex), SMA(supplementary motor area) and L(left hemisphere).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

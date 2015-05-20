@@ -1,0 +1,96 @@
+
+R version 3.0.2 (2013-09-25) -- "Frisbee Sailing"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> ############################### section 1: compare prediction results: pca and lds #
+> data = read.csv("../../../Data/Base/hcpmotordata_smoothed.csv",header=T)
+> 
+> require(R.matlab)
+Loading required package: R.matlab
+R.matlab v2.1.0 (2013-11-29) successfully loaded. See ?R.matlab for help.
+
+Attaching package: ‘R.matlab’
+
+The following objects are masked from ‘package:base’:
+
+    getOption, isOpen
+
+> pca_est = readMat("../../../Data/Results/RealData/hcp_partial_init_val.mat")
+> pca_A = pca_est$a
+> pca_C = pca_est$c
+> pca_x = pca_est$pca.x
+> pca_pred = NULL
+> for(i in 1:200){
++ 	pca_x = pca_A %*% pca_x;
++ 	pca_pred = cbind(pca_pred, pca_C %*% pca_x)
++ }
+> 
+> lds_est = readMat("../../../Data/Results/RealData/hcp_motor_partial_kfs_149.mat")
+> lds_A = lds_est$kfsA
+> lds_C = lds_est$kfsC
+> lds_x = lds_est$Sx[,1000]
+> lds_pred = NULL
+> for(i in 1:200){
++ 	lds_x = lds_A %*% lds_x
++ 	lds_pred = cbind(lds_pred, lds_C %*% lds_x)
++ }
+> 
+> pca_accy = colSums((scale(t(data[1001:1200,])) - scale(pca_pred))^2)
+> lds_accy = colSums((scale(t(data[1001:1200,])) - scale(lds_pred))^2)
+> pca_accy = pca_accy/dim(data)[2] * 100
+> lds_accy = lds_accy/dim(data)[2] * 100
+> 
+> pdf("../../../Figures/pdf/hcp_pred_accy.pdf")
+> par(mar=c(5, 5, 4, 5) + 0.1)
+> plot(lds_accy, type="l", lwd=3, main="",lty = 1, col ="green", axes=FALSE,xlab="",ylab="",ylim=c(0,0.4))
+> axis(2,ylim = c(0,0.4),col="green",las=1,at=0.05 *(0:8))
+> mtext("PLDS Prediction MSE",side=2,line = 3,col="green",adj=0.75,col.axis="green")
+> axis(1,xlim=c(1,200))
+> mtext("Time",side = 1, line = 2.5)
+> box()
+> par(new=TRUE)
+> plot(pca_accy, type="l", lwd=3,lty = 2, col ="red",axes=FALSE,xlab="",ylab="",ylim=c(0,200))
+> axis(4,ylim = c(0,200),col="red",las=1,col.axis="red")
+> mtext("PCA Prediction MSE", side=4, line = 3, col="red",adj=0.75)
+> legend("topright",legend=c("PCA","PLDS"),lty=2:1,col=c("red","green"),lwd=3)
+> dev.off()
+null device 
+          1 
+> 
+> 
+> # plot a sample of predicted time series, compare with truth & pca predictions
+> variances = diag(lds_est$rr)
+> sorted = sort(variances,index.return=T)$ix
+> idx = sorted[1:20]
+> 	#sd = sqrt(sum(variances[idx])/(length(idx))^2)
+> sd = sqrt(variances[idx])
+> truth = scale(t(data[1001:1200,]))
+> lds_predn = scale(lds_pred)
+> pca_predn = scale(pca_pred)
+> scales = apply(data[1001:1200,],1,sd)
+> 
+> d = dim(lds_A)[1]
+> var_1 = list()
+> var_1[[1]] = diag(rep(1,d))
+> for(i in 2:200){
++ 	var_1[[i]] = lds_A %*% var_1[[i-1]] %*% t(lds_A)
++ }
+
+Execution halted
