@@ -112,7 +112,7 @@ For notational convenience, a sequence of $T$ output vectors $(\mathbf{y}_1,\ldo
 where $\lambda_1$ and $\lambda_2$ are tuning parameters and $\|\centerdot\|_p$ represents the $p$-norm of a vector.
 
 \section{Parameter Estimation}
-The motivating application requires parameter estimation in model \ref{eqn:penaltylik}: given only an observed sequence (or multiple sequences in some applications) of outputs $\{\mathbf{y}\}=(\mathbf{y}_1,\ldots,\mathbf{y}_T)$, find the parameters $\Theta=\{A,C,R,\mathbf{\pi}_0\}$ that maximize the likelihood of the observed data.
+The motivating application requires solving optimization problem \ref{eqn:penaltylik}: given only an observed sequence (or multiple sequences in some applications) of outputs $\{\mathbf{y}\}=(\mathbf{y}_1,\ldots,\mathbf{y}_T)$, find the parameters $\Theta=\{A,C,R,\mathbf{\pi}_0\}$ that maximize the likelihood of the observed data.
 
 Parameter estimation for LDS has been investigated extensively by researchers from control theory, signal processing, machine learning and statistics. For example, in machine learning, exact and variational learning algorithms are developed for general Bayesian networks. In control theory, the corresponding area of study is known as system identification, which identifies parameters in continuous state models.
 
