@@ -130,10 +130,10 @@ P(\{\mathbf{x}\},\{\mathbf{y}\})=P(\mathbf{x}_0)\prod\limits_{t=1}^{T}P(\mathbf{
 where $\mathbbm{1}_{\mathbf{\pi}_0}(\mathbf{x}_0)$ is the indicator function and conditional likelihoods are
 \begin{equation*}\label{eqn:condlik}
 \begin{aligned}
-P(\mathbf{y}_t|\mathbf{x}_t)&=\text{exp}\left\{-\frac{1}{2}[\mathbf{y}_t-C\mathbf{x}_t]^{\T}R^{-1}[\mathbf{y}_t-C\mathbf{x}_t]\right\} (2\pi)^{-p/2}|R|^{-1/2}\\
+P(\mathbf{y}_t|\mathbf{x}_t)&= (2\pi)^{-\frac{p}{2}}|R|^{-\frac{1}{2}}\  \text{exp}\left\{-\frac{1}{2}[\mathbf{y}_t-C\mathbf{x}_t]^{\T}R^{-1}[\mathbf{y}_t-C\mathbf{x}_t]\right\}\\
 P(\mathbf{x}_t|\mathbf{x}_{t-1})
 %%&=\text{exp}\left\{-\frac{1}{2}[\mathbf{x_t}-A\mathbf{x_{t-1}}]^{\T}Q^{-1}[\mathbf{x_t}-A\mathbf{x_{t-1}}]\right\}(2\pi)^{-d/2}|Q|^{-1/2}\\
-&=\text{exp}\left\{-\frac{1}{2}[\mathbf{x}_t-A\mathbf{x}_{t-1}]^{\T}[\mathbf{x}_t-A\mathbf{x}_{t-1}]\right\}(2\pi)^{-d/2}.
+&=(2\pi)^{-\frac{d}{2}}\  \text{exp}\left\{-\frac{1}{2}[\mathbf{x}_t-A\mathbf{x}_{t-1}]^{\T}[\mathbf{x}_t-A\mathbf{x}_{t-1}]\right\}.
 \end{aligned}
 \end{equation*}
 
