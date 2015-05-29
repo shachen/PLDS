@@ -63,7 +63,7 @@ The generic time-invariant state-pace model, or LDS, can be written as:
 \end{equation}
 where $A$ is the $d\times d$ state transition matrix and $C$ is the $p \times d$ generative matrix. $\mathbf{x}_t$ is a $d\times 1$ vector and $\mathbf{y}_t$ is a $p\times 1$ vector. The sequence of vectors $\{\mathbf{y}\}=(\mathbf{y}_1,\ldots,\mathbf{y}_T)$ are the observed data and $\{\mathbf{x}\}=(\mathbf{x}_1,\ldots,\mathbf{x}_T)$ represent the unknown hidden states. The output noise covariance $R$ is $p\times p$, while the state noise covariance $Q$ is $d\times d$. Initial state mean $\mathbf{\pi}_0$ is $d\times 1$ and covariance $V_0$ is $d \times d$.
 
-Without applying further constraints, the model itself is unidentifiable and too general to be useful. Supplemental constraints are are thus introduced to address both identifiability and utility. Three basic constraints are required to make the model identifiable:
+Without applying further constraints, the model itself is unidentifiable. Supplemental constraints are are thus introduced to address both identifiability and utility. Three basic constraints are required to make the model identifiable:
 \vspace*{-3mm}
 \begin{equation*}\label{eq:constraints1}
 \begin{aligned}
