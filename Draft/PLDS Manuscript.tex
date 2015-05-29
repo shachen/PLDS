@@ -118,7 +118,7 @@ Parameter estimation for LDS has been investigated extensively by researchers fr
 
 Specifically, one way to find the maximum likelihood solution is through iterative techniques such as expectation maximization (EM) \cite{shumway1982approach}. The detailed EM steps for a generic LDS can be found in Zoubin and Geoffrey (1996) \cite{ghahramani1996parameter}. An alternative approach is to use subspace identification methods such as N4SID and PCA-ID to compute an asymptotically unbiased solution in closed form \cite{van1994n4sid} \cite{doretto2003dynamic}. In practice, determining an initial solution with subspace identification and then refining the solution with EM is a worthwhile approach \cite{bootslearning}.
 
-However, the above solutions can not be directly applied to model \ref{eqn:penaltylik} due to the introduced penalty terms. A new algorithm is then developed and detailed as follows.
+However, the above solutions can not be directly applied to optimization problem \ref{eqn:penaltylik} due to the introduced penalty terms. A new algorithm is then developed and detailed as follows.
 
 By the chain rule, the likelihood in model \ref{eq:model0} is
 \begin{equation*}\label{eqn:likelihood}
