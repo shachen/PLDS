@@ -167,11 +167,9 @@ The E step of EM requires computing the expected log likelihood,
 \]
 This quantity depends on three expectations: $E[\mathbf{x}_t|\{\mathbf{y}\}]$, $E[\mathbf{x}_t\mathbf{x}_t^{\prime}|\{\mathbf{y}\}]$ and $E[\mathbf{x}_t\mathbf{x}_{t-1}^{\prime}|\{\mathbf{y}\}]$. We denote them by the symbols:
 \begin{equation}\label{eq:expecs}
-\begin{aligned}
-\hat{\mathbf{x}}_t \quad &\equiv \quad E[\mathbf{x_t}|\{\mathbf{y}\}]\\
-P_t \quad &\equiv \quad E[\mathbf{x}_t\mathbf{x}_t^{\prime}|\{\mathbf{y}\}]\\
-P_{t,t-1} \quad &\equiv \quad E[\mathbf{x}_t\mathbf{x}_{t-1}^{\prime}|\{\mathbf{y}\}].
-\end{aligned}
+%\begin{aligned}
+\hat{\mathbf{x}}_t \equiv E[\mathbf{x_t}|\{\mathbf{y}\}],\  P_t  \equiv E[\mathbf{x}_t\mathbf{x}_t^{\prime}|\{\mathbf{y}\}],\  P_{t,t-1}  \equiv E[\mathbf{x}_t\mathbf{x}_{t-1}^{\prime}|\{\mathbf{y}\}].
+%\end{aligned}
 \end{equation}
 
 Expectations \ref{eq:expecs} are calculated with a Kalman filter/smoother, which is detailed in \nameref{sec:appendix1}.
@@ -610,7 +608,7 @@ The above method assumes that the first $k$ eigen-values are samples from a Gaus
 \captionof{figure}{Eigen-values and Corresponding Profile Likelihood Plot}
 \label{fig:eigvals}
 \end{center}
- 
+
 
 The $A$ matrices as connectivity graphs are first plotted in Figure \oldref{fig:cgraph}. One can group the scans correctly with the $A$ matrices. Specifically, denote the $A$ matrix estimation for the first scan of subject one as $A_{11}$. Similary notations apply to the other scans. Then the canonical correlations among the four matrices are summarized in Table \oldref{tab:similarity}. Another permutation invariant measure of square matrix similarity, the Amari error, is also provided in the table \cite{amari1996new}. Notice a higher $d(A,B)$ or a smaller Amari error means more similarity. From both measures, one can group the four scans correctly. This implies that the graph contains subject-specific information.
 \begin{center}
@@ -654,7 +652,7 @@ The similarities are also shown in Figure \ref{fig:matsim}.
 \begin{center}
 \includegraphics[scale=.5]{./figures/A-matrices-similarity.pdf}
 \captionof{figure}{Similarities among the four estimated $A$ matrices. The distance $d(\cdot,\cdot)$ is used in this figure. As one can see, the two yellow off-diagonal pixels has the minimum distances, which correspond to the pairs of $(A_{11},A_{12})$ and $(A_{21},A_{22})$ respectively.}
-\label{fig:matsim} 
+\label{fig:matsim}
 \end{center}
 
 As an example, the 3D renderings of the columns of matrix $C$ from the first scan of subject one are shown in Figure \oldref{fig:3d} (after thresholding). The biological meaning of those regions need to be further validated. It is helpful to compare those regions to other existing parcellations of the mortor cortex. As an example, the blue region above accurately matches the DM (dorselmedical) parcel of the five-region parcellation proposed by Nebel MB et al. \cite{nebel2014disruption}.
