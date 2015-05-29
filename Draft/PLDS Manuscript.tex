@@ -94,7 +94,7 @@ The following three new constraints are further applied to achieve a more useful
 \end{aligned}
 \end{equation*}
 
-Consider the case where the observed data are high dimensional and the $R$ matrix is very large. One can not accurately estimate the many free parameters in $R$ with limited observed data. Therefore some constraints on $R$ are necessary. In the simplest case, $R$ is set to an identity matrix or its multiple. More generally, one can also constrain matrix $R$ to be diagonal. In the static model with no temporal dynamics, a diagonal $R$ is equivalent to the generic Factor Analysis method, while multiples of the identity $R$ matrix lead to Principal Component Analysis (PCA) \cite{roweis1999unifying}.
+Consider the case where the observed data are high dimensional and the $R$ matrix is very large. One can not accurately estimate the many free parameters in $R$ with limited observed data. Therefore some constraints on $R$ will help with inferential accuracy, by virtue of significantly reducing variance while not adding too much bias. In the simplest case, $R$ is set to an identity matrix or its multiple. More generally, one can also constrain matrix $R$ to be diagonal. In the static model with no temporal dynamics, a diagonal $R$ is equivalent to the generic Factor Analysis method, while multiples of the identity $R$ matrix lead to Principal Component Analysis (PCA) \cite{roweis1999unifying}.
 
 The $A$ matrix is the transition matrix of the hidden states. In our application, it is a central construct of interest representing a so-called connectivity graph. In many applications, it is desirable for this graph to be sparse. In this work, an L-1 penalty term on $A$ is used to impose sparsity on the connectivity graph..
 
@@ -121,7 +121,7 @@ Parameter estimation for LDS has been investigated extensively by researchers fr
 
 Specifically, one way to search for the maximum likelihood solution is through iterative techniques such as expectation maximization (EM) \cite{shumway1982approach}. The detailed EM steps for a generic LDS can be found in Zoubin and Geoffrey (1996) \cite{ghahramani1996parameter}. An alternative approach is to use subspace identification methods such as N4SID and PCA-ID to compute an asymptotically unbiased solution in closed form \cite{van1994n4sid} \cite{doretto2003dynamic}. In practice, determining an initial solution with subspace identification and then refining the solution with EM is an effective approach \cite{bootslearning}.
 
-However, the above solutions can not be directly applied to optimization problem \ref{eqn:penaltylik} due to the introduced penalty terms. A new algorithm is then developed and detailed as follows.
+However, the above solutions can not be directly applied to optimization problem \ref{eqn:penaltylik} due to the introduced penalty terms. We therefore developed a novel algorithm called Reduced Rank M-Estimation for High-Dimensional Linear Dynamical System Identification (R2SID), as detailed in the following.
 
 By the chain rule, the likelihood in model \ref{eq:model0} is
 \begin{equation*}\label{eqn:likelihood}
