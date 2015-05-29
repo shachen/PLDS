@@ -20,6 +20,9 @@
 \let\oldref\ref
 \renewcommand{\ref}[1]{(\oldref{#1})}
 
+%\newcommand{\T}{^{\ensuremath{\mathsf{T}}}} % transpose
+\newcommand{\T}{T} 
+
 \begin{document}
 
 \title{A Sparse High Dimensional State-Space Model with an Application to Neuroimaging Data}
@@ -74,7 +77,7 @@ Without applying further constraints, the model itself is unidentifiable. Supple
 \end{equation*}
 Note that the first two constraints follow directly from Roweis and Ghahramani (1999) \cite{roweis1999unifying}.
 
-The logic for Constraint 1 is as follows. Since Q is a covariance matrix, it is symmetric and positive semidefinite and thus can be expressed in the form $E\Lambda E^T$ where $E$ is a rotation matrix of eigenvectors and $\Lambda$ is a diagonal matrix of eigenvalues. Thus, for any model where $Q$ is not the identity matrix, one can generate an equivalent model using a new state vector $\mathbf{x^{\prime}}=\Lambda^{-1/2} E^T \mathbf{x}$ with $A^{\prime}=(\Lambda^{-1/2}E^T)A(E\Lambda^{1/2})$ and $C^{\prime}=C(E\Lambda^{1/2})$ such that the new covariance of $\mathbf{x^{\prime}}$ is the identity matrix, i.e., $Q^{\prime}=\mathbf{I}$. Thus one can constrain $Q=\mathbf{I}$ without loss of generality.
+The logic for Constraint 1 is as follows. Since Q is a covariance matrix, it is symmetric and positive semidefinite and thus can be expressed in the form $E\Lambda E^T$ where $E$ is a rotation matrix of eigenvectors and $\Lambda$ is a diagonal matrix of eigenvalues. Thus, for any model where $Q$ is not the identity matrix, one can generate an equivalent model using a new state vector $\mathbf{x}^{\T}=\Lambda^{-1/2} E^T \mathbf{x}$ with $A^{\T}=(\Lambda^{-1/2}E^T)A(E\Lambda^{1/2})$ and $C^{\T}=C(E\Lambda^{1/2})$ such that the new covariance of $\mathbf{x}^{\T}$ is the identity matrix, i.e., $Q^{\T}=\mathbf{I}$. Thus one can constrain $Q=\mathbf{I}$ without loss of generality.
 
 For Constraint 2, the components of the state vector can be arbitrarily reordered; this corresponds to swapping the columns of $C$ and $A$. Therefore,the order of the columns of matrix $C$ must be fixed. We follow Roweis and Ghahramani and choose the order by decreasing the norms of columns of $C$.
 
@@ -101,7 +104,7 @@ With all those constraints, the model becomes:
 \begin{equation}\label{eq:model0}
 \begin{aligned}
 	&\mathbf{x}_{t+1}=A\mathbf{x}_{t}+\mathbf{w}_t, \quad \mathbf{w}_t\sim N(\mathbf{0},\mathbf{I}),\quad \mathbf{x}_0 = \mathbf{\pi}_0,\quad A \text{ is sparse}\\
-	&\mathbf{y_t}=C\mathbf{x}_t+\mathbf{v}_t,\qquad \mathbf{v}_t\sim N(\mathbf{0},R),\quad C \text{ has smooth columns}
+	&\mathbf{y}_t=C\mathbf{x}_t+\mathbf{v}_t,\qquad \mathbf{v}_t\sim N(\mathbf{0},R),\quad C \text{ has smooth columns}
 \end{aligned}
 \end{equation}
 
@@ -122,15 +125,15 @@ However, the above solutions can not be directly applied to optimization problem
 
 By the chain rule, the likelihood in model \ref{eq:model0} is
 \begin{equation*}\label{eqn:likelihood}
-P(\{\mathbf{x}\},\{\mathbf{y}\})=P(\mathbf{x_0})\prod\limits_{t=1}^{T}P(\mathbf{x_t}|\mathbf{x_{t-1}})\prod\limits_{t=1}^{T} P(\mathbf{y_t}|\mathbf{x_t})=\prod\limits_{t=1}^{T}P(\mathbf{x_t}|\mathbf{x_{t-1}})\prod\limits_{t=1}^{T} P(\mathbf{y_t}|\mathbf{x_t})\mathbbm{1}_{\mathbf{\pi}_0}(\mathbf{x}_0)
+P(\{\mathbf{x}\},\{\mathbf{y}\})=P(\mathbf{x}_0)\prod\limits_{t=1}^{T}P(\mathbf{x}_t|\mathbf{x}_{t-1})\prod\limits_{t=1}^{T} P(\mathbf{y}_t|\mathbf{x}_t)=\prod\limits_{t=1}^{T}P(\mathbf{x}_t|\mathbf{x}_{t-1})\prod\limits_{t=1}^{T} P(\mathbf{y}_t|\mathbf{x}_t)\mathbbm{1}_{\mathbf{\pi}_0}(\mathbf{x}_0)
 \end{equation*}
 where $\mathbbm{1}_{\mathbf{\pi}_0}(\mathbf{x}_0)$ is the indicator function and conditional likelihoods are
 \begin{equation*}\label{eqn:condlik}
 \begin{aligned}
-P(\mathbf{y_t}|\mathbf{x_t})&=\text{exp}\left\{-\frac{1}{2}[\mathbf{y_t}-C\mathbf{x_t}]^{\prime}R^{-1}[\mathbf{y_t}-C\mathbf{x_t}]\right\} (2\pi)^{-p/2}|R|^{-1/2}\\
-P(\mathbf{x_t}|\mathbf{x_{t-1}})
-%%&=\text{exp}\left\{-\frac{1}{2}[\mathbf{x_t}-A\mathbf{x_{t-1}}]^{\prime}Q^{-1}[\mathbf{x_t}-A\mathbf{x_{t-1}}]\right\}(2\pi)^{-d/2}|Q|^{-1/2}\\
-&=\text{exp}\left\{-\frac{1}{2}[\mathbf{x_t}-A\mathbf{x_{t-1}}]^{\prime}[\mathbf{x_t}-A\mathbf{x_{t-1}}]\right\}(2\pi)^{-d/2}.
+P(\mathbf{y}_t|\mathbf{x}_t)&=\text{exp}\left\{-\frac{1}{2}[\mathbf{y}_t-C\mathbf{x}_t]^{\T}R^{-1}[\mathbf{y}_t-C\mathbf{x}_t]\right\} (2\pi)^{-p/2}|R|^{-1/2}\\
+P(\mathbf{x}_t|\mathbf{x}_{t-1})
+%%&=\text{exp}\left\{-\frac{1}{2}[\mathbf{x_t}-A\mathbf{x_{t-1}}]^{\T}Q^{-1}[\mathbf{x_t}-A\mathbf{x_{t-1}}]\right\}(2\pi)^{-d/2}|Q|^{-1/2}\\
+&=\text{exp}\left\{-\frac{1}{2}[\mathbf{x}_t-A\mathbf{x}_{t-1}]^{\T}[\mathbf{x}_t-A\mathbf{x}_{t-1}]\right\}(2\pi)^{-d/2}.
 \end{aligned}
 \end{equation*}
 
@@ -144,16 +147,16 @@ Then the log-likelihood, after dropping a constant, is just a sum of quadratic t
 %\end{equation}
 \begin{equation}\label{eqn:loglik}
 \begin{split}
-\text{log } P(\{\mathbf{x}\},\{\mathbf{y}\})=&-\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{y_t}-C\mathbf{x_t}]^{\prime}R^{-1}[\mathbf{y_t}-C\mathbf{x_t}]\big)-\frac{T}{2}\text{log}|R|\\
-&-\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{x_t}-A\mathbf{x_{t-1}}]^{\prime}[\mathbf{x_t}-A\mathbf{x_{t-1}}]\big)-\frac{T}{2}\text{log}|\mathbf{I}|+ \text{log}(\mathbbm{1}_{\mathbf{\pi}_0}(\mathbf{x}_0)).
+\text{log } P(\{\mathbf{x}\},\{\mathbf{y}\})=&-\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{y}_t-C\mathbf{x}_t]^{\T}R^{-1}[\mathbf{y}_t-C\mathbf{x}_t]\big)-\frac{T}{2}\text{log}|R|\\
+&-\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{x}_t-A\mathbf{x}_{t-1}]^{\T}[\mathbf{x}_t-A\mathbf{x}_{t-1}]\big)-\frac{T}{2}\text{log}|\mathbf{I}|+ \text{log}(\mathbbm{1}_{\mathbf{\pi}_0}(\mathbf{x}_0)).
 \end{split}
 \end{equation}
 
 Replace $\text{log } P(\{\mathbf{x}\},\{\mathbf{y}\})$ with equation \ref{eqn:loglik}, model \ref{eqn:penaltylik} is
 \begin{equation}\label{eqn:penaltylik2}
 \begin{split}
-\hat{\Theta}=\text{arg}\min_{\substack{\Theta}}\biggl\{&\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{y_t}-C\mathbf{x_t}]^{\prime}R^{-1}[\mathbf{y_t}-C\mathbf{x_t}]\big)-\frac{T}{2}\text{log}|R|\\
-&+\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{x_t}-A\mathbf{x_{t-1}}]^{\prime}[\mathbf{x_t}-A\mathbf{x_{t-1}}]\big)-\frac{T}{2}\text{log}|\mathbf{I}| - \text{log}(\mathbbm{1}_{\mathbf{\pi}_0}(\mathbf{x}_0))\\
+\hat{\Theta}=\text{arg}\min_{\substack{\Theta}}\biggl\{&\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{y}_t-C\mathbf{x}_t]^{\T}R^{-1}[\mathbf{y}_t-C\mathbf{x}_t]\big)-\frac{T}{2}\text{log}|R|\\
+&+\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{x}_t-A\mathbf{x}_{t-1}]^{\T}[\mathbf{x}_t-A\mathbf{x}_{t-1}]\big)-\frac{T}{2}\text{log}|\mathbf{I}| - \text{log}(\mathbbm{1}_{\mathbf{\pi}_0}(\mathbf{x}_0))\\
 &+\lambda_1\|A\|_1+\lambda_2\|C\|_2^2\biggr\}.
 \end{split}
 \end{equation}
@@ -165,10 +168,10 @@ The E step of EM requires computing the expected log likelihood,
 \[
     \Gamma = E[\text{log }P(\{\mathbf{x}\},\{\mathbf{y}\}|\{\mathbf{y}\})].
 \]
-This quantity depends on three expectations: $E[\mathbf{x}_t|\{\mathbf{y}\}]$, $E[\mathbf{x}_t\mathbf{x}_t^{\prime}|\{\mathbf{y}\}]$ and $E[\mathbf{x}_t\mathbf{x}_{t-1}^{\prime}|\{\mathbf{y}\}]$. We denote them by the symbols:
+This quantity depends on three expectations: $E[\mathbf{x}_t|\{\mathbf{y}\}]$, $E[\mathbf{x}_t\mathbf{x}_t^{\T}|\{\mathbf{y}\}]$ and $E[\mathbf{x}_t\mathbf{x}_{t-1}^{\T}|\{\mathbf{y}\}]$. We denote them by the symbols:
 \begin{equation}\label{eq:expecs}
 %\begin{aligned}
-\hat{\mathbf{x}}_t \equiv E[\mathbf{x_t}|\{\mathbf{y}\}],\  P_t  \equiv E[\mathbf{x}_t\mathbf{x}_t^{\prime}|\{\mathbf{y}\}],\  P_{t,t-1}  \equiv E[\mathbf{x}_t\mathbf{x}_{t-1}^{\prime}|\{\mathbf{y}\}].
+\hat{\mathbf{x}}_t \equiv E[\mathbf{x_t}|\{\mathbf{y}\}],\  P_t  \equiv E[\mathbf{x}_t\mathbf{x}_t^{\T}|\{\mathbf{y}\}],\  P_{t,t-1}  \equiv E[\mathbf{x}_t\mathbf{x}_{t-1}^{\T}|\{\mathbf{y}\}].
 %\end{aligned}
 \end{equation}
 
@@ -180,9 +183,9 @@ Denote estimations from previous step as $\Theta^{\text{old}} =\{A^{\text{old}},
 
 \begin{equation*}\label{eq:updateR}
 \begin{aligned}
-\frac{\partial \mathbf{\Phi}}{\partial R^{-1}} &= \frac{T}{2}R - \sum\limits_{t=1}^T\bigl(\frac{1}{2}\mathbf{y}_t\mathbf{y}_t^{\prime} - C\hat{\mathbf{x}}_t\mathbf{y}_t^{\prime}+\frac{1}{2}CP_tC^{\prime}\bigr) =0 \\
-& R = \frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\prime}-C^{\text{new}}\hat{\mathbf{x}}_t\mathbf{y}_t^{\prime})\\
-& R^{\text{new}} =\text{Diag}\biggl\{\frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\prime}-C\hat{\mathbf{x}}_t\mathbf{y}_t^{\prime})\biggr\}
+\frac{\partial \mathbf{\Phi}}{\partial R^{-1}} &= \frac{T}{2}R - \sum\limits_{t=1}^T\bigl(\frac{1}{2}\mathbf{y}_t\mathbf{y}_t^{\T} - C\hat{\mathbf{x}}_t\mathbf{y}_t^{\T}+\frac{1}{2}CP_tC^{\T}\bigr) =0 \\
+& R = \frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\T}-C^{\text{new}}\hat{\mathbf{x}}_t\mathbf{y}_t^{\T})\\
+& R^{\text{new}} =\text{Diag}\biggl\{\frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\T}-C\hat{\mathbf{x}}_t\mathbf{y}_t^{\T})\biggr\}
 \end{aligned}
 \end{equation*}
 At the bottom line, diagonal of the estimated $R$ is taken, as we constrain $R$ to be diagonal in Constraint 4.
@@ -194,28 +197,28 @@ Estimation for initial state also has closed form. The relevant term $\log(\math
 
 Estimation for transition matrix $C$ also has closed form solution, but the solution can only be derived by rearranging the terms properly. Terms relevant to $C$ in equation \ref{eqn:penaltylik2} are
 \begin{equation}\label{eq:penaltylik1}
-\sum\limits_{t=1}^{T}\left(\frac{1}{2}[\mathbf{y}_t-C\mathbf{x}_t]^{'}R^{-1}[\mathbf{y}_t-C\mathbf{x}_t]\right)+\lambda_2 \|C\|_2 = f_{\lambda_2}(C;\{\mathbf{x}\},\{\mathbf{y}\}).
+\sum\limits_{t=1}^{T}\left(\frac{1}{2}[\mathbf{y}_t-C\mathbf{x}_t]^{\T}R^{-1}[\mathbf{y}_t-C\mathbf{x}_t]\right)+\lambda_2 \|C\|_2 = f_{\lambda_2}(C;\{\mathbf{x}\},\{\mathbf{y}\}).
 \end{equation}
 
 In $f_{\lambda_1}(C;\{\mathbf{x}\},\{\mathbf{y}\})$, $C$ is a matrix and need to be vectorized for optimization. Here we follow the methods of Turlach et al \cite{turlach2005simultaneous}. Without loss of generality, assume $R$ is the identity matrix in equation \ref{eq:penaltylik1}; otherwise, one can always write equation \ref{eq:penaltylik1} as
 \begin{equation*}
-\sum\limits_{t=1}^{T}\left(\frac{1}{2}[R^{-\frac{1}{2}}y_t-R^{-\frac{1}{2}}Cx_t]^{'}[R^{-\frac{1}{2}y_t}-R^{-\frac{1}{2}}Cx_t]\right) + \lambda_2 \|R^{-\frac{1}{2}}C\|
+\sum\limits_{t=1}^{T}\left(\frac{1}{2}[R^{-\frac{1}{2}}y_t-R^{-\frac{1}{2}}Cx_t]^{\T}[R^{-\frac{1}{2}y_t}-R^{-\frac{1}{2}}Cx_t]\right) + \lambda_2 \|R^{-\frac{1}{2}}C\|
 \end{equation*}
 Let
 \begin{equation*}
-\mathbf{w} = (y_{11},\ldots,y_{T1},y_{12},\ldots,y_{T2},\ldots,y_{1p},\ldots,y_{Tp})^{\prime}
+\mathbf{w} = (y_{11},\ldots,y_{T1},y_{12},\ldots,y_{T2},\ldots,y_{1p},\ldots,y_{Tp})^{\T}
 \end{equation*}
 be a $Tp\times 1$ vector from rearranging  $\{\mathbf{y}\}$. In addition, let
 \[
 \mathbf{W} = \begin{pmatrix}
-W^{\prime}&&\\
+W^{\T}&&\\
 &\ddots&\\
-&&W^{\prime}
+&&W^{\T}
 \end{pmatrix}_{pT\times pd}
 \]
 where $W=\biggl(\mathbf{x}_1,\ldots,\mathbf{x}_{T}\biggr)$. Finally, vectorize $C^{\text{old}}$ as
 \begin{equation}\label{eq:vectorizec}
-\mathbf{c}^{\text{old}} = (C_{11}^{\text{old}},\ldots,C_{1d}^{\text{old}},C_{21}^{\text{old}},\ldots,C_{2d}^{\text{old}},C_{p1}^{\text{old}},\ldots,C_{pd}^{\text{old}})^{\prime}
+\mathbf{c}^{\text{old}} = (C_{11}^{\text{old}},\ldots,C_{1d}^{\text{old}},C_{21}^{\text{old}},\ldots,C_{2d}^{\text{old}},C_{p1}^{\text{old}},\ldots,C_{pd}^{\text{old}})^{\T}
 \end{equation}
 where $C_{ij}$ is the element at row $i$ and column $j$ of $C$. With these new notations, the equation \ref{eq:penaltylik1} is equivalent to
 \begin{equation}\label{eq:penaltylik11}
@@ -224,7 +227,7 @@ f_{\lambda_2}(C;\{\mathbf{x}\},\{\mathbf{y}\}) = \|\mathbf{w}  - \mathbf{Wc}\|_2
 With the Tikhonov regularization \cite{tikhonov1943stability}, equation \ref{eq:penaltylik11} has closed form solution
 \begin{equation}\label{eq:updatec}
 \begin{aligned}
-\mathbf{c}^{\text{new}} &= (\mathbf{W}^{\prime}\mathbf{W} + \lambda_2\mathbf{I})^{-1}\mathbf{W}^{\prime}\mathbf{w}\\
+\mathbf{c}^{\text{new}} &= (\mathbf{W}^{\T}\mathbf{W} + \lambda_2\mathbf{I})^{-1}\mathbf{W}^{\T}\mathbf{w}\\
 C^{\text{new}} &=\text{Rearrange } \mathbf{c}^{\text{new}} \text{ by equation }\ref{eq:vectorizec}
 \end{aligned}
 \end{equation}
@@ -232,14 +235,14 @@ C^{\text{new}} &=\text{Rearrange } \mathbf{c}^{\text{new}} \text{ by equation }\
 
 Last but not least, let's look at parameter $A$. Terms involving $A$ in equation \ref{eqn:penaltylik2} are,
 \begin{equation}\label{eq:penaltylik2}
-\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{x}_t-A\mathbf{x}_{t-1}]^{\prime}[\mathbf{x}_t-A\mathbf{x}_{t-1}]\big)+\lambda_1 \|A\|_1 = f_{\lambda_1}(A;\{\mathbf{x}\},\{\mathbf{y}\}).
+\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{x}_t-A\mathbf{x}_{t-1}]^{\T}[\mathbf{x}_t-A\mathbf{x}_{t-1}]\big)+\lambda_1 \|A\|_1 = f_{\lambda_1}(A;\{\mathbf{x}\},\{\mathbf{y}\}).
 \end{equation}
 
 Similar to what we have done to $C$, equation \ref{eq:penaltylik2} is equivalent to
 \begin{equation}\label{eq:penaltylik21}
 f_{\lambda_1}(A;\{\mathbf{x}\},\{\mathbf{y}\}) =  \|\mathbf{z}  - \mathbf{Za}\|_2^2 + \lambda_2\|\mathbf{a}\|_1.
 \end{equation}
-where $\mathbf{z}$ is a $Td \times 1$ vector from rearranging $\{\mathbf{x}\}$ and $\mathbf{Z}$ is a block diagonal matrix with diagonal component $Z^{\prime} =(\mathbf{x}_0,\ldots,\mathbf{x}_{T-1})^{\prime}$. Unfortunately, equation \ref{eq:penaltylik21} does not have closed form solution due to the $L-1$ term.
+where $\mathbf{z}$ is a $Td \times 1$ vector from rearranging $\{\mathbf{x}\}$ and $\mathbf{Z}$ is a block diagonal matrix with diagonal component $Z^{\T} =(\mathbf{x}_0,\ldots,\mathbf{x}_{T-1})^{\T}$. Unfortunately, equation \ref{eq:penaltylik21} does not have closed form solution due to the $L-1$ term.
 
 %Let $\mathbf{z} = (x_{11},x_{21},\ldots,x_{T1},x_{12},x_{22},\ldots,x_{T2},\ldots,x_{1d},x_{2d},\ldots,x_{Td})^{\prime}$ be a vector from rearranging $\{\mathbf{x}\}$. In addition, denote
 %\[
@@ -253,9 +256,9 @@ where $\mathbf{z}$ is a $Td \times 1$ vector from rearranging $\{\mathbf{x}\}$ a
 
 Though not having a closed form solution, $f_{\lambda_1}(A;\{\mathbf{x}\},\{\mathbf{y}\})$ can be solved numerically with a Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) \cite{beck2009fast} \cite{hoerl1970ridge}. FISTA is an accelerated version of the Iterative Shrinkage-Threshholding Algorithm (ISTA). ISTA is linearly convergent while FISTA is quadratic convergent. Steps of a general FISTA algorithm can be found in \nameref{sec:appendix2}.
 
-FISTA requires calculating the Lipschitz constant $L$ for $\nabla\mathbf{g(z)}=\mathbf{Z}^{\prime}(\mathbf{Z}\mathbf{a} -\mathbf{z})$, where $\mathbf{g}(\mathbf{z})=\|\mathbf{Z}^{\prime}\mathbf{a} -\mathbf{z}\|_2^2$. Denote $\|Z\|$ as the induced norm of matrix $Z$, then $L$ is
+FISTA requires calculating the Lipschitz constant $L$ for $\nabla\mathbf{g(z)}=\mathbf{Z}^{\T}(\mathbf{Z}\mathbf{a} -\mathbf{z})$, where $\mathbf{g}(\mathbf{z})=\|\mathbf{Z}^{\T}\mathbf{a} -\mathbf{z}\|_2^2$. Denote $\|Z\|$ as the induced norm of matrix $Z$, then $L$ is
 \[
-L = \sup_{\substack{x\neq y}}\frac{\|\mathbf{Z^{\prime}}(\mathbf{Z}x- \mathbf{Z}y)\|}{\|x-y\|}=\sup_{\substack{x\neq 0}}\frac{\|\mathbf{Z^{\prime}Z}x\|}{\|x\|}\leq\|\mathbf{Z}^{\prime}\|\|\mathbf{Z}\| = \|Z^{\prime}\|\|Z\|.
+L = \sup_{\substack{x\neq y}}\frac{\|\mathbf{Z}^{\T}(\mathbf{Z}x- \mathbf{Z}y)\|}{\|x-y\|}=\sup_{\substack{x\neq 0}}\frac{\|\mathbf{Z}^{\T}\mathbf{Z}x\|}{\|x\|}\leq\|\mathbf{Z}^{\T}\|\|\mathbf{Z}\| = \|Z^{\T}\|\|Z\|.
 \]
 
 
@@ -409,7 +412,7 @@ L = \sup_{\substack{x\neq y}}\frac{\|\mathbf{Z^{\prime}}(\mathbf{Z}x- \mathbf{Z}
 
 With FISTA and $L$, matrix $A$ can be update:
 \begin{equation}\label{eq:updatea}
-A^{\text{new}} = \text{FISTA}(\|\mathbf{Z}^{\prime}\mathbf{a}^{\text{old}} -\mathbf{z}\|_2^2,\quad \lambda_2)
+A^{\text{new}} = \text{FISTA}(\|\mathbf{Z}^{\T}\mathbf{a}^{\text{old}} -\mathbf{z}\|_2^2,\quad \lambda_2)
 \end{equation}
 
 \subsection{The Complete EM}
@@ -422,7 +425,7 @@ The complete EM algorithm for PLDS is addressed as follows.\\
 \hline
 \textbf{M Step}\\
 %1. Replace all $\mathbf{x}_t$ in \eqref{eqn: penaltylik2} with E$(\mathbf{x}_t|\{\mathbf{y}_t\}_1^T)$ from E step\\
-1. $R^{\text{new}}=\text{Diag}\biggl\{\frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\prime}-C^{\text{old}} \hat{\mathbf{x}}_t\mathbf{y}_t^{\prime})\biggr\}$\\
+1. $R^{\text{new}}=\text{Diag}\biggl\{\frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\T}-C^{\text{old}} \hat{\mathbf{x}}_t\mathbf{y}_t^{\T})\biggr\}$\\
 2. $\mathbf{\pi}_0^{\text{new}}=\hat{\mathbf{x}}_0$\\
 3. Update $C^{\text{new}}$ as in equation \ref{eq:updatec}\\
 4. Update $A^{\text{new}}$ with FISTA, as in equation \ref{eq:updatea}\\
@@ -438,9 +441,9 @@ Notice that all the terms involving $\{\mathbf{x}\}$ in the M-step are approxima
 
 Denote $\mathbf{Y} = \left[\mathbf{y_1},\cdots,\mathbf{y_T}\right]$, a $p\times T$ matrix. The singular value decomposition (SVD) of $\mathbf{Y}$ is
 \begin{equation}\label{eq:initial}
-    \mathbf{Y} = \mathbf{UDV^{\prime}} \approx \mathbf{U}_{p \times d} \mathbf{D}_{d \times d} \mathbf{V}_{d \times T}^{\prime} =\mathbf{U}_{p\times d}\mathbf{X}_{d \times T}
+    \mathbf{Y} = \mathbf{UDV^{\T}} \approx \mathbf{U}_{p \times d} \mathbf{D}_{d \times d} \mathbf{V}_{d \times T}^{\T} =\mathbf{U}_{p\times d}\mathbf{X}_{d \times T}
 \end{equation}
-where $\mathbf{U}_{p \times d}$ is the first $d$ columns of $\mathbf{U}$ and $\mathbf{D}_{d\times d}$ is the upper left block of $\mathbf{D}$. This notation also applies to $\mathbf{V}^{\prime}_{d \times T}$.
+where $\mathbf{U}_{p \times d}$ is the first $d$ columns of $\mathbf{U}$ and $\mathbf{D}_{d\times d}$ is the upper left block of $\mathbf{D}$. This notation also applies to $\mathbf{V}^{\T}_{d \times T}$.
 
 $C$ is then initialzed as $\mathbf{U}_{p\times d}$, while the columns of $\mathbf{X}_{d \times T}$ are used as input for a vector autoregressive (VAR) model to estimate the initial value for $A$.
 
@@ -452,11 +455,11 @@ In addition, to update R in the M step, directly calculate its diagonal without 
 
 Finally, in the E-step, the following term $K_t$ involving $R$ need to be calculated,
 \[
-K_t=V_t^{t-1}C^{\prime}(CV_t^{t-1}C^{\prime}+R)^{-1}
+K_t=V_t^{t-1}C^{\T}(CV_t^{t-1}C^{\T}+R)^{-1}
 \]
 which involves the inverse of a large square matrix of dimension p by p. As stated previously, such a matrix exceeds available memory when p is high. The Woodbury Matrix Identity is employed to turn a high dimensional inverse to low dimensional problem:
 \[
-(CV_t^{t-1}C^{\prime}+R)^{-1} = R^{-1} - R^{-1}C[(V_t^{t-1})^{-1} + C^{\prime}R^{-1}C]^{-1}C^{\prime}R^{-1}
+(CV_t^{t-1}C^{\T}+R)^{-1} = R^{-1} - R^{-1}C[(V_t^{t-1})^{-1} + C^{\T}R^{-1}C]^{-1}C^{\T}R^{-1}
 \]
 
 With the above three techniques, the EM algorithm can scale to very high dimensions in terms of $p$, $d$ and $T$, without causing any computational issues.
@@ -721,19 +724,19 @@ Finally, the work can also be extended on the application side. Currently, only 
 \hline
 \textbf{Algorithm } Kalman Filter Smoother\\
 \hline
-0. Define $\mathbf{x}_t^{\tau}$ = E($\mathbf{x}_t|\{\mathbf{y}\}_1^{\tau}$),$\mathbf{V}_t^{\tau}=\text{Var}(\mathbf{x}_t|\{\mathbf{y}\}_1^{\tau})$, $\hat{\mathbf{x}}_t \equiv \mathbf{x}_t^T$ and $P_t\equiv V_t^T+\mathbf{x}_t^T{\mathbf{x}_t^T}^{\prime}$\\
+0. Define $\mathbf{x}_t^{\tau}$ = E($\mathbf{x}_t|\{\mathbf{y}\}_1^{\tau}$),$\mathbf{V}_t^{\tau}=\text{Var}(\mathbf{x}_t|\{\mathbf{y}\}_1^{\tau})$, $\hat{\mathbf{x}}_t \equiv \mathbf{x}_t^T$ and $P_t\equiv V_t^T+\mathbf{x}_t^T{\mathbf{x}_t^T}^{\T}$\\
 1. Forward Recursions:\\
 \hspace{4 mm} $\mathbf{x}_t^{t-1}=A\mathbf{x}_{t-1}^{t-1}$\\
 \hspace{4 mm} $\mathbf{V}_t^{t-1}=A\mathbf{V}_{t-1}^{t-1}+\mathbf{Q}$\\
-\hspace{4 mm} $K_t=\mathbf{V}_t^{t-1}C^{\prime}(CV_t^{t-1}C^{\prime}+R)^{-1}$\\
+\hspace{4 mm} $K_t=\mathbf{V}_t^{t-1}C^{\T}(CV_t^{t-1}C^{\T}+R)^{-1}$\\
 \hspace{4 mm} $\mathbf{x}_t^t$ = $\mathbf{x}_t^{t-1} + K_t (\mathbf{y}_t - C\mathbf{x}_t^{t-1})$\\
 \hspace{4 mm} $V_t^t=V_t^{t-1}-K_tCV_t^{t-1}$\\
 \hspace{4 mm} $\mathbf{x}_1^0=\mathbf{\pi}_0$, $V_1^0=\mathbf{V}_0$\\
 2. Backward Recursions:\\
-\hspace{4 mm} $J_{t-1} = V_{t-1}^{t-1}A^{\prime}(V_t^{t-1})^{-1}$\\
+\hspace{4 mm} $J_{t-1} = V_{t-1}^{t-1}A^{\T}(V_t^{t-1})^{-1}$\\
 \hspace{4 mm} $\mathbf{x}_{t-1}^T=\mathbf{x}_{t-1}^{t-1}+J_{t-1}(\mathbf{x_t^T-A\mathbf{x}_{t-1}^{t-1}})$\\
-\hspace{4 mm} $V_{t-1}^T = V_{t-1}^{t-1}+J_{t-1}(V_t^T-V_t^{t-1})J_{t-1}^{\prime}$\\
-\hspace{4 mm} $P_{t,t-1}\equiv V_{t,t-1}^T+\mathbf{x}_t^T{\mathbf{x}_t^T}^{\prime}$\\
+\hspace{4 mm} $V_{t-1}^T = V_{t-1}^{t-1}+J_{t-1}(V_t^T-V_t^{t-1})J_{t-1}^{\T}$\\
+\hspace{4 mm} $P_{t,t-1}\equiv V_{t,t-1}^T+\mathbf{x}_t^T{\mathbf{x}_t^T}^{\T}$\\
 \hspace{4 mm} $V_{T,T-1}^T=(I-K_TC)AV_{T-1}^{T-1}$\\
 \hline
 \end{tabular}
