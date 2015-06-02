@@ -21,7 +21,7 @@
 \renewcommand{\ref}[1]{(\oldref{#1})}
 
 %\newcommand{\T}{^{\ensuremath{\mathsf{T}}}} % transpose
-\newcommand{\T}{T} 
+\newcommand{\T}{T}
 
 \begin{document}
 
@@ -488,7 +488,7 @@ d( A,B) = -\log(\frac{1}{n}\max_{P\in P(n)} \text{ Tr}\bigl(P\times C_{A,B}\bigr
 \end{equation*}
 where $C_{A,B}$ is the correlation matrix between columns of A and B, $P(n)$ is the collection of all the permutation matrices of order n and $P$ is a permutation matrix.
 
-As a result of the way it's defined, $d(A,B)$ is invariant to the scales of columns of $A$ and $B$. It is also invariant to a permutation of columns of either matrix. The calculation of $d(A,B)$ is essentially a linear assignment problem and can be solved in polynomial time with the Hungarian algorithm \cite{kuhn1955hungarian}.
+As a result of the way it's defined, $d(A,B)$ is invariant to the scales of columns of $A$ and $B$. It is also invariant to a permutation of columns of either matrix. The calculation of $d(A,B)$ is exactly a linear assignment problem and can be solved in polynomial time with the Hungarian algorithm \cite{kuhn1955hungarian}.
 
 
 Both the generic LDS and the penalized LDS are applied to the simulation data. As the true parameters are sparse, we expect that the penalized algorithms would yield better estimations with some proper penalty parameters. When the penalties are approaching 0, the penalized algorithm should converge to the generic model. In addition, when the penalties are getting larger, the penalized algorithm's estimations should become worse.
