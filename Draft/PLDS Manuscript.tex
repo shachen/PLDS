@@ -181,13 +181,13 @@ The parameters are $\Theta =\{A,C,R,\mathbf{\pi}_0\}$. Each of them is estimated
 
 Denote estimations from previous step as $\Theta^{\text{old}} =\{A^{\text{old}},C^{\text{old}},R^{\text{old}},\mathbf{\pi}_0^{\text{old}}\}$ and current estimations as $\Theta^{\text{new}} =\{A^{\text{new}},C^{\text{new}},R^{\text{new}},\mathbf{\pi}_0^{\text{new}}\}$. Estimation for output noise covariance $R$ has closed form solution,
 
-\begin{equation*}\label{eq:updateR}
+\begin{equation}\label{eq:updateR}
 \begin{aligned}
 &\frac{\partial \mathbf{\Phi}}{\partial R^{-1}} = \frac{T}{2}R - \sum\limits_{t=1}^T\bigl(\frac{1}{2}\mathbf{y}_t\mathbf{y}_t^{\T} - C\hat{\mathbf{x}}_t\mathbf{y}_t^{\T}+\frac{1}{2}CP_tC^{\T}\bigr) =0 \\
 & R = \frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\T}-C^{\text{new}}\hat{\mathbf{x}}_t\mathbf{y}_t^{\T})\\
 & R^{\text{new}} =\text{Diag}\biggl\{\frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\T}-C\hat{\mathbf{x}}_t\mathbf{y}_t^{\T})\biggr\}
 \end{aligned}
-\end{equation*}
+\end{equation}
 At the bottom line, diagonal of the estimated $R$ is taken, as we constrain $R$ to be diagonal in Constraint 4.
 
 Estimation for initial state also has closed form. The relevant term $\log(\mathbbm{1}_{\mathbf{\pi}_0}(\hat{\mathbf{x}}_0))$ is minimized only when
@@ -410,7 +410,7 @@ L = \sup_{\substack{x\neq y}}\frac{\|\mathbf{Z}^{\T}(\mathbf{Z}x- \mathbf{Z}y)\|
 %\]
 %where $\mathbf{y}_i$ is the $i\text{-th}$ length-Q subarray of $\mathbf{y}$ and $\|\mathbf{y}\| = 1$.
 
-With FISTA and $L$, matrix $A$ can be update:
+With FISTA and $L$, matrix $A$ can be updated:
 \begin{equation}\label{eq:updatea}
 A^{\text{new}} = \text{FISTA}(\|\mathbf{Z}^{\T}\mathbf{a}^{\text{old}} -\mathbf{z}\|_2^2,\quad \lambda_1)
 \end{equation}
@@ -425,9 +425,9 @@ The complete EM algorithm for PLDS is addressed as follows.\\
 \hline
 \textbf{M Step}\\
 %1. Replace all $\mathbf{x}_t$ in \eqref{eqn: penaltylik2} with E$(\mathbf{x}_t|\{\mathbf{y}_t\}_1^T)$ from E step\\
-1. $R^{\text{new}}=\text{Diag}\biggl\{\frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\T}-C^{\text{old}} \hat{\mathbf{x}}_t\mathbf{y}_t^{\T})\biggr\}$\\
+1. $R^{\text{new}}=\text{Diag}\biggl\{\frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\T}-C^{\text{old}} \hat{\mathbf{x}}_t\mathbf{y}_t^{\T})\biggr\}$, as in equation \ref{eq:updateR}\\
 2. $\mathbf{\pi}_0^{\text{new}}=\hat{\mathbf{x}}_0$\\
-3. Update $C^{\text{new}}$ as in equation \ref{eq:updatec}\\
+3. Update $C^{\text{new}}$, as in equation \ref{eq:updatec}\\
 4. Update $A^{\text{new}}$ with FISTA, as in equation \ref{eq:updatea}\\
 \hline
 \textbf{E Step}\\
