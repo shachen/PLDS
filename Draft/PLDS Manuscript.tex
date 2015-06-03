@@ -176,7 +176,7 @@ This quantity depends on three expectations: $E[\mathbf{x}_t|\{\mathbf{y}\}]$, $
 %\end{aligned}
 \end{equation}
 
-Expectations \ref{eq:expecs} are calculated with a Kalman filter/smoother, which is detailed in \nameref{sec:appendix1}.
+Expectations \ref{eq:expecs} are estimated with a Kalman filter/smoother, which is detailed in \nameref{sec:appendix1}. Notice that all expectations are taken with respect to the current estimations of parameters. 
 \subsection{M Step}
 The parameters are $\Theta =\{A,C,R,\mathbf{\pi}_0\}$. Each of them is estimated by taking the corresponding partial derivatives of $\mathbf{\Phi}(\Theta,\{\mathbf{y}\},\mathbf{x})$, setting to zero and solving.
 
@@ -687,7 +687,7 @@ A sample plot of the true time series and predicted values are shown in Figure \
 
 \begin{center}
 \includegraphics[scale=0.5]{./figures/hcpSampleTS.pdf}
-\captionof{figure}{Sample time series plot. The dotted green curve stands for the $60\%$ confidence band given by PLDS model. The time series is the average of signals from 20 randomly picked voxels.}
+\captionof{figure}{Sample time series plot. The dotted green curve stands for the $60\%$ confidence band given by PLDS model. The time series is the average of signals from a subsample. A subsample of 20 voxels are picked to avoid big covariance matrices calculation. The left vertical axis is used for the true signal and PLDS predictions, while the one on the right is for PCA predictions.}
 \label{fig:samplets}
 \end{center}
 
