@@ -233,14 +233,14 @@ C^{\text{new}} &=\text{Rearrange } \mathbf{c}^{\text{new}} \text{ by equation }\
 \end{equation}
 
 
-Last but not least, let's look at parameter $A$. Terms involving $A$ in equation \ref{eqn:penaltylik2} are,
+Now let's look at parameter $A$. Terms involving $A$ in equation \ref{eqn:penaltylik2} are,
 \begin{equation}\label{eq:penaltylik2}
-\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{x}_t-A\mathbf{x}_{t-1}]^{\T}[\mathbf{x}_t-A\mathbf{x}_{t-1}]\big)+\lambda_1 \|A\|_1 = f_{\lambda_1}(A;\{\mathbf{x}\},\{\mathbf{y}\}).
+f_{\lambda_1}(A;\{\mathbf{x}\},\{\mathbf{y}\}) = \sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{x}_t-A\mathbf{x}_{t-1}]^{\T}[\mathbf{x}_t-A\mathbf{x}_{t-1}]\big)+\lambda_1 \|A\|_1.
 \end{equation}
 
 Similar to what we have done to $C$, equation \ref{eq:penaltylik2} is equivalent to
 \begin{equation}\label{eq:penaltylik21}
-f_{\lambda_1}(A;\{\mathbf{x}\},\{\mathbf{y}\}) =  \|\mathbf{z}  - \mathbf{Za}\|_2^2 + \lambda_2\|\mathbf{a}\|_1.
+f_{\lambda_1}(A;\{\mathbf{x}\},\{\mathbf{y}\}) =  \|\mathbf{z}  - \mathbf{Za}\|_2^2 + \lambda_1\|\mathbf{a}\|_1.
 \end{equation}
 where $\mathbf{z}$ is a $Td \times 1$ vector from rearranging $\{\mathbf{x}\}$ and $\mathbf{Z}$ is a block diagonal matrix with diagonal component $Z^{\T} =(\mathbf{x}_0,\ldots,\mathbf{x}_{T-1})^{\T}$. Unfortunately, equation \ref{eq:penaltylik21} does not have closed form solution due to the $L-1$ term.
 
@@ -412,7 +412,7 @@ L = \sup_{\substack{x\neq y}}\frac{\|\mathbf{Z}^{\T}(\mathbf{Z}x- \mathbf{Z}y)\|
 
 With FISTA and $L$, matrix $A$ can be update:
 \begin{equation}\label{eq:updatea}
-A^{\text{new}} = \text{FISTA}(\|\mathbf{Z}^{\T}\mathbf{a}^{\text{old}} -\mathbf{z}\|_2^2,\quad \lambda_2)
+A^{\text{new}} = \text{FISTA}(\|\mathbf{Z}^{\T}\mathbf{a}^{\text{old}} -\mathbf{z}\|_2^2,\quad \lambda_1)
 \end{equation}
 
 \subsection{The Complete EM}
