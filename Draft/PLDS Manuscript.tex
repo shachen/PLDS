@@ -197,7 +197,7 @@ Estimation for initial state also has closed form. The relevant term $\log(\math
 
 Estimation for transition matrix $C$ also has closed form solution, and the solution can be derived by rearranging the terms properly. Terms relevant to $C$ in equation \ref{eqn:penaltylik2} are
 \begin{equation}\label{eq:penaltylik1}
-\sum\limits_{t=1}^{T}\left(\frac{1}{2}[\mathbf{y}_t-C\mathbf{x}_t]^{\T}R^{-1}[\mathbf{y}_t-C\mathbf{x}_t]\right)+\lambda_2 \|C\|_2 = f_{\lambda_2}(C;\{\mathbf{x}\},\{\mathbf{y}\}).
+f_{\lambda_2}(C;\{\mathbf{x}\},\{\mathbf{y}\}) = \sum\limits_{t=1}^{T}\left(\frac{1}{2}[\mathbf{y}_t-C\mathbf{x}_t]^{\T}R^{-1}[\mathbf{y}_t-C\mathbf{x}_t]\right)+\lambda_2 \|C\|_2.
 \end{equation}
 
 In $f_{\lambda_1}(C;\{\mathbf{x}\},\{\mathbf{y}\})$, $C$ is a matrix and need to be vectorized for optimization. Here we follow the methods of Turlach et al \cite{turlach2005simultaneous}. Without loss of generality, assume $R$ is the identity matrix in equation \ref{eq:penaltylik1}; otherwise, one can always write equation \ref{eq:penaltylik1} as
