@@ -430,9 +430,11 @@ The complete EM algorithm for PLDS is addressed as follows.\\
 2. $\mathbf{\pi}_0^{\text{new}}=\hat{\mathbf{x}}_0$\\
 3. Update $C^{\text{new}}$, as in equation \ref{eq:updatec}\\
 4. Update $A^{\text{new}}$ with FISTA, as in equation \ref{eq:updatea}\\
+5. Stop when difference between estimations from this step and previous step is less than tolerance\\
+  $\quad$ or maximum number of iterations reached.\\
 \hline
 \textbf{E Step}\\
-0. Initialize $\Theta =\{A,C,R,\mathbf{\pi}_0\}$ if first loop\\
+0. Initialize $\Theta =\{A,C,R,\mathbf{\pi}_0\}$ with SVD, if first loop\\
 1. Update the expectations in \ref{eq:expecs} with the Kalman filter smoother in \nameref{sec:appendix1}\\
 \hline
 \end{tabular}
@@ -440,7 +442,7 @@ The complete EM algorithm for PLDS is addressed as follows.\\
 
 Notice that all the terms involving $\{\mathbf{x}\}$ in the M-step are approximated with the conditional expectations calculated in E-step.
 
-Denote $\mathbf{Y} = \left[\mathbf{y_1},\cdots,\mathbf{y_T}\right]$, a $p\times T$ matrix. The singular value decomposition (SVD) of $\mathbf{Y}$ is
+$R$ matrix is initialized as the identify matrix, while $\mathbf{\pi}_0$ as $\mathbf{0}$ vector. For $A$ and $C$, first denote $\mathbf{Y} = \left[\mathbf{y_1},\cdots,\mathbf{y_T}\right]$, a $p\times T$ matrix. Then the singular value decomposition (SVD) of $\mathbf{Y}$ is
 \begin{equation}\label{eq:initial}
     \mathbf{Y} = \mathbf{UDV^{\T}} \approx \mathbf{U}_{p \times d} \mathbf{D}_{d \times d} \mathbf{V}_{d \times T}^{\T} =\mathbf{U}_{p\times d}\mathbf{X}_{d \times T}
 \end{equation}
@@ -596,7 +598,7 @@ The following are basic descriptions of the data and model parameters.
 \item Number of voxels, p = 7396
 \item Number of scans, T = 210
 \item Number of latent states, d = 11
-\item Tuning parameters: $\lambda_A = 0.00001$, $\lambda_C = 0.00001$
+\item Tuning parameters: $\lambda_A = 0.00001$, $\lambda_C = 0.00001$.\footnote{Different combinations of $\lambda_A$ and $\lambda_C$, where $\lambda_A = \lambda_C$ is applied to the data. The values range from $10^{-10}$ to $10^{4}$. Then the estimations are used to make predictions. The combination that gives the best predictions is used here. One can also use a grid of combinations, but it is time consuming.}
 \item Max number of iterations: EM 30 steps, L-1/L-2 regularized subproblems, 30 steps
 \end{itemize}
 
