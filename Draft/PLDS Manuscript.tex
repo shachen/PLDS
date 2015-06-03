@@ -613,7 +613,7 @@ The above method assumes that the first $k$ eigen-values are samples from a Gaus
 \end{center}
 
 
-The $A$ matrices as connectivity graphs are first plotted in Figure \oldref{fig:cgraph}. One can group the scans correctly with the $A$ matrices. Specifically, denote the $A$ matrix estimation for the second scan of subject one as $A_{12}$. Similar notations apply to the other scans. Then the canonical correlations among the four matrices are summarized in Table \oldref{tab:similarity}. Another permutation invariant measure of square matrix similarity, the Amari error, is also provided in the table \cite{amari1996new}. Notice a higher $d(A,B)$ or a smaller Amari error means more similarity. From both measures, one can group the four scans correctly. This implies that the graph contains subject-specific information.
+The $A$ matrices as connectivity graphs are first plotted in Figure \oldref{fig:cgraph}. One can group the scans correctly with the $A$ matrices. Specifically, denote the $A$ matrix estimation for the second scan of subject one as $A_{12}$. Similar notations apply to the other scans. Then the canonical correlations among the four matrices are summarized in Table \oldref{tab:similarity}. Another permutation invariant measure of square matrix similarity, the Amari error \cite{amari1996new}, is also provided in the table \footnote{The Amari error between $A$ and $\hat{A}$: $E(A,\hat{A}) = \sum\limits_{i=1}^n(\sum\limits_{j=1}^n\frac{|p_{ij}|}{\max_k |p_{ik}|}-1) + \sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{|p_{ij}|}{\max_k|p_{kj}|}-1)$, where $P =(p_{ij})=A^{-1}\hat{A}$.}. Notice a higher $d(A,B)$ or a smaller Amari error means more similarity. From both measures, one can group the four scans correctly. This implies that the graph contains subject-specific information.
 \begin{center}
 %\includegraphics[scale = 0.7]{ConnectivityGraph.pdf}
 \includegraphics[scale = 0.85]{./figures/ConnectivityGraph_11_all.pdf}
@@ -658,7 +658,7 @@ The similarities are also shown in Figure \ref{fig:matsim}.
 \label{fig:matsim}
 \end{center}
 
-As an example, the 3D renderings of the columns of matrix $C$ from the first scan of subject one are shown in Figure \oldref{fig:3d} (after thresholding). The biological meaning of those regions need to be further validated. It is helpful to compare those regions to other existing parcellations of the mortor cortex. As an example, the blue region above accurately matches the DM (dorselmedical) parcel of the five-region parcellation proposed by Nebel MB et al. \cite{nebel2014disruption}.
+As an example, the 3D renderings of the columns of matrix $C$ from the first scan of subject one are shown in Figure \oldref{fig:3d} (after thresholding). The biological meaning of those regions need to be further validated. It is helpful to compare those regions to other existing parcellations of the mortor cortex. As an example, the blue region in Figure \oldref{fig:3d} accurately matches the dorselmedical (DM) parcel of the five-region parcellation proposed by Nebel MB et al. \cite{nebel2014disruption}.
 \begin{center}
 \[
 \begin{array}{lll}
