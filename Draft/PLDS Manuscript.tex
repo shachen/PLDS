@@ -183,7 +183,7 @@ Denote estimations from previous step as $\Theta^{\text{old}} =\{A^{\text{old}},
 
 \begin{equation*}\label{eq:updateR}
 \begin{aligned}
-\frac{\partial \mathbf{\Phi}}{\partial R^{-1}} &= \frac{T}{2}R - \sum\limits_{t=1}^T\bigl(\frac{1}{2}\mathbf{y}_t\mathbf{y}_t^{\T} - C\hat{\mathbf{x}}_t\mathbf{y}_t^{\T}+\frac{1}{2}CP_tC^{\T}\bigr) =0 \\
+&\frac{\partial \mathbf{\Phi}}{\partial R^{-1}} = \frac{T}{2}R - \sum\limits_{t=1}^T\bigl(\frac{1}{2}\mathbf{y}_t\mathbf{y}_t^{\T} - C\hat{\mathbf{x}}_t\mathbf{y}_t^{\T}+\frac{1}{2}CP_tC^{\T}\bigr) =0 \\
 & R = \frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\T}-C^{\text{new}}\hat{\mathbf{x}}_t\mathbf{y}_t^{\T})\\
 & R^{\text{new}} =\text{Diag}\biggl\{\frac{1}{T}\sum\limits_{t=1}^{T}(\mathbf{y}_t\mathbf{y}_t^{\T}-C\hat{\mathbf{x}}_t\mathbf{y}_t^{\T})\biggr\}
 \end{aligned}
