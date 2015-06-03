@@ -254,7 +254,7 @@ where $\mathbf{z}$ is a $Td \times 1$ vector from rearranging $\{\mathbf{x}\}$ a
 %\]
 %where $Z=\biggl(\mathbf{x}_0,\ldots,\mathbf{x}_{T-1}\biggr)$.
 
-Though not having a closed form solution, $f_{\lambda_1}(A;\{\mathbf{x}\},\{\mathbf{y}\})$ can be solved numerically with a Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) \cite{beck2009fast} \cite{hoerl1970ridge}. FISTA is an accelerated version of the Iterative Shrinkage-Threshholding Algorithm (ISTA). ISTA is linearly convergent while FISTA is quadratic convergent. Steps of a general FISTA algorithm can be found in \nameref{sec:appendix2}.
+Though not having a closed form solution, $f_{\lambda_1}(A;\{\mathbf{x}\},\{\mathbf{y}\})$ can be solved numerically with a Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) \cite{beck2009fast}. FISTA is an accelerated version of the Iterative Shrinkage-Threshholding Algorithm (ISTA) \cite{daubechies2004iterative}. ISTA is linearly convergent while FISTA is quadratic convergent. Steps of a general FISTA algorithm can be found in \nameref{sec:appendix2}.
 
 FISTA requires calculating the Lipschitz constant $L$ for $\nabla\mathbf{g(z)}=\mathbf{Z}^{\T}(\mathbf{Z}\mathbf{a} -\mathbf{z})$, where $\mathbf{g}(\mathbf{z})=\|\mathbf{Z}^{\T}\mathbf{a} -\mathbf{z}\|_2^2$. Denote $\|Z\|$ as the induced norm of matrix $Z$, then $L$ is
 \[

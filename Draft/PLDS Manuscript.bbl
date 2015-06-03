@@ -35,6 +35,13 @@ Vince~D Calhoun, Jingyu Liu, and T{\"u}lay Adal{\i}.
   imaging, genetic, and erp data.
 \newblock {\em Neuroimage}, 45(1):S163--S172, 2009.
 
+\bibitem{daubechies2004iterative}
+Ingrid Daubechies, Michel Defrise, and Christine De~Mol.
+\newblock An iterative thresholding algorithm for linear inverse problems with
+  a sparsity constraint.
+\newblock {\em Communications on pure and applied mathematics},
+  57(11):1413--1457, 2004.
+
 \bibitem{doretto2003dynamic}
 Gianfranco Doretto, Alessandro Chiuso, Ying~Nian Wu, and Stefano Soatto.
 \newblock Dynamic textures.
@@ -59,11 +66,6 @@ Martin Havlicek, Karl~J Friston, Jiri Jan, Milan Brazdil, and Vince~D Calhoun.
 \newblock Dynamic modeling of neuronal responses in fmri using cubature kalman
   filtering.
 \newblock {\em Neuroimage}, 56(4):2109--2128, 2011.
-
-\bibitem{hoerl1970ridge}
-Arthur~E Hoerl and Robert~W Kennard.
-\newblock Ridge regression: Biased estimation for nonorthogonal problems.
-\newblock {\em Technometrics}, 12(1):55--67, 1970.
 
 \bibitem{kuhn1955hungarian}
 Harold~W Kuhn.
