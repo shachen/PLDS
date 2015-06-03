@@ -22,6 +22,7 @@
 
 %\newcommand{\T}{^{\ensuremath{\mathsf{T}}}} % transpose
 \newcommand{\T}{T}
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 \begin{document}
 
@@ -483,8 +484,11 @@ In the low dimensional setting, $p = 300$, $d = 10$ and $T = 100$. The $A$ matri
 In the high-dimensional setting, p = 10,000, d = 30 and T = 100. The parameter are generated in a the same manner.
 
 To evaluate the accuracy of estimations, some distance measure need be first defined. Here the distance between two matrices $A$ and $B$ is defined as follows
+%\begin{equation}\label{eq:distance}
+%d( A,B) = -\log(\frac{1}{n}\max_{P\in P(n)} \text{ Tr}\bigl(P\times C_{A,B}\bigr))
+%\end{equation}
 \begin{equation}\label{eq:distance}
-d( A,B) = -\log(\frac{1}{n}\max_{P\in P(n)} \text{ Tr}\bigl(P\times C_{A,B}\bigr))
+d(A,B) = \argmin_{P\in P(n)}\left\{\log\bigl[\frac{n}{\text{\footnotesize Trace}(P\times C_{A,B})}\bigr]\right\}.
 \end{equation}
 where $C_{A,B}$ is the correlation matrix between columns of A and B, $P(n)$ is the collection of all the permutation matrices of order n and $P$ is a permutation matrix.
 
