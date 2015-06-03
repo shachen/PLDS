@@ -54,7 +54,7 @@ Finally, LDS can also be represented as a probabilistic graphical model. Here th
 
 Because of their flexibility state-space models have found wide usage in a number of different spheres, including time series analysis, statistics, signal processing, control theory and machine learning.  In neuroimaging analysis, the LDS exhibits substantial relevance. For example, Harini et al have discussed the applications of HMM in learning functional network dynamics in resting state fMRI \cite{eavani2013unsupervised}. Valdez-Sosa et al used sparse multivariate autoregression to estimate brain functional connectivity \cite{valdes2005estimating}. Havlicek et al modeled neuronal responses in fMRI using cubature Kalman filtering along with Kalman filter based Dynamic Granger Causality to evaluate functional connectivity in fMRI data \cite{havlicek2011dynamic}. A systematic framework for functional connectivity measures is proposed by HE Wang et al \cite{wang2014systematic}.
 
-In this work, a penalized linear dynamical system model (PLDS) is proposed as an generalization of the generic LDS model. An Expectation-Maximization (EM) algorithm is also developed for parameter estimations. Compared to the generic LDS model, PLDS is highly scalable and yields more accurate estimations and predictions under some circumstances. The generic LDS model is just a special case of PLDS with zero penalties. As an application, the PLDS model is applied to fMRI data measured over the motor cortex.
+In this work, a penalized linear dynamical system model (PLDS) is proposed as an generalization of the generic LDS model. An Expectation-Maximization (EM) algorithm is also developed for parameter estimations. Compared to the generic LDS model, PLDS is highly scalable and yields more accurate estimations and predictions under some circumstances. The generic LDS model is just a special case of PLDS with zero penalties. As an application, PLDS model is applied to fMRI data measured over the motor cortex.
 
 \section{The Model}
 The generic time-invariant state-pace model, or LDS, can be written as:
@@ -543,7 +543,7 @@ Time (min)& 0.04 & 0.50  & 51.28 & 208.82 & 1801.00 \\
 \end{tabular}
 \end{center}
 \subsection{Making Predictions}
-Another perspective when considering the PLDS model is its ability to make predictions. When the parameters $\mathbf{\Theta}$ and the latent states $x_T$ are estimated, one can first use estimated $x_T$ to predict $x_{T+1}$ and use $x_{T+1}$ to predict $y_{T+1}$. Similarly, more predictions $y_{T+2},\ldots, y_{T+k}$ can be made. Intuitively, properly chosen penalties give better estimations and good estimations should give more accurate predictions. This idea is demonstrated with a simulation. The parameter settings for this simulation follow Section \oldref{sec:lowdsim}. The correlation between the predicted signal and true signal is used as a measure of prediction accuracy. The prediction accuracy over penalty size is shown in Figure \oldref{fig:estpredaccuracy}.
+Another perspective when considering PLDS model is its ability to make predictions. When the parameters $\mathbf{\Theta}$ and the latent states $x_T$ are estimated, one can first use estimated $x_T$ to predict $x_{T+1}$ and use $x_{T+1}$ to predict $y_{T+1}$. Similarly, more predictions $y_{T+2},\ldots, y_{T+k}$ can be made. Intuitively, properly chosen penalties give better estimations and good estimations should give more accurate predictions. This idea is demonstrated with a simulation. The parameter settings for this simulation follow Section \oldref{sec:lowdsim}. The correlation between the predicted signal and true signal is used as a measure of prediction accuracy. The prediction accuracy over penalty size is shown in Figure \oldref{fig:estpredaccuracy}.
 
 %Specifically, the following simulation is performed: the proposed PLDS model is used to make 1-step, 2-step, $\cdots$, k-step predictions. Similar predictions are made with a PCA-based procedure and the prediction accuracies are compared.
 
@@ -569,7 +569,7 @@ Another perspective when considering the PLDS model is its ability to make predi
 
 Observations and findings from these plots include:
 \begin{itemize}
- %\item The PLDS prediction accuracy is almost the same as the PCA-based procedure when there is no penalty. This is consistent with the fact that the generic LDS is equivalent to PCA with some constraints on parameters.
+ %\item PLDS prediction accuracy is almost the same as the PCA-based procedure when there is no penalty. This is consistent with the fact that the generic LDS is equivalent to PCA with some constraints on parameters.
  \item The prediction accuracy first improves then drops when the penalties increase
  \item The prediction accuracy peaks when the penalty coefficient $\lambda_A$ and $\lambda_C$ are around $10^{-3}$. This make sense as the same $\lambda$ pair also gives the best estimation for coefficients $A$ and $C$, as in Figure \oldref{fig:low-high-d-sim}.
 \end{itemize}
@@ -583,7 +583,7 @@ This second observation provides us a way to pick tuning parameters in real appl
 \label{sec:application}
 When applied to fMRI data analysis, the model has very good interpretability. Each $\mathbf{y}_t$ is a scan of the brain. Each column of the $C$ matrix is interpreted as a time-invariant brain network. At each time point, the observed brain image, $\mathbf{y}_t$, is a linear mixture of these networks and $\mathbf{x}_t$ contains the mixing coefficients. Matrix $A$ describes how $\mathbf{x}_t$ evolves over time. $A$ can also be viewed as a directed graph if each network is treated as a vertex. Brain networks are spatially smooth and connectivities among them are empirically sparse. This naturally fits into the sparsity and smoothness assumptions in PLDS.
 
-The PLDS is applied to analyze the motor cortex of human brains from the KIRBY 21 Data. These data are resting-state fMRI scans consisting of a test-retest dataset previously acquired at the FM Kirby Research Center at the Kennedy Krieger Institute, Johns Hopkins University \cite{landman2011multi}. Twenty-one healthy volunteers with no history of neurological disease each underwent two separate resting state fMRI sessions on the same scanner: a 3T MR scanner utilizing a body coil with a 2D echoplanar (EPI) sequence and eight channel phased array SENSitivity Encoding (SENSE; factor of 2) with the following parameters: TR 2s; 3mm$\times$3mm in plane resolution; slice gap 1mm; and total imaging time of 7 minutes and 14 seconds.
+PLDS is applied to analyze the motor cortex of human brains from the KIRBY 21 Data. These data are resting-state fMRI scans consisting of a test-retest dataset previously acquired at the FM Kirby Research Center at the Kennedy Krieger Institute, Johns Hopkins University \cite{landman2011multi}. Twenty-one healthy volunteers with no history of neurological disease each underwent two separate resting state fMRI sessions on the same scanner: a 3T MR scanner utilizing a body coil with a 2D echoplanar (EPI) sequence and eight channel phased array SENSitivity Encoding (SENSE; factor of 2) with the following parameters: TR 2s; 3mm$\times$3mm in plane resolution; slice gap 1mm; and total imaging time of 7 minutes and 14 seconds.
 
 In this application, test-retest scans from two subjects are analyzed. The imaging data are first preprocessed with FSL, a comprehensive library of analysis tools for fMRI, MRI and DTI brain imaging data \cite{smith2004advances}. FSL is used for spatial smoothing with Gaussian kernel. Then PLDS is applied on the smoothed data.
 
@@ -670,7 +670,7 @@ As an example, the 3D renderings of the columns of matrix $C$ from the first sca
 \label{fig:3d}
 \end{center}
 
-Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data. (\textbf{Descriptions of data and citations required here}) Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as train data, while the rest are used as test data. Then both the SVD method in Equation \label{eq:initial} and the PLDS algorithm are used for prediction. The prediction accuracies are shown in Figure \oldref{fig:predaccy}. The first observation is that, the PLDS algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize the PLDS algorithm, this shows that the PLDS algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, the PLDS algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable, as there is no way that we can predict the two noise terms in the model, therefore the prediction errors from each step will accumulate and yields deteriorating predictions.
+Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data. (\textbf{Descriptions of data and citations required here}) Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as train data, while the rest are used as test data. Then both the SVD method in Equation \label{eq:initial} and PLDS algorithm are used for prediction. The prediction accuracies are shown in Figure \oldref{fig:predaccy}. The first observation is that, PLDS algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize PLDS algorithm, this shows that PLDS algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, PLDS algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable, as there is no way that we can predict the two noise terms in the model, therefore the prediction errors from each step will accumulate and yields deteriorating predictions.
 
 \begin{center}
 \includegraphics[scale=0.5]{./figures/hcp_pred_accy.pdf}
@@ -678,11 +678,11 @@ Another application of the algorithm is predicting brain signals. To demonstrate
 \label{fig:predaccy}
 \end{center}
 
-A sample plot of the true time series and predicted values are shown in Figure \oldref{fig:samplets}. We see that the PLDS is giving more accurate predictions and the true signal lies in the confidence band giving ty the PLDS model. Another observation is that the confidence band is getting wider as we predict into the future, which is a result of the accumulated errors.
+A sample plot of the true time series and predicted values are shown in Figure \oldref{fig:samplets}. We see that PLDS is giving more accurate predictions and the true signal lies in the confidence band giving by PLDS model. Another observation is that the confidence band is getting wider as we predict into the future, which is a result of the accumulated errors.
 
 \begin{center}
 \includegraphics[scale=0.5]{./figures/hcpSampleTS.pdf}
-\captionof{figure}{Sample time series plot. The dotted green curve stands for the $60\%$ confidence band given by the PLDS model. The time series is the average of signals from 20 randomly picked voxels.}
+\captionof{figure}{Sample time series plot. The dotted green curve stands for the $60\%$ confidence band given by PLDS model. The time series is the average of signals from 20 randomly picked voxels.}
 \label{fig:samplets}
 \end{center}
 
