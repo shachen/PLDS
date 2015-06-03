@@ -483,9 +483,9 @@ In the low dimensional setting, $p = 300$, $d = 10$ and $T = 100$. The $A$ matri
 In the high-dimensional setting, p = 10,000, d = 30 and T = 100. The parameter are generated in a the same manner.
 
 To evaluate the accuracy of estimations, some distance measure need be first defined. Here the distance between two matrices $A$ and $B$ is defined as follows
-\begin{equation*}
+\begin{equation}\label{eq:distance}
 d( A,B) = -\log(\frac{1}{n}\max_{P\in P(n)} \text{ Tr}\bigl(P\times C_{A,B}\bigr))
-\end{equation*}
+\end{equation}
 where $C_{A,B}$ is the correlation matrix between columns of A and B, $P(n)$ is the collection of all the permutation matrices of order n and $P$ is a permutation matrix.
 
 As a result of the way it's defined, $d(A,B)$ is invariant to the scales of columns of $A$ and $B$. It is also invariant to a permutation of columns of either matrix. The calculation of $d(A,B)$ is exactly a linear assignment problem and can be solved in polynomial time with the Hungarian algorithm \cite{kuhn1955hungarian}.
@@ -613,7 +613,8 @@ The above method assumes that the first $k$ eigen-values are samples from a Gaus
 \end{center}
 
 
-The $A$ matrices as connectivity graphs are first plotted in Figure \oldref{fig:cgraph}. One can group the scans correctly with the $A$ matrices. Specifically, denote the $A$ matrix estimation for the second scan of subject one as $A_{12}$. Similar notations apply to the other scans. Then the canonical correlations among the four matrices are summarized in Table \oldref{tab:similarity}. Another permutation invariant measure of square matrix similarity, the Amari error \cite{amari1996new}, is also provided in the table \footnote{The Amari error between $A$ and $\hat{A}$: $E(A,\hat{A}) = \sum\limits_{i=1}^n(\sum\limits_{j=1}^n\frac{|p_{ij}|}{\max_k |p_{ik}|}-1) + \sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{|p_{ij}|}{\max_k|p_{kj}|}-1)$, where $P =(p_{ij})=A^{-1}\hat{A}$.}. Notice a higher $d(A,B)$ or a smaller Amari error means more similarity. From both measures, one can group the four scans correctly. This implies that the graph contains subject-specific information.
+% One can group the scans correctly with the $A$ matrices. 
+Denote the $A$ matrix estimation for the second scan of subject one as $A_{12}$. Similar notations apply to the other scans. Then the canonical correlations among the four matrices are summarized in Table \oldref{tab:similarity}. The distance measure in Equation \ref{eq:distance} is used. Another permutation invariant measure of distance between two square matrices, the Amari error \cite{amari1996new}, is also provided in the table \footnote{The Amari error between $A$ and $\hat{A}$: $E(A,\hat{A}) = \sum\limits_{i=1}^n(\sum\limits_{j=1}^n\frac{|p_{ij}|}{\max_k |p_{ik}|}-1) + \sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{|p_{ij}|}{\max_k|p_{kj}|}-1)$, where $P =(p_{ij})=A^{-1}\hat{A}$.}. Notice a smaller $d(A,B)$ or Amari error means more similarity. Among the six pairs from $A_{11},A_{12},A_{21}$ and $A_{22}$, it is expected that the pairs $(A_{11},A_{12})$ and $(A_{21},A_{22})$ give the smallest distances, as each pair comes from two scans of the same subject. This idea is validated by Table \oldref{tab:similarity}. A direct application of this result is to correctly cluster the four scans into two group, each group corresponding to a subject. This implies that the A matrices contains subject-specific information. The $A$ matrices as connectivity graphs are plotted in Figure \oldref{fig:cgraph}.
 \begin{center}
 %\includegraphics[scale = 0.7]{ConnectivityGraph.pdf}
 \includegraphics[scale = 0.85]{./figures/ConnectivityGraph_11_all.pdf}
@@ -651,7 +652,7 @@ $A_{22}$ & $0.095(1.02)$ & $0.095(1.09)$ & $\mathbf{0.085(0.98)}$ & $0$ \\
 \end{tabular}
 \end{table}
 
-The similarities are also shown in Figure \ref{fig:matsim}.
+The similarities among $A$ matrices are also shown in Figure \ref{fig:matsim} as a heatmap.
 \begin{center}
 \includegraphics[scale=.5]{./figures/A-matrices-similarity.pdf}
 \captionof{figure}{Similarities among the four estimated $A$ matrices. The distance $d(\cdot,\cdot)$ is used in this figure. As one can see, the two yellow off-diagonal pixels has the minimum distances, which correspond to the pairs of $(A_{11},A_{12})$ and $(A_{21},A_{22})$ respectively.}
