@@ -722,7 +722,8 @@ Finally, the work can also be extended on the application side. Currently, only 
 
 \begin{tabular}{l}
 \hline
-\textbf{Algorithm } Kalman Filter Smoother\\
+\textbf{Algorithm } Standard Kalman Filter Smoother for estimating the moments \\
+$\qquad\quad\quad$ required in the E-step of an EM algorithm for a linear dynamical system\\
 \hline
 0. Define $\mathbf{x}_t^{\tau}$ = E($\mathbf{x}_t|\{\mathbf{y}\}_1^{\tau}$),$\mathbf{V}_t^{\tau}=\text{Var}(\mathbf{x}_t|\{\mathbf{y}\}_1^{\tau})$, $\hat{\mathbf{x}}_t \equiv \mathbf{x}_t^T$ and $P_t\equiv V_t^T+\mathbf{x}_t^T{\mathbf{x}_t^T}^{\T}$\\
 1. Forward Recursions:\\
