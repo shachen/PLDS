@@ -478,7 +478,7 @@ With the above three techniques, the EM algorithm can scale to very high dimensi
 \label{sec:lowdsim}
 Two simulations of different dimensions are performed to demonstrate the model and its parameter estimations.
 
-In the low dimensional setting, $p = 300$, $d = 10$ and $T = 100$. The $A$ matrix is generated such that the conditional number is no less than some threshold, 50 being used. Elements with small absolute values are then truncated such that 20 percent of elements are zeros. Eigen values of $A$ are controlled within $[-1,1]$ to avoid diverging time series. Matrix C is generated as follows. Each column contains random samples from a standard Gaussian distribution. Then the sample is sorted in ascending order. Covariance $Q$ is the identity matrix and covariance $R$ is a multiple of the identity matrix. At time 0, a zero vector $\mathbf{0}$ is used as the value of $\mathbf{x_0}$.
+In the low dimensional setting, $p = 300$, $d = 10$ and $T = 100$. The $A$ matrix is generated such that the conditional number is no less than some threshold, 50 being used. Elements with small absolute values are then truncated such that 20 percent of elements are zeros. Eigenvalues of $A$ are controlled within $[-1,1]$ to avoid diverging time series. Matrix C is generated as follows. Each column contains random samples from a standard Gaussian distribution. Then the sample is sorted in ascending order. Covariance $Q$ is the identity matrix and covariance $R$ is a multiple of the identity matrix. At time 0, a zero vector $\mathbf{0}$ is used as the value of $\mathbf{x_0}$.
 
 In the high-dimensional setting, p = 10,000, d = 30 and T = 100. The parameter are generated in a similar manner.
 
@@ -598,7 +598,7 @@ The following are basic descriptions of the data and model parameters.
 
 The number of latent states, d, can be manually selected based on related research that maps the primary motor region to human activities. For instance, Meier et. al mapped the motor region to 9 human organs: tongue, lips, squint, fingers, wrist, forearm, elbow, foot and saccade \cite{meier2008complex}.
 
-A more flexible technique to choose the number of latent states involves the profile likelihood method proposed by Zhu et. al \cite{zhu2006automatic}. As a first step, eigen values of the data matrix are calculated with Principal Component Analysis (PCA). The cumulative eigen values as a percentage of the sum of all eigen values are then plotted - see Figure \oldref{fig:eigvals}. Visually one notes that the first 10 eigen values take over $80\%$ of all variations. The number of latent states can be selected as the smallest number (of eigen values) that explains over $80\%$ of total variation in the data. However, the drawback of this method is clear: the choice of threshold percentage (here $80\%$) is highly subjective. The profile likelihood method overcomes this problem and could pick the dimension automatically.
+A more flexible technique to choose the number of latent states involves the profile likelihood method proposed by Zhu et. al \cite{zhu2006automatic}. As a first step, eigenvalues of the data matrix are calculated with Principal Component Analysis (PCA). The cumulative eigenvalues as a percentage of the sum of all eigenvalues are then plotted - see Figure \oldref{fig:eigvals}. Visually one notes that the first 10 eigenvalues take over $80\%$ of all variations. The number of latent states can be selected as the smallest number (of eigenvalues) that explains over $80\%$ of total variation in the data. However, the drawback of this method is clear: the choice of threshold percentage (here $80\%$) is highly subjective. The profile likelihood method overcomes this problem and could pick the dimension automatically.
 
 The above method assumes that the first $k$ eigen-values are samples from a Gaussian distribution $N(\mu_1,\sigma^2)$, while the rest are from a different Gaussian distribution $N(\mu_2,\sigma^2)$. Then the profile likelihood can be calculated given $k$, for all $k=1,\cdots,T$ and selecting the optimal $k$ as the one with the highest profile likelihood. As shown in Figure \oldref{fig:eigvals}, when the profile likilihood method is applied to the first scan of subject one, d = 11 is selected. Apply the method to all four scans, the numbers of latents states selected are 6, 11, 14 and 15 respectively. Their average, $d=11$, is used.
 
@@ -704,8 +704,8 @@ A sample plot of the true time series and predicted values are shown in Figure \
 %\captionof{figure}{Thresholded Connectivity Graphs(Left: Nonpenalized; Right: Penalized)}
 %\includepdf[scale=0.8]{pkfs-connectivity.png}
 %\end{center}
-%\subsection{Eigen Values Of Data Matrix}
-%The eigen values plot is given in the following figure
+%\subsection{eigenvalues Of Data Matrix}
+%The eigenvalues plot is given in the following figure
 %\begin{center}
 %\includegraphics[scale=0.7]{eigvals.png}
 %\end{center}
