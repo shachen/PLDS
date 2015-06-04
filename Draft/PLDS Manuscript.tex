@@ -425,7 +425,7 @@ where $\mathbf{U}_{p \times d}$ is the first $d$ columns of $\mathbf{U}$ and $\m
 
 $C$ is then initialzed as $\mathbf{U}_{p\times d}$, while the columns of $\mathbf{X}_{d \times T}$ are used as input for a vector autoregressive (VAR) model to estimate the initial value for $A$.
 
-\subsection{The Complete EM}
+\subsection{The Complete EM}\label{sec:em}
 The complete EM algorithm for PLDS is addressed as follows.\\
 
 %\begin{center}
@@ -513,7 +513,7 @@ Estimation accuracies are plotted against penalty size $\lambda_C$ in Figure \ol
 \subfigure[High dimensional setting]{%
 \includegraphics[scale=.43]{./figures/high-d-simulation.pdf}
 }
-\caption{x axis is tuning parameter $\lambda_C$ under log scale and y axis is the distance between truth and estimations; $\lambda_A$ is increasing proportionally with $\lambda_C$}
+\caption{x axis is tuning parameter $\lambda_C$ under log scale and y axis is the distance between truth and estimations; $\lambda_A$ is increasing proportionally with $\lambda_C$. One can see that in both the low dimensional and hight dimensional setting, estimation accuracies for $A$ and $C$ first increase then decrease as penalty increases..}
 \label{fig:low-high-d-sim}
 \end{figure}
 
@@ -565,7 +565,7 @@ Another perspective when considering PLDS model is its ability to make predictio
 
 \begin{center}
 \includegraphics[scale=0.7]{./figures/est-pred-accuracy.pdf}
-\captionof{figure}{Estimation and prediction accuracies.}
+\captionof{figure}{Estimation and prediction accuracies.x axis is the penalty size under log scale, while y axis is the estimation and prediction accuracies. One can see that the penalty that yields the most accurate estimation also gives the best predictions.}
 \label{fig:estpredaccuracy}
 \end{center}
 
@@ -608,7 +608,7 @@ The number of latent states, d, can be manually selected based on related resear
 
 A more flexible technique to choose the number of latent states involves the profile likelihood method proposed by Zhu et al. \cite{zhu2006automatic}. As a first step, eigenvalues of the data matrix are calculated with Principal Component Analysis (PCA). The cumulative eigenvalues as a percentage of the sum of all eigenvalues are then plotted - see Figure \oldref{fig:eigvals}. Visually one notes that the first 10 eigenvalues take over $80\%$ of all variations. The number of latent states can be selected as the smallest number (of eigenvalues) that explains over $80\%$ of total variation in the data. However, the drawback of this method is clear: the choice of threshold percentage (here $80\%$) is highly subjective. The profile likelihood method overcomes this problem and could pick the dimension automatically.
 
-The above method assumes that the first $k$ eigen-values are samples from a Gaussian distribution $N(\mu_1,\sigma^2)$, while the rest are from a different Gaussian distribution $N(\mu_2,\sigma^2)$. Then the profile likelihood can be calculated given $k$, for all $k=1,\cdots,T$ and selecting the optimal $k$ as the one with the highest profile likelihood. As shown in Figure \oldref{fig:eigvals}, when the profile likilihood method is applied to the first scan of subject one, d = 11 is selected. Apply the method to all four scans, the numbers of latents states selected are 6, 11, 14 and 15 respectively. Their average, $d=11$, is used.
+The above method assumes that the first $k$ eigenvalues are samples from a Gaussian distribution $N(\mu_1,\sigma^2)$, while the rest are from a different Gaussian distribution $N(\mu_2,\sigma^2)$. Then the profile likelihood can be calculated given $k$, for all $k=1,\cdots,T$ and selecting the optimal $k$ as the one with the highest profile likelihood. As shown in Figure \oldref{fig:eigvals}, when the profile likelihood method is applied to the first scan of subject one, d = 11 is selected. Apply the method to all four scans, the numbers of latents states selected are 11, 6, 14 and 15 respectively. Their average, $d=11$, is used.
 
 \begin{center}
 \[
@@ -616,7 +616,7 @@ The above method assumes that the first $k$ eigen-values are samples from a Gaus
 \includegraphics[scale = 0.45]{./figures/EigenValues.pdf} & \includegraphics[scale=0.45]{./figures/profileLikelihood.pdf}
 \end{array}
 \]
-\captionof{figure}{Eigen-values and Corresponding Profile Likelihood Plot}
+\captionof{figure}{Eigen-values and corresponding profile likelihood plot from the first scan of subject one. For this data, the profile likelihood picks $d=11$ as the number of latent states.}
 \label{fig:eigvals}
 \end{center}
 
@@ -663,7 +663,7 @@ $A_{22}$ & $0.095(1.02)$ & $0.095(1.09)$ & $\mathbf{0.085(0.98)}$ & $0$ \\
 The similarities among $A$ matrices are also shown in Figure \ref{fig:matsim} as a heatmap.
 \begin{center}
 \includegraphics[scale=.5]{./figures/A-matrices-similarity.pdf}
-\captionof{figure}{Similarities among the four estimated $A$ matrices. The distance $d(\cdot,\cdot)$ is used in this figure. As one can see, the two yellow off-diagonal pixels has the minimum distances, which correspond to the pairs of $(A_{11},A_{12})$ and $(A_{21},A_{22})$ respectively.}
+\captionof{figure}{Similarities among the four estimated $A$ matrices. The distance $d(\cdot,\cdot)$ is used in this figure. As one can see, the two red/orange off-diagonal pixels has the minimum distances, which correspond to the pairs of $(A_{11},A_{12})$ and $(A_{21},A_{22})$ respectively. With this similarity map, one can tell which two scans are from the same subject.}
 \label{fig:matsim}
 \end{center}
 
@@ -675,15 +675,17 @@ As an example, the 3D renderings of the columns of matrix $C$ from the first sca
 %\includegraphics[scale = 0.21]{view1-26.png} & \includegraphics[scale = 0.21]{view2-26.png} & \includegraphics[scale = 0.21]{view3-26.png}
 \end{array}
 \]
-\captionof{figure}{3D Rendering of Columns of Matrix $C$}
+\captionof{figure}{3D rendering of columns of matrix $C$: estimation from the first scan of subject one shown in this plot.}
 \label{fig:3d}
 \end{center}
 
-Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data. (\textbf{Descriptions of data and citations required here}) Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and PLDS algorithm are used for estimations. Then predictions are made with equations \ref{eq:model0} and estimations from both methods. The prediction accuracies are shown in Figure \oldref{fig:predaccy}. The first observation is that, PLDS algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize PLDS algorithm, this shows that PLDS algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, PLDS algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
+Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data. (\textbf{Descriptions of data and citations required here}) 
+
+Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and PLDS algorithm are used for estimations. Then $k$-step ahead predictions are made with equations \ref{eq:model0} and estimations from both methods. Pseudocode for $k$-step ahead predictions is given in Appendix 3. The prediction accuracies are shown in Figure \oldref{fig:predaccy}. The first observation is that, PLDS algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize PLDS algorithm, this shows that PLDS algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, PLDS algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
 
 \begin{center}
 \includegraphics[scale=0.5]{./figures/hcp_pred_accy.pdf}
-\captionof{figure}{Prediction accuracies comparison on HCP data}
+\captionof{figure}{Prediction accuracies comparison on HCP data. The mean squared error (MSE) is used as the accuracy measure.}
 \label{fig:predaccy}
 \end{center}
 
@@ -799,7 +801,23 @@ In the above
 \right.
 \]
 
+\section*{Appendix 3}
 
+\begin{tabular}{l}
+\hline
+\textbf{Algorithm } $k$-step predictions with PCA and PLDS\\
+\hline
+ 1. Denote the estimated parameters with PCA and PLDS as $A_{pca},C_{pca},A_{plds},$ and $C_{plds}$ respectively.\\
+ 2. PCA Estimated latent states at $t=1000$: $x_{1000,pca} = $ the $1000$th column of $\mathbf{X}_{d\times T}$ from Section \oldref{sec:initial} \\
+ 3. PLDS Estimated latent states at $t=1000$: $x_{1000,pls}$ is from E step of the EM algorithm in Section \oldref{sec:em}\\
+ 4. \textbf{for i = 1 to k}\\
+ 5. \hspace{10mm}		$x_{1000+k,pca}\ =\ A_{pca}\ x_{999+k,pca}$\\
+ 6.	\hspace{10mm}	$y_{1000+k,pca}\ =\ C_{pca}\ x_{1000+k,pca}$\\
+ 7.	\hspace{10mm}	$x_{1000+k,plds}\ =\ A_{plds}\ x_{999+k,plds}$\\
+ 8.	\hspace{10mm}	$y_{1000+k,plds}\ =\ C_{plds}\ x_{1000+k,plds}$\\
+ 9. \textbf{end}\\
+\hline
+\end{tabular}
 \newpage
 \bibliographystyle{plain}
 \bibliography{reference}
