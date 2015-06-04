@@ -99,7 +99,7 @@ Consider the case where the observed data are high dimensional and the $R$ matri
 
 The $A$ matrix is the transition matrix of the hidden states. In our application, it is a central construct of interest representing a so-called connectivity graph. In many applications, it is desirable for this graph to be sparse. In this work, an L-1 penalty term on $A$ is used to impose sparsity on the connectivity graph..
 
-Similarly, for many applications, one wants the columns of $C$ to be smooth. For example, in the neuroimaging data analysis of section 6, each column of $C$ is a signal in the primary motor cortex. Having those signals spatially smooth allows capturing the active regions within the motor cortex. In this context, an L-2 penalty term on $C$ is used to enforce smoothness.
+Similarly, for many applications, one wants the columns of $C$ to be smooth. For example, in neuroimaging data analysis, each column of $C$ can be a signal in the brain. Therefore having the signal spatially smooth can help extract meaningful information from the noisy neuroimaging data. In this context, an L-2 penalty term on $C$ is used to enforce smoothness.
 
 With all those constraints, the model becomes:
 \begin{equation}\label{eq:model0}
