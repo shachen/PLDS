@@ -176,7 +176,7 @@ This quantity depends on three expectations: $E[\mathbf{x}_t|\{\mathbf{y}\}]$, $
 %\end{aligned}
 \end{equation}
 
-Expectations \ref{eq:expecs} are estimated with a Kalman filter/smoother, which is detailed in \nameref{sec:appendix1}. Notice that all expectations are taken with respect to the current estimations of parameters. 
+Expectations \ref{eq:expecs} are estimated with a Kalman filter/smoother, which is detailed in \nameref{sec:appendix1}. Notice that all expectations are taken with respect to the current estimations of parameters.
 \subsection{M Step}
 The parameters are $\Theta =\{A,C,R,\mathbf{\pi}_0\}$. Each of them is estimated by taking the corresponding partial derivatives of $\mathbf{\Phi}(\Theta,\{\mathbf{y}\},\mathbf{x})$, setting to zero and solving.
 
@@ -416,6 +416,15 @@ With FISTA and $L$, matrix $A$ can be updated:
 A^{\text{new}} = \text{FISTA}(\|\mathbf{Z}^{\T}\mathbf{a}^{\text{old}} -\mathbf{z}\|_2^2,\quad \lambda_1)
 \end{equation}
 
+\subsection{Initialization}\label{sec:initial}
+$R$ matrix is initialized as the identify matrix, while $\mathbf{\pi}_0$ as $\mathbf{0}$ vector. For $A$ and $C$, denote $\mathbf{Y} = \left[\mathbf{y_1},\cdots,\mathbf{y_T}\right]$, a $p\times T$ matrix, then the singular value decomposition (SVD) of $\mathbf{Y}$ is
+\begin{equation}\label{eq:initial}
+    \mathbf{Y} = \mathbf{UDV^{\T}} \approx \mathbf{U}_{p \times d} \mathbf{D}_{d \times d} \mathbf{V}_{d \times T}^{\T} =\mathbf{U}_{p\times d}\mathbf{X}_{d \times T}
+\end{equation}
+where $\mathbf{U}_{p \times d}$ is the first $d$ columns of $\mathbf{U}$ and $\mathbf{D}_{d\times d}$ is the upper left block of $\mathbf{D}$. This notation also applies to $\mathbf{V}^{\T}_{d \times T}$.
+
+$C$ is then initialzed as $\mathbf{U}_{p\times d}$, while the columns of $\mathbf{X}_{d \times T}$ are used as input for a vector autoregressive (VAR) model to estimate the initial value for $A$.
+
 \subsection{The Complete EM}
 The complete EM algorithm for PLDS is addressed as follows.\\
 
@@ -434,7 +443,7 @@ The complete EM algorithm for PLDS is addressed as follows.\\
   $\quad$ or maximum number of iterations reached.\\
 \hline
 \textbf{E Step}\\
-0. Initialize $\Theta =\{A,C,R,\mathbf{\pi}_0\}$ with SVD, if first loop\\
+0. Initialize $\Theta =\{A,C,R,\mathbf{\pi}_0\}$ as in Section \oldref{sec:initial}, if first loop\\
 1. Update the expectations in \ref{eq:expecs} with the Kalman filter smoother in \nameref{sec:appendix1}\\
 \hline
 \end{tabular}
@@ -442,14 +451,7 @@ The complete EM algorithm for PLDS is addressed as follows.\\
 
 Notice that all the terms involving $\{\mathbf{x}\}$ in the M-step are approximated with the conditional expectations calculated in E-step.
 
-$R$ matrix is initialized as the identify matrix, while $\mathbf{\pi}_0$ as $\mathbf{0}$ vector. For $A$ and $C$, first denote $\mathbf{Y} = \left[\mathbf{y_1},\cdots,\mathbf{y_T}\right]$, a $p\times T$ matrix. Then the singular value decomposition (SVD) of $\mathbf{Y}$ is
-\begin{equation}\label{eq:initial}
-    \mathbf{Y} = \mathbf{UDV^{\T}} \approx \mathbf{U}_{p \times d} \mathbf{D}_{d \times d} \mathbf{V}_{d \times T}^{\T} =\mathbf{U}_{p\times d}\mathbf{X}_{d \times T}
-\end{equation}
-where $\mathbf{U}_{p \times d}$ is the first $d$ columns of $\mathbf{U}$ and $\mathbf{D}_{d\times d}$ is the upper left block of $\mathbf{D}$. This notation also applies to $\mathbf{V}^{\T}_{d \times T}$.
-
-$C$ is then initialzed as $\mathbf{U}_{p\times d}$, while the columns of $\mathbf{X}_{d \times T}$ are used as input for a vector autoregressive (VAR) model to estimate the initial value for $A$.
-
+\subsection{Improve Computational Efficiency}
 The major factors that affect the efficiency and scalability of the above EM algorithm involve the storage and computations of covariance matrix $R$. The following computational techniques are utilized to make the code highly efficient and scalable.
 
 First, a sparse matrix is used to represent R. When dimension $p$ gets higher, the size of $R$ increase quadratically, which will easily exceed the memory capacity of a computer.  Fortunately, with Constraint 4, $R$ is sparse and can be represented with a sparse matrix. For example, when $p=10,000$, the full $R$ matrix takes over 100 Gigabyte memory, while the sparse matrix takes less than 1 Megabyte.
@@ -619,7 +621,7 @@ The above method assumes that the first $k$ eigen-values are samples from a Gaus
 \end{center}
 
 
-% One can group the scans correctly with the $A$ matrices. 
+% One can group the scans correctly with the $A$ matrices.
 Denote the $A$ matrix estimation for the second scan of subject one as $A_{12}$. Similar notations apply to the other scans. Then the canonical correlations among the four matrices are summarized in Table \oldref{tab:similarity}. The distance measure in Equation \ref{eq:distance} is used. Another permutation invariant measure of distance between two square matrices, the Amari error \cite{amari1996new}, is also provided in the table \footnote{The Amari error between $A$ and $\hat{A}$: $E(A,\hat{A}) = \sum\limits_{i=1}^n(\sum\limits_{j=1}^n\frac{|p_{ij}|}{\max_k |p_{ik}|}-1) + \sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{|p_{ij}|}{\max_k|p_{kj}|}-1)$, where $P =(p_{ij})=A^{-1}\hat{A}$.}. Notice a smaller $d(A,B)$ or Amari error means more similarity. Among the six pairs from $A_{11},A_{12},A_{21}$ and $A_{22}$, it is expected that the pairs $(A_{11},A_{12})$ and $(A_{21},A_{22})$ give the smallest distances, as each pair comes from two scans of the same subject. This idea is validated by Table \oldref{tab:similarity}. A direct application of this result is to correctly cluster the four scans into two group, each group corresponding to a subject. This implies that the A matrices contains subject-specific information. The $A$ matrices as connectivity graphs are plotted in Figure \oldref{fig:cgraph}.
 \begin{center}
 %\includegraphics[scale = 0.7]{ConnectivityGraph.pdf}
@@ -677,7 +679,7 @@ As an example, the 3D renderings of the columns of matrix $C$ from the first sca
 \label{fig:3d}
 \end{center}
 
-Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data. (\textbf{Descriptions of data and citations required here}) Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Equation \ref{eq:initial} and PLDS algorithm are used for estimations. Then predictions are made with equations \ref{eq:model0} and estimations from both methods. The prediction accuracies are shown in Figure \oldref{fig:predaccy}. The first observation is that, PLDS algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize PLDS algorithm, this shows that PLDS algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, PLDS algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
+Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data. (\textbf{Descriptions of data and citations required here}) Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and PLDS algorithm are used for estimations. Then predictions are made with equations \ref{eq:model0} and estimations from both methods. The prediction accuracies are shown in Figure \oldref{fig:predaccy}. The first observation is that, PLDS algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize PLDS algorithm, this shows that PLDS algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, PLDS algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
 
 \begin{center}
 \includegraphics[scale=0.5]{./figures/hcp_pred_accy.pdf}
@@ -688,8 +690,8 @@ Another application of the algorithm is predicting brain signals. To demonstrate
 A sample plot of the true time series and predicted values are shown in Figure \oldref{fig:samplets}. We see that PLDS is giving more accurate predictions and the true signal lies in the confidence band giving by PLDS model. Another observation is that the confidence band is getting wider as we predict into the future, which is a result of the accumulated errors.
 
 \begin{center}
-\includegraphics[scale=0.5]{./figures/hcpSampleTS.pdf}
-\captionof{figure}{Sample time series plot. The dotted green curve stands for the $60\%$ confidence band given by PLDS model. The time series is the average of signals from a subsample. A subsample of 20 voxels are picked to avoid big covariance matrices calculation. The left vertical axis is used for the true signal and PLDS predictions, while the one on the right is for PCA predictions.}
+\includegraphics[scale=0.5]{./figures/newSampleTS.pdf}
+\captionof{figure}{Sample time series plot. The dotted green curve stands for the $60\%$ confidence band given by PLDS model. The true time series is averaged signals from a subsample of voxels. The predictions are also averaged over the same subsample. The confidence band is estimated based on the covariance matrix of these voxels. A subsample of 20 voxels are picked in this experiment to avoid big covariance matrices calculation. All values are log-scaled for plotting purpose.}
 \label{fig:samplets}
 \end{center}
 
