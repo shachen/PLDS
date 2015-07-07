@@ -55,6 +55,14 @@ Harini Eavani, Theodore~D Satterthwaite, Raquel~E Gur, Ruben~C Gur, and
 \newblock In {\em Information Processing in Medical Imaging}, pages 426--437.
   Springer, 2013.
 
+\bibitem{feinberg2010multiplexed}
+David~A Feinberg, Steen Moeller, Stephen~M Smith, Edward Auerbach, Sudhir
+  Ramanna, Matthias Gunther, Matt~F Glasser, Karla~L Miller, Kamil Ugurbil, and
+  Essa Yacoub.
+\newblock Multiplexed echo planar imaging for sub-second whole brain fmri and
+  fast diffusion imaging.
+\newblock {\em PloS one}, 5(12):e15710, 2010.
+
 \bibitem{ghahramani1996parameter}
 Zoubin Ghahramani and Geoffrey~E Hinton.
 \newblock Parameter estimation for linear dynamical systems.
@@ -104,6 +112,14 @@ Jeffrey~D Meier, Tyson~N Aflalo, Sabine Kastner, and Michael~SA Graziano.
 \newblock Complex organization of human primary motor cortex: a high-resolution
   fmri study.
 \newblock {\em Journal of neurophysiology}, 100(4):1800--1812, 2008.
+
+\bibitem{moeller2010multiband}
+Steen Moeller, Essa Yacoub, Cheryl~A Olman, Edward Auerbach, John Strupp, Noam
+  Harel, and K{\^a}mil U{\u{g}}urbil.
+\newblock Multiband multislice ge-epi at 7 tesla, with 16-fold acceleration
+  using partial parallel imaging with application to high spatial and temporal
+  whole-brain fmri.
+\newblock {\em Magnetic Resonance in Medicine}, 63(5):1144--1153, 2010.
 
 \bibitem{nebel2014disruption}
 Mary~Beth Nebel, Suresh~E Joel, John Muschelli, Anita~D Barber, Brian~S Caffo,
@@ -165,6 +181,12 @@ Pedro~A Vald{\'e}s-Sosa, Jose~M S{\'a}nchez-Bornot, Agust{\'\i}n
   autoregression.
 \newblock {\em Philosophical Transactions of the Royal Society B: Biological
   Sciences}, 360(1457):969--981, 2005.
+
+\bibitem{van2013wu}
+David~C Van~Essen, Stephen~M Smith, Deanna~M Barch, Timothy~EJ Behrens, Essa
+  Yacoub, Kamil Ugurbil, WU-Minn~HCP Consortium, et~al.
+\newblock The wu-minn human connectome project: an overview.
+\newblock {\em Neuroimage}, 80:62--79, 2013.
 
 \bibitem{van1994n4sid}
 Peter Van~Overschee and Bart De~Moor.

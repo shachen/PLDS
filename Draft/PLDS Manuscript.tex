@@ -122,7 +122,7 @@ where $\lambda_1$ and $\lambda_2$ are tuning parameters and $\|\centerdot\|_p$ r
 &A\in \mathcal{A}_{d\times d},\ C \in \mathcal{C}_{p \times d}, R \in \mathcal{R}_{p\times p}, \pi_0 \in \mathcal{\pi}_{d\times 1}.
 \end{aligned}
 \end{equation}
-where $\alpha = \frac{\lambda_1}{\lambda_1 + \lambda_2}$. $\mathcal{A}_{d\times d}$ and $\mathcal{C}_{p \times d}$ are matrix spaces of $d\times d$ and $p \times d$ dimensional respectively. $\mathcal{R}_{p \times p}$ is the $p \times p$ diagonal matrix space and $\mathcal{\pi}_{d\times 1}$ is the $d$ dimensional vector space.  
+where $\alpha = \frac{\lambda_1}{\lambda_1 + \lambda_2}$. $\mathcal{A}_{d\times d}$ and $\mathcal{C}_{p \times d}$ are matrix spaces of $d\times d$ and $p \times d$ dimensional respectively. $\mathcal{R}_{p \times p}$ is the $p \times p$ diagonal matrix space and $\mathcal{\pi}_{d\times 1}$ is the $d$ dimensional vector space.
 \section{Parameter Estimation}
 The motivating application requires solving optimization problem \ref{eqn:penaltylik}: given only an observed sequence (or multiple sequences in some applications) of outputs $\{\mathbf{y}\}=(\mathbf{y}_1,\ldots,\mathbf{y}_T)$, find the parameters $\Theta=\{A,C,R,\mathbf{\pi}_0\}$ that maximize the likelihood of the observed data.
 
@@ -687,7 +687,7 @@ As an example, the 3D renderings of the columns of matrix $C$ from the first sca
 \label{fig:3d}
 \end{center}
 
-Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data. (\textbf{Descriptions of data and citations required here})
+Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data \cite{van2013wu,moeller2010multiband,feinberg2010multiplexed}. The Human Connectome Project is a systematic effort to map macroscopic human brain circuits and their relationship to behavior in a large population of healthy adults. MR scanning includes four imaging modalities, acquired at high resolutions: structural MRI, resting-state fMRI (rfMRI), task fMRI (tfMRI), and diffusion MRI (dMRI). All 1200 subjects are scanned using all four of these modalities on a customized 3 T scanner. The rfMRI scan of one subject is used in this application. 
 
 Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and PLDS algorithm are used for estimations. Then $k$-step ahead predictions are made with equations \ref{eq:model0} and estimations from both methods. Pseudocode for $k$-step ahead predictions is given in Appendix 3. The prediction accuracies are shown in Figure \oldref{fig:predaccy}. The first observation is that, PLDS algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize PLDS algorithm, this shows that PLDS algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, PLDS algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
 
