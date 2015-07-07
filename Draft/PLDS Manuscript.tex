@@ -477,7 +477,11 @@ which involves the inverse of a large square matrix of dimension p by p. As stat
 
 With the above three techniques, the EM algorithm can scale to very high dimensions in terms of $p$, $d$ and $T$, without causing any computational issues.
 
+\subsection{The Data}
 
+The Kirby 21 data are resting-state fMRI scans consisting of a test-retest dataset previously acquired at the FM Kirby Research Center at the Kennedy Krieger Institute, Johns Hopkins University \cite{landman2011multi}. Twenty-one healthy volunteers with no history of neurological disease each underwent two separate resting state fMRI sessions on the same scanner: a 3T MR scanner utilizing a body coil with a 2D echoplanar (EPI) sequence and eight channel phased array SENSitivity Encoding (SENSE; factor of 2) with the following parameters: TR 2s; 3mm$\times$3mm in plane resolution; slice gap 1mm; and total imaging time of 7 minutes and 14 seconds.
+
+The Human Connectome Project is a systematic effort to map macroscopic human brain circuits and their relationship to behavior in a large population of healthy adults \cite{van2013wu,moeller2010multiband,feinberg2010multiplexed}. MR scanning includes four imaging modalities, acquired at high resolutions: structural MRI, resting-state fMRI (rfMRI), task fMRI (tfMRI), and diffusion MRI (dMRI). All 1200 subjects are scanned using all four of these modalities on a customized 3 T scanner. The rfMRI scan of one subject is used in this application. It consists of $1,200$ time points.
 %This issue can be overcome using the , as follows: the inverse of a matrix with a low rank correction is calculated by adding a low rank correction to its inverse.
 %\begin{align*}
 %&(A+UCV)^{-1} = A^{-1} - A^{-1}U(C^{-1} + VA^{-1}U)^{-1}VA^{-1}
@@ -599,9 +603,7 @@ This second observation provides us a way to pick tuning parameters in real appl
 \label{sec:application}
 When applied to fMRI data analysis, the model has very good interpretability. Each $\mathbf{y}_t$ is a scan of the brain. Each column of the $C$ matrix is interpreted as a time-invariant brain signal. At each time point, the observed brain image, $\mathbf{y}_t$, is a linear mixture of these networks and $\mathbf{x}_t$ explains how these networks are mixed at time $t$. Matrix $A$ describes how $\mathbf{x}_t$ evolves over time. $A$ can also be viewed as a directed graph if each network is treated as a vertex. Brain networks are spatially smooth and connectivities among them are empirically sparse. This naturally fits into the sparsity and smoothness assumptions in PLDS.
 
-PLDS is applied to analyze the motor cortex of human brains from the KIRBY 21 Data. These data are resting-state fMRI scans consisting of a test-retest dataset previously acquired at the FM Kirby Research Center at the Kennedy Krieger Institute, Johns Hopkins University \cite{landman2011multi}. Twenty-one healthy volunteers with no history of neurological disease each underwent two separate resting state fMRI sessions on the same scanner: a 3T MR scanner utilizing a body coil with a 2D echoplanar (EPI) sequence and eight channel phased array SENSitivity Encoding (SENSE; factor of 2) with the following parameters: TR 2s; 3mm$\times$3mm in plane resolution; slice gap 1mm; and total imaging time of 7 minutes and 14 seconds.
-
-In this application, test-retest scans from two subjects are analyzed. The imaging data are first preprocessed with FSL, a comprehensive library of analysis tools for fMRI, MRI and DTI brain imaging data \cite{smith2004advances}. FSL is used for spatial smoothing with Gaussian kernel. Then PLDS is applied on the smoothed data.
+PLDS is applied to analyze the motor cortex of human brains from the KIRBY 21 Data. In this application, test-retest scans from two subjects are analyzed. The imaging data are first preprocessed with FSL, a comprehensive library of analysis tools for fMRI, MRI and DTI brain imaging data \cite{smith2004advances}. FSL is used for spatial smoothing with Gaussian kernel. Then PLDS is applied on the smoothed data.
 
 The following are basic descriptions of the data and model parameters.
 \begin{itemize}[noitemsep, topsep=0pt]
@@ -687,7 +689,7 @@ As an example, the 3D renderings of the columns of matrix $C$ from the first sca
 \label{fig:3d}
 \end{center}
 
-Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data \cite{van2013wu,moeller2010multiband,feinberg2010multiplexed}. The Human Connectome Project is a systematic effort to map macroscopic human brain circuits and their relationship to behavior in a large population of healthy adults. MR scanning includes four imaging modalities, acquired at high resolutions: structural MRI, resting-state fMRI (rfMRI), task fMRI (tfMRI), and diffusion MRI (dMRI). All 1200 subjects are scanned using all four of these modalities on a customized 3 T scanner. The rfMRI scan of one subject is used in this application. 
+Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data. 
 
 Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and PLDS algorithm are used for estimations. Then $k$-step ahead predictions are made with equations \ref{eq:model0} and estimations from both methods. Pseudocode for $k$-step ahead predictions is given in Appendix 3. The prediction accuracies are shown in Figure \oldref{fig:predaccy}. The first observation is that, PLDS algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize PLDS algorithm, this shows that PLDS algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, PLDS algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
 
