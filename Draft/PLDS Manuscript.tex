@@ -136,7 +136,7 @@ However, the above solutions can not be directly applied to optimization problem
 
 By the chain rule, the likelihood in model \ref{eq:model0} is
 \begin{equation*}\label{eqn:likelihood}
-P(\{\mathbf{x}\},\{\mathbf{y}\})=P(\mathbf{x}_0)\prod\limits_{t=1}^{T}P(\mathbf{x}_t|\mathbf{x}_{t-1})\prod\limits_{t=1}^{T} P(\mathbf{y}_t|\mathbf{x}_t)=\prod\limits_{t=1}^{T}P(\mathbf{x}_t|\mathbf{x}_{t-1})\prod\limits_{t=1}^{T} P(\mathbf{y}_t|\mathbf{x}_t)\mathbbm{1}_{\mathbf{\pi}_0}(\mathbf{x}_0)
+P(\{\mathbf{x}\},\{\mathbf{y}\})=P(\{\mathbf{y}\}|\{\mathbf{x}\}) P(\{\mathbf{x}\})= P(\mathbf{x}_0)\prod\limits_{t=1}^{T}P(\mathbf{x}_t|\mathbf{x}_{t-1})\prod\limits_{t=1}^{T} P(\mathbf{y}_t|\mathbf{x}_t)=\prod\limits_{t=1}^{T}P(\mathbf{x}_t|\mathbf{x}_{t-1})\prod\limits_{t=1}^{T} P(\mathbf{y}_t|\mathbf{x}_t)\mathbbm{1}_{\mathbf{\pi}_0}(\mathbf{x}_0)
 \end{equation*}
 where $\mathbbm{1}_{\mathbf{\pi}_0}(\mathbf{x}_0)$ is the indicator function and conditional likelihoods are
 \begin{equation*}\label{eqn:condlik}
