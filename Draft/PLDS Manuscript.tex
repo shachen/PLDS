@@ -497,7 +497,8 @@ The Human Connectome Project is a systematic effort to map macroscopic human bra
 \label{sec:lowdsim}
 Two simulations of different dimensions are performed to demonstrate the model and its parameter estimations.
 
-In the low dimensional setting, $p = 300$, $d = 10$ and $T = 100$. The $A$ matrix is generated such that the conditional number is no less than some threshold, 50 being used. Elements with small absolute values are then truncated such that 20 percent of elements are zeros. Eigenvalues of $A$ are controlled within $[-1,1]$ to avoid diverging time series. Matrix C is generated as follows. Each column contains random samples from a standard Gaussian distribution. Then the sample is sorted in ascending order. Covariance $Q$ is the identity matrix and covariance $R$ is a multiple of the identity matrix. At time 0, a zero vector $\mathbf{0}$ is used as the value of $\mathbf{x_0}$.
+%The $A$ matrix is generated such that the conditional number is no less than some threshold, 50 being used.
+In the low dimensional setting, $p = 300$, $d = 10$ and $T = 100$. A is first generated from a random matrix, then elements with small absolute values are then truncated such that 20 percent of elements are zeros. After that a multiple of the identity matrix is added to A. $A$ is then scaled to make sure its eigenvalues fall within $[-1,1]$ to avoid diverging time series. Matrix C is generated as follows. Each column contains random samples from a standard Gaussian distribution. Then each column is sorted in ascending order. Covariance $Q$ is the identity matrix and covariance $R$ is a multiple of the identity matrix. At time 0, a zero vector $\mathbf{0}$ is used as the value of $\mathbf{x_0}$. Pseudocode for data generation is included in \nameref{sec:appendix4}.
 
 In the high-dimensional setting, p = 10,000, d = 30 and T = 100. The parameter are generated in a the same manner.
 
@@ -691,7 +692,7 @@ As an example, the 3D renderings of the columns of matrix $C$ from the first sca
 \label{fig:3d}
 \end{center}
 
-Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data. 
+Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data.
 
 Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and PLDS algorithm are used for estimations. Then $k$-step ahead predictions are made with equations \ref{eq:model0} and estimations from both methods. Pseudocode for $k$-step ahead predictions is given in Appendix 3. The prediction accuracies are shown in Figure \oldref{fig:predaccy}. The first observation is that, PLDS algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize PLDS algorithm, this shows that PLDS algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, PLDS algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
 
@@ -814,7 +815,7 @@ In the above
 \]
 
 \section*{Appendix 3}
-
+\label{sec:appendix3}
 \begin{tabular}{l}
 \hline
 \textbf{Algorithm } $k$-step predictions with PCA and PLDS\\
@@ -830,6 +831,26 @@ In the above
  9. \textbf{end}\\
 \hline
 \end{tabular}
+
+\section*{Appendix 4}
+\label{sec:appendix4}
+\begin{tabular}{l}
+\hline
+\textbf{Algorithm } Simulation Data Generation\\
+\hline
+ 1. Denote the dimensions as $p$, $d$ and $T$ respectively\\
+ 2. Generate a $p\times d$ matrix $C_0$ from a standard Gaussian distribution\\
+ 3. Sort each column of $C_0$ in ascending order to get matrix $C$ \\
+ 4. Generate a $d\times d$ matrix $A_0$ from a standard Gaussian distribution\\
+ 5. Add a multiple of the identity matrix to $A_0$\\
+ 6.	Replace entries in $A_0$ with small absolute values with $0$\\
+ 7.	Scale $A_0$ to make sure its eigen values are between $-1$ and $1$; use $A_0$ as the A matrix\\
+ 8.	Let $R$ be a diagonal matrix with positive diagonal entries and $Q$ be the identity matrix \\
+ 9. Generate simulation data with $A, C, Q$ and $R$ \\
+ 10. \textbf{end}\\
+\hline
+\end{tabular}
+
 \newpage
 \bibliographystyle{plain}
 \bibliography{reference}
