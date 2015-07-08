@@ -58,7 +58,7 @@ Because of their flexibility state-space models have found wide usage in a numbe
 In this work, a penalized linear dynamical system model (PLDS) is proposed as an generalization of the generic LDS model. An Expectation-Maximization (EM) algorithm is also developed for parameter estimations. Compared to the generic LDS model, PLDS is highly scalable and yields more accurate estimations and predictions under some circumstances. The generic LDS model is just a special case of PLDS with zero penalties. As an application, PLDS model is applied to fMRI data measured over the motor cortex.
 
 \section{The Model}
-The generic time-invariant state-pace model, or LDS, can be written as:
+The generic time-invariant state-space model, or LDS, can be written as:
 \begin{equation} \label{eq:model}
 \begin{aligned}
 &\mathbf{x}_{t+1}=A\mathbf{x}_t+\mathbf{w}_t, \quad \mathbf{w}_t\sim N(\mathbf{0},Q),\quad \mathbf{x}_0 \sim N(\mathbf{\pi}_0,V_0)\\
@@ -66,6 +66,8 @@ The generic time-invariant state-pace model, or LDS, can be written as:
 \end{aligned}
 \end{equation}
 where $A$ is the $d\times d$ state transition matrix and $C$ is the $p \times d$ generative matrix. $\mathbf{x}_t$ is a $d\times 1$ vector and $\mathbf{y}_t$ is a $p\times 1$ vector. The sequence of vectors $\{\mathbf{y}\}=(\mathbf{y}_1,\ldots,\mathbf{y}_T)$ are the observed data and $\{\mathbf{x}\}=(\mathbf{x}_1,\ldots,\mathbf{x}_T)$ represent the unknown hidden states. The output noise covariance $R$ is $p\times p$, while the state noise covariance $Q$ is $d\times d$. Initial state mean $\mathbf{\pi}_0$ is $d\times 1$ and covariance $V_0$ is $d \times d$.
+
+The model can be thought as the continuous version of the hidden Markov model (HMM), where the columns of $C$ stands for the hidden states. The difference is that in this model, what one observe at each time point is not a single state, but a linear combination of multiple states. $\mathbf{x}_t$ is the weights in the linear combination. $A$ matrix is the analogy of the state transition matrix, which describe how the weights $\mathbf{x}_t$ evolve over time. Another difference is that LDS contains two white noise terms, which are captured by the $Q$ and $R$ matrices.
 
 Without applying further constraints, the model itself is unidentifiable. Supplemental constraints are are thus introduced to address both identifiability and utility. Three basic constraints are required to make the model identifiable:
 \vspace*{-3mm}
