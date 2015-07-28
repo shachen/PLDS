@@ -73,14 +73,14 @@ Because of their flexibility state-space models have found wide usage in a numbe
 In this work, a penalized linear dynamical system model (PLDS) is proposed as an generalization of the generic LDS model. An Expectation-Maximization (EM) algorithm is also developed for parameter estimations. Compared to the generic LDS model, PLDS is highly scalable and yields more accurate estimations and predictions under some circumstances. The generic LDS model is just a special case of PLDS with zero penalties. As an application, PLDS model is applied to fMRI data measured over the motor cortex.
 
 \section{The Model}
-The generic time-invariant state-space model, or LDS, can be written as:
+In statistical data analysis, one often encounter some observed signals and also has some unobserved or latent variables, which are denoted as $\{\mathbf{y}\}=(\mathbf{y}_1,\ldots,\mathbf{y}_T)$ and $\{\mathbf{x}\}=(\mathbf{x}_1,\ldots,\mathbf{x}_T)$ respectively. By the Bayesian rule, the joint probability of $\{\mathbf{y}\}$ and $\{\mathbf{x}\}$ is $P(\{\mathbf{x}\},\{\mathbf{y}\})=P(\{\mathbf{y}\}|\{\mathbf{x}\}) P(\{\mathbf{x}\})$. The generic time-invariant state-space model, or LDS, further assumes that the latent variables follow a vector autoregressive model and the observed variables are normally distributed given the latent variables, as follows:
 \begin{equation} \label{eq:model}
 \begin{aligned}
 &\mathbf{x}_{t+1}=A\mathbf{x}_t+\mathbf{w}_t, \quad \mathbf{w}_t\sim N(\mathbf{0},Q),\quad \mathbf{x}_0 \sim N(\mathbf{\pi}_0,V_0)\\
-&\mathbf{y}_t=C\mathbf{x}_t+\mathbf{v}_t,\qquad \mathbf{v}_t\sim N(\mathbf{0},R)
+&\mathbf{y}_t=C\mathbf{x}_t+\mathbf{v}_t,\qquad \mathbf{v}_t\sim N(\mathbf{0},R).
 \end{aligned}
 \end{equation}
-where $A$ is the $d\times d$ state transition matrix and $C$ is the $p \times d$ generative matrix. $\mathbf{x}_t$ is a $d\times 1$ vector and $\mathbf{y}_t$ is a $p\times 1$ vector. The sequence of vectors $\{\mathbf{y}\}=(\mathbf{y}_1,\ldots,\mathbf{y}_T)$ are the observed data and $\{\mathbf{x}\}=(\mathbf{x}_1,\ldots,\mathbf{x}_T)$ represent the unknown hidden states. The output noise covariance $R$ is $p\times p$, while the state noise covariance $Q$ is $d\times d$. Initial state mean $\mathbf{\pi}_0$ is $d\times 1$ and covariance $V_0$ is $d \times d$.
+$A$ is the $d\times d$ state transition matrix and $C$ is the $p \times d$ generative matrix. $\mathbf{x}_t$ is a $d\times 1$ vector and $\mathbf{y}_t$ is a $p\times 1$ vector. The sequence of vectors $\{\mathbf{y}\}=(\mathbf{y}_1,\ldots,\mathbf{y}_T)$ are the observed data and $\{\mathbf{x}\}=(\mathbf{x}_1,\ldots,\mathbf{x}_T)$ represent the unknown hidden states. The output noise covariance $R$ is $p\times p$, while the state noise covariance $Q$ is $d\times d$. Initial state mean $\mathbf{\pi}_0$ is $d\times 1$ and covariance $V_0$ is $d \times d$.
 
 The model can be thought as the continuous version of the hidden Markov model (HMM), where the columns of $C$ stands for the hidden states. The difference is that in this model, what one observe at each time point is not a single state, but a linear combination of multiple states. $\mathbf{x}_t$ is the weights in the linear combination. $A$ matrix is the analogy of the state transition matrix, which describe how the weights $\mathbf{x}_t$ evolve over time. Another difference is that LDS contains two white noise terms, which are captured by the $Q$ and $R$ matrices.
 
