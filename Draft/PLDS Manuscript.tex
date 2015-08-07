@@ -22,12 +22,15 @@
 \renewcommand{\ref}[1]{(\oldref{#1})}
 
 %\newcommand{\T}{^{\ensuremath{\mathsf{T}}}} % transpose
-\newcommand{\T}{T}
+\newcommand{\T}{^{\ensuremath{\mathsf{T}}}}           % transpose
+\newcommand{\mrsid}{{\sc \texttt{Mr}.~\texttt{Sid}}}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
 \begin{document}
 
-\title{A Sparse High Dimensional State-Space Model with an Application to Neuroimaging Data}
+\title{Reduced Rank M-Estimation for High-Dimensional Linear Dynamical System Identification
+% A Sparse High Dimensional State-Space Model with an Application to Neuroimaging Data
+}
 %\author{\bf{Shaojie Chen, Joshua Vogelstein, Seonjoo Lee, Martin Lindquist, Brian Caffo}}
 \author[a]{Shaojie Chen}
 \author[b,f]{Joshua T. Vogelstein}
@@ -45,17 +48,29 @@
 \affil[f]{Child Mind Institute}
 \maketitle
 \section*{Abstract}
-In the past decade functional magnetic resonance imaging (fMRI) has facilitated major advances in our understanding of human brain function. The data that arise from a standard fMRI experiment are both high dimensional and complex in nature, making statistical analysis challenging. Matrix decomposition methods, such as factor analysis, principal component analysis (PCA) and independent component analysis (ICA), are commonly used to investigate spatio-temporal patterns present in fMRI data. It can be shown that the linear time-invariant state-space model, commonly used in time series analysis, unifies this broad class of models. While state-space models have been applied to fMRI data, these applications have been limited by constraints on the amount of data that can be included in the analysis. This is primarily because analysis in modern high-dimensional settings, such as neuroimaging, parameter estimation is challenging. This issue is addressed by introducing a penalized state-space model that applies L-1 and L-2 penalties to model coefficients. In addition, an Expectation-Maximization algorithm is provided that allows for efficient estimation of the model parameters. To illustrate our approach, we apply it to fMRI data measured over the motor cortex.\\
-
+blah
+% In the past decade functional magnetic resonance imaging (fMRI) has facilitated major advances in our understanding of human brain function. The data that arise from a standard fMRI experiment are both high dimensional and complex in nature, making statistical analysis challenging. Matrix decomposition methods, such as factor analysis, principal component analysis (PCA) and independent component analysis (ICA), are commonly used to investigate spatio-temporal patterns present in fMRI data. It can be shown that the linear time-invariant state-space model, commonly used in time series analysis, unifies this broad class of models. While state-space models have been applied to fMRI data, these applications have been limited by constraints on the amount of data that can be included in the analysis. This is primarily because analysis in modern high-dimensional settings, such as neuroimaging, parameter estimation is challenging. This issue is addressed by introducing a penalized state-space model that applies L-1 and L-2 penalties to model coefficients. In addition, an Expectation-Maximization algorithm is provided that allows for efficient estimation of the model parameters. To illustrate our approach, we apply it to fMRI data measured over the motor cortex.
+\\
 \textbf{\emph{keywords}: state-space model, parameter estimation, sparsity, high dimensional, imaging processing, fMRI}
 \newpage
 \section{Introduction}
 
 %\begin{itemize}
-%\item proposed a penalized linear dynamical system model (PLDS)
+%\item proposed a penalized linear dynamical system model (\mrsid)
 %\item designed an expectation-maximization algorithm to solve the proposed model
 %\item used the model for neuroimage data analysis and explored the primary motor cortex of human brain
 %\end{itemize}
+High-dimensional time-series data are becoming increasingly abundant across a wide variety of domains, spanning economics, neuroscience,  particle physics, and cosmology to name a few.  
+Fitting statistical models to such data, to enable parameter estimation and time-series prediction, is an important computational primitive. 
+Linear dynamical systems (LDS) models are amongst the most popular and powerful, because of their intuitive nature and ease of implementation.  The famous Kalman Filter Smoother provides optimal estimates of the 
+ Kalman Filter Smoother is one of the most popular and powerful methods for using LDS models.
+Parameter estimation---often called \emph{system identification} in this domain---is required whenever the parameters (or system is unknown).  To date, there does not exist, to our knowledge, a methodology that provides parameter estimates and predictions from ultrahigh-dimensional time-series data (for example, $p > 10,000$).
+
+The challenges associated high-dimensional time-series estimation and prediction are multifold.  First, na\"{i}ly, such models include dense $p \times p$ matrices, which often are too large even to store, much less operate on.  Second, estimators behave poorly, due to numerical instability issues.  Third, even addressing these problems the time to compute all the necessary quantities can be overly burdensome.
+
+We address all three of these issues with our Reduced-rank M-estimator for System IDentification (Mr. Sid).
+
+
  In the past decade functional magnetic resonance imaging (fMRI) has given researchers unprecedented access to the brain in action and provided numerous insights into human brain function. Any given fMRI experiment generates massive amounts of data. For example, a standard experiment collects a few hundred 3D brain images, each consisting of roughly 100,000 uniformly spaced volume elements (voxels) that partition the brain. Intensity values from each individual voxel can be extracted to create a set of time series of length T, where T corresponds to the number of acquired images. The analysis of fMRI data can therefore fruitfully be viewed as a multivariate time series problem. However, the signal of interest is relatively weak and the data exhibits a complicated temporal and spatial noise structure \cite{lindquist2008statistical}.
 
 To date numerous statistical methods have been applied to fMRI data. Many construct separate univariate models at each voxel, thus assuming an improbable independence between voxels. In this work we instead focus on the multivariate statistical methods that have been used to analyze fMRI data. In particular, multivariate decomposition methods, such as Principal Components Analysis (PCA) \cite{andersen1999principal} and Independent Components Analysis (ICA) \cite{calhoun2009review}, have been utilized to identify patterns of brain activation \cite{mckeown1998spatially}.
@@ -70,7 +85,7 @@ Finally, LDS can also be represented as a probabilistic graphical model. Here th
 
 Because of their flexibility state-space models have found wide usage in a number of different spheres, including time series analysis, statistics, signal processing, control theory and machine learning.  In neuroimaging analysis, the LDS exhibits substantial relevance. For example, Harini et al. have discussed the applications of HMM in learning functional network dynamics in resting state fMRI \cite{eavani2013unsupervised}. Valdez-Sosa et al. used sparse multivariate autoregression to estimate brain functional connectivity \cite{valdes2005estimating}. Havlicek et al. modeled neuronal responses in fMRI using cubature Kalman filtering along with Kalman filter based Dynamic Granger Causality to evaluate functional connectivity in fMRI data \cite{havlicek2011dynamic}. A systematic framework for functional connectivity measures is proposed by HE Wang et al \cite{wang2014systematic}.
 
-In this work, a penalized linear dynamical system model (PLDS) is proposed as an generalization of the generic LDS model. An Expectation-Maximization (EM) algorithm is also developed for parameter estimations. Compared to the generic LDS model, PLDS is highly scalable and yields more accurate estimations and predictions under some circumstances. The generic LDS model is just a special case of PLDS with zero penalties. As an application, PLDS model is applied to fMRI data measured over the motor cortex.
+In this work, a penalized linear dynamical system model (\mrsid) is proposed as an generalization of the generic LDS model. An Expectation-Maximization (EM) algorithm is also developed for parameter estimations. Compared to the generic LDS model, \mrsid~is highly scalable and yields more accurate estimations and predictions under some circumstances. The generic LDS model is just a special case of \mrsid~with zero penalties. As an application, \mrsid~model is applied to fMRI data measured over the motor cortex.
 
 \section{The Model}
 In statistical data analysis, one often encounter some observed signals and also has some unobserved or latent variables, which are denoted as $\{\mathbf{y}\}=(\mathbf{y}_1,\ldots,\mathbf{y}_T)$ and $\{\mathbf{x}\}=(\mathbf{x}_1,\ldots,\mathbf{x}_T)$ respectively. By the Bayesian rule, the joint probability of $\{\mathbf{y}\}$ and $\{\mathbf{x}\}$ is $P(\{\mathbf{x}\},\{\mathbf{y}\})=P(\{\mathbf{y}\}|\{\mathbf{x}\}) P(\{\mathbf{x}\})$. The generic time-invariant state-space model, or LDS, further assumes that the latent variables follow a vector autoregressive model and the observed variables are normally distributed given the latent variables, as follows:
@@ -451,12 +466,12 @@ where $\mathbf{U}_{p \times d}$ is the first $d$ columns of $\mathbf{U}$ and $\m
 $C$ is then initialzed as $\mathbf{U}_{p\times d}$, while the columns of $\mathbf{X}_{d \times T}$ are used as input for a vector autoregressive (VAR) model to estimate the initial value for $A$.
 
 \subsection{The Complete EM}\label{sec:em}
-The complete EM algorithm for PLDS is addressed as follows.\\
+The complete EM algorithm for \mrsid~is addressed as follows.\\
 
 %\begin{center}
 \begin{tabular}{l}
 \hline
-\textbf{Algorithm } EM Algorithm for PLDS\\
+\textbf{Algorithm } EM Algorithm for \mrsid\\
 \hline
 \textbf{M Step}\\
 %1. Replace all $\mathbf{x}_t$ in \eqref{eqn: penaltylik2} with E$(\mathbf{x}_t|\{\mathbf{y}_t\}_1^T)$ from E step\\
@@ -533,7 +548,7 @@ Both the generic LDS and the penalized LDS are applied to the simulation data. A
 
 A sequence of tuning parameters $\lambda_C$ are utilized, ranging from $10^{-6}$ to $10^4$. $\lambda_A = k \lambda_C$ is set to increase proportionally with $\lambda_C$, where $k$ is a constant.
 
-Estimation accuracies are plotted against penalty size $\lambda_C$ in Figure \oldref{fig:low-high-d-sim}. Results from LDS and PLDS are overlayed in one plot for comparison. As the figure shows, PLDS converges to the LDS when the penalties are approaching zero. Estimation accuracies first increase with penalty size and then decrease due to over-shrinkage.
+Estimation accuracies are plotted against penalty size $\lambda_C$ in Figure \oldref{fig:low-high-d-sim}. Results from LDS and \mrsid~are overlayed in one plot for comparison. As the figure shows, \mrsid~converges to the LDS when the penalties are approaching zero. Estimation accuracies first increase with penalty size and then decrease due to over-shrinkage.
 
 \begin{figure}
 \centering
@@ -548,7 +563,7 @@ Estimation accuracies are plotted against penalty size $\lambda_C$ in Figure \ol
 \end{figure}
 
 
-As a concrete example, estimations from both methods are compared to the true values of parameters in Figure \oldref{fig:heatmap}. One can see that true values in each column of $C$ matrix are decreasing smoothly. $\hat{C}_{\lambda_m}$, which is estimated with optimal penalties $\lambda_C = \lambda_m$ and $\lambda_A = k\lambda_m$, shows similar pattern. In terms of $A$, the true value is sparse with many $0$ (blue) values. PLDS estimation $\hat{A}_{\lambda_m}$ is also sparse, denoted by the off-diagonal blue values. However, LDS estimation $\hat{A}_{\lambda_{-\infty}}$ is not sparse, with many yellow and red off-diagonal values.
+As a concrete example, estimations from both methods are compared to the true values of parameters in Figure \oldref{fig:heatmap}. One can see that true values in each column of $C$ matrix are decreasing smoothly. $\hat{C}_{\lambda_m}$, which is estimated with optimal penalties $\lambda_C = \lambda_m$ and $\lambda_A = k\lambda_m$, shows similar pattern. In terms of $A$, the true value is sparse with many $0$ (blue) values. \mrsid~estimation $\hat{A}_{\lambda_m}$ is also sparse, denoted by the off-diagonal blue values. However, LDS estimation $\hat{A}_{\lambda_{-\infty}}$ is not sparse, with many yellow and red off-diagonal values.
 \begin{center}
  \includegraphics[scale=.6]{./figures/heatmap-figure-1}
  \captionof{figure}{Row 1: A truth; non-penalized estimation of A; optimally penalized estimation of A. Row 2: C truth; non-penalized estimation of C; optimally penalized estimation of C.}
@@ -566,7 +581,7 @@ As a concrete example, estimations from both methods are compared to the true va
 
 In addition to the improved estimation accuracy, the proposed algorithm is also computational efficiency and highly scalable. As a demonstration, we measure the running times of multiple simulation scenarios and summarize them in Table \oldref{tab:runningTime}. When both $p$ and $d$ are high dimensional, the algorithm can still solve the problem in a reasonable time.
 \begin{center}
-\captionof{table}{PLDS Running Time}
+\captionof{table}{\mrsid~Running Time}
 \label{tab:runningTime}
 \begin{tabular}{c|ccccc}
 \hline\hline
@@ -581,9 +596,9 @@ Time (min)& 0.04 & 0.50  & 51.28 & 208.82 & 1801.00 \\
 \end{tabular}
 \end{center}
 \subsection{Making Predictions}
-Another perspective when considering PLDS model is its ability to make predictions. When the parameters $\mathbf{\Theta}$ and the latent states $x_T$ are estimated, one can first use estimated $x_T$ to predict $x_{T+1}$ and use $x_{T+1}$ to predict $y_{T+1}$. Similarly, more predictions $y_{T+2},\ldots, y_{T+k}$ can be made. Intuitively, properly chosen penalties give better estimations and good estimations should give more accurate predictions. This idea is demonstrated with a simulation. The parameter settings for this simulation follow Section \oldref{sec:lowdsim}. The correlation between the predicted signal and true signal is used as a measure of prediction accuracy. The prediction accuracy over penalty size is shown in Figure \oldref{fig:estpredaccuracy}.
+Another perspective when considering \mrsid~model is its ability to make predictions. When the parameters $\mathbf{\Theta}$ and the latent states $x_T$ are estimated, one can first use estimated $x_T$ to predict $x_{T+1}$ and use $x_{T+1}$ to predict $y_{T+1}$. Similarly, more predictions $y_{T+2},\ldots, y_{T+k}$ can be made. Intuitively, properly chosen penalties give better estimations and good estimations should give more accurate predictions. This idea is demonstrated with a simulation. The parameter settings for this simulation follow Section \oldref{sec:lowdsim}. The correlation between the predicted signal and true signal is used as a measure of prediction accuracy. The prediction accuracy over penalty size is shown in Figure \oldref{fig:estpredaccuracy}.
 
-%Specifically, the following simulation is performed: the proposed PLDS model is used to make 1-step, 2-step, $\cdots$, k-step predictions. Similar predictions are made with a PCA-based procedure and the prediction accuracies are compared.
+%Specifically, the following simulation is performed: the proposed \mrsid~model is used to make 1-step, 2-step, $\cdots$, k-step predictions. Similar predictions are made with a PCA-based procedure and the prediction accuracies are compared.
 
 %In the PCA-based procedure, denote $\mathbf{Y} = \left[\mathbf{y_1},\cdots,\mathbf{y_T}\right]$, a $p\times T$ matrix. The singular value decomposition (SVD) of $\mathbf{Y}$ is
 %\begin{equation*}
@@ -607,7 +622,7 @@ Another perspective when considering PLDS model is its ability to make predictio
 
 Observations and findings from these plots include:
 \begin{itemize}
- %\item PLDS prediction accuracy is almost the same as the PCA-based procedure when there is no penalty. This is consistent with the fact that the generic LDS is equivalent to PCA with some constraints on parameters.
+ %\item \mrsid~prediction accuracy is almost the same as the PCA-based procedure when there is no penalty. This is consistent with the fact that the generic LDS is equivalent to PCA with some constraints on parameters.
  \item The prediction accuracy first improves then drops when the penalties increase
  \item The prediction accuracy peaks when the penalty coefficient $\lambda_A$ and $\lambda_C$ are around $10^{-3}$. This make sense as the same $\lambda$ pair also gives the best estimation for coefficients $A$ and $C$, as in Figure \oldref{fig:low-high-d-sim}.
 \end{itemize}
@@ -619,9 +634,9 @@ This second observation provides us a way to pick tuning parameters in real appl
 
 \section{Application}
 \label{sec:application}
-When applied to fMRI data analysis, the model has very good interpretability. Each $\mathbf{y}_t$ is a scan of the brain. Each column of the $C$ matrix is interpreted as a time-invariant brain signal. At each time point, the observed brain image, $\mathbf{y}_t$, is a linear mixture of these networks and $\mathbf{x}_t$ explains how these networks are mixed at time $t$. Matrix $A$ describes how $\mathbf{x}_t$ evolves over time. $A$ can also be viewed as a directed graph if each network is treated as a vertex. Brain networks are spatially smooth and connectivities among them are empirically sparse. This naturally fits into the sparsity and smoothness assumptions in PLDS.
+When applied to fMRI data analysis, the model has very good interpretability. Each $\mathbf{y}_t$ is a scan of the brain. Each column of the $C$ matrix is interpreted as a time-invariant brain signal. At each time point, the observed brain image, $\mathbf{y}_t$, is a linear mixture of these networks and $\mathbf{x}_t$ explains how these networks are mixed at time $t$. Matrix $A$ describes how $\mathbf{x}_t$ evolves over time. $A$ can also be viewed as a directed graph if each network is treated as a vertex. Brain networks are spatially smooth and connectivities among them are empirically sparse. This naturally fits into the sparsity and smoothness assumptions in \mrsid.
 
-PLDS is applied to analyze the motor cortex of human brains from the KIRBY 21 Data. In this application, test-retest scans from two subjects are analyzed. The imaging data are first preprocessed with FSL, a comprehensive library of analysis tools for fMRI, MRI and DTI brain imaging data \cite{smith2004advances}. FSL is used for spatial smoothing with Gaussian kernel. Then PLDS is applied on the smoothed data.
+\mrsid~is applied to analyze the motor cortex of human brains from the KIRBY 21 Data. In this application, test-retest scans from two subjects are analyzed. The imaging data are first preprocessed with FSL, a comprehensive library of analysis tools for fMRI, MRI and DTI brain imaging data \cite{smith2004advances}. FSL is used for spatial smoothing with Gaussian kernel. Then \mrsid~is applied on the smoothed data.
 
 The following are basic descriptions of the data and model parameters.
 \begin{itemize}[noitemsep, topsep=0pt]
@@ -709,7 +724,7 @@ As an example, the 3D renderings of the columns of matrix $C$ from the first sca
 
 Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data.
 
-Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and PLDS algorithm are used for estimations. Then $k$-step ahead predictions are made with equations \ref{eq:model0} and estimations from both methods. Pseudocode for $k$-step ahead predictions is given in Appendix 3. The prediction accuracies are shown in Figure \oldref{fig:predaccy}. The first observation is that, PLDS algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize PLDS algorithm, this shows that PLDS algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, PLDS algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
+Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and \mrsid~algorithm are used for estimations. Then $k$-step ahead predictions are made with equations \ref{eq:model0} and estimations from both methods. Pseudocode for $k$-step ahead predictions is given in Appendix 3. The prediction accuracies are shown in Figure \oldref{fig:predaccy}. The first observation is that, \mrsid~algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize \mrsid~algorithm, this shows that \mrsid~algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, \mrsid~algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
 
 \begin{center}
 \includegraphics[scale=0.5]{./figures/hcp_pred_accy.pdf}
@@ -717,11 +732,11 @@ Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ ti
 \label{fig:predaccy}
 \end{center}
 
-A sample plot of the true time series and predicted values are shown in Figure \oldref{fig:samplets}. We see that PLDS is giving more accurate predictions and the true signal lies in the confidence band giving by PLDS model. Another observation is that the confidence band is getting wider as we predict into the future, which is a result of the accumulated errors.
+A sample plot of the true time series and predicted values are shown in Figure \oldref{fig:samplets}. We see that \mrsid~is giving more accurate predictions and the true signal lies in the confidence band giving by \mrsid~model. Another observation is that the confidence band is getting wider as we predict into the future, which is a result of the accumulated errors.
 
 \begin{center}
 \includegraphics[scale=0.5]{./figures/newSampleTS.pdf}
-\captionof{figure}{Sample time series plot. The dotted green curve stands for the $60\%$ confidence band given by PLDS model. The true time series is averaged signals from a subsample of voxels. The predictions are also averaged over the same subsample. The confidence band is estimated based on the covariance matrix of these voxels. A subsample of 20 voxels are picked in this experiment to avoid big covariance matrices calculation. All values are log-scaled for plotting purpose.}
+\captionof{figure}{Sample time series plot. The dotted green curve stands for the $60\%$ confidence band given by \mrsid~model. The true time series is averaged signals from a subsample of voxels. The predictions are also averaged over the same subsample. The confidence band is estimated based on the covariance matrix of these voxels. A subsample of 20 voxels are picked in this experiment to avoid big covariance matrices calculation. All values are log-scaled for plotting purpose.}
 \label{fig:samplets}
 \end{center}
 
@@ -833,11 +848,11 @@ In the above
 \label{sec:appendix3}
 \begin{tabular}{l}
 \hline
-\textbf{Algorithm } $k$-step predictions with PCA and PLDS\\
+\textbf{Algorithm } $k$-step predictions with PCA and \mrsid\\
 \hline
- 1. Denote the estimated parameters with PCA and PLDS as $A_{pca},C_{pca},A_{plds},$ and $C_{plds}$ respectively.\\
+ 1. Denote the estimated parameters with PCA and \mrsid~as $A_{pca},C_{pca},A_{plds},$ and $C_{plds}$ respectively.\\
  2. PCA Estimated latent states at $t=1000$: $x_{1000,pca} = $ the $1000$th column of $\mathbf{X}_{d\times T}$ from Section \oldref{sec:initial} \\
- 3. PLDS Estimated latent states at $t=1000$: $x_{1000,pls}$ is from E step of the EM algorithm in Section \oldref{sec:em}\\
+ 3. \mrsid~Estimated latent states at $t=1000$: $x_{1000,pls}$ is from E step of the EM algorithm in Section \oldref{sec:em}\\
  4. \textbf{for i = 1 to k}\\
  5. \hspace{10mm}		$x_{1000+k,pca}\ =\ A_{pca}\ x_{999+k,pca}$\\
  6.	\hspace{10mm}	$y_{1000+k,pca}\ =\ C_{pca}\ x_{1000+k,pca}$\\
