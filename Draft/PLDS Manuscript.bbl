@@ -1,16 +1,16 @@
 \begin{thebibliography}{10}
 
+\bibitem{allen2014generalized}
+Genevera~I Allen, Logan Grosenick, and Jonathan Taylor.
+\newblock A generalized least-square matrix decomposition.
+\newblock {\em Journal of the American Statistical Association},
+  109(505):145--159, 2014.
+
 \bibitem{amari1996new}
 Shun-ichi Amari, Andrzej Cichocki, Howard~Hua Yang, et~al.
 \newblock A new learning algorithm for blind signal separation.
 \newblock {\em Advances in neural information processing systems}, pages
   757--763, 1996.
-
-\bibitem{andersen1999principal}
-Anders~H Andersen, Don~M Gash, and Malcolm~J Avison.
-\newblock Principal component analysis of the dynamic response measured by
-  fmri: a generalized linear systems framework.
-\newblock {\em Magnetic Resonance Imaging}, 17(6):795--815, 1999.
 
 \bibitem{arbabshirani2014impact}
 Mohammad~R Arbabshirani, Eswar Damaraju, Ronald Phlypo, Sergey Plis, Elena
@@ -29,12 +29,6 @@ Amir Beck and Marc Teboulle.
 Byron Boots.
 \newblock Learning stable linear dynamical systems.
 
-\bibitem{calhoun2009review}
-Vince~D Calhoun, Jingyu Liu, and T{\"u}lay Adal{\i}.
-\newblock A review of group ica for fmri data and ica for joint inference of
-  imaging, genetic, and erp data.
-\newblock {\em Neuroimage}, 45(1):S163--S172, 2009.
-
 \bibitem{daubechies2004iterative}
 Ingrid Daubechies, Michel Defrise, and Christine De~Mol.
 \newblock An iterative thresholding algorithm for linear inverse problems with
@@ -46,14 +40,6 @@ Ingrid Daubechies, Michel Defrise, and Christine De~Mol.
 Gianfranco Doretto, Alessandro Chiuso, Ying~Nian Wu, and Stefano Soatto.
 \newblock Dynamic textures.
 \newblock {\em International Journal of Computer Vision}, 51(2):91--109, 2003.
-
-\bibitem{eavani2013unsupervised}
-Harini Eavani, Theodore~D Satterthwaite, Raquel~E Gur, Ruben~C Gur, and
-  Christos Davatzikos.
-\newblock Unsupervised learning of functional network dynamics in resting state
-  fmri.
-\newblock In {\em Information Processing in Medical Imaging}, pages 426--437.
-  Springer, 2013.
 
 \bibitem{feinberg2010multiplexed}
 David~A Feinberg, Steen Moeller, Stephen~M Smith, Edward Auerbach, Sudhir
@@ -69,12 +55,6 @@ Zoubin Ghahramani and Geoffrey~E Hinton.
 \newblock Technical report, Technical Report CRG-TR-96-2, University of
   Totronto, Dept. of Computer Science, 1996.
 
-\bibitem{havlicek2011dynamic}
-Martin Havlicek, Karl~J Friston, Jiri Jan, Milan Brazdil, and Vince~D Calhoun.
-\newblock Dynamic modeling of neuronal responses in fmri using cubature kalman
-  filtering.
-\newblock {\em Neuroimage}, 56(4):2109--2128, 2011.
-
 \bibitem{kuhn1955hungarian}
 Harold~W Kuhn.
 \newblock The hungarian method for the assignment problem.
@@ -86,26 +66,6 @@ Bennett~A Landman, Alan~J Huang, Aliya Gifford, Deepti~S Vikram, Issel Anne~L
   et~al.
 \newblock Multi-parametric neuroimaging reproducibility: A 3-t resource study.
 \newblock {\em Neuroimage}, 54(4):2854--2866, 2011.
-
-\bibitem{lauritzen1988local}
-Steffen~L Lauritzen and David~J Spiegelhalter.
-\newblock Local computations with probabilities on graphical structures and
-  their application to expert systems.
-\newblock {\em Journal of the Royal Statistical Society. Series B
-  (Methodological)}, pages 157--224, 1988.
-
-\bibitem{lindquist2008statistical}
-Martin~A Lindquist et~al.
-\newblock The statistical analysis of fmri data.
-\newblock {\em Statistical Science}, 23(4):439--464, 2008.
-
-\bibitem{mckeown1998spatially}
-Martin~J McKeown, Tzyy-Ping Jung, Scott Makeig, Greg Brown, Sandra~S
-  Kindermann, Te-Won Lee, and Terrence~J Sejnowski.
-\newblock Spatially independent activity patterns in functional mri data during
-  the stroop color-naming task.
-\newblock {\em Proceedings of the National Academy of Sciences},
-  95(3):803--810, 1998.
 
 \bibitem{meier2008complex}
 Jeffrey~D Meier, Tyson~N Aflalo, Sabine Kastner, and Michael~SA Graziano.
@@ -127,22 +87,6 @@ Mary~Beth Nebel, Suresh~E Joel, John Muschelli, Anita~D Barber, Brian~S Caffo,
 \newblock Disruption of functional organization within the primary motor cortex
   in children with autism.
 \newblock {\em Human brain mapping}, 35(2):567--580, 2014.
-
-\bibitem{pearl1988probabilistic}
-Judea Pearl.
-\newblock {\em Probabilistic reasoning in intelligent systems: networks of
-  plausible inference}.
-\newblock Morgan Kaufmann, 1988.
-
-\bibitem{rabiner1986introduction}
-Lawrence Rabiner and Biing-Hwang Juang.
-\newblock An introduction to hidden markov models.
-\newblock {\em ASSP Magazine, IEEE}, 3(1):4--16, 1986.
-
-\bibitem{rauch1963solutions}
-H~Rauch.
-\newblock Solutions to the linear smoothing problem.
-\newblock {\em Automatic Control, IEEE Transactions on}, 8(4):371--372, 1963.
 
 \bibitem{roweis1999unifying}
 Sam Roweis and Zoubin Ghahramani.
@@ -173,15 +117,6 @@ Berwin~A Turlach, William~N Venables, and Stephen~J Wright.
 \newblock Simultaneous variable selection.
 \newblock {\em Technometrics}, 47(3):349--363, 2005.
 
-\bibitem{valdes2005estimating}
-Pedro~A Vald{\'e}s-Sosa, Jose~M S{\'a}nchez-Bornot, Agust{\'\i}n
-  Lage-Castellanos, Mayrim Vega-Hern{\'a}ndez, Jorge Bosch-Bayard, Lester
-  Melie-Garc{\'\i}a, and Erick Canales-Rodr{\'\i}guez.
-\newblock Estimating brain functional connectivity with sparse multivariate
-  autoregression.
-\newblock {\em Philosophical Transactions of the Royal Society B: Biological
-  Sciences}, 360(1457):969--981, 2005.
-
 \bibitem{van2013wu}
 David~C Van~Essen, Stephen~M Smith, Deanna~M Barch, Timothy~EJ Behrens, Essa
   Yacoub, Kamil Ugurbil, WU-Minn~HCP Consortium, et~al.
@@ -193,12 +128,6 @@ Peter Van~Overschee and Bart De~Moor.
 \newblock N4sid: Subspace algorithms for the identification of combined
   deterministic-stochastic systems.
 \newblock {\em Automatica}, 30(1):75--93, 1994.
-
-\bibitem{wang2014systematic}
-Huifang~E Wang, Christian~G B{\'e}nar, Pascale~P Quilichini, Karl~J Friston,
-  Viktor~K Jirsa, and Christophe Bernard.
-\newblock A systematic framework for functional connectivity measures.
-\newblock {\em Frontiers in neuroscience}, 8, 2014.
 
 \bibitem{zhu2006automatic}
 Mu~Zhu and Ali Ghodsi.
