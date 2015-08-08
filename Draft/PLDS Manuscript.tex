@@ -18,6 +18,8 @@
 \usepackage{subfigure}
 \usepackage{authblk}
 \usepackage{helvet}
+\usepackage{url}
+
 \renewcommand{\familydefault}{\sfdefault}
 
 
@@ -41,27 +43,28 @@
 
 \begin{document}
 
-\title{Reduced Rank M-Estimation for High-Dimensional Linear Dynamical System Identification
+\title{An M-Estimator for Reduced-Rank High-Dimensional Linear Dynamical System Identification
 % A Sparse High Dimensional State-Space Model with an Application to Neuroimaging Data
 }
 %\author{\bf{Shaojie Chen, Joshua Vogelstein, Seonjoo Lee, Martin Lindquist, Brian Caffo}}
 \author[a]{Shaojie Chen}
-\author[b,f]{Joshua T. Vogelstein}
-\author[c]{Kai Liu}
-\author[d]{Yuguang Yang}
+\author[b]{Kai Liu}
+\author[c]{Yuguang Yang}
 \author[a]{Yuting Xu}
-\author[e]{Seonjoo Lee}
+\author[d]{Seonjoo Lee}
 \author[a]{Martin Lindquist}
 \author[a]{Brian S. Caffo}
+\author[e,f]{Joshua T. Vogelstein}
 \affil[a]{Dept. of Biostatistics, Johns Hopkins Bloomberg School of Public Health}
-\affil[b]{Dept. of Biomedical Enginnering and Institute for Computational Medicine, Johns Hopkins University}
-\affil[c]{Dept. of Neuroscience, Johns Hopkins University}
-\affil[d]{Dept. of Chemical and Biomolecular Engineering, Johns Hopkins University}
-\affil[e]{Dept. of Psychiatry and Department of Biostatistics, Columbia University}
+\affil[b]{Dept. of Neuroscience, Johns Hopkins University}
+\affil[c]{Dept. of Chemical and Biomolecular Engineering, Johns Hopkins University}
+\affil[d]{Dept. of Psychiatry and Department of Biostatistics, Columbia University}
+\affil[e]{Dept. of Biomedical Enginnering and Institute for Computational Medicine, Johns Hopkins University}
 \affil[f]{Child Mind Institute}
 \maketitle
 \section*{Abstract}
-blah
+High-dimensional time-series data are becoming increasingly abundant across a wide variety of domains, spanning economics, neuroscience,  particle physics, and cosmology to name a few.  Fitting statistical models to such data, to enable parameter estimation and time-series prediction, is an important computational primitive. 
+Existing methods, however, are unable to cope with the high-dimensional nature of these problems, due to both computational and statistical reasons.  We mitigate both kinds of issues via proposing an M-estimator for Reduced-rank System IDentification (\mrsid). A combination of low-rank approximations, $\ell_1$ and $\ell_2$ penalties, and some numerical linear algebra, yields an estimator that is computationally efficient and numerically stable.  Simulations and real data examples demonstrate the utility of this approach in a variety of problems.  In particular, we demonstrate that \mrsid~can estimate spatial filters, connectivity graphs, and time-courses from native resolution functional magnetic resonance imaging data.  Other applications and extensions are immediately available, as our approach is a generalization of the classical Kalman Filter-Smoother Expectation-Maximization algorithm.
 % In the past decade functional magnetic resonance imaging (fMRI) has facilitated major advances in our understanding of human brain function. The data that arise from a standard fMRI experiment are both high dimensional and complex in nature, making statistical analysis challenging. Matrix decomposition methods, such as factor analysis, principal component analysis (PCA) and independent component analysis (ICA), are commonly used to investigate spatio-temporal patterns present in fMRI data. It can be shown that the linear time-invariant state-space model, commonly used in time series analysis, unifies this broad class of models. While state-space models have been applied to fMRI data, these applications have been limited by constraints on the amount of data that can be included in the analysis. This is primarily because analysis in modern high-dimensional settings, such as neuroimaging, parameter estimation is challenging. This issue is addressed by introducing a penalized state-space model that applies $\ell_1$ and $\ell_2$ penalties to model coefficients. In addition, an Expectation-Maximization algorithm is provided that allows for efficient estimation of the model parameters. To illustrate our approach, we apply it to fMRI data measured over the motor cortex.
 \\
 \textbf{\emph{keywords}: state-space model, parameter estimation, sparsity, high dimensional, imaging processing, fMRI}
@@ -81,9 +84,9 @@ Parameter estimation---often called \emph{system identification} in this domain-
 
 The challenges associated high-dimensional time-series estimation and prediction are multifold.  First, na\"{i}vly such models include dense $p \times p$ matrices, which often are too large even to store, much less operate on.  Second, estimators behave poorly, due to numerical instability issues.  Third, even addressing these problems the time to compute all the necessary quantities can be overly burdensome.
 
-We address all three of these issues with our Reduced-rank M-estimator for System IDentification (\mrsid).  By assuming the dimensionality of the latent state space is small (reduced rank), relative to the ambient (or observed space dimensionality), we can significantly improve computational tractability and estimation accuracy. By further penalizing the estimators, with $\ell_1$ and/or $\ell_2$ penalties, utilizing prior knowledge on the structure of the parameters, we gain further estimation accuracy in this high-dimensional but relatively low-sample size regime.  Finally, by employing several numerical linear algebra tricks, we can bring the computational burden down significantly.  
+We address all three of these issues with our M-estimator for Reduced-rank  System IDentification (\mrsid).  By assuming the dimensionality of the latent state space is small (reduced rank), relative to the ambient (or observed space dimensionality), we can significantly improve computational tractability and estimation accuracy. By further penalizing the estimators, with $\ell_1$ and/or $\ell_2$ penalties, utilizing prior knowledge on the structure of the parameters, we gain further estimation accuracy in this high-dimensional but relatively low-sample size regime.  Finally, by employing several numerical linear algebra tricks, we can bring the computational burden down significantly.  
 
-These three techniques together enable us to obtain highly accurate estimates in a variety of simulation settings.  We numerically show that the hyper-parameters can be selected minimizing prediction error on held-out data.  Finally, we use \mrsid~ to estimate functional connectomes from motor cortex.  \mrsid~enables us to estimate the regions, rather than imposing some prior parcellation on the data, as well as estimate sparse connectivity between regions.  \mrsid~reliably estimates these connectomes, as well as predicts the held-out time-series data.  To our knowledge, this is the first time anybody has been able to estimate partitions and functional connectomes directly from the high-dimensional data, with a single unified approach.
+These three techniques together enable us to obtain highly accurate estimates in a variety of simulation settings.  \mrsid~is, in fact, a generalization of the now classic Baum-Welch expectation maximization algorithm, commonly used for system identification in much lower dimensional linear dynamical systems \cite{rabiner1989tutorial}. We numerically show that the hyper-parameters can be selected minimizing prediction error on held-out data.  Finally, we use \mrsid~ to estimate functional connectomes from motor cortex.  \mrsid~enables us to estimate the regions, rather than imposing some prior parcellation on the data, as well as estimate sparse connectivity between regions.  \mrsid~reliably estimates these connectomes, as well as predicts the held-out time-series data.  To our knowledge, this is the first time anybody has been able to estimate partitions and functional connectomes directly from the high-dimensional data, with a single unified approach.  To enable extensions, generalizations, and additional applications, the functions and code for generating each of the figures is freely available from \url{https://github.com/shachen/PLDS/}.
 
 
 

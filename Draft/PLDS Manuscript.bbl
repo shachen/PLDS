@@ -88,6 +88,12 @@ Mary~Beth Nebel, Suresh~E Joel, John Muschelli, Anita~D Barber, Brian~S Caffo,
   in children with autism.
 \newblock {\em Human brain mapping}, 35(2):567--580, 2014.
 
+\bibitem{rabiner1989tutorial}
+Lawrence~R Rabiner.
+\newblock A tutorial on hidden markov models and selected applications in
+  speech recognition.
+\newblock {\em Proceedings of the IEEE}, 77(2):257--286, 1989.
+
 \bibitem{roweis1999unifying}
 Sam Roweis and Zoubin Ghahramani.
 \newblock A unifying review of linear gaussian models.
