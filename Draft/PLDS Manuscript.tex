@@ -536,7 +536,7 @@ which involves the inverse of a large square matrix of dimension p by p. As stat
 (CV_t^{t-1}C^{\T}+R)^{-1} = R^{-1} - R^{-1}C[(V_t^{t-1})^{-1} + C^{\T}R^{-1}C]^{-1}C^{\T}R^{-1}
 \]
 
-With the above three techniques, the EM algorithm can scale to very high dimensions in terms of $p$, $d$ and $T$, without causing any computational issues.
+Also note that quantities like $R^{-1}$ and $C^{\T}R^{-1}C$ can be pre-computed and reused throughout the E step. With the above three techniques, the EM algorithm can scale to very high dimensions in terms of $p$, $d$ and $T$, without causing any computational issues.
 
 \subsection{The Data}
 
