@@ -39,7 +39,7 @@ Scov=zeros(d,d,T);
 
 %   CRC is used a lot, so save it separately to avoid multiple calculations
 CRC = C' * inv(R) * C;
-
+invR = inv(R);
 %   Filter
 for t=1:T
     if t==1
@@ -49,12 +49,14 @@ for t=1:T
         Fx1(:,t)=x0+v0*C'*inv(R)*(y(:,t)-C*x0)-v0*CRC*inv(inv(v0)+CRC)*C'*inv(R)*(y(:,t)-C*x0);
         Fx2(:,t)=A*Fx1(:,t);
     else
+    % here introduce temp1, temp2 to reduce duplicate computation
         v2=Fv2(:,:,t-1);
-        Fv1(:,:,t)=v2-v2*CRC*v2+v2*CRC*inv(inv(v2)+CRC)*CRC*v2;
+        temp1 = v2*CRC*inv(inv(v2)+CRC);     
+        Fv1(:,:,t)=v2-v2*CRC*v2+temp1*CRC*v2;
         Fv2(:,:,t)=A*Fv1(:,:,t)*A'+Q;
         x2=Fx2(:,t-1);
-        Fx1(:,t)=x2 + v2*C'*inv(R)*(y(:,t)-C*x2)-v2*CRC*inv(inv(v2) +CRC)*C'*inv(R)*(y(:,t)-C*x2);
-        Fx2(:,t)=A*Fx1(:,t);
+        temp2 = C'*invR * (y(:,t)-C*x2);
+        Fx1(:,t)=x2 + v2*temp2-temp1*temp2;
     end
 end
 
