@@ -1,145 +1,165 @@
 \begin{thebibliography}{10}
 
-\bibitem{allen2014generalized}
-Genevera~I Allen, Logan Grosenick, and Jonathan Taylor.
-\newblock A generalized least-square matrix decomposition.
-\newblock {\em Journal of the American Statistical Association},
-  109(505):145--159, 2014.
+\bibitem{Johansen1988}
+S.~r. Johansen, ``{Statistical analysis of cointegration vectors},'' {\em
+  Journal of Economic Dynamics and Control}, vol.~12, pp.~231--254, June 1988.
 
-\bibitem{amari1996new}
-Shun-ichi Amari, Andrzej Cichocki, Howard~Hua Yang, et~al.
-\newblock A new learning algorithm for blind signal separation.
-\newblock {\em Advances in neural information processing systems}, pages
-  757--763, 1996.
+\bibitem{Friston2003a}
+K.~Friston, L.~Harrison, and W.~Penny, ``{Dynamic causal modelling},'' {\em
+  NeuroImage}, vol.~19, pp.~1273--1302, Aug. 2003.
 
-\bibitem{arbabshirani2014impact}
-Mohammad~R Arbabshirani, Eswar Damaraju, Ronald Phlypo, Sergey Plis, Elena
-  Allen, Sai Ma, Daniel Mathalon, Adrian Preda, Jatin~G Vaidya, T{\"u}lay
-  Adali, et~al.
-\newblock Impact of autocorrelation on functional connectivity.
-\newblock {\em NeuroImage}, 2014.
+\bibitem{Xie2013a}
+Y.~Xie, J.~Huang, and R.~Willett, ``{Change-Point Detection for
+  High-Dimensional Time Series With Missing Data},'' {\em IEEE Journal of
+  Selected Topics in Signal Processing}, vol.~7, pp.~12--27, Feb. 2013.
 
-\bibitem{beck2009fast}
-Amir Beck and Marc Teboulle.
-\newblock A fast iterative shrinkage-thresholding algorithm for linear inverse
-  problems.
-\newblock {\em SIAM Journal on Imaging Sciences}, 2(1):183--202, 2009.
+\bibitem{Kalman1963}
+R.~E. Kalman, ``{Mathematical Description of Linear Dynamical Systems},'' {\em
+  Journal of the Society for Industrial and Applied Mathematics Series A
+  Control}, vol.~1, pp.~152--192, Jan. 1963.
 
-\bibitem{bootslearning}
-Byron Boots.
-\newblock Learning stable linear dynamical systems.
+\bibitem{Kalman1960a}
+R.~E. Kalman, ``{A New Approach to Linear Filtering and Prediction Problems},''
+  {\em Journal of Basic Engineering}, vol.~82, p.~35, Mar. 1960.
 
-\bibitem{daubechies2004iterative}
-Ingrid Daubechies, Michel Defrise, and Christine De~Mol.
-\newblock An iterative thresholding algorithm for linear inverse problems with
-  a sparsity constraint.
-\newblock {\em Communications on pure and applied mathematics},
-  57(11):1413--1457, 2004.
+\bibitem{Ljung1998}
+L.~Ljung, ``{System Identification},'' in {\em Signal Analysis and Prediction}
+  (A.~Proch\'{a}zka, J.~Uhl\'{\i}ř, P.~W.~J. Rayner, and N.~G. Kingsbury,
+  eds.), Applied and Numerical Harmonic Analysis, Boston, MA: Birkh\"{a}user
+  Boston, 1998.
 
-\bibitem{doretto2003dynamic}
-Gianfranco Doretto, Alessandro Chiuso, Ying~Nian Wu, and Stefano Soatto.
-\newblock Dynamic textures.
-\newblock {\em International Journal of Computer Vision}, 51(2):91--109, 2003.
+\bibitem{Hsieh2013}
+C.-J. Hsieh, M.~A. Sustik, I.~S. Dhillon, P.~K. Ravikumar, and R.~Poldrack,
+  ``{BIG \& QUIC: Sparse Inverse Covariance Estimation for a Million
+  Variables},'' in {\em Advances in Neural Information Processing Systems},
+  pp.~3165--3173, 2013.
 
-\bibitem{feinberg2010multiplexed}
-David~A Feinberg, Steen Moeller, Stephen~M Smith, Edward Auerbach, Sudhir
-  Ramanna, Matthias Gunther, Matt~F Glasser, Karla~L Miller, Kamil Ugurbil, and
-  Essa Yacoub.
-\newblock Multiplexed echo planar imaging for sub-second whole brain fmri and
-  fast diffusion imaging.
-\newblock {\em PloS one}, 5(12):e15710, 2010.
+\bibitem{Banerjee2013a}
+A.~Banerjee, J.~T. Vogelstein, and D.~B. Dunson, ``{Parallel inversion of huge
+  covariance matrices},'' {\em arXiv preprint}, Dec. 2013.
 
-\bibitem{ghahramani1996parameter}
-Zoubin Ghahramani and Geoffrey~E Hinton.
-\newblock Parameter estimation for linear dynamical systems.
-\newblock Technical report, Technical Report CRG-TR-96-2, University of
-  Totronto, Dept. of Computer Science, 1996.
+\bibitem{CHEN1989}
+S.~CHEN, S.~A. BILLINGS, and W.~LUO, ``{Orthogonal least squares methods and
+  their application to non-linear system identification},'' {\em International
+  Journal of Control}, vol.~50, pp.~1873--1896, Nov. 1989.
 
-\bibitem{kuhn1955hungarian}
-Harold~W Kuhn.
-\newblock The hungarian method for the assignment problem.
-\newblock {\em Naval research logistics quarterly}, 2(1-2):83--97, 1955.
-
-\bibitem{landman2011multi}
-Bennett~A Landman, Alan~J Huang, Aliya Gifford, Deepti~S Vikram, Issel Anne~L
-  Lim, Jonathan~AD Farrell, John~A Bogovic, Jun Hua, Min Chen, Samson Jarso,
-  et~al.
-\newblock Multi-parametric neuroimaging reproducibility: A 3-t resource study.
-\newblock {\em Neuroimage}, 54(4):2854--2866, 2011.
-
-\bibitem{meier2008complex}
-Jeffrey~D Meier, Tyson~N Aflalo, Sabine Kastner, and Michael~SA Graziano.
-\newblock Complex organization of human primary motor cortex: a high-resolution
-  fmri study.
-\newblock {\em Journal of neurophysiology}, 100(4):1800--1812, 2008.
-
-\bibitem{moeller2010multiband}
-Steen Moeller, Essa Yacoub, Cheryl~A Olman, Edward Auerbach, John Strupp, Noam
-  Harel, and K{\^a}mil U{\u{g}}urbil.
-\newblock Multiband multislice ge-epi at 7 tesla, with 16-fold acceleration
-  using partial parallel imaging with application to high spatial and temporal
-  whole-brain fmri.
-\newblock {\em Magnetic Resonance in Medicine}, 63(5):1144--1153, 2010.
-
-\bibitem{nebel2014disruption}
-Mary~Beth Nebel, Suresh~E Joel, John Muschelli, Anita~D Barber, Brian~S Caffo,
-  James~J Pekar, and Stewart~H Mostofsky.
-\newblock Disruption of functional organization within the primary motor cortex
-  in children with autism.
-\newblock {\em Human brain mapping}, 35(2):567--580, 2014.
+\bibitem{Zaharia2010}
+M.~Zaharia, M.~Chowdhury, M.~J. Franklin, S.~Shenker, and I.~Stoica, ``Spark:
+  cluster computing with working sets,'' in {\em Proceedings of the 2nd USENIX
+  conference on Hot topics in cloud computing}, vol.~10, p.~10, 2010.
 
 \bibitem{rabiner1989tutorial}
-Lawrence~R Rabiner.
-\newblock A tutorial on hidden markov models and selected applications in
-  speech recognition.
-\newblock {\em Proceedings of the IEEE}, 77(2):257--286, 1989.
+L.~R. Rabiner, ``A tutorial on hidden markov models and selected applications
+  in speech recognition,'' {\em Proceedings of the IEEE}, vol.~77, no.~2,
+  pp.~257--286, 1989.
 
 \bibitem{roweis1999unifying}
-Sam Roweis and Zoubin Ghahramani.
-\newblock A unifying review of linear gaussian models.
-\newblock {\em Neural computation}, 11(2):305--345, 1999.
+S.~Roweis and Z.~Ghahramani, ``A unifying review of linear gaussian models,''
+  {\em Neural computation}, vol.~11, no.~2, pp.~305--345, 1999.
 
 \bibitem{shumway1982approach}
-Robert~H Shumway and David~S Stoffer.
-\newblock An approach to time series smoothing and forecasting using the em
-  algorithm.
-\newblock {\em Journal of time series analysis}, 3(4):253--264, 1982.
+R.~H. Shumway and D.~S. Stoffer, ``An approach to time series smoothing and
+  forecasting using the em algorithm,'' {\em Journal of time series analysis},
+  vol.~3, no.~4, pp.~253--264, 1982.
 
-\bibitem{smith2004advances}
-Stephen~M Smith, Mark Jenkinson, Mark~W Woolrich, Christian~F Beckmann,
-  Timothy~EJ Behrens, Heidi Johansen-Berg, Peter~R Bannister, Marilena De~Luca,
-  Ivana Drobnjak, David~E Flitney, et~al.
-\newblock Advances in functional and structural mr image analysis and
-  implementation as fsl.
-\newblock {\em Neuroimage}, 23:S208--S219, 2004.
-
-\bibitem{tikhonov1943stability}
-Andrey~Nikolayevich Tikhonov.
-\newblock On the stability of inverse problems.
-\newblock In {\em Dokl. Akad. Nauk SSSR}, volume~39, pages 195--198, 1943.
-
-\bibitem{turlach2005simultaneous}
-Berwin~A Turlach, William~N Venables, and Stephen~J Wright.
-\newblock Simultaneous variable selection.
-\newblock {\em Technometrics}, 47(3):349--363, 2005.
-
-\bibitem{van2013wu}
-David~C Van~Essen, Stephen~M Smith, Deanna~M Barch, Timothy~EJ Behrens, Essa
-  Yacoub, Kamil Ugurbil, WU-Minn~HCP Consortium, et~al.
-\newblock The wu-minn human connectome project: an overview.
-\newblock {\em Neuroimage}, 80:62--79, 2013.
+\bibitem{ghahramani1996parameter}
+Z.~Ghahramani and G.~E. Hinton, ``Parameter estimation for linear dynamical
+  systems,'' tech. rep., Technical Report CRG-TR-96-2, University of Totronto,
+  Dept. of Computer Science, 1996.
 
 \bibitem{van1994n4sid}
-Peter Van~Overschee and Bart De~Moor.
-\newblock N4sid: Subspace algorithms for the identification of combined
-  deterministic-stochastic systems.
-\newblock {\em Automatica}, 30(1):75--93, 1994.
+P.~Van~Overschee and B.~De~Moor, ``N4sid: Subspace algorithms for the
+  identification of combined deterministic-stochastic systems,'' {\em
+  Automatica}, vol.~30, no.~1, pp.~75--93, 1994.
+
+\bibitem{doretto2003dynamic}
+G.~Doretto, A.~Chiuso, Y.~N. Wu, and S.~Soatto, ``Dynamic textures,'' {\em
+  International Journal of Computer Vision}, vol.~51, no.~2, pp.~91--109, 2003.
+
+\bibitem{bootslearning}
+B.~Boots, ``Learning stable linear dynamical systems,''
+
+\bibitem{turlach2005simultaneous}
+B.~A. Turlach, W.~N. Venables, and S.~J. Wright, ``Simultaneous variable
+  selection,'' {\em Technometrics}, vol.~47, no.~3, pp.~349--363, 2005.
+
+\bibitem{tikhonov1943stability}
+A.~N. Tikhonov, ``On the stability of inverse problems,'' in {\em Dokl. Akad.
+  Nauk SSSR}, vol.~39, pp.~195--198, 1943.
+
+\bibitem{beck2009fast}
+A.~Beck and M.~Teboulle, ``A fast iterative shrinkage-thresholding algorithm
+  for linear inverse problems,'' {\em SIAM Journal on Imaging Sciences},
+  vol.~2, no.~1, pp.~183--202, 2009.
+
+\bibitem{daubechies2004iterative}
+I.~Daubechies, M.~Defrise, and C.~De~Mol, ``An iterative thresholding algorithm
+  for linear inverse problems with a sparsity constraint,'' {\em Communications
+  on pure and applied mathematics}, vol.~57, no.~11, pp.~1413--1457, 2004.
+
+\bibitem{landman2011multi}
+B.~A. Landman, A.~J. Huang, A.~Gifford, D.~S. Vikram, I.~A.~L. Lim, J.~A.
+  Farrell, J.~A. Bogovic, J.~Hua, M.~Chen, S.~Jarso, {\em et~al.},
+  ``Multi-parametric neuroimaging reproducibility: A 3-t resource study,'' {\em
+  Neuroimage}, vol.~54, no.~4, pp.~2854--2866, 2011.
+
+\bibitem{van2013wu}
+D.~C. Van~Essen, S.~M. Smith, D.~M. Barch, T.~E. Behrens, E.~Yacoub,
+  K.~Ugurbil, W.-M.~H. Consortium, {\em et~al.}, ``The wu-minn human connectome
+  project: an overview,'' {\em Neuroimage}, vol.~80, pp.~62--79, 2013.
+
+\bibitem{moeller2010multiband}
+S.~Moeller, E.~Yacoub, C.~A. Olman, E.~Auerbach, J.~Strupp, N.~Harel, and
+  K.~U{\u{g}}urbil, ``Multiband multislice ge-epi at 7 tesla, with 16-fold
+  acceleration using partial parallel imaging with application to high spatial
+  and temporal whole-brain fmri,'' {\em Magnetic Resonance in Medicine},
+  vol.~63, no.~5, pp.~1144--1153, 2010.
+
+\bibitem{feinberg2010multiplexed}
+D.~A. Feinberg, S.~Moeller, S.~M. Smith, E.~Auerbach, S.~Ramanna, M.~Gunther,
+  M.~F. Glasser, K.~L. Miller, K.~Ugurbil, and E.~Yacoub, ``Multiplexed echo
+  planar imaging for sub-second whole brain fmri and fast diffusion imaging,''
+  {\em PloS one}, vol.~5, no.~12, p.~e15710, 2010.
+
+\bibitem{kuhn1955hungarian}
+H.~W. Kuhn, ``The hungarian method for the assignment problem,'' {\em Naval
+  research logistics quarterly}, vol.~2, no.~1-2, pp.~83--97, 1955.
+
+\bibitem{smith2004advances}
+S.~M. Smith, M.~Jenkinson, M.~W. Woolrich, C.~F. Beckmann, T.~E. Behrens,
+  H.~Johansen-Berg, P.~R. Bannister, M.~De~Luca, I.~Drobnjak, D.~E. Flitney,
+  {\em et~al.}, ``Advances in functional and structural mr image analysis and
+  implementation as fsl,'' {\em Neuroimage}, vol.~23, pp.~S208--S219, 2004.
+
+\bibitem{meier2008complex}
+J.~D. Meier, T.~N. Aflalo, S.~Kastner, and M.~S. Graziano, ``Complex
+  organization of human primary motor cortex: a high-resolution fmri study,''
+  {\em Journal of neurophysiology}, vol.~100, no.~4, pp.~1800--1812, 2008.
 
 \bibitem{zhu2006automatic}
-Mu~Zhu and Ali Ghodsi.
-\newblock Automatic dimensionality selection from the scree plot via the use of
-  profile likelihood.
-\newblock {\em Computational Statistics \& Data Analysis}, 51(2):918--930,
-  2006.
+M.~Zhu and A.~Ghodsi, ``Automatic dimensionality selection from the scree plot
+  via the use of profile likelihood,'' {\em Computational Statistics \& Data
+  Analysis}, vol.~51, no.~2, pp.~918--930, 2006.
+
+\bibitem{amari1996new}
+S.-i. Amari, A.~Cichocki, H.~H. Yang, {\em et~al.}, ``A new learning algorithm
+  for blind signal separation,'' {\em Advances in neural information processing
+  systems}, pp.~757--763, 1996.
+
+\bibitem{nebel2014disruption}
+M.~B. Nebel, S.~E. Joel, J.~Muschelli, A.~D. Barber, B.~S. Caffo, J.~J. Pekar,
+  and S.~H. Mostofsky, ``Disruption of functional organization within the
+  primary motor cortex in children with autism,'' {\em Human brain mapping},
+  vol.~35, no.~2, pp.~567--580, 2014.
+
+\bibitem{allen2014generalized}
+G.~I. Allen, L.~Grosenick, and J.~Taylor, ``A generalized least-square matrix
+  decomposition,'' {\em Journal of the American Statistical Association},
+  vol.~109, no.~505, pp.~145--159, 2014.
+
+\bibitem{arbabshirani2014impact}
+M.~R. Arbabshirani, E.~Damaraju, R.~Phlypo, S.~Plis, E.~Allen, S.~Ma,
+  D.~Mathalon, A.~Preda, J.~G. Vaidya, T.~Adali, {\em et~al.}, ``Impact of
+  autocorrelation on functional connectivity,'' {\em NeuroImage}, 2014.
 
 \end{thebibliography}
