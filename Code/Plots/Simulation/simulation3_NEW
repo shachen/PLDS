@@ -1,0 +1,49 @@
+######### plot estimated matrix vs iteration - YUTING
+require(R.matlab)
+# may need to change the file path below
+source('../../Functions/canon_cor.R')
+cancor = NULL
+
+# may need to change the file path below
+data = readMat('C:/Users/Yuting/Desktop/attachments/p-1000-d-30-T-300-sim1_iter-result.mat')
+
+p = data$p
+d = data$d
+T = data$T
+cormat = data$cormat # first half of cormat are correlation <aap,A>; second half <ccp,C>
+iters = t(data$iters)
+nn = length(iters)
+
+for(i in 1:nn){
+  aapcor = cormat[[i]][[1]]
+  ccpcor = cormat[[nn + i]][[1]]
+  
+  if(sum(is.na(aapcor)) | sum(is.na(ccpcor))){
+    next;
+  }
+  
+  #I=diag(rep(1,dim(aacor)[1]))
+  I=diag(rep(1,d))
+  xaap = mean(diag(pMatrix.min(aapcor,I)$A))
+  xccp = mean(diag(pMatrix.min(ccpcor,I)$A))
+  newrow = c(xaap,xccp)
+  cancor = rbind(cancor,newrow)
+}
+colnames(cancor) <- c("Estimation of A","Estimation of C")
+
+# may need to change the file path below
+pdf("C:/Users/Yuting/Desktop/attachments/figure1.pdf")
+matplot(iters,cancor,type="o",pch = 20,xlab = "Iterations", ylab = "Accuracy",main="Estimation Accuracy vs Iterations")
+legend(20,0.8,colnames(cancor),lty = c(1,2),col = c(1,2),pch = 20)
+dev.off()
+
+######### plot estimated matrix vs iteration
+require(R.matlab)
+
+# may need to change the file path below
+data2 = readMat('C:/Users/Yuting/Desktop/attachments/p-300-d-10-T-100-sim3_iter-result.mat')
+
+# may need to change the file path below
+pdf("C:/Users/Yuting/Desktop/attachments/figure2.pdf")
+plot(data2$iters,data2$accuracy,type="o",lty = 2,col = 3,xlab = "Iterations", ylab = "Accuracy",main = "Prediction Accuracy vs Iterations")
+dev.off()
