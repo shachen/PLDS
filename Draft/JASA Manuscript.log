@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.30)  12 SEP 2015 23:28
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.30)  13 SEP 2015 01:16
 entering extended mode
 **C:/Ubuntu/Github/PLDS/Draft/JASA*Manuscript.tex
 ("C:/Ubuntu/Github/PLDS/Draft/JASA Manuscript.tex"
@@ -303,6 +303,13 @@ Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS)
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip61
+\bibsep=\skip62
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count114
+)
 ("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
 LaTeX Font Info:    ... okay on input line 52.
@@ -323,16 +330,16 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 (C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count114
+\scratchcounter=\count115
 \scratchdimen=\dimen127
 \scratchbox=\box31
-\nofMPsegments=\count115
-\nofMParguments=\count116
+\nofMPsegments=\count116
+\nofMParguments=\count117
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count117
+\MPscratchCnt=\count118
 \MPscratchDim=\dimen128
-\MPnumerator=\count118
-\makeMPintoPDFobject=\count119
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
 \everyMPtoPDFconversion=\toks30
 )
 Package caption Info: Begin \AtBeginDocument code.
@@ -368,28 +375,29 @@ LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <12> not available
 (Font)              Font shape `OT1/phv/b/sl' tried instead on input line 78.
  [1
 
-{C:/Users/Jason/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+{C:/Users/Jason/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
 (Font)              Font shape `OT1/phv/m/sl' tried instead on input line 90.
- [3] [4]
+ [2] [3]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 104.
- [5] [6]
-[7] [8]
-Overfull \hbox (26.12543pt too wide) in paragraph at lines 195--196
-\OT1/phv/m/n/12 ob-served se-quence (or mul-ti-ple se-quences in some ap-pli-ca
--tions) of out-puts $[] \OT1/cmr/m/n/12 = ([][]\OML/cmm/m/it/12 ; [] ; [][]\OT1
-/cmr/m/n/12 )$\OT1/phv/m/n/12 ,
+
+Overfull \hbox (23.30241pt too wide) in paragraph at lines 104--105
+\OT1/phv/m/n/12 re-spec-tively. By the Bayesian rule, the joint prob-a-bil-ity 
+of $[]$ and $[]$ is $\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; []
+\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OMS/cmsy/m/n/12 j[]\O
+T1/cmr/m/n/12 )\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([])$\OT1/phv/m/n/12 .
  []
 
-[9]
+[4] [5] [6] [7] [8]
 LaTeX Font Info:    Try loading font information for U+bbm on input line 205.
- (C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\bbm\ubbm.fd
+
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-Overfull \hbox (52.1881pt too wide) detected at line 206
+Overfull \hbox (37.73431pt too wide) detected at line 206
  $\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; []\OT1/cmr/m/n/12 ) =
  \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OMS/cmsy/m/n/12 j[]\OT1/cmr/m/n/12 )\OML
 /cmm/m/it/12 P\OT1/cmr/m/n/12 ([]) = \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([][]) [
@@ -400,178 +408,131 @@ Overfull \hbox (52.1881pt too wide) detected at line 206
 cmr/m/n/12 )\U/bbm/m/n/12 1[]\OT1/cmr/m/n/12 ([][])$ 
  []
 
-[10] [11]
+[9]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 243.
 
-Overfull \hbox (16.84935pt too wide) in paragraph at lines 244--245
+Overfull \hbox (2.39557pt too wide) in paragraph at lines 244--245
 []\OT1/phv/m/n/12 The E step of EM re-quires com-put-ing the ex-pected log like
 -li-hood, $\OT1/cmr/m/n/12   = \OML/cmm/m/it/12 E\OT1/cmr/m/n/12 [[] \OML/cmm/m
 /it/12 P\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; []\OMS/cmsy/m/n/12 j[]\OT1/cmr/m/
 n/12 )]$\OT1/phv/m/n/12 .
  []
 
-[12] [13] [14] [15] [16] [17] [18] [19]
-<./figures/low-d-simulation.pdf, id=82, 505.89pt x 505.89pt>
+[10] [11] [12] [13] [14]
+Overfull \hbox (2.61436pt too wide) in paragraph at lines 384--385
+[]\OT1/phv/m/n/12 Also note that quan-ti-ties like $\OML/cmm/m/it/12 R[]$ \OT1/
+phv/m/n/12 and $\OML/cmm/m/it/12 C[]R[]C$ \OT1/phv/m/n/12 can be pre-computed a
+nd reused through-
+ []
+
+[15] [16] [17] <./figures/low-d-simulation.pdf, id=75, 505.89pt x 505.89pt>
 File: ./figures/low-d-simulation.pdf Graphic file (type pdf)
 
 <use ./figures/low-d-simulation.pdf>
-Package pdftex.def Info: ./figures/low-d-simulation.pdf used on input line 432.
+Package pdftex.def Info: ./figures/low-d-simulation.pdf used on input line 425.
 
 (pdftex.def)             Requested size: 217.52844pt x 217.52844pt.
 
-<./figures/high-d-simulation.pdf, id=83, 505.89pt x 505.89pt>
+<./figures/high-d-simulation.pdf, id=76, 505.89pt x 505.89pt>
 File: ./figures/high-d-simulation.pdf Graphic file (type pdf)
 
 <use ./figures/high-d-simulation.pdf>
-Package pdftex.def Info: ./figures/high-d-simulation.pdf used on input line 435
+Package pdftex.def Info: ./figures/high-d-simulation.pdf used on input line 428
 .
 (pdftex.def)             Requested size: 217.52844pt x 217.52844pt.
 
-<./figures/heatmap-figure-1.pdf, id=84, 722.7pt x 505.89pt>
+<./figures/heatmap-figure-1.pdf, id=77, 722.7pt x 505.89pt>
 File: ./figures/heatmap-figure-1.pdf Graphic file (type pdf)
 
 <use ./figures/heatmap-figure-1.pdf>
-Package pdftex.def Info: ./figures/heatmap-figure-1.pdf used on input line 444.
+Package pdftex.def Info: ./figures/heatmap-figure-1.pdf used on input line 437.
 
 (pdftex.def)             Requested size: 433.62334pt x 303.53633pt.
- [20] [21 <C:/Ubuntu/Github/PLDS/Draft/figures/low-d-simulation.pdf> <C:/Ubuntu
-/Github/PLDS/Draft/figures/high-d-simulation.pdf>] [22 <C:/Ubuntu/Github/PLDS/D
-raft/figures/heatmap-figure-1.pdf>]
-<./figures/est-pred-accuracy.pdf, id=116, 505.89pt x 505.89pt>
+ [18 <C:/Ubuntu/Github/PLDS/Draft/figures/low-d-simulation.pdf> <C:/Ubuntu/Gith
+ub/PLDS/Draft/figures/high-d-simulation.pdf>] [19 <C:/Ubuntu/Github/PLDS/Draft/
+figures/heatmap-figure-1.pdf>]
+<./figures/est-pred-accuracy.pdf, id=107, 505.89pt x 505.89pt>
 File: ./figures/est-pred-accuracy.pdf Graphic file (type pdf)
 
 <use ./figures/est-pred-accuracy.pdf>
-Package pdftex.def Info: ./figures/est-pred-accuracy.pdf used on input line 471
+Package pdftex.def Info: ./figures/est-pred-accuracy.pdf used on input line 464
 .
 (pdftex.def)             Requested size: 202.3524pt x 202.3524pt.
- [23] [24 <C:/Ubuntu/Github/PLDS/Draft/figures/est-pred-accuracy.pdf>] [25]
-<./figures/EigenValues.pdf, id=134, 505.89pt x 505.89pt>
-File: ./figures/EigenValues.pdf Graphic file (type pdf)
-
-<use ./figures/EigenValues.pdf>
-Package pdftex.def Info: ./figures/EigenValues.pdf used on input line 495.
-(pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
-
-<./figures/profileLikelihood.pdf, id=135, 505.89pt x 505.89pt>
-File: ./figures/profileLikelihood.pdf Graphic file (type pdf)
-
-<use ./figures/profileLikelihood.pdf>
-Package pdftex.def Info: ./figures/profileLikelihood.pdf used on input line 495
-.
-(pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
-
-Overfull \hbox (13.0268pt too wide) detected at line 497
- $[]$ 
- []
-
-[26 <C:/Ubuntu/Github/PLDS/Draft/figures/EigenValues.pdf> <C:/Ubuntu/Github/PLD
-S/Draft/figures/profileLikelihood.pdf>]
-<./figures/ConnectivityGraph_11_all.pdf, id=151, 505.89pt x 505.89pt>
-File: ./figures/ConnectivityGraph_11_all.pdf Graphic file (type pdf)
-
-<use ./figures/ConnectivityGraph_11_all.pdf>
-Package pdftex.def Info: ./figures/ConnectivityGraph_11_all.pdf used on input l
-ine 508.
-(pdftex.def)             Requested size: 354.12057pt x 354.12057pt.
-
-<./figures/A-matrices-similarity.pdf, id=152, 505.89pt x 505.89pt>
-File: ./figures/A-matrices-similarity.pdf Graphic file (type pdf)
-
-<use ./figures/A-matrices-similarity.pdf>
-Package pdftex.def Info: ./figures/A-matrices-similarity.pdf used on input line
- 545.
-(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
- [27] [28 <C:/Ubuntu/Github/PLDS/Draft/figures/ConnectivityGraph_11_all.pdf>]
-<./figures/view1.png, id=166, 404.51125pt x 401.5pt>
+ [20] [21 <C:/Ubuntu/Github/PLDS/Draft/figures/est-pred-accuracy.pdf>] [22]
+<./figures/view1.png, id=124, 404.51125pt x 401.5pt>
 File: ./figures/view1.png Graphic file (type png)
  <use ./figures/view1.png>
-Package pdftex.def Info: ./figures/view1.png used on input line 556.
+Package pdftex.def Info: ./figures/view1.png used on input line 529.
 (pdftex.def)             Requested size: 145.62393pt x 144.53989pt.
 
-<./figures/view2.png, id=167, 404.51125pt x 401.5pt>
+<./figures/view2.png, id=125, 404.51125pt x 401.5pt>
 File: ./figures/view2.png Graphic file (type png)
  <use ./figures/view2.png>
-Package pdftex.def Info: ./figures/view2.png used on input line 556.
+Package pdftex.def Info: ./figures/view2.png used on input line 529.
 (pdftex.def)             Requested size: 133.48912pt x 132.4954pt.
 
-<./figures/view3.png, id=168, 404.51125pt x 401.5pt>
+<./figures/view3.png, id=126, 404.51125pt x 401.5pt>
 File: ./figures/view3.png Graphic file (type png)
  <use ./figures/view3.png>
-Package pdftex.def Info: ./figures/view3.png used on input line 556.
+Package pdftex.def Info: ./figures/view3.png used on input line 529.
 (pdftex.def)             Requested size: 133.48912pt x 132.4954pt.
 
-[29 <C:/Ubuntu/Github/PLDS/Draft/figures/A-matrices-similarity.pdf>] [30 <C:/Ub
-untu/Github/PLDS/Draft/figures/view1.png (PNG copy)> <C:/Ubuntu/Github/PLDS/Dra
-ft/figures/view2.png (PNG copy)> <C:/Ubuntu/Github/PLDS/Draft/figures/view3.png
- (PNG copy)>] <./figures/hcp_pred_accy.pdf, id=181, 505.89pt x 505.89pt>
+[23 <C:/Ubuntu/Github/PLDS/Draft/figures/view1.png (PNG copy)> <C:/Ubuntu/Githu
+b/PLDS/Draft/figures/view2.png (PNG copy)> <C:/Ubuntu/Github/PLDS/Draft/figures
+/view3.png (PNG copy)>]
+<./figures/hcp_pred_accy.pdf, id=130, 505.89pt x 505.89pt>
 File: ./figures/hcp_pred_accy.pdf Graphic file (type pdf)
 
 <use ./figures/hcp_pred_accy.pdf>
-Package pdftex.def Info: ./figures/hcp_pred_accy.pdf used on input line 570.
+Package pdftex.def Info: ./figures/hcp_pred_accy.pdf used on input line 543.
 (pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
 
-<./figures/newSampleTS.pdf, id=182, 505.89pt x 505.89pt>
+<./figures/newSampleTS.pdf, id=131, 505.89pt x 505.89pt>
 File: ./figures/newSampleTS.pdf Graphic file (type pdf)
 
 <use ./figures/newSampleTS.pdf>
-Package pdftex.def Info: ./figures/newSampleTS.pdf used on input line 571.
+Package pdftex.def Info: ./figures/newSampleTS.pdf used on input line 544.
 (pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
- [31 <C:/Ubuntu/Github/PLDS/Draft/figures/hcp_pred_accy.pdf> <C:/Ubuntu/Github/
-PLDS/Draft/figures/newSampleTS.pdf>] [32]
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 623--625
-
- []
-
-[34]
-Overfull \hbox (113.5149pt too wide) in paragraph at lines 659--674
-[][] 
- []
-
-[35]
-Overfull \hbox (33.40018pt too wide) in paragraph at lines 677--693
-[][] 
- []
-
-[36] [37] ("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.bbl"
+ [24 <C:/Ubuntu/Github/PLDS/Draft/figures/hcp_pred_accy.pdf> <C:/Ubuntu/Github/
+PLDS/Draft/figures/newSampleTS.pdf>]
+("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.bbl" [25] [26] [27]
 Missing character: There is no Å in font phvr7t!
 Missing character: There is no ™ in font phvr7t!
- [38] [39] [40]
-[41]) [42] ("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.aux") ) 
+ [28])
+[29] ("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.aux") ) 
 Here is how much of TeX's memory you used:
- 5295 strings out of 493921
- 80207 string characters out of 3146079
- 144037 words of memory out of 3000000
- 8426 multiletter control sequences out of 15000+200000
+ 5661 strings out of 493921
+ 85036 string characters out of 3146079
+ 150057 words of memory out of 3000000
+ 8792 multiletter control sequences out of 15000+200000
  41584 words of font info for 104 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 42i,16n,38p,1372b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Jaso
-n\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\bbm\dpi600\bbm12.pk>{C:/Disk 
-D/Program Files/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/Disk D/Program Files
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Disk D/Program Files/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Disk D/Program Files/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Disk D/Program Files/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmmi12.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmmi6.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmmi8.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmmib10.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/c
-m/cmr12.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6
-.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C
-:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Disk
- D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Disk D/Pr
-ogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Disk D/Program 
-Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Disk D/Program Files/
-MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Disk D/Program Files/
-MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts
-/type1/urw/helvetic/uhvb8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/
-helvetic/uhvbo8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvetic/u
-hvr8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-
-Output written on "JASA Manuscript.pdf" (42 pages, 723454 bytes).
+ 42i,16n,38p,1458b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Jason\AppD
+ata\Local\MiKTeX\2.9\fonts\pk\ljfour\public\bbm\dpi600\bbm12.pk>{C:/Disk D/Prog
+ram Files/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/Disk D/Program Files/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Disk D/Program Files/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Disk D/Program Files/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmex10.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmmi12.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmmi6.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmmib10.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr1
+2.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><
+C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Disk
+ D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Disk D/Pro
+gram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Disk D/Program 
+Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Disk D/Program Files/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Disk D/Program Files/MiKTeX
+/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Disk D/Program Files/MiKTeX
+/fonts/type1/urw/courier/ucrr8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1
+/urw/helvetic/uhvb8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvet
+ic/uhvbo8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.
+pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on "JASA Manuscript.pdf" (29 pages, 673061 bytes).
 PDF statistics:
- 300 PDF objects out of 1000 (max. 8388607)
+ 228 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

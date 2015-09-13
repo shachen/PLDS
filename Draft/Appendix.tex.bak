@@ -1,0 +1,143 @@
+%&latex
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx,psfrag,epsf}
+\usepackage{enumerate}
+%\usepackage{natbib}
+\usepackage{url} % not crucial - just used below for the URL
+
+%\pdfminorversion=4
+% NOTE: To produce blinded version, replace "0" with "1" below.
+\newcommand{\blind}{0}
+
+% DON'T change margins - should be 1 inch all around.
+\addtolength{\oddsidemargin}{-.5in}%
+\addtolength{\evensidemargin}{-.5in}%
+\addtolength{\textwidth}{1in}%
+\addtolength{\textheight}{-.3in}%
+\addtolength{\topmargin}{-.8in}%
+
+\providecommand{\mb}[1]{\boldsymbol{#1}}
+\newcommand{\bx}{\mb{x}}
+\newcommand{\by}{\mb{y}}
+\newcommand{\bX}{\mb{X}}
+\newcommand{\bY}{\mb{Y}}
+
+\let\oldref\ref
+\renewcommand{\ref}[1]{(\oldref{#1})}
+
+%\newcommand{\T}{^{\ensuremath{\mathsf{T}}}} % transpose
+\newcommand{\T}{^{\ensuremath{\mathsf{T}}}}           % transpose
+\newcommand{\mrsid}{{\sc \texttt{Mr}.~\texttt{Sid}}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\diag}{\operatornamewithlimits{diag}}
+
+
+
+\begin{document}
+
+\section*{Appendix 1}
+\label{sec:appendix1}
+
+\begin{tabular}{l}
+\hline
+\textbf{Algorithm } Standard Kalman Filter Smoother for estimating the moments \\
+$\qquad\quad\quad$ required in the E-step of an EM algorithm for a linear dynamical system\\
+\hline
+0. Define $\bx_t^{\tau}$ = E($\bx_t|\bY_1^{\tau}$),$\mathbf{V}_t^{\tau}=\text{Var}(\bx_t|\bY_1^{\tau})$, $\hat{\bx}_t \equiv \bx_t^T$ and $\hat{P}_t\equiv V_t^T+\bx_t^T{\bx_t^T}^{\T}$\\
+1. Forward Recursions:\\
+\hspace{4 mm} $\bx_t^{t-1}=A\bx_{t-1}^{t-1}$\\
+\hspace{4 mm} $\mathbf{V}_t^{t-1}=A\mathbf{V}_{t-1}^{t-1}+\mathbf{Q}$\\
+\hspace{4 mm} $K_t=\mathbf{V}_t^{t-1}C^{\T}(CV_t^{t-1}C^{\T}+R)^{-1}$\\
+\hspace{4 mm} $\bx_t^t$ = $\bx_t^{t-1} + K_t (\by_t - C\bx_t^{t-1})$\\
+\hspace{4 mm} $V_t^t=V_t^{t-1}-K_tCV_t^{t-1}$\\
+\hspace{4 mm} $\bx_1^0=\mathbf{\pi}_0$, $V_1^0=\mathbf{V}_0$\\
+2. Backward Recursions:\\
+\hspace{4 mm} $J_{t-1} = V_{t-1}^{t-1}A^{\T}(V_t^{t-1})^{-1}$\\
+\hspace{4 mm} $\bx_{t-1}^T=\bx_{t-1}^{t-1}+J_{t-1}(\mathbf{x_t^T-A\bx_{t-1}^{t-1}})$\\
+\hspace{4 mm} $V_{t-1}^T = V_{t-1}^{t-1}+J_{t-1}(V_t^T-V_t^{t-1})J_{t-1}^{\T}$\\
+\hspace{4 mm} $\hat{P}_{t,t-1}\equiv V_{t,t-1}^T+\bx_t^T{\bx_t^T}^{\T}$\\
+\hspace{4 mm} $V_{T,T-1}^T=(I-K_TC)AV_{T-1}^{T-1}$\\
+\hline
+\end{tabular}
+
+\newpage
+
+\section*{Appendix 2}
+\label{sec:appendix2}
+In general, FISTA optimize a target function
+\begin{equation}\label{eqn: fistatarget}
+\min_{\substack{x\in \mathcal{X}}}\quad \mathbf{F(x;\lambda)} = \mathbf{g(x)}+ \mathbf{\lambda \|x\|_1}
+\end{equation}
+where $\mathbf{g}: R^n \rightarrow R $ is a continuously differentiable convex function and $\lambda > 0$ is the regularization parameter. A FISTA algorithm with constant step is detailed below\\
+
+%\begin{center}
+\begin{tabular}{l}
+\hline
+\textbf{Algorithm } FISTA$(\mathbf{g},\lambda)$.\\
+\hline
+ 1. Input an initial guess $\mathbf{x_0}$ and Lipschitz constant $\mathbf{L}$ for $\mathbf{\nabla g}$, set $\mathbf{y_1} = \mathbf{x_0},t_1 = 1$\\
+ 2. Choose $\tau \in (0,1/\mathbf{L}]$; Set $k \leftarrow$ 0.\\
+ 3. \textbf{loop}\\
+ 4. \hspace{10mm}		Evaluate $\mathbf{\nabla g(y_k)}$\\
+ 5.	\hspace{10mm}	Compute $\mathbf{x_{1}}$= $\mathbf{S_{\tau\lambda}(y_k - \tau\nabla g(y_k))}$\\
+ 6.	\hspace{10mm}	Compute $t_{k+1} = \frac{1+\sqrt{1 + 4 t_k^2}}{2}$\\
+ 7.	\hspace{10mm}	$\mathbf{y_{k+1}} = \mathbf{x_k} + \left(\frac{t_k - 1}{t_{k+1}})\right (\mathbf{x_k}-\mathbf{x_{k-1}})$\\
+ 8.	\hspace{10mm}	Set $k \leftarrow k+1$ \\
+ 9. \textbf{end loop}\\
+\hline
+\end{tabular}
+%\end{center}
+
+
+\vspace*{10mm}
+In the above
+\[
+\mathbf{S_\lambda (y) = (|y|-\lambda)_{+}\textbf{sign}(y)}=\left\{
+\begin{array}{l l }
+ y - \lambda & \text{if   } y > \lambda\\
+ y + \lambda & \text{if   } y < -\lambda\\
+ 0 & \text{if   } |y| \leq \lambda .
+\end{array}
+\right.
+\]
+
+\section*{Appendix 3}
+\label{sec:appendix3}
+\begin{tabular}{l}
+\hline
+\textbf{Algorithm } $k$-step predictions with PCA and \mrsid\\
+\hline
+ 1. Denote estimations with PCA and \mrsid~as $A_{pca},C_{pca},A_{plds},$ and $C_{plds}$ respectively.\\
+ 2. PCA estimated latent states at $t=1000$: $x_{1000,pca} = $ column 1000 of $\bX_{d\times T}$ from Section 3.3 \\
+ 3. \mrsid~estimated latent states at $t=1000$: $x_{1000,pls}$ is from E step of the EM algorithm in Section 3.4\\
+ 4. \textbf{for i = 1 to k}\\
+ 5. \hspace{10mm}		$x_{1000+k,pca}\ =\ A_{pca}\ x_{999+k,pca}$\\
+ 6.	\hspace{10mm}	$y_{1000+k,pca}\ =\ C_{pca}\ x_{1000+k,pca}$\\
+ 7.	\hspace{10mm}	$x_{1000+k,plds}\ =\ A_{plds}\ x_{999+k,plds}$\\
+ 8.	\hspace{10mm}	$y_{1000+k,plds}\ =\ C_{plds}\ x_{1000+k,plds}$\\
+ 9. \textbf{end}\\
+\hline
+\end{tabular}
+
+\section*{Appendix 4}
+\label{sec:appendix4}
+\begin{tabular}{l}
+\hline
+\textbf{Algorithm } Simulation Data Generation\\
+\hline
+ 1. Denote the dimensions as $p$, $d$ and $T$ respectively\\
+ 2. Generate a $p\times d$ matrix $C_0$ from a standard Gaussian distribution\\
+ 3. Sort each column of $C_0$ in ascending order to get matrix $C$ \\
+ 4. Generate a $d\times d$ matrix $A_0$ from a standard Gaussian distribution\\
+ 5. Add a multiple of the identity matrix to $A_0$\\
+ 6.	Replace entries in $A_0$ with small absolute values with $0$\\
+ 7.	Scale $A_0$ to make sure its eigen values are between $-1$ and $1$; use $A_0$ as the A matrix\\
+ 8.	Let $R$ be a diagonal matrix with positive diagonal entries and $Q$ be the identity matrix \\
+ 9. Generate simulation data with $A, C, Q$ and $R$ \\
+ 10. \textbf{end}\\
+\hline
+\end{tabular}
+
+\end{document}

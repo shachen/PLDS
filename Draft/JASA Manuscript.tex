@@ -19,15 +19,15 @@
 \usepackage{authblk}
 \usepackage{helvet}
 \usepackage{url}
-%\usepackage{natbib}
+\usepackage{natbib}
 
 
 \renewcommand{\familydefault}{\sfdefault}
 
-\addtolength{\oddsidemargin}{-.5in}%
-\addtolength{\evensidemargin}{-.5in}%
-\addtolength{\textwidth}{1in}%
-\addtolength{\textheight}{-.3in}%
+\addtolength{\oddsidemargin}{-.6in}%
+\addtolength{\evensidemargin}{-.6in}%
+\addtolength{\textwidth}{1.2in}%
+\addtolength{\textheight}{0.4in}%
 \addtolength{\topmargin}{-.8in}%
 
 
@@ -76,7 +76,7 @@ Existing methods, however, are unable to cope with the high-dimensional nature o
 % In the past decade functional magnetic resonance imaging (fMRI) has facilitated major advances in our understanding of human brain function. The data that arise from a standard fMRI experiment are both high dimensional and complex in nature, making statistical analysis challenging. Matrix decomposition methods, such as factor analysis, principal component analysis (PCA) and independent component analysis (ICA), are commonly used to investigate spatio-temporal patterns present in fMRI data. It can be shown that the linear time-invariant state-space model, commonly used in time series analysis, unifies this broad class of models. While state-space models have been applied to fMRI data, these applications have been limited by constraints on the amount of data that can be included in the analysis. This is primarily because analysis in modern high-dimensional settings, such as neuroimaging, parameter estimation is challenging. This issue is addressed by introducing a penalized state-space model that applies $\ell_1$ and $\ell_2$ penalties to model coefficients. In addition, an Expectation-Maximization algorithm is provided that allows for efficient estimation of the model parameters. To illustrate our approach, we apply it to fMRI data measured over the motor cortex.
 \\
 \textbf{\emph{keywords}: state-space model, parameter estimation, sparsity, imaging processing, fMRI}
-\newpage
+%\newpage
 \section{Introduction}
 
 %\begin{itemize}
@@ -84,24 +84,24 @@ Existing methods, however, are unable to cope with the high-dimensional nature o
 %\item designed an expectation-maximization algorithm to solve the proposed model
 %\item used the model for neuroimage data analysis and explored the primary motor cortex of human brain
 %\end{itemize}
-High-dimensional time-series data are becoming increasingly abundant across a wide variety of domains, spanning economics \cite{Johansen1988}, neuroscience \cite{Friston2003a},   and cosmology \cite{Xie2013a}.
+High-dimensional time-series data are becoming increasingly abundant across a wide variety of domains, spanning economics \citep{Johansen1988}, neuroscience \citep{Friston2003a},   and cosmology \citep{Xie2013a}.
 Fitting statistical models to such data, to enable parameter estimation and time-series prediction, is an important computational primitive.
-Linear dynamical systems (LDS) models are amongst the most popular and powerful, because of their intuitive nature and ease of implementation \cite{Kalman1963}.   The famous Kalman Filter Smoother is one of the most popular and powerful methods for time-series prediction in an LDS, given known parameters \cite{Kalman1960a}.
-In practive, however, for many LDSs, the parameters are unknown, and must be estimated, a process often called \emph{system identification} in this domain \cite{Ljung1998}.  To date, there does not exist, to our knowledge, a methodology that provides parameter estimates and predictions from ultrahigh-dimensional time-series data (for example, $p > 10$,$000$).
+Linear dynamical systems (LDS) models are amongst the most popular and powerful, because of their intuitive nature and ease of implementation \citep{Kalman1963}.   The famous Kalman Filter Smoother is one of the most popular and powerful methods for time-series prediction in an LDS, given known parameters \citep{Kalman1960a}.
+In practive, however, for many LDSs, the parameters are unknown, and must be estimated, a process often called \emph{system identification} in this domain \citep{Ljung1998}.  To date, there does not exist, to our knowledge, a methodology that provides parameter estimates and predictions from ultrahigh-dimensional time-series data (for example, $p > 10$,$000$).
 
-The challenges associated high-dimensional time-series estimation and prediction are multifold.  First, na\"{i}vely such models include dense $p \times p$ matrices, which often are too large even to store, and much too large to invert in memory.  For large sparse matrices, recently, several efforts to invert them using a series of computational tricks are promising, though still extremely computationally expensive  \cite{Hsieh2013, Banerjee2013a}.
+The challenges associated high-dimensional time-series estimation and prediction are multifold.  First, na\"{i}vely such models include dense $p \times p$ matrices, which often are too large even to store, and much too large to invert in memory.  For large sparse matrices, recently, several efforts to invert them using a series of computational tricks are promising, though still extremely computationally expensive  \citep{Hsieh2013, Banerjee2013a}.
 Second, estimators behave poorly, due to numerical instability issues.
-Reduced rank LDS models reduce the number of latent dimensions, and therefore partially address this problem \cite{CHEN1989}.  However, without further constraints, the dimensionality of the latent states must be so small as to significantly decrease the predictive capacity of the resulting model.  Third, even after addressing these problems, the time to compute all the necessary quantities can be overly burdensome. Distributed memory implementations, such as using Spark, might be above to overcome this problem, but it would at additional costs and set-up burden, as it would require a Spark cluster \cite{Zaharia2010}.
+Reduced rank LDS models reduce the number of latent dimensions, and therefore partially address this problem \citep{CHEN1989}.  However, without further constraints, the dimensionality of the latent states must be so small as to significantly decrease the predictive capacity of the resulting model.  Third, even after addressing these problems, the time to compute all the necessary quantities can be overly burdensome. Distributed memory implementations, such as using Spark, might be above to overcome this problem, but it would at additional costs and set-up burden, as it would require a Spark cluster \citep{Zaharia2010}.
 
 We address all three of these issues with our M-estimator for Reduced-rank  System IDentification (\mrsid).  By assuming the dimensionality of the latent state space is small (reduced rank), relative to the ambient, or observed, space dimensionality, we can significantly improve computational tractability and estimation accuracy. By further penalizing the estimators, with $\ell_1$ and/or $\ell_2$ penalties, utilizing prior knowledge on the structure of the parameters, we gain further estimation accuracy in this high-dimensional but relatively low-sample size regime.  Finally, by employing several numerical linear algebra tricks, we can bring the computational burden down significantly.
 
-These three techniques together enable us to obtain highly accurate estimates in a variety of simulation settings.  \mrsid~is, in fact, a generalization of the now classic Baum-Welch expectation maximization algorithm, commonly used for system identification in much lower dimensional linear dynamical systems \cite{rabiner1989tutorial}. We numerically show that the hyper-parameters can be selected minimizing prediction error on held-out data.  Finally, we use \mrsid~to estimate functional connectomes from motor cortex.  \mrsid~enables us to estimate the regions, rather than imposing some prior parcellation on the data, as well as estimate sparse connectivity between regions.  \mrsid~reliably estimates these connectomes, as well as predicts the held-out time-series data.  To our knowledge, this is the first time anybody has been able to estimate partitions and functional connectomes directly from the high-dimensional data, with a single unified approach.  To enable extensions, generalizations, and additional applications, the functions and code for generating each of the figures is freely available from \url{https://github.com/shachen/PLDS/}.
+These three techniques together enable us to obtain highly accurate estimates in a variety of simulation settings.  \mrsid~is, in fact, a generalization of the now classic Baum-Welch expectation maximization algorithm, commonly used for system identification in much lower dimensional linear dynamical systems \citep{rabiner1989tutorial}. We numerically show that the hyper-parameters can be selected minimizing prediction error on held-out data.  Finally, we use \mrsid~to estimate functional connectomes from motor cortex.  \mrsid~enables us to estimate the regions, rather than imposing some prior parcellation on the data, as well as estimate sparse connectivity between regions.  \mrsid~reliably estimates these connectomes, as well as predicts the held-out time-series data.  To our knowledge, this is the first time anybody has been able to estimate partitions and functional connectomes directly from the high-dimensional data, with a single unified approach.  To enable extensions, generalizations, and additional applications, the functions and code for generating each of the figures is freely available from \url{https://github.com/shachen/PLDS/} (referred to as the PLDS Git Repo in following sections).
 
 
 
 \section{The Model}
 
-In statistical data analysis, one often encounter some observed signals and also has some unobserved or latent variables, which are denoted as $\bY=(\by_1,\ldots,\by_T)$ and $\bX=(\bx_1,\ldots,\bx_T)$ respectively. By the Bayesian rule, the joint probability of $\bY$ and $\bX$ is $P(\bX,\bY)=P(\bY|\bX) P(\bX)$. The joint conditional distribution $P(\mb{Y}|\mb{X})$ and joint prior can both be represented as a product of marginals:
+In statistical data analysis, one often encounter some observed signals and also some unobserved or latent variables, which we denote as $\bY=(\by_1,\ldots,\by_T)$ and $\bX=(\bx_1,\ldots,\bx_T)$ respectively. By the Bayesian rule, the joint probability of $\bY$ and $\bX$ is $P(\bX,\bY)=P(\bY|\bX) P(\bX)$. The conditional distribution $P(\mb{Y}|\mb{X})$ and prior can both be represented as a product of marginals:
 \begin{equation}
 \begin{aligned}
 P(\mb{Y}|\mb{X}) &= \prod_{t=1}^T P(\by_t | \by_{0:t-1}, x_{0:t}), \\
@@ -140,7 +140,7 @@ Without applying further constraints, the model itself is unidentifiable. Supple
 &\textbf{Constraint 3: } V_0=\mathbf{0}
 \end{aligned}
 \end{equation*}
-Note that the first two constraints follow directly from Roweis and Ghahramani (1999) \cite{roweis1999unifying}.
+Note that the first two constraints follow directly from Roweis and Ghahramani (1999) \citep{roweis1999unifying}.
 
 The logic for Constraint 1 is as follows. Since Q is a covariance matrix, it is symmetric and positive semidefinite and thus can be expressed in the form $E\Lambda E^T$ where $E$ is a rotation matrix of eigenvectors and $\Lambda$ is a diagonal matrix of eigenvalues. Thus, for any model where $Q$ is not the identity matrix, one can generate an equivalent model using a new state vector $\bx^{\T}=\Lambda^{-1/2} E^T \bx$ with $A^{\T}=(\Lambda^{-1/2}E^T)A(E\Lambda^{1/2})$ and $C^{\T}=C(E\Lambda^{1/2})$ such that the new covariance of $\bx^{\T}$ is the identity matrix, i.e., $Q^{\T}=\mathbf{I}$. Thus one can constrain $Q=\mathbf{I}$ without loss of generality.
 
@@ -159,7 +159,7 @@ The following three constraints are further applied to achieve a more useful mod
 \end{aligned}
 \end{equation*}
 
-Consider the case where the observed data are high dimensional and the $R$ matrix is very large. One can not accurately estimate the many free parameters in $R$ with limited observed data. Therefore some constraints on $R$ will help with inferential accuracy, by virtue of significantly reducing variance while not adding too much bias. In the simplest case, $R$ is set to an identity matrix or its multiple. More generally, one can also constrain matrix $R$ to be diagonal. In the static model with no temporal dynamics, a diagonal $R$ is equivalent to the generic Factor Analysis method, while multiples of the identity $R$ matrix lead to Principal Component Analysis (PCA) \cite{roweis1999unifying}.
+Consider the case where the observed data are high dimensional and the $R$ matrix is very large. One can not accurately estimate the many free parameters in $R$ with limited observed data. Therefore some constraints on $R$ will help with inferential accuracy, by virtue of significantly reducing variance while not adding too much bias. In the simplest case, $R$ is set to an identity matrix or its multiple. More generally, one can also constrain matrix $R$ to be diagonal. In the static model with no temporal dynamics, a diagonal $R$ is equivalent to the generic Factor Analysis method, while multiples of the identity $R$ matrix lead to Principal Component Analysis (PCA) \citep{roweis1999unifying}.
 
 The $A$ matrix is the transition matrix of the hidden states. In our application, it is a central construct of interest representing a so-called connectivity graph. In many applications, it is desirable for this graph to be sparse. In this work, an $\ell_1$ penalty term on $A$ is used to impose sparsity on the connectivity graph.
 
@@ -196,7 +196,7 @@ The motivating application requires solving optimization problem \ref{eqn:penalt
 
 Parameter estimation for LDS has been investigated extensively by researchers from control theory, signal processing, machine learning and statistics. For example, in machine learning, exact and variational learning algorithms are developed for general Bayesian networks. In control theory, the corresponding area of study is known as system identification, which identifies parameters in continuous state models.
 
-Specifically, one way to search for the maximum likelihood solution is through iterative techniques such as expectation maximization (EM) \cite{shumway1982approach}. The detailed EM steps for a generic LDS can be found in Zoubin and Geoffrey (1996) \cite{ghahramani1996parameter}. An alternative approach is to use subspace identification methods such as N4SID and PCA-ID to compute an asymptotically unbiased solution in closed form \cite{van1994n4sid,doretto2003dynamic}. In practice, determining an initial solution with subspace identification and then refining the solution with EM is an effective approach \cite{bootslearning}.
+Specifically, one way to search for the maximum likelihood solution is through iterative techniques such as expectation maximization (EM) \citep{shumway1982approach}. The detailed EM steps for a generic LDS can be found in Zoubin and Geoffrey (1996) \citep{ghahramani1996parameter}. An alternative approach is to use subspace identification methods such as N4SID and PCA-ID to compute an asymptotically unbiased solution in closed form \citep{van1994n4sid,doretto2003dynamic}. In practice, determining an initial solution with subspace identification and then refining the solution with EM is an effective approach \citep{bootslearning}.
 
 However, the above solutions can not be directly applied to optimization problem \ref{eqn:penaltylik} due to the introduced penalty terms. We therefore developed a novel algorithm called M-estimation for Reduced rank System IDentification (\mrsid), as detailed in the following.
 
@@ -248,12 +248,11 @@ The E step of EM requires computing the expected log likelihood, $\Gamma = E[\lo
 %\end{aligned}
 \end{equation}
 
-Expectations \ref{eq:expecs} are estimated with a Kalman filter/smoother, which is detailed in \nameref{sec:appendix1}. Notice that all expectations are taken with respect to the current estimations of parameters.
+Expectations \ref{eq:expecs} are estimated with a Kalman filter/smoother, which is detailed in the Appendix on the PLDS Git Repo. Notice that all expectations are taken with respect to the current estimations of parameters.
 \subsection{M Step}
 The parameters are $\theta =\{A,C,R,\mathbf{\pi}_0\}$. Each of them is estimated by taking the corresponding partial derivatives of $\mathbf{\Phi}(\theta,\bY,\bx)$, setting to zero and solving.
 
 Denote estimations from previous step as $\theta^{\text{old}} =\{A^{\text{old}},C^{\text{old}},R^{\text{old}},\mathbf{\pi}_0^{\text{old}}\}$ and current estimations as $\theta^{\text{new}} =\{A^{\text{new}},C^{\text{new}},R^{\text{new}},\mathbf{\pi}_0^{\text{new}}\}$. Estimation for output noise covariance $R$ has closed form solution,
-
 \begin{equation}\label{eq:updateR}
 \begin{aligned}
 \frac{\partial \mathbf{\Phi}}{\partial R^{-1}} &= \frac{T}{2}R - \sum\limits_{t=1}^T\bigl(\frac{1}{2}\by_t\by_t^{\T} - C\hat{\bx}_t\by_t^{\T}+\frac{1}{2}C\hat{P}_tC^{\T}\bigr) =0 \\
@@ -273,7 +272,7 @@ Estimation for transition matrix $C$ also has closed form solution, and the solu
 f_{\lambda_2}(C;\bX,\bY) = \sum\limits_{t=1}^{T}\left(\frac{1}{2}[\by_t-C\bx_t]^{\T}R^{-1}[\by_t-C\bx_t]\right)+\lambda_2 \|C\|_2.
 \end{equation}
 
-In $f_{\lambda_2}(C;\bX,\bY)$, $C$ is a matrix, we vectorized it to ease optimization and notation. Here we follow the methods of Turlach et al. \cite{turlach2005simultaneous}. Without loss of generality, assume $R$ is the identity matrix in equation \ref{eq:penaltylik1}; otherwise, one can always write equation \ref{eq:penaltylik1} as
+In $f_{\lambda_2}(C;\bX,\bY)$, $C$ is a matrix, we vectorized it to ease optimization and notation. Here we follow the methods of \citet{turlach2005simultaneous}. Without loss of generality, assume $R$ is the identity matrix in equation \ref{eq:penaltylik1}; otherwise, one can always write equation \ref{eq:penaltylik1} as
 \begin{equation*}
 \sum\limits_{t=1}^{T}\left(\frac{1}{2}[R^{-\frac{1}{2}}y_t-R^{-\frac{1}{2}}Cx_t]^{\T}[R^{-\frac{1}{2}y_t}-R^{-\frac{1}{2}}Cx_t]\right) + \lambda_2 \|R^{-\frac{1}{2}}C\|
 \end{equation*}
@@ -298,7 +297,7 @@ where $C_{ij}$ is the element at row $i$ and column $j$ of $C$. With these new n
 \begin{equation}\label{eq:penaltylik11}
 f_{\lambda_2}(C;\bX,\bY) = \|\bY'  - \mathbf{X' c}\|_2^2 + \lambda_2\|\mathbf{c}\|_2^2.
 \end{equation}
-With the Tikhonov regularization \cite{tikhonov1943stability}, equation \ref{eq:penaltylik11} has closed form solution
+With the Tikhonov regularization \citep{tikhonov1943stability}, equation \ref{eq:penaltylik11} has closed form solution
 \begin{equation}\label{eq:updatec}
 \begin{aligned}
 \mathbf{c}^{\text{new}} &= (\bX'^{\T}\bX' + \lambda_2\mathbf{I})^{-1}\bX'^{\T}\bY'\\
@@ -328,7 +327,7 @@ where $\mathbf{z}$ is a $Td \times 1$ vector from rearranging $\bX$ and $\mathbf
 %\]
 %where $Z=\biggl(\bx_0,\ldots,\bx_{T-1}\biggr)$.
 
-Though not having a closed form solution, $f_{\lambda_1}(A;\bX,\bY)$ can be solved numerically with a Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) \cite{beck2009fast}. FISTA is an accelerated version of the Iterative Shrinkage-Threshholding Algorithm (ISTA) \cite{daubechies2004iterative}. ISTA is linearly convergent while FISTA is quadratic convergent. Steps of a general FISTA algorithm can be found in \nameref{sec:appendix2}.
+Though not having a closed form solution, $f_{\lambda_1}(A;\bX,\bY)$ can be solved numerically with a Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) \citep{beck2009fast}. FISTA is an accelerated version of the Iterative Shrinkage-Threshholding Algorithm (ISTA) \citep{daubechies2004iterative}. ISTA is linearly convergent while FISTA is quadratic convergent. Steps of a general FISTA algorithm can be found in the Appendix on the PLDS Git Repo.
 
 FISTA requires calculating the Lipschitz constant $L$ for $\nabla\mathbf{g(z)}=\mathbf{Z}^{\T}(\mathbf{Z}\mathbf{a} -\mathbf{z})$, where $\mathbf{g}(\mathbf{z})=\|\mathbf{Z}^{\T}\mathbf{a} -\mathbf{z}\|_2^2$. Denote $\|Z\|$ as the induced norm of matrix $Z$, then $L$ is
 \[
@@ -368,7 +367,7 @@ The complete EM algorithm for \mrsid~is addressed in Table \oldref{tab:em}. Noti
 \hline
 \textbf{E Step}\\
 0. Initialize $\theta =\{A,C,R,\mathbf{\pi}_0\}$ as in Section \oldref{sec:initial}, if first loop\\
-1. Update the expectations in \ref{eq:expecs} with the Kalman filter smoother in \nameref{sec:appendix1}\\
+1. Update the expectations in \ref{eq:expecs} with the Kalman filter smoother\\
 \hline
 \end{tabular}
 \end{table}
@@ -378,7 +377,7 @@ The major factors that affect the efficiency and scalability of the above EM alg
 
 First, a sparse matrix is used to represent R. When dimension $p$ gets higher, the size of $R$ increase quadratically, which will easily exceed the memory capacity of a computer.  Fortunately, with Constraint 4, $R$ is sparse and can be represented with a sparse matrix. For example, when $p=10,000$, the full $R$ matrix consumes over 100 gigabyte of memory, while the sparse matrix takes less than 1 megabyte.
 
-In addition, to update R in the M step, directly calculate its diagonal without calculating the full matrix R.
+In addition, to update $R$ in the M step, directly calculate its diagonal without calculating the full matrix $R$.
 
 Finally, in the E-step, a term $K_t=V_t^{t-1}C^{\T}(CV_t^{t-1}C^{\T}+R)^{-1}$ involving $R$ need to be calculated, which involves the inverse of a large square matrix of dimension p by p. As stated previously, such a matrix exceeds available memory when p is high. The Woodbury Matrix Identity is employed to turn a high dimensional inverse to low dimensional problem: $(CV_t^{t-1}C^{\T}+R)^{-1} = R^{-1} - R^{-1}C[(V_t^{t-1})^{-1} + C^{\T}R^{-1}C]^{-1}C^{\T}R^{-1}$.
 
@@ -386,16 +385,10 @@ Also note that quantities like $R^{-1}$ and $C^{\T}R^{-1}C$ can be pre-computed 
 
 \subsection{The Data}
 
-The Kirby 21 data are resting-state fMRI scans consisting of a test-retest dataset previously acquired at the FM Kirby Research Center at the Kennedy Krieger Institute, Johns Hopkins University \cite{landman2011multi}. Twenty-one healthy volunteers with no history of neurological disease each underwent two separate resting state fMRI sessions on the same scanner: a 3T MR scanner utilizing a body coil with a 2D echoplanar (EPI) sequence and eight channel phased array SENSitivity Encoding (SENSE; factor of 2) with the following parameters: TR 2s; 3mm$\times$3mm in plane resolution; slice gap 1mm; and total imaging time of 7 minutes and 14 seconds.
+The Kirby 21 data are resting-state fMRI scans consisting of a test-retest dataset previously acquired at the FM Kirby Research Center at the Kennedy Krieger Institute, Johns Hopkins University \citep{landman2011multi}. Twenty-one healthy volunteers with no history of neurological disease each underwent two separate resting state fMRI sessions on the same scanner: a 3T MR scanner utilizing a body coil with a 2D echoplanar (EPI) sequence and eight channel phased array SENSitivity Encoding (SENSE; factor of 2) with the following parameters: TR 2s; 3mm$\times$3mm in plane resolution; slice gap 1mm; and total imaging time of 7 minutes and 14 seconds.
 
-The Human Connectome Project is a systematic effort to map macroscopic human brain circuits and their relationship to behavior in a large population of healthy adults \cite{van2013wu,moeller2010multiband,feinberg2010multiplexed}. MR scanning includes four imaging modalities, acquired at high resolutions: structural MRI, resting-state fMRI (rfMRI), task fMRI (tfMRI), and diffusion MRI (dMRI). All 1200 subjects are scanned using all four of these modalities on a customized 3 T scanner.  All scans consist of 1200 time points.
-%This issue can be overcome using the , as follows: the inverse of a matrix with a low rank correction is calculated by adding a low rank correction to its inverse.
-%\begin{align*}
-%&(A+UCV)^{-1} = A^{-1} - A^{-1}U(C^{-1} + VA^{-1}U)^{-1}VA^{-1}
-%%&v_0C^{'}*(R + Cv_0C^{'})^{-1}Cv_0 = v_0C^{'}R^{-1}Cv_0 - v_0C^{'}R^{-1}C(v_0^{-1} +C^{'}R^{-1}C)^{-1}C^{'}R^{-1}Cv_0\\
-%%&=v_0 P v_0 - v_0 P (v_0^{-1} + P)^{-1} P v_0, P = C^{'} R^{-1} C\\
-%\end{align*}
-%where $U$ is $n\times m$ and $V$ is $m \times n$ dimensional and $n>>m$.
+The Human Connectome Project is a systematic effort to map macroscopic human brain circuits and their relationship to behavior in a large population of healthy adults \citep{van2013wu,moeller2010multiband,feinberg2010multiplexed}. MR scanning includes four imaging modalities, acquired at high resolutions: structural MRI, resting-state fMRI (rfMRI), task fMRI (tfMRI), and diffusion MRI (dMRI). All 1200 subjects are scanned using all four of these modalities on a customized 3 T scanner.  All scans consist of 1200 time points.
+
 
 \section{Results}
 \subsection{Parameter Estimation}
@@ -403,7 +396,7 @@ The Human Connectome Project is a systematic effort to map macroscopic human bra
 Two simulations of different dimensions are performed to demonstrate the model and its parameter estimations.
 
 %The $A$ matrix is generated such that the conditional number is no less than some threshold, 50 being used.
-In the low dimensional setting, $p = 300$, $d = 10$ and $T = 100$. A is first generated from a random matrix, then elements with small absolute values are then truncated such that 20 percent of elements are zeros. After that a multiple of the identity matrix is added to A. $A$ is then scaled to make sure its eigenvalues fall within $[-1,1]$ to avoid diverging time series. Matrix C is generated as follows. Each column contains random samples from a standard Gaussian distribution. Then each column is sorted in ascending order. Covariance $Q$ is the identity matrix and covariance $R$ is a multiple of the identity matrix. At time 0, a zero vector $\mathbf{0}$ is used as the value of $\mathbf{x_0}$. Pseudocode for data generation is included in \nameref{sec:appendix4}.
+In the low dimensional setting, $p = 300$, $d = 10$ and $T = 100$. A is first generated from a random matrix, then elements with small absolute values are then truncated such that 20 percent of elements are zeros. After that a multiple of the identity matrix is added to A. $A$ is then scaled to make sure its eigenvalues fall within $[-1,1]$ to avoid diverging time series. Matrix C is generated as follows. Each column contains random samples from a standard Gaussian distribution. Then each column is sorted in ascending order. Covariance $Q$ is the identity matrix and covariance $R$ is a multiple of the identity matrix. At time 0, a zero vector $\mathbf{0}$ is used as the value of $\mathbf{x_0}$. Pseudocode for data generation can be found in the Appendix on PLDS Git Repo.
 
 In the high-dimensional setting, $p = 10000$, $d = 30$ and $T = 100$. The parameter are generated in a the same manner.
 
@@ -416,7 +409,7 @@ d(A,B) = \argmin_{P\in P(n)}\left\{\log\bigl[\frac{n}{\text{\footnotesize Trace}
 \end{equation}
 where $C_{A,B}$ is the correlation matrix between columns of A and B, $P(n)$ is the collection of all the permutation matrices of order n and $P$ is a permutation matrix.
 
-As a result of the way it's defined, $d(A,B)$ is invariant to the scales of columns of $A$ and $B$. It is also invariant to a permutation of columns of either matrix. The calculation of $d(A,B)$ is exactly a linear assignment problem and can be solved in polynomial time with the Hungarian algorithm \cite{kuhn1955hungarian}.
+As a result of the way it's defined, $d(A,B)$ is invariant to the scales of columns of $A$ and $B$. It is also invariant to a permutation of columns of either matrix. The calculation of $d(A,B)$ is exactly a linear assignment problem and can be solved in polynomial time with the Hungarian algorithm \citep{kuhn1955hungarian}.
 
 
 Both the generic LDS and the penalized LDS are applied to the simulation data. As the true parameters are sparse, we expect that the penalized algorithms would yield better estimations with appropriately chosen penalty parameters. When the penalties are approaching 0, the penalized algorithm should converge to the generic model. In addition, when the penalties are too big or too small compared to the optimal values, estimations might be less accurate.
@@ -479,50 +472,31 @@ From the plots one can see that the prediction accuracy first improves then drop
 \label{sec:application}
 When applied to fMRI data analysis, the model has very good interpretability. Each $\by_t$ is a time step including the entire brain volume. Each column of the $C$ matrix is interpreted as a time-invariant brain ``point spread function''. At each time point, the observed brain image, $\by_t$, is a linear mixture of latent co-assemblies of neural activity  $\bx_t$. Matrix $A$ describes how $\bx_t$ evolves over time. $A$ can also be viewed as a directed graph if each neural assembly is treated as a vertex. Each neural assembly is spatially smooth and connectivities across them are empirically sparse. This naturally fits into the sparsity and smoothness assumptions in \mrsid.
 
-\mrsid~is applied to analyze the motor cortex of human brains from the KIRBY 21 Data. In this application, test-retest scans from two subjects are analyzed. The imaging data are first preprocessed with FSL, a comprehensive library of analysis tools for fMRI, MRI and DTI brain imaging data \cite{smith2004advances}. FSL is used for spatial smoothing with Gaussian kernel. Then \mrsid~is applied on the smoothed data.
+\mrsid~is applied to analyze the motor cortex of human brains from the KIRBY 21 Data. In this application, test-retest scans from two subjects are analyzed. The imaging data are first preprocessed with FSL, a comprehensive library of analysis tools for fMRI, MRI and DTI brain imaging data \citep{smith2004advances}. FSL is used for spatial smoothing with Gaussian kernel. Then \mrsid~is applied on the smoothed data.
 
 The following are basic descriptions of the data and model parameters: number of voxels, $p = 7396$; Number of scans, $T = 210$; Number of latent states, $d = 11$. Tuning parameters: $\lambda_A = \lambda_C = 10^{-5}$. Different combinations of $\lambda_A$ and $\lambda_C$, where $\lambda_A = \lambda_C$ is applied to the data. The values range from $10^{-10}$ to $10^{4}$. Then the estimations are used to make predictions. The combination that gives the best predictions is used here. One can also use a grid of combinations, but it is time consuming. Max number of iterations for EM and the regularized subproblems are both 30 steps.
 
-The number of latent states, d, can be manually selected based on related research that maps the primary motor region to human activities. For instance, Meier et al. mapped the motor region to 9 human organs: tongue, lips, squint, fingers, wrist, forearm, elbow, foot and saccade \cite{meier2008complex}.
+%The number of latent states, d, can be manually selected based on related research that maps the primary motor region to human activities. For instance, Meier et al. mapped the motor region to 9 human organs: tongue, lips, squint, fingers, wrist, forearm, elbow, foot and saccade \cite{meier2008complex}.
 
-A more flexible technique to choose the number of latent states involves the profile likelihood method proposed by Zhu et al. \cite{zhu2006automatic}. As a first step, eigenvalues of the data matrix are calculated with Principal Component Analysis (PCA). The cumulative eigenvalues as a percentage of the sum of all eigenvalues are then plotted - see Figure \oldref{fig:eigvals}. Visually one notes that the first 10 eigenvalues take over $80\%$ of all variations. The number of latent states can be selected as the smallest number (of eigenvalues) that explains over $80\%$ of total variation in the data. However, the drawback of this method is clear: the choice of threshold percentage (here $80\%$) is highly subjective. The profile likelihood method overcomes this problem and could pick the dimension automatically.
+A flexible method to choose the number of latent states involves the profile likelihood method proposed by Zhu et al. \citep{zhu2006automatic}. The method assumes eigenvalues of the data matrix come from a mixed Gaussian and use profile likelihood to pick the optimal number of latent states. Apply the method to all four scans, the numbers of latents states selected are 11, 6, 14 and 15 respectively. Their average, $d=11$, is used.
 
-The above method assumes that the first $k$ eigenvalues are samples from a Gaussian distribution $N(\mu_1,\sigma^2)$, while the rest are from a different Gaussian distribution $N(\mu_2,\sigma^2)$. Then the profile likelihood can be calculated given $k$, for all $k=1,\cdots,T$ and selecting the optimal $k$ as the one with the highest profile likelihood. As shown in Figure \oldref{fig:eigvals}, when the profile likelihood method is applied to the first scan of subject one, d = 11 is selected. Apply the method to all four scans, the numbers of latents states selected are 11, 6, 14 and 15 respectively. Their average, $d=11$, is used.
+%A more flexible technique to choose the number of latent states involves the profile likelihood method proposed by Zhu et al. \cite{zhu2006automatic}. As a first step, eigenvalues of the data matrix are calculated with Principal Component Analysis (PCA). The cumulative eigenvalues as a percentage of the sum of all eigenvalues are then plotted - see Figure \oldref{fig:eigvals}. Visually one notes that the first 10 eigenvalues take over $80\%$ of all variations. The number of latent states can be selected as the smallest number (of eigenvalues) that explains over $80\%$ of total variation in the data. However, the drawback of this method is clear: the choice of threshold percentage (here $80\%$) is highly subjective. The profile likelihood method overcomes this problem and could pick the dimension automatically.
 
-\begin{center}
-\[
-\begin{array}{cc}
-\includegraphics[scale = 0.45]{./figures/EigenValues.pdf} & \includegraphics[scale=0.45]{./figures/profileLikelihood.pdf}
-\end{array}
-\]
-\captionof{figure}{Eigen-values and corresponding profile likelihood plot from the first scan of subject one. For this data, the profile likelihood picks $d=11$ as the number of latent states.}
-\label{fig:eigvals}
-\end{center}
+%The above method assumes that the first $k$ eigenvalues are samples from a Gaussian distribution $N(\mu_1,\sigma^2)$, while the rest are from a different Gaussian distribution $N(\mu_2,\sigma^2)$. Then the profile likelihood can be calculated given $k$, for all $k=1,\cdots,T$ and selecting the optimal $k$ as the one with the highest profile likelihood. As shown in Figure \oldref{fig:eigvals}, when the profile likelihood method is applied to the first scan of subject one, d = 11 is selected. Apply the method to all four scans, the numbers of latents states selected are 11, 6, 14 and 15 respectively. Their average, $d=11$, is used.
+
+%\begin{center}
+%\[
+%\begin{array}{cc}
+%\includegraphics[scale = 0.45]{./figures/EigenValues.pdf} & \includegraphics[scale=0.45]{./figures/profileLikelihood.pdf}
+%\end{array}
+%\]
+%\captionof{figure}{Eigen-values and corresponding profile likelihood plot from the first scan of subject one. For this data, the profile likelihood picks $d=11$ as the number of latent states.}
+%\label{fig:eigvals}
+%\end{center}
 
 
 % One can group the scans correctly with the $A$ matrices.
-Denote the $A$ matrix estimation for the second scan of subject one as $A_{12}$. Similar notations apply to the other scans. Then the canonical correlations among the four matrices are summarized in Table \oldref{tab:similarity}. The distance measure in Equation \ref{eq:distance} is used. Another permutation invariant measure of distance between two square matrices, the Amari error \cite{amari1996new}, is also provided in the table. The Amari error between $A$ and $\hat{A}$: $E(A,\hat{A}) = \sum\limits_{i=1}^n(\sum\limits_{j=1}^n\frac{|p_{ij}|}{\max_k |p_{ik}|}-1) + \sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{|p_{ij}|}{\max_k|p_{kj}|}-1)$, where $P =(p_{ij})=A^{-1}\hat{A}$. Notice a smaller $d(A,B)$ or Amari error means more similarity. Among the six pairs from $A_{11},A_{12},A_{21}$ and $A_{22}$, it is expected that the pairs $(A_{11},A_{12})$ and $(A_{21},A_{22})$ give the smallest distances, as each pair comes from two scans of the same subject. This idea is validated by Table \oldref{tab:similarity}. A direct application of this result is to correctly cluster the four scans into two group, each group corresponding to a subject. This implies that the A matrices contains subject-specific information. The $A$ matrices as connectivity graphs are plotted in Figure \oldref{fig:cgraph}.
-\begin{figure}
-\centering
-%\includegraphics[scale = 0.7]{ConnectivityGraph.pdf}
-\includegraphics[scale = 0.7]{./figures/ConnectivityGraph_11_all.pdf}
-\captionof{figure}{Connectivity Graph: The wider edge means stronger connectivity; the red edge means negative connectivity and blue edge means positive connectivity.}
-\label{fig:cgraph}
-\end{figure}
-
-%\begin{table}
-%\centering
-%\captionof{table}{Similarities Among Estimated $A$ Matrices}
-%\label{tab:similarity}
-%\begin{tabular}{c|c|c|c|c|c|c}
-%\hline\hline
-%Pairs & $A_{11},A_{12}$ & $A_{11},A_{21}$ & $A_{11},A_{22}$ & $A_{12},A_{21}$ & $A_{12},A_{22}$ & $A_{21},A_{22}$\\
-%\hline
-%$d(\cdot,\cdot)$ & $\mathbf{10.2}$ & $9.9$ & $10.0$ & $10.0$ & $10.0$ & $\mathbf{10.1}$ \\
-%Amari Error & $\mathbf{0.88}$ & $1.05$ & $1.02$ & $1.08$ & $1.09$ & $\mathbf{0.98}$ \\
-%\hline
-%\end{tabular}
-%\end{table}
+Denote the $A$ matrix estimation for the second scan of subject one as $A_{12}$. Similar notations apply to the other scans. Then the similarities among the four matrices are summarized in Table \oldref{tab:similarity}. The distance measure in Equation \ref{eq:distance} is used. Another permutation invariant measure of distance between two square matrices, the Amari error \citep{amari1996new}, is also provided in the table. The Amari error between $A$ and $\hat{A}$: $E(A,\hat{A}) = \sum\limits_{i=1}^n(\sum\limits_{j=1}^n\frac{|p_{ij}|}{\max_k |p_{ik}|}-1) + \sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{|p_{ij}|}{\max_k|p_{kj}|}-1)$, where $P =(p_{ij})=A^{-1}\hat{A}$. Notice a smaller $d(A,B)$ or Amari error means more similarity. Among the six pairs from $A_{11},A_{12},A_{21}$ and $A_{22}$, it is expected that the pairs $(A_{11},A_{12})$ and $(A_{21},A_{22})$ give the smallest distances, as each pair comes from two scans of the same subject. This idea is validated by Table \oldref{tab:similarity}. A direct application of this result is to correctly cluster the four scans into two group, each group corresponding to a subject. This implies that the A matrices contains subject-specific information. %The similarities among $A$ matrices are also shown in Figure \oldref{fig:matsim} as a heatmap.The $A$ matrices as connectivity graphs are plotted in Figure \oldref{fig:cgraph}.
 
 \begin{table}
 \centering
@@ -540,16 +514,15 @@ $A_{22}$ & $0.095(1.02)$ & $0.095(1.09)$ & $\mathbf{0.085(0.98)}$ & $0$ \\
 \end{tabular}
 \end{table}
 
-The similarities among $A$ matrices are also shown in Figure \oldref{fig:matsim} as a heatmap.
-\begin{center}
-\includegraphics[scale=.5]{./figures/A-matrices-similarity.pdf}
-\captionof{figure}{Similarities among the four estimated $A$ matrices. The distance $d(\cdot,\cdot)$ is used in this figure. As one can see, the two red/orange off-diagonal pixels has the minimum distances, which correspond to the pairs of $(A_{11},A_{12})$ and $(A_{21},A_{22})$ respectively. With this similarity map, one can tell which two scans are from the same subject.}
-\label{fig:matsim}
-\end{center}
+%\begin{center}
+%\includegraphics[scale=.4]{./figures/A-matrices-similarity.pdf}
+%\captionof{figure}{Similarities among the four estimated $A$ matrices. The distance $d(\cdot,\cdot)$ is used in this figure. As one can see, the two red/orange off-diagonal pixels has the minimum distances, which correspond to the pairs of $(A_{11},A_{12})$ and $(A_{21},A_{22})$ respectively. With this similarity map, one can tell which two scans are from the same subject.}
+%\label{fig:matsim}
+%\end{center}
 
-As an example, the 3D renderings of the columns of matrix $C$ from the first scan of subject one are shown in Figure \oldref{fig:3d} (after thresholding).
+In addition, the 3D renderings of the columns of matrix $C$ from the first scan of subject one are shown in Figure \oldref{fig:3d} (after thresholding).
 % The biological meaning of those regions needs to be further validated.
-It is helpful to compare those regions to other existing parcellations of the mortor cortex. As an example, the blue region in Figure \oldref{fig:3d} accurately matches the dorselmedical (DM) parcel of the five-region parcellation proposed by Nebel MB et al. \cite{nebel2014disruption}.
+It is helpful to compare those regions to other existing parcellations of the mortor cortex. As an example, the blue region in Figure \oldref{fig:3d} accurately matches the dorselmedical (DM) parcel of the five-region parcellation proposed by Nebel MB et al. \citep{nebel2014disruption}.
 \begin{center}
 \[
 \begin{array}{lll}
@@ -563,7 +536,7 @@ It is helpful to compare those regions to other existing parcellations of the mo
 
 Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data.
 %
-Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and \mrsid~algorithm are used for estimations. Then $k$-step ahead predictions are made with equations \ref{eq:model0} and estimations from both methods. Pseudocode for $k$-step ahead predictions is given in Appendix 3. The prediction accuracies are shown in Figure \oldref{fig:predaccy} (left panel). The first observation is that, \mrsid~algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize \mrsid~algorithm, this shows that \mrsid~algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, \mrsid~algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
+Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and \mrsid~algorithm are used for estimations. Then $k$-step ahead predictions are made with equations \ref{eq:model0} and estimations from both methods. Pseudocode for $k$-step ahead predictions is given in Appendix on PLDS Git Repo. The prediction accuracies are shown in Figure \oldref{fig:predaccy} (left panel). One can see \mrsid~algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize \mrsid~algorithm, this shows that \mrsid~algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, \mrsid~algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
 
 % \begin{figure}
 \begin{center}
@@ -584,114 +557,11 @@ A sample plot of the true time series and predicted values are shown in Figure \
 
 By applying the proposed model to fMRI scans of the motor cortex of healthy adults, we identify limited sub-regions (networks) from the motor cortex. A statistical procedure should be further developed to match these regions to existing parcellations of the motor cortex.
 
-In the future, this work could be extended in two important directions. First, assumptions on the covariance structures in the observation equation could be generalized. Prior knowledge could be incorporated to covariance $R$ \cite{allen2014generalized}. The general rule is that $R$ should be general enough to be flexible while sufficiently restricted to make the model useful. A lot of other platforms such as tridiagnol and upper triangular could also be considered. Mohammad et al. have discussed the impact of auto correlation on functional connectivity, which also provides us a direction for extension \cite{arbabshirani2014impact}.
+In the future, this work could be extended in two important directions. First, assumptions on the covariance structures in the observation equation could be generalized. Prior knowledge could be incorporated to covariance $R$ \citep{allen2014generalized}. The general rule is that $R$ should be general enough to be flexible while sufficiently restricted to make the model useful. A lot of other platforms such as tridiagnol and upper triangular could also be considered. Mohammad et al. have discussed the impact of auto correlation on functional connectivity, which also provides us a direction for extension \citep{arbabshirani2014impact}.
 
 Finally, the work can also be extended on the application side. Currently, only data from a single subject is analyzed. As a next step, the model can be extended to a group version and be used to analyze more subjects. The coefficients from the algorithm could be used to measure the reproducibility of the scans.
 
-\section*{Appendix 1}
-\label{sec:appendix1}
-
-\begin{tabular}{l}
-\hline
-\textbf{Algorithm } Standard Kalman Filter Smoother for estimating the moments \\
-$\qquad\quad\quad$ required in the E-step of an EM algorithm for a linear dynamical system\\
-\hline
-0. Define $\bx_t^{\tau}$ = E($\bx_t|\bY_1^{\tau}$),$\mathbf{V}_t^{\tau}=\text{Var}(\bx_t|\bY_1^{\tau})$, $\hat{\bx}_t \equiv \bx_t^T$ and $\hat{P}_t\equiv V_t^T+\bx_t^T{\bx_t^T}^{\T}$\\
-1. Forward Recursions:\\
-\hspace{4 mm} $\bx_t^{t-1}=A\bx_{t-1}^{t-1}$\\
-\hspace{4 mm} $\mathbf{V}_t^{t-1}=A\mathbf{V}_{t-1}^{t-1}+\mathbf{Q}$\\
-\hspace{4 mm} $K_t=\mathbf{V}_t^{t-1}C^{\T}(CV_t^{t-1}C^{\T}+R)^{-1}$\\
-\hspace{4 mm} $\bx_t^t$ = $\bx_t^{t-1} + K_t (\by_t - C\bx_t^{t-1})$\\
-\hspace{4 mm} $V_t^t=V_t^{t-1}-K_tCV_t^{t-1}$\\
-\hspace{4 mm} $\bx_1^0=\mathbf{\pi}_0$, $V_1^0=\mathbf{V}_0$\\
-2. Backward Recursions:\\
-\hspace{4 mm} $J_{t-1} = V_{t-1}^{t-1}A^{\T}(V_t^{t-1})^{-1}$\\
-\hspace{4 mm} $\bx_{t-1}^T=\bx_{t-1}^{t-1}+J_{t-1}(\mathbf{x_t^T-A\bx_{t-1}^{t-1}})$\\
-\hspace{4 mm} $V_{t-1}^T = V_{t-1}^{t-1}+J_{t-1}(V_t^T-V_t^{t-1})J_{t-1}^{\T}$\\
-\hspace{4 mm} $\hat{P}_{t,t-1}\equiv V_{t,t-1}^T+\bx_t^T{\bx_t^T}^{\T}$\\
-\hspace{4 mm} $V_{T,T-1}^T=(I-K_TC)AV_{T-1}^{T-1}$\\
-\hline
-\end{tabular}
-
-\newpage
-
-\section*{Appendix 2}
-\label{sec:appendix2}
-In general, FISTA optimize a target function
-\begin{equation}\label{eqn: fistatarget}
-\min_{\substack{x\in \mathcal{X}}}\quad \mathbf{F(x;\lambda)} = \mathbf{g(x)}+ \mathbf{\lambda \|x\|_1}
-\end{equation}
-where $\mathbf{g}: R^n \rightarrow R $ is a continuously differentiable convex function and $\lambda > 0$ is the regularization parameter. A FISTA algorithm with constant step is detailed below\\
-
-%\begin{center}
-\begin{tabular}{l}
-\hline
-\textbf{Algorithm } FISTA$(\mathbf{g},\lambda)$.\\
-\hline
- 1. Input an initial guess $\mathbf{x_0}$ and Lipschitz constant $\mathbf{L}$ for $\mathbf{\nabla g}$, set $\mathbf{y_1} = \mathbf{x_0},t_1 = 1$\\
- 2. Choose $\tau \in (0,1/\mathbf{L}]$; Set $k \leftarrow$ 0.\\
- 3. \textbf{loop}\\
- 4. \hspace{10mm}		Evaluate $\mathbf{\nabla g(y_k)}$\\
- 5.	\hspace{10mm}	Compute $\mathbf{x_{1}}$= $\mathbf{S_{\tau\lambda}(y_k - \tau\nabla g(y_k))}$\\
- 6.	\hspace{10mm}	Compute $t_{k+1} = \frac{1+\sqrt{1 + 4 t_k^2}}{2}$\\
- 7.	\hspace{10mm}	$\mathbf{y_{k+1}} = \mathbf{x_k} + \left(\frac{t_k - 1}{t_{k+1}})\right (\mathbf{x_k}-\mathbf{x_{k-1}})$\\
- 8.	\hspace{10mm}	Set $k \leftarrow k+1$ \\
- 9. \textbf{end loop}\\
-\hline
-\end{tabular}
-%\end{center}
-
-
-\vspace*{10mm}
-In the above
-\[
-\mathbf{S_\lambda (y) = (|y|-\lambda)_{+}\textbf{sign}(y)}=\left\{
-\begin{array}{l l }
- y - \lambda & \text{if   } y > \lambda\\
- y + \lambda & \text{if   } y < -\lambda\\
- 0 & \text{if   } |y| \leq \lambda .
-\end{array}
-\right.
-\]
-
-\section*{Appendix 3}
-\label{sec:appendix3}
-\begin{tabular}{l}
-\hline
-\textbf{Algorithm } $k$-step predictions with PCA and \mrsid\\
-\hline
- 1. Denote estimations with PCA and \mrsid~as $A_{pca},C_{pca},A_{plds},$ and $C_{plds}$ respectively.\\
- 2. PCA estimated latent states at $t=1000$: $x_{1000,pca} = $ column 1000 of $\bX_{d\times T}$ from Section \oldref{sec:initial} \\
- 3. \mrsid~estimated latent states at $t=1000$: $x_{1000,pls}$ is from E step of the EM algorithm in Section \oldref{sec:em}\\
- 4. \textbf{for i = 1 to k}\\
- 5. \hspace{10mm}		$x_{1000+k,pca}\ =\ A_{pca}\ x_{999+k,pca}$\\
- 6.	\hspace{10mm}	$y_{1000+k,pca}\ =\ C_{pca}\ x_{1000+k,pca}$\\
- 7.	\hspace{10mm}	$x_{1000+k,plds}\ =\ A_{plds}\ x_{999+k,plds}$\\
- 8.	\hspace{10mm}	$y_{1000+k,plds}\ =\ C_{plds}\ x_{1000+k,plds}$\\
- 9. \textbf{end}\\
-\hline
-\end{tabular}
-
-\section*{Appendix 4}
-\label{sec:appendix4}
-\begin{tabular}{l}
-\hline
-\textbf{Algorithm } Simulation Data Generation\\
-\hline
- 1. Denote the dimensions as $p$, $d$ and $T$ respectively\\
- 2. Generate a $p\times d$ matrix $C_0$ from a standard Gaussian distribution\\
- 3. Sort each column of $C_0$ in ascending order to get matrix $C$ \\
- 4. Generate a $d\times d$ matrix $A_0$ from a standard Gaussian distribution\\
- 5. Add a multiple of the identity matrix to $A_0$\\
- 6.	Replace entries in $A_0$ with small absolute values with $0$\\
- 7.	Scale $A_0$ to make sure its eigen values are between $-1$ and $1$; use $A_0$ as the A matrix\\
- 8.	Let $R$ be a diagonal matrix with positive diagonal entries and $Q$ be the identity matrix \\
- 9. Generate simulation data with $A, C, Q$ and $R$ \\
- 10. \textbf{end}\\
-\hline
-\end{tabular}
-
-\newpage
-\bibliographystyle{ieeetr}
+%\bibliographystyle{ieeetr}
+\bibliographystyle{Chicago}
 \bibliography{reference}
 \end{document}
