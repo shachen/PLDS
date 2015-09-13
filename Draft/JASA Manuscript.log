@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.30)  13 SEP 2015 01:16
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.30)  13 SEP 2015 14:00
 entering extended mode
 **C:/Ubuntu/Github/PLDS/Draft/JASA*Manuscript.tex
 ("C:/Ubuntu/Github/PLDS/Draft/JASA Manuscript.tex"
@@ -346,45 +346,45 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfigure package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box32
-LaTeX Font Info:    Try loading font information for U+lasy on input line 72.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 73.
  ("C:\Disk D\Program Files\MiKTeX\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 72.
+LaTeX Font Info:    Try loading font information for U+msa on input line 73.
 
 ("C:\Disk D\Program Files\MiKTeX\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 72.
+LaTeX Font Info:    Try loading font information for U+msb on input line 73.
 
 ("C:\Disk D\Program Files\MiKTeX\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 73.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 75.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 74.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 76.
 
 ("C:\Disk D\Program Files\MiKTeX\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 78.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 79.
 LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <12> not available
-(Font)              Font shape `OT1/phv/b/it' tried instead on input line 78.
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 79.
 LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <12> not available
-(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 78.
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 79.
  [1
 
 {C:/Users/Jason/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 90.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 91.
  [2] [3]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 104.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 105.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 104.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 105.
 
-Overfull \hbox (23.30241pt too wide) in paragraph at lines 104--105
+Overfull \hbox (23.30241pt too wide) in paragraph at lines 105--106
 \OT1/phv/m/n/12 re-spec-tively. By the Bayesian rule, the joint prob-a-bil-ity 
 of $[]$ and $[]$ is $\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; []
 \OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OMS/cmsy/m/n/12 j[]\O
@@ -392,12 +392,12 @@ T1/cmr/m/n/12 )\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([])$\OT1/phv/m/n/12 .
  []
 
 [4] [5] [6] [7] [8]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 205.
+LaTeX Font Info:    Try loading font information for U+bbm on input line 206.
 
 (C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\bbm\ubbm.fd
 File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
 )
-Overfull \hbox (37.73431pt too wide) detected at line 206
+Overfull \hbox (37.73431pt too wide) detected at line 207
  $\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; []\OT1/cmr/m/n/12 ) =
  \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OMS/cmsy/m/n/12 j[]\OT1/cmr/m/n/12 )\OML
 /cmm/m/it/12 P\OT1/cmr/m/n/12 ([]) = \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([][]) [
@@ -410,9 +410,9 @@ cmr/m/n/12 )\U/bbm/m/n/12 1[]\OT1/cmr/m/n/12 ([][])$
 
 [9]
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 243.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 244.
 
-Overfull \hbox (2.39557pt too wide) in paragraph at lines 244--245
+Overfull \hbox (2.39557pt too wide) in paragraph at lines 245--246
 []\OT1/phv/m/n/12 The E step of EM re-quires com-put-ing the ex-pected log like
 -li-hood, $\OT1/cmr/m/n/12   = \OML/cmm/m/it/12 E\OT1/cmr/m/n/12 [[] \OML/cmm/m
 /it/12 P\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; []\OMS/cmsy/m/n/12 j[]\OT1/cmr/m/
@@ -420,7 +420,7 @@ n/12 )]$\OT1/phv/m/n/12 .
  []
 
 [10] [11] [12] [13] [14]
-Overfull \hbox (2.61436pt too wide) in paragraph at lines 384--385
+Overfull \hbox (2.61436pt too wide) in paragraph at lines 385--386
 []\OT1/phv/m/n/12 Also note that quan-ti-ties like $\OML/cmm/m/it/12 R[]$ \OT1/
 phv/m/n/12 and $\OML/cmm/m/it/12 C[]R[]C$ \OT1/phv/m/n/12 can be pre-computed a
 nd reused through-
@@ -430,7 +430,7 @@ nd reused through-
 File: ./figures/low-d-simulation.pdf Graphic file (type pdf)
 
 <use ./figures/low-d-simulation.pdf>
-Package pdftex.def Info: ./figures/low-d-simulation.pdf used on input line 425.
+Package pdftex.def Info: ./figures/low-d-simulation.pdf used on input line 426.
 
 (pdftex.def)             Requested size: 217.52844pt x 217.52844pt.
 
@@ -438,7 +438,7 @@ Package pdftex.def Info: ./figures/low-d-simulation.pdf used on input line 425.
 File: ./figures/high-d-simulation.pdf Graphic file (type pdf)
 
 <use ./figures/high-d-simulation.pdf>
-Package pdftex.def Info: ./figures/high-d-simulation.pdf used on input line 428
+Package pdftex.def Info: ./figures/high-d-simulation.pdf used on input line 429
 .
 (pdftex.def)             Requested size: 217.52844pt x 217.52844pt.
 
@@ -446,7 +446,7 @@ Package pdftex.def Info: ./figures/high-d-simulation.pdf used on input line 428
 File: ./figures/heatmap-figure-1.pdf Graphic file (type pdf)
 
 <use ./figures/heatmap-figure-1.pdf>
-Package pdftex.def Info: ./figures/heatmap-figure-1.pdf used on input line 437.
+Package pdftex.def Info: ./figures/heatmap-figure-1.pdf used on input line 438.
 
 (pdftex.def)             Requested size: 433.62334pt x 303.53633pt.
  [18 <C:/Ubuntu/Github/PLDS/Draft/figures/low-d-simulation.pdf> <C:/Ubuntu/Gith
@@ -456,59 +456,67 @@ figures/heatmap-figure-1.pdf>]
 File: ./figures/est-pred-accuracy.pdf Graphic file (type pdf)
 
 <use ./figures/est-pred-accuracy.pdf>
-Package pdftex.def Info: ./figures/est-pred-accuracy.pdf used on input line 464
+Package pdftex.def Info: ./figures/est-pred-accuracy.pdf used on input line 465
 .
 (pdftex.def)             Requested size: 202.3524pt x 202.3524pt.
- [20] [21 <C:/Ubuntu/Github/PLDS/Draft/figures/est-pred-accuracy.pdf>] [22]
-<./figures/view1.png, id=124, 404.51125pt x 401.5pt>
+ [20] [21 <C:/Ubuntu/Github/PLDS/Draft/figures/est-pred-accuracy.pdf>]
+<./figures/A-matrices-similarity.pdf, id=121, 505.89pt x 505.89pt>
+File: ./figures/A-matrices-similarity.pdf Graphic file (type pdf)
+
+<use ./figures/A-matrices-similarity.pdf>
+Package pdftex.def Info: ./figures/A-matrices-similarity.pdf used on input line
+ 519.
+(pdftex.def)             Requested size: 202.3524pt x 202.3524pt.
+ [22]
+<./figures/view1.png, id=125, 404.51125pt x 401.5pt>
 File: ./figures/view1.png Graphic file (type png)
  <use ./figures/view1.png>
-Package pdftex.def Info: ./figures/view1.png used on input line 529.
+Package pdftex.def Info: ./figures/view1.png used on input line 530.
 (pdftex.def)             Requested size: 145.62393pt x 144.53989pt.
 
-<./figures/view2.png, id=125, 404.51125pt x 401.5pt>
+<./figures/view2.png, id=126, 404.51125pt x 401.5pt>
 File: ./figures/view2.png Graphic file (type png)
  <use ./figures/view2.png>
-Package pdftex.def Info: ./figures/view2.png used on input line 529.
+Package pdftex.def Info: ./figures/view2.png used on input line 530.
 (pdftex.def)             Requested size: 133.48912pt x 132.4954pt.
 
-<./figures/view3.png, id=126, 404.51125pt x 401.5pt>
+<./figures/view3.png, id=127, 404.51125pt x 401.5pt>
 File: ./figures/view3.png Graphic file (type png)
  <use ./figures/view3.png>
-Package pdftex.def Info: ./figures/view3.png used on input line 529.
+Package pdftex.def Info: ./figures/view3.png used on input line 530.
 (pdftex.def)             Requested size: 133.48912pt x 132.4954pt.
 
-[23 <C:/Ubuntu/Github/PLDS/Draft/figures/view1.png (PNG copy)> <C:/Ubuntu/Githu
-b/PLDS/Draft/figures/view2.png (PNG copy)> <C:/Ubuntu/Github/PLDS/Draft/figures
-/view3.png (PNG copy)>]
-<./figures/hcp_pred_accy.pdf, id=130, 505.89pt x 505.89pt>
+[23 <C:/Ubuntu/Github/PLDS/Draft/figures/A-matrices-similarity.pdf>] [24 <C:/Ub
+untu/Github/PLDS/Draft/figures/view1.png (PNG copy)> <C:/Ubuntu/Github/PLDS/Dra
+ft/figures/view2.png (PNG copy)> <C:/Ubuntu/Github/PLDS/Draft/figures/view3.png
+ (PNG copy)>] <./figures/hcp_pred_accy.pdf, id=140, 505.89pt x 505.89pt>
 File: ./figures/hcp_pred_accy.pdf Graphic file (type pdf)
 
 <use ./figures/hcp_pred_accy.pdf>
-Package pdftex.def Info: ./figures/hcp_pred_accy.pdf used on input line 543.
+Package pdftex.def Info: ./figures/hcp_pred_accy.pdf used on input line 544.
 (pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
 
-<./figures/newSampleTS.pdf, id=131, 505.89pt x 505.89pt>
+<./figures/newSampleTS.pdf, id=141, 505.89pt x 505.89pt>
 File: ./figures/newSampleTS.pdf Graphic file (type pdf)
 
 <use ./figures/newSampleTS.pdf>
-Package pdftex.def Info: ./figures/newSampleTS.pdf used on input line 544.
+Package pdftex.def Info: ./figures/newSampleTS.pdf used on input line 545.
 (pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
- [24 <C:/Ubuntu/Github/PLDS/Draft/figures/hcp_pred_accy.pdf> <C:/Ubuntu/Github/
+ [25 <C:/Ubuntu/Github/PLDS/Draft/figures/hcp_pred_accy.pdf> <C:/Ubuntu/Github/
 PLDS/Draft/figures/newSampleTS.pdf>]
-("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.bbl" [25] [26] [27]
+("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.bbl" [26] [27]
 Missing character: There is no Å in font phvr7t!
 Missing character: There is no ™ in font phvr7t!
- [28])
-[29] ("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.aux") ) 
+ [28] [29])
+[30] ("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.aux") ) 
 Here is how much of TeX's memory you used:
- 5661 strings out of 493921
- 85036 string characters out of 3146079
- 150057 words of memory out of 3000000
- 8792 multiletter control sequences out of 15000+200000
+ 5667 strings out of 493921
+ 85232 string characters out of 3146079
+ 150421 words of memory out of 3000000
+ 8797 multiletter control sequences out of 15000+200000
  41584 words of font info for 104 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 42i,16n,38p,1458b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,16n,38p,1459b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Jason\AppD
 ata\Local\MiKTeX\2.9\fonts\pk\ljfour\public\bbm\dpi600\bbm12.pk>{C:/Disk D/Prog
 ram Files/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/Disk D/Program Files/MiKTe
@@ -530,9 +538,9 @@ MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Disk D/Program Files/MiKTeX
 /urw/helvetic/uhvb8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvet
 ic/uhvbo8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.
 pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on "JASA Manuscript.pdf" (29 pages, 673061 bytes).
+Output written on "JASA Manuscript.pdf" (30 pages, 679041 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
+ 238 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

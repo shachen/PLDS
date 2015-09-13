@@ -24,10 +24,10 @@
 
 \renewcommand{\familydefault}{\sfdefault}
 
-\addtolength{\oddsidemargin}{-.5in}%
-\addtolength{\evensidemargin}{-.5in}%
-\addtolength{\textwidth}{1in}%
-\addtolength{\textheight}{-.3in}%
+\addtolength{\oddsidemargin}{-.6in}%
+\addtolength{\evensidemargin}{-.6in}%
+\addtolength{\textwidth}{1.2in}%
+\addtolength{\textheight}{0.4in}%
 \addtolength{\topmargin}{-.8in}%
 
 
@@ -54,7 +54,7 @@
 \title{An M-Estimator for Reduced-Rank High-Dimensional Linear Dynamical System Identification
 % A Sparse High Dimensional State-Space Model with an Application to Neuroimaging Data
 }
-%\author{\bf{Shaojie Chen, Joshua Vogelstein, Seonjoo Lee, Martin Lindquist, Brian Caffo}}
+%\author{}
 \author[a]{Shaojie Chen}
 \author[b]{Kai Liu}
 \author[c]{Yuguang Yang}
@@ -69,6 +69,7 @@
 \affil[d]{Dept. of Psychiatry and Department of Biostatistics, Columbia University}
 \affil[e]{Child Mind Institute}
 \affil[f]{Dept. of Biomedical Enginnering and Institute for Computational Medicine, Johns Hopkins University}
+\date{}
 \maketitle
 \section*{Abstract}
 High-dimensional time-series data are becoming increasingly abundant across a wide variety of domains, spanning economics, neuroscience,  particle physics, and cosmology.  Fitting statistical models to such data, to enable parameter estimation and time-series prediction, is an important computational primitive.
@@ -76,7 +77,7 @@ Existing methods, however, are unable to cope with the high-dimensional nature o
 % In the past decade functional magnetic resonance imaging (fMRI) has facilitated major advances in our understanding of human brain function. The data that arise from a standard fMRI experiment are both high dimensional and complex in nature, making statistical analysis challenging. Matrix decomposition methods, such as factor analysis, principal component analysis (PCA) and independent component analysis (ICA), are commonly used to investigate spatio-temporal patterns present in fMRI data. It can be shown that the linear time-invariant state-space model, commonly used in time series analysis, unifies this broad class of models. While state-space models have been applied to fMRI data, these applications have been limited by constraints on the amount of data that can be included in the analysis. This is primarily because analysis in modern high-dimensional settings, such as neuroimaging, parameter estimation is challenging. This issue is addressed by introducing a penalized state-space model that applies $\ell_1$ and $\ell_2$ penalties to model coefficients. In addition, an Expectation-Maximization algorithm is provided that allows for efficient estimation of the model parameters. To illustrate our approach, we apply it to fMRI data measured over the motor cortex.
 \\
 \textbf{\emph{keywords}: state-space model, parameter estimation, sparsity, imaging processing, fMRI}
-\newpage
+%\newpage
 \section{Introduction}
 
 %\begin{itemize}
@@ -101,7 +102,7 @@ These three techniques together enable us to obtain highly accurate estimates in
 
 \section{The Model}
 
-In statistical data analysis, one often encounter some observed signals and also has some unobserved or latent variables, which are denoted as $\bY=(\by_1,\ldots,\by_T)$ and $\bX=(\bx_1,\ldots,\bx_T)$ respectively. By the Bayesian rule, the joint probability of $\bY$ and $\bX$ is $P(\bX,\bY)=P(\bY|\bX) P(\bX)$. The joint conditional distribution $P(\mb{Y}|\mb{X})$ and joint prior can both be represented as a product of marginals:
+In statistical data analysis, one often encounter some observed signals and also some unobserved or latent variables, which we denote as $\bY=(\by_1,\ldots,\by_T)$ and $\bX=(\bx_1,\ldots,\bx_T)$ respectively. By the Bayesian rule, the joint probability of $\bY$ and $\bX$ is $P(\bX,\bY)=P(\bY|\bX) P(\bX)$. The conditional distribution $P(\mb{Y}|\mb{X})$ and prior can both be represented as a product of marginals:
 \begin{equation}
 \begin{aligned}
 P(\mb{Y}|\mb{X}) &= \prod_{t=1}^T P(\by_t | \by_{0:t-1}, x_{0:t}), \\
@@ -253,7 +254,6 @@ Expectations \ref{eq:expecs} are estimated with a Kalman filter/smoother, which 
 The parameters are $\theta =\{A,C,R,\mathbf{\pi}_0\}$. Each of them is estimated by taking the corresponding partial derivatives of $\mathbf{\Phi}(\theta,\bY,\bx)$, setting to zero and solving.
 
 Denote estimations from previous step as $\theta^{\text{old}} =\{A^{\text{old}},C^{\text{old}},R^{\text{old}},\mathbf{\pi}_0^{\text{old}}\}$ and current estimations as $\theta^{\text{new}} =\{A^{\text{new}},C^{\text{new}},R^{\text{new}},\mathbf{\pi}_0^{\text{new}}\}$. Estimation for output noise covariance $R$ has closed form solution,
-
 \begin{equation}\label{eq:updateR}
 \begin{aligned}
 \frac{\partial \mathbf{\Phi}}{\partial R^{-1}} &= \frac{T}{2}R - \sum\limits_{t=1}^T\bigl(\frac{1}{2}\by_t\by_t^{\T} - C\hat{\bx}_t\by_t^{\T}+\frac{1}{2}C\hat{P}_tC^{\T}\bigr) =0 \\
@@ -273,7 +273,7 @@ Estimation for transition matrix $C$ also has closed form solution, and the solu
 f_{\lambda_2}(C;\bX,\bY) = \sum\limits_{t=1}^{T}\left(\frac{1}{2}[\by_t-C\bx_t]^{\T}R^{-1}[\by_t-C\bx_t]\right)+\lambda_2 \|C\|_2.
 \end{equation}
 
-In $f_{\lambda_2}(C;\bX,\bY)$, $C$ is a matrix, we vectorized it to ease optimization and notation. Here we follow the methods of Turlach et al. \cite{turlach2005simultaneous}. Without loss of generality, assume $R$ is the identity matrix in equation \ref{eq:penaltylik1}; otherwise, one can always write equation \ref{eq:penaltylik1} as
+In $f_{\lambda_2}(C;\bX,\bY)$, $C$ is a matrix, we vectorized it to ease optimization and notation. Here we follow the methods of \citet{turlach2005simultaneous}. Without loss of generality, assume $R$ is the identity matrix in equation \ref{eq:penaltylik1}; otherwise, one can always write equation \ref{eq:penaltylik1} as
 \begin{equation*}
 \sum\limits_{t=1}^{T}\left(\frac{1}{2}[R^{-\frac{1}{2}}y_t-R^{-\frac{1}{2}}Cx_t]^{\T}[R^{-\frac{1}{2}y_t}-R^{-\frac{1}{2}}Cx_t]\right) + \lambda_2 \|R^{-\frac{1}{2}}C\|
 \end{equation*}
@@ -368,7 +368,7 @@ The complete EM algorithm for \mrsid~is addressed in Table \oldref{tab:em}. Noti
 \hline
 \textbf{E Step}\\
 0. Initialize $\theta =\{A,C,R,\mathbf{\pi}_0\}$ as in Section \oldref{sec:initial}, if first loop\\
-1. Update the expectations in \ref{eq:expecs} with the Kalman filter smoother in Appendix on PLDS Git Repo\\
+1. Update the expectations in \ref{eq:expecs} with the Kalman filter smoother\\
 \hline
 \end{tabular}
 \end{table}
@@ -378,7 +378,7 @@ The major factors that affect the efficiency and scalability of the above EM alg
 
 First, a sparse matrix is used to represent R. When dimension $p$ gets higher, the size of $R$ increase quadratically, which will easily exceed the memory capacity of a computer.  Fortunately, with Constraint 4, $R$ is sparse and can be represented with a sparse matrix. For example, when $p=10,000$, the full $R$ matrix consumes over 100 gigabyte of memory, while the sparse matrix takes less than 1 megabyte.
 
-In addition, to update R in the M step, directly calculate its diagonal without calculating the full matrix R.
+In addition, to update $R$ in the M step, directly calculate its diagonal without calculating the full matrix $R$.
 
 Finally, in the E-step, a term $K_t=V_t^{t-1}C^{\T}(CV_t^{t-1}C^{\T}+R)^{-1}$ involving $R$ need to be calculated, which involves the inverse of a large square matrix of dimension p by p. As stated previously, such a matrix exceeds available memory when p is high. The Woodbury Matrix Identity is employed to turn a high dimensional inverse to low dimensional problem: $(CV_t^{t-1}C^{\T}+R)^{-1} = R^{-1} - R^{-1}C[(V_t^{t-1})^{-1} + C^{\T}R^{-1}C]^{-1}C^{\T}R^{-1}$.
 
@@ -389,13 +389,7 @@ Also note that quantities like $R^{-1}$ and $C^{\T}R^{-1}C$ can be pre-computed 
 The Kirby 21 data are resting-state fMRI scans consisting of a test-retest dataset previously acquired at the FM Kirby Research Center at the Kennedy Krieger Institute, Johns Hopkins University \citep{landman2011multi}. Twenty-one healthy volunteers with no history of neurological disease each underwent two separate resting state fMRI sessions on the same scanner: a 3T MR scanner utilizing a body coil with a 2D echoplanar (EPI) sequence and eight channel phased array SENSitivity Encoding (SENSE; factor of 2) with the following parameters: TR 2s; 3mm$\times$3mm in plane resolution; slice gap 1mm; and total imaging time of 7 minutes and 14 seconds.
 
 The Human Connectome Project is a systematic effort to map macroscopic human brain circuits and their relationship to behavior in a large population of healthy adults \citep{van2013wu,moeller2010multiband,feinberg2010multiplexed}. MR scanning includes four imaging modalities, acquired at high resolutions: structural MRI, resting-state fMRI (rfMRI), task fMRI (tfMRI), and diffusion MRI (dMRI). All 1200 subjects are scanned using all four of these modalities on a customized 3 T scanner.  All scans consist of 1200 time points.
-%This issue can be overcome using the , as follows: the inverse of a matrix with a low rank correction is calculated by adding a low rank correction to its inverse.
-%\begin{align*}
-%&(A+UCV)^{-1} = A^{-1} - A^{-1}U(C^{-1} + VA^{-1}U)^{-1}VA^{-1}
-%%&v_0C^{'}*(R + Cv_0C^{'})^{-1}Cv_0 = v_0C^{'}R^{-1}Cv_0 - v_0C^{'}R^{-1}C(v_0^{-1} +C^{'}R^{-1}C)^{-1}C^{'}R^{-1}Cv_0\\
-%%&=v_0 P v_0 - v_0 P (v_0^{-1} + P)^{-1} P v_0, P = C^{'} R^{-1} C\\
-%\end{align*}
-%where $U$ is $n\times m$ and $V$ is $m \times n$ dimensional and $n>>m$.
+
 
 \section{Results}
 \subsection{Parameter Estimation}
@@ -503,28 +497,7 @@ A flexible method to choose the number of latent states involves the profile lik
 
 
 % One can group the scans correctly with the $A$ matrices.
-Denote the $A$ matrix estimation for the second scan of subject one as $A_{12}$. Similar notations apply to the other scans. Then the canonical correlations among the four matrices are summarized in Table \oldref{tab:similarity}. The distance measure in Equation \ref{eq:distance} is used. Another permutation invariant measure of distance between two square matrices, the Amari error \citep{amari1996new}, is also provided in the table. The Amari error between $A$ and $\hat{A}$: $E(A,\hat{A}) = \sum\limits_{i=1}^n(\sum\limits_{j=1}^n\frac{|p_{ij}|}{\max_k |p_{ik}|}-1) + \sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{|p_{ij}|}{\max_k|p_{kj}|}-1)$, where $P =(p_{ij})=A^{-1}\hat{A}$. Notice a smaller $d(A,B)$ or Amari error means more similarity. Among the six pairs from $A_{11},A_{12},A_{21}$ and $A_{22}$, it is expected that the pairs $(A_{11},A_{12})$ and $(A_{21},A_{22})$ give the smallest distances, as each pair comes from two scans of the same subject. This idea is validated by Table \oldref{tab:similarity}. A direct application of this result is to correctly cluster the four scans into two group, each group corresponding to a subject. This implies that the A matrices contains subject-specific information. %The $A$ matrices as connectivity graphs are plotted in Figure \oldref{fig:cgraph}.
-%\begin{figure}
-%\centering
-%%\includegraphics[scale = 0.7]{ConnectivityGraph.pdf}
-%\includegraphics[scale = 0.7]{./figures/ConnectivityGraph_11_all.pdf}
-%\captionof{figure}{Connectivity Graph: The wider edge means stronger connectivity; the red edge means negative connectivity and blue edge means positive connectivity.}
-%\label{fig:cgraph}
-%\end{figure}
-
-%\begin{table}
-%\centering
-%\captionof{table}{Similarities Among Estimated $A$ Matrices}
-%\label{tab:similarity}
-%\begin{tabular}{c|c|c|c|c|c|c}
-%\hline\hline
-%Pairs & $A_{11},A_{12}$ & $A_{11},A_{21}$ & $A_{11},A_{22}$ & $A_{12},A_{21}$ & $A_{12},A_{22}$ & $A_{21},A_{22}$\\
-%\hline
-%$d(\cdot,\cdot)$ & $\mathbf{10.2}$ & $9.9$ & $10.0$ & $10.0$ & $10.0$ & $\mathbf{10.1}$ \\
-%Amari Error & $\mathbf{0.88}$ & $1.05$ & $1.02$ & $1.08$ & $1.09$ & $\mathbf{0.98}$ \\
-%\hline
-%\end{tabular}
-%\end{table}
+Denote the $A$ matrix estimation for the second scan of subject one as $A_{12}$. Similar notations apply to the other scans. Then the similarities among the four matrices are summarized in Table \oldref{tab:similarity}. The distance measure in Equation \ref{eq:distance} is used. Another permutation invariant measure of distance between two square matrices, the Amari error \citep{amari1996new}, is also provided in the table. The Amari error between $A$ and $\hat{A}$: $E(A,\hat{A}) = \sum\limits_{i=1}^n(\sum\limits_{j=1}^n\frac{|p_{ij}|}{\max_k |p_{ik}|}-1) + \sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{|p_{ij}|}{\max_k|p_{kj}|}-1)$, where $P =(p_{ij})=A^{-1}\hat{A}$. Notice a smaller $d(A,B)$ or Amari error means more similarity. Among the six pairs from $A_{11},A_{12},A_{21}$ and $A_{22}$, it is expected that the pairs $(A_{11},A_{12})$ and $(A_{21},A_{22})$ give the smallest distances, as each pair comes from two scans of the same subject. This idea is validated by Table \oldref{tab:similarity}. A direct application of this result is to correctly cluster the four scans into two group, each group corresponding to a subject. This implies that the A matrices contains subject-specific information. %The similarities among $A$ matrices are also shown in Figure \oldref{fig:matsim} as a heatmap.The $A$ matrices as connectivity graphs are plotted in Figure \oldref{fig:cgraph}.
 
 \begin{table}
 \centering
@@ -542,14 +515,13 @@ $A_{22}$ & $0.095(1.02)$ & $0.095(1.09)$ & $\mathbf{0.085(0.98)}$ & $0$ \\
 \end{tabular}
 \end{table}
 
-The similarities among $A$ matrices are also shown in Figure \oldref{fig:matsim} as a heatmap.
-\begin{center}
-\includegraphics[scale=.5]{./figures/A-matrices-similarity.pdf}
-\captionof{figure}{Similarities among the four estimated $A$ matrices. The distance $d(\cdot,\cdot)$ is used in this figure. As one can see, the two red/orange off-diagonal pixels has the minimum distances, which correspond to the pairs of $(A_{11},A_{12})$ and $(A_{21},A_{22})$ respectively. With this similarity map, one can tell which two scans are from the same subject.}
-\label{fig:matsim}
-\end{center}
+%\begin{center}
+%\includegraphics[scale=.4]{./figures/A-matrices-similarity.pdf}
+%\captionof{figure}{Similarities among the four estimated $A$ matrices. The distance $d(\cdot,\cdot)$ is used in this figure. As one can see, the two red/orange off-diagonal pixels has the minimum distances, which correspond to the pairs of $(A_{11},A_{12})$ and $(A_{21},A_{22})$ respectively. With this similarity map, one can tell which two scans are from the same subject.}
+%\label{fig:matsim}
+%\end{center}
 
-As an example, the 3D renderings of the columns of matrix $C$ from the first scan of subject one are shown in Figure \oldref{fig:3d} (after thresholding).
+In addition, the 3D renderings of the columns of matrix $C$ from the first scan of subject one are shown in Figure \oldref{fig:3d} (after thresholding).
 % The biological meaning of those regions needs to be further validated.
 It is helpful to compare those regions to other existing parcellations of the mortor cortex. As an example, the blue region in Figure \oldref{fig:3d} accurately matches the dorselmedical (DM) parcel of the five-region parcellation proposed by Nebel MB et al. \citep{nebel2014disruption}.
 \begin{center}
@@ -565,7 +537,7 @@ It is helpful to compare those regions to other existing parcellations of the mo
 
 Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data.
 %
-Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and \mrsid~algorithm are used for estimations. Then $k$-step ahead predictions are made with equations \ref{eq:model0} and estimations from both methods. Pseudocode for $k$-step ahead predictions is given in Appendix on PLDS Git Repo. The prediction accuracies are shown in Figure \oldref{fig:predaccy} (left panel). The first observation is that, \mrsid~algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize \mrsid~algorithm, this shows that \mrsid~algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, \mrsid~algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
+Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and \mrsid~algorithm are used for estimations. Then $k$-step ahead predictions are made with equations \ref{eq:model0} and estimations from both methods. Pseudocode for $k$-step ahead predictions is given in Appendix on PLDS Git Repo. The prediction accuracies are shown in Figure \oldref{fig:predaccy} (left panel). One can see \mrsid~algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize \mrsid~algorithm, this shows that \mrsid~algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, \mrsid~algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
 
 % \begin{figure}
 \begin{center}
@@ -590,8 +562,6 @@ In the future, this work could be extended in two important directions. First, a
 
 Finally, the work can also be extended on the application side. Currently, only data from a single subject is analyzed. As a next step, the model can be extended to a group version and be used to analyze more subjects. The coefficients from the algorithm could be used to measure the reproducibility of the scans.
 
-
-\newpage
 %\bibliographystyle{ieeetr}
 \bibliographystyle{Chicago}
 \bibliography{reference}
