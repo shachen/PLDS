@@ -20,6 +20,7 @@
 \usepackage{helvet}
 \usepackage{url}
 
+
 \renewcommand{\familydefault}{\sfdefault}
 
 
@@ -63,11 +64,11 @@
 \affil[f]{Child Mind Institute}
 \maketitle
 \section*{Abstract}
-High-dimensional time-series data are becoming increasingly abundant across a wide variety of domains, spanning economics, neuroscience,  particle physics, and cosmology.  Fitting statistical models to such data, to enable parameter estimation and time-series prediction, is an important computational primitive. 
+High-dimensional time-series data are becoming increasingly abundant across a wide variety of domains, spanning economics, neuroscience,  particle physics, and cosmology.  Fitting statistical models to such data, to enable parameter estimation and time-series prediction, is an important computational primitive.
 Existing methods, however, are unable to cope with the high-dimensional nature of these problems, due to both computational and statistical reasons.  We mitigate both kinds of issues via proposing an M-estimator for Reduced-rank System IDentification (\mrsid). A combination of low-rank approximations, $\ell_1$ and $\ell_2$ penalties, and some numerical linear algebra tricks, yields an estimator that is computationally efficient and numerically stable.  Simulations and real data examples demonstrate the utility of this approach in a variety of problems.  In particular, we demonstrate that \mrsid~can estimate spatial filters, connectivity graphs, and time-courses from native resolution functional magnetic resonance imaging data.  Other applications and extensions are immediately available, as our approach is a generalization of the classical Kalman Filter-Smoother Expectation-Maximization algorithm.
 % In the past decade functional magnetic resonance imaging (fMRI) has facilitated major advances in our understanding of human brain function. The data that arise from a standard fMRI experiment are both high dimensional and complex in nature, making statistical analysis challenging. Matrix decomposition methods, such as factor analysis, principal component analysis (PCA) and independent component analysis (ICA), are commonly used to investigate spatio-temporal patterns present in fMRI data. It can be shown that the linear time-invariant state-space model, commonly used in time series analysis, unifies this broad class of models. While state-space models have been applied to fMRI data, these applications have been limited by constraints on the amount of data that can be included in the analysis. This is primarily because analysis in modern high-dimensional settings, such as neuroimaging, parameter estimation is challenging. This issue is addressed by introducing a penalized state-space model that applies $\ell_1$ and $\ell_2$ penalties to model coefficients. In addition, an Expectation-Maximization algorithm is provided that allows for efficient estimation of the model parameters. To illustrate our approach, we apply it to fMRI data measured over the motor cortex.
 \\
-\textbf{\emph{keywords}: state-space model, parameter estimation, sparsity, high dimensional, imaging processing, fMRI}
+\textbf{\emph{keywords}: state-space model, parameter estimation, sparsity, imaging processing, fMRI}
 \newpage
 \section{Introduction}
 
@@ -76,16 +77,16 @@ Existing methods, however, are unable to cope with the high-dimensional nature o
 %\item designed an expectation-maximization algorithm to solve the proposed model
 %\item used the model for neuroimage data analysis and explored the primary motor cortex of human brain
 %\end{itemize}
-High-dimensional time-series data are becoming increasingly abundant across a wide variety of domains, spanning economics \cite{Johansen1988}, neuroscience \cite{Friston2003a},   and cosmology \cite{Xie2013a}.  
-Fitting statistical models to such data, to enable parameter estimation and time-series prediction, is an important computational primitive. 
+High-dimensional time-series data are becoming increasingly abundant across a wide variety of domains, spanning economics \cite{Johansen1988}, neuroscience \cite{Friston2003a},   and cosmology \cite{Xie2013a}.
+Fitting statistical models to such data, to enable parameter estimation and time-series prediction, is an important computational primitive.
 Linear dynamical systems (LDS) models are amongst the most popular and powerful, because of their intuitive nature and ease of implementation \cite{Kalman1963}.   The famous Kalman Filter Smoother is one of the most popular and powerful methods for time-series prediction in an LDS, given known parameters \cite{Kalman1960a}.
 In practive, however, for many LDSs, the parameters are unknown, and must be estimated, a process often called \emph{system identification} in this domain \cite{Ljung1998}.  To date, there does not exist, to our knowledge, a methodology that provides parameter estimates and predictions from ultrahigh-dimensional time-series data (for example, $p > 10$,$000$).
 
 The challenges associated high-dimensional time-series estimation and prediction are multifold.  First, na\"{i}vely such models include dense $p \times p$ matrices, which often are too large even to store, and much too large to invert in memory.  For large sparse matrices, recently, several efforts to invert them using a series of computational tricks are promising, though still extremely computationally expensive  \cite{Hsieh2013, Banerjee2013a}.
-Second, estimators behave poorly, due to numerical instability issues.  
+Second, estimators behave poorly, due to numerical instability issues.
 Reduced rank LDS models reduce the number of latent dimensions, and therefore partially address this problem \cite{CHEN1989}.  However, without further constraints, the dimensionality of the latent states must be so small as to significantly decrease the predictive capacity of the resulting model.  Third, even after addressing these problems, the time to compute all the necessary quantities can be overly burdensome. Distributed memory implementations, such as using Spark, might be above to overcome this problem, but it would at additional costs and set-up burden, as it would require a Spark cluster \cite{Zaharia2010}.
 
-We address all three of these issues with our M-estimator for Reduced-rank  System IDentification (\mrsid).  By assuming the dimensionality of the latent state space is small (reduced rank), relative to the ambient, or observed, space dimensionality, we can significantly improve computational tractability and estimation accuracy. By further penalizing the estimators, with $\ell_1$ and/or $\ell_2$ penalties, utilizing prior knowledge on the structure of the parameters, we gain further estimation accuracy in this high-dimensional but relatively low-sample size regime.  Finally, by employing several numerical linear algebra tricks, we can bring the computational burden down significantly.  
+We address all three of these issues with our M-estimator for Reduced-rank  System IDentification (\mrsid).  By assuming the dimensionality of the latent state space is small (reduced rank), relative to the ambient, or observed, space dimensionality, we can significantly improve computational tractability and estimation accuracy. By further penalizing the estimators, with $\ell_1$ and/or $\ell_2$ penalties, utilizing prior knowledge on the structure of the parameters, we gain further estimation accuracy in this high-dimensional but relatively low-sample size regime.  Finally, by employing several numerical linear algebra tricks, we can bring the computational burden down significantly.
 
 These three techniques together enable us to obtain highly accurate estimates in a variety of simulation settings.  \mrsid~is, in fact, a generalization of the now classic Baum-Welch expectation maximization algorithm, commonly used for system identification in much lower dimensional linear dynamical systems \cite{rabiner1989tutorial}. We numerically show that the hyper-parameters can be selected minimizing prediction error on held-out data.  Finally, we use \mrsid~to estimate functional connectomes from motor cortex.  \mrsid~enables us to estimate the regions, rather than imposing some prior parcellation on the data, as well as estimate sparse connectivity between regions.  \mrsid~reliably estimates these connectomes, as well as predicts the held-out time-series data.  To our knowledge, this is the first time anybody has been able to estimate partitions and functional connectomes directly from the high-dimensional data, with a single unified approach.  To enable extensions, generalizations, and additional applications, the functions and code for generating each of the figures is freely available from \url{https://github.com/shachen/PLDS/}.
 
@@ -93,7 +94,7 @@ These three techniques together enable us to obtain highly accurate estimates in
 
 \section{The Model}
 
-In statistical data analysis, one often encounter some observed signals and also has some unobserved or latent variables, which are denoted as $\bY=(\by_1,\ldots,\by_T)$ and $\bX=(\bx_1,\ldots,\bx_T)$ respectively. By the Bayesian rule, the joint probability of $\bY$ and $\bX$ is $P(\bX,\bY)=P(\bY|\bX) P(\bX)$. The joint conditional distribution $P(\mb{Y}|\mb{X})$ and joint prior can both be represented as a product of marginals: 
+In statistical data analysis, one often encounter some observed signals and also has some unobserved or latent variables, which are denoted as $\bY=(\by_1,\ldots,\by_T)$ and $\bX=(\bx_1,\ldots,\bx_T)$ respectively. By the Bayesian rule, the joint probability of $\bY$ and $\bX$ is $P(\bX,\bY)=P(\bY|\bX) P(\bX)$. The joint conditional distribution $P(\mb{Y}|\mb{X})$ and joint prior can both be represented as a product of marginals:
 \begin{equation}
 \begin{aligned}
 P(\mb{Y}|\mb{X}) &= \prod_{t=1}^T P(\by_t | \by_{0:t-1}, x_{0:t}), \\
@@ -101,7 +102,7 @@ P(\bX) &= P(x_0) \prod_{t=1}^T P(x_t | x_{0:t-1}).
 \end{aligned}
 \end{equation}
 
-The generic time-invariant state-space model makes the following simplifying assumptions 
+The generic time-invariant state-space model makes the following simplifying assumptions
 \begin{equation}
 \begin{aligned}
 P(\by_t | \by_{0:t-1}, x_{0:t})  &\approx P(\by_t | \bx_t), \\
@@ -117,8 +118,8 @@ Finally, a lineary dynamical system assumes that both of the above terms are lin
 &\by_t=C\bx_t+\mathbf{v}_t,\qquad \mathbf{v}_t\sim N(\mathbf{0},R),
 \end{aligned}
 \end{equation}
-where $A$ is the $d\times d$ state transition matrix and $C$ is the $p \times d$ generative matrix. $\bx_t$ is a $d\times 1$ vector and $\by_t$ is a $p\times 1$ vector. 
-% The sequence of vectors $\bY=(\by_1,\ldots,\by_T)$ are the observed data and $\bX=(\bx_1,\ldots,\bx_T)$ represent the unknown hidden states. 
+where $A$ is the $d\times d$ state transition matrix and $C$ is the $p \times d$ generative matrix. $\bx_t$ is a $d\times 1$ vector and $\by_t$ is a $p\times 1$ vector.
+% The sequence of vectors $\bY=(\by_1,\ldots,\by_T)$ are the observed data and $\bX=(\bx_1,\ldots,\bx_T)$ represent the unknown hidden states.
 The output noise covariance $R$ is $p\times p$, while the state noise covariance $Q$ is $d\times d$. Initial state mean $\mathbf{\pi}_0$ is $d\times 1$ and covariance $V_0$ is $d \times d$.
 
 The model can be thought as the continuous version of the hidden Markov model (HMM), where the columns of $C$ stands for the hidden states. The difference is that in this model, what one observe at each time point is not a single state, but a linear combination of multiple states. $\bx_t$ is the weights in the linear combination. $A$ matrix is the analogy of the state transition matrix, which describe how the weights $\bx_t$ evolve over time. Another difference is that LDS contains two white noise terms, which are captured by the $Q$ and $R$ matrices.
@@ -165,9 +166,9 @@ With all those constraints, the model becomes:
 \end{aligned}
 \end{equation}
 
-where $A$ is a sparse matrix and $C$ has smooth columns. 
-% For notational convenience, a sequence of $T$ output vectors $(\by_1,\ldots,\by_T)$ is denoted by $\bY$. %; a subsequence $(\by_{t_0},\by_{t_0 + 1},\ldots,\by_{t_1})$ by $\bY_{t_0}^{t_1}$. 
-% Similarly for the latent states. 
+where $A$ is a sparse matrix and $C$ has smooth columns.
+% For notational convenience, a sequence of $T$ output vectors $(\by_1,\ldots,\by_T)$ is denoted by $\bY$. %; a subsequence $(\by_{t_0},\by_{t_0 + 1},\ldots,\by_{t_1})$ by $\bY_{t_0}^{t_1}$.
+% Similarly for the latent states.
 % In addition, l
 Let $\theta =\{A,C,R,\mathbf{\pi}_0\}$ represents all unknown parameters and $P(\bX,\bY)$ be the likelihood for a generic LDS model, then combing model \ref{eq:model0} and the constraints on $A$ and $C$ lead us to an optimization problem
 \begin{equation}\label{eqn:penaltylik}
@@ -285,7 +286,7 @@ be a $Tp\times 1$ vector from rearranging  $\bY$. In addition, let
 &&\bX^{\T}
 \end{pmatrix}_{pT\times pd}.
 \]
-% where $W=\biggl(\bx_1,\ldots,\bx_{T}\biggr)$. 
+% where $W=\biggl(\bx_1,\ldots,\bx_{T}\biggr)$.
 Finally, vectorize $C^{\text{old}}$ as
 \begin{equation}\label{eq:vectorizec}
 \mathbf{c}^{\text{old}} = (C_{11}^{\text{old}},\ldots,C_{1d}^{\text{old}},C_{21}^{\text{old}},\ldots,C_{2d}^{\text{old}},C_{p1}^{\text{old}},\ldots,C_{pd}^{\text{old}})^{\T}
@@ -740,8 +741,8 @@ The similarities among $A$ matrices are also shown in Figure \ref{fig:matsim} as
 \label{fig:matsim}
 \end{center}
 
-As an example, the 3D renderings of the columns of matrix $C$ from the first scan of subject one are shown in Figure \oldref{fig:3d} (after thresholding). 
-% The biological meaning of those regions needs to be further validated. 
+As an example, the 3D renderings of the columns of matrix $C$ from the first scan of subject one are shown in Figure \oldref{fig:3d} (after thresholding).
+% The biological meaning of those regions needs to be further validated.
 It is helpful to compare those regions to other existing parcellations of the mortor cortex. As an example, the blue region in Figure \oldref{fig:3d} accurately matches the dorselmedical (DM) parcel of the five-region parcellation proposed by Nebel MB et al. \cite{nebel2014disruption}.
 \begin{center}
 \[
@@ -755,14 +756,14 @@ It is helpful to compare those regions to other existing parcellations of the mo
 \end{center}
 
 Another application of the algorithm is predicting brain signals. To demonstrate this, the algorithm is applied to the Human Connectome Project (HCP) data.
-% 
+%
 Using the profile likelihood method, $d=149$ is picked. The data has $T=1200$ time points. The first $N = 1000$ are picked as training data, while the rest are used as test data. Then both the SVD method in Section \oldref{sec:initial} and \mrsid~algorithm are used for estimations. Then $k$-step ahead predictions are made with equations \ref{eq:model0} and estimations from both methods. Pseudocode for $k$-step ahead predictions is given in Appendix 3. The prediction accuracies are shown in Figure \oldref{fig:predaccy} (left panel). The first observation is that, \mrsid~algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. As the SVD method is also used to intialize \mrsid~algorithm, this shows that \mrsid~algorithm improves estimations from the SVD method in terms of short-term predictions. Another observation is, \mrsid~algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
 
 % \begin{figure}
 \begin{center}
 \includegraphics[scale=0.45]{./figures/hcp_pred_accy.pdf}
 \includegraphics[scale=0.45]{./figures/newSampleTS.pdf}
-\captionof{figure}{Prediction accuracies comparison on HCP data. 
+\captionof{figure}{Prediction accuracies comparison on HCP data.
 \emph{Left:} The mean squared error (MSE) is used as the accuracy measure.
 \emph{Right:} Sample time series plot. The dotted green curve stands for the $60\%$ confidence band given by \mrsid~model. The true time series is averaged signals from a subsample of voxels. The predictions are also averaged over the same subsample. The confidence band is estimated based on the covariance matrix of these voxels. A subsample of 20 voxels are picked in this experiment to avoid big covariance matrices calculation. All values are log-scaled for plotting purpose.
 }
