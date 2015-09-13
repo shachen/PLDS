@@ -1,0 +1,577 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.30)  12 SEP 2015 23:28
+entering extended mode
+**C:/Ubuntu/Github/PLDS/Draft/JASA*Manuscript.tex
+("C:/Ubuntu/Github/PLDS/Draft/JASA Manuscript.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Disk D\Program Files\MiKTeX\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Disk D\Program Files\MiKTeX\tex\latex\base\fleqn.clo"
+File: fleqn.clo 1998/08/17 v1.1c Standard LaTeX option (flush left equations)
+\mathindent=\dimen102
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\base\size12.clo"
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen103
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\base\latexsym.sty"
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Disk D\Program Files\MiKTeX\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Disk D\Program Files\MiKTeX\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+("C:\Disk D\Program Files\MiKTeX\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2009/06/22 v3.00
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks14
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+("C:\Disk D\Program Files\MiKTeX\tex\latex\psnfss\times.sty"
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption.sty
+Package: caption 2013/02/03 v3.3-65 Customizing captions (AR)
+
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\caption\caption3.sty
+Package: caption3 2013/02/03 v1.5-62 caption3 kernel (AR)
+\captionmargin=\dimen106
+\captionmargin@=\dimen107
+\captionwidth=\dimen108
+\caption@tempdima=\dimen109
+\caption@indent=\dimen110
+\caption@parindent=\dimen111
+\caption@hangindent=\dimen112
+)
+\c@ContinuedFloat=\count88
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+("C:\Disk D\Program Files\MiKTeX\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen113
+))
+("C:\Disk D\Program Files\MiKTeX\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen114
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count89
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count90
+\leftroot@=\count91
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count92
+\DOTSCASE@=\count93
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen115
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count94
+\c@MaxMatrixCols=\count95
+\dotsspace@=\muskip10
+\c@parentequation=\count96
+\dspbrk@lvl=\count97
+\tag@help=\toks17
+\row@=\count98
+\column@=\count99
+\maxfields@=\count100
+\andhelp@=\toks18
+\eqnshift@=\dimen116
+\alignsep@=\dimen117
+\tagshift@=\dimen118
+\tagwidth@=\dimen119
+\totwidth@=\dimen120
+\lineht@=\dimen121
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\ams\classes\amsthm.sty"
+Package: amsthm 2004/08/06 v2.20
+\thm@style=\toks21
+\thm@bodyfont=\toks22
+\thm@headfont=\toks23
+\thm@notefont=\toks24
+\thm@headpunct=\toks25
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks26
+)
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\pdfpages\pdfpages.sty
+Package: pdfpages 2013/08/25 v0.4v Insert pages of external PDF documents (AM)
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\tools\calc.sty"
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count101
+\calc@Bcount=\count102
+\calc@Adimen=\dimen122
+\calc@Bdimen=\dimen123
+\calc@Askip=\skip49
+\calc@Bskip=\skip50
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count103
+\calc@Cskip=\skip51
+)
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\eso-pic\eso-pic.sty
+Package: eso-pic 2013/10/06 v2.0d eso-pic (RN)
+
+("C:\Disk D\Program Files\MiKTeX\tex\generic\oberdiek\atbegshi.sty"
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+
+("C:\Disk D\Program Files\MiKTeX\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)))
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\pdfpages\pppdftex.def
+File: pppdftex.def 2013/08/25 v0.4v Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box28
+\AM@toc@title=\toks27
+\c@AM@survey=\count104
+\AM@templatesizebox=\box29
+)
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\enumitem\enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip52
+\enit@outerparindent=\dimen124
+\enit@toks=\toks28
+\enit@inbox=\box30
+\enitdp@description=\count105
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\tools\indentfirst.sty"
+Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
+)
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\bbm\bbm.sty
+Package: bbm 1999/03/15 V 1.2 provides fonts for set symbols - TH
+LaTeX Font Info:    Overwriting math alphabet `\mathbbm' in version `bold'
+(Font)                  U/bbm/m/n --> U/bbm/bx/n on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
+(Font)                  U/bbmss/m/n --> U/bbmss/bx/n on input line 35.
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\hyperref\nameref.sty"
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\oberdiek\refcount.sty"
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+)
+("C:\Disk D\Program Files\MiKTeX\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+("C:\Disk D\Program Files\MiKTeX\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+("C:\Disk D\Program Files\MiKTeX\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+
+("C:\Disk D\Program Files\MiKTeX\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+))))
+\c@section@level=\count106
+LaTeX Info: Redefining \ref on input line 353.
+LaTeX Info: Redefining \pageref on input line 353.
+)
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure.sty
+Package: subfigure 2002/07/30 v2.1.4 subfigure package
+\subfigtopskip=\skip53
+\subfigcapskip=\skip54
+\subfigcaptopadj=\dimen125
+\subfigbottomskip=\skip55
+\subfigcapmargin=\dimen126
+\subfiglabelskip=\skip56
+\c@subfigure=\count107
+\c@lofdepth=\count108
+\c@subtable=\count109
+\c@lotdepth=\count110
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\subfigure\subfigure.cfg)
+\subfig@top=\skip57
+\subfig@bottom=\skip58
+)
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\preprint\authblk.sty
+Package: authblk 2001/02/27 1.3 (PWD)
+\affilsep=\skip59
+\@affilsep=\skip60
+\c@Maxaffil=\count111
+\c@authors=\count112
+\c@affil=\count113
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\psnfss\helvet.sty"
+Package: helvet 2005/04/12 PSNFSS-v9.2a (WaS) 
+)
+("C:\Disk D\Program Files\MiKTeX\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 52.
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\psnfss\ot1phv.fd"
+File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
+)
+(C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count114
+\scratchdimen=\dimen127
+\scratchbox=\box31
+\nofMPsegments=\count115
+\nofMParguments=\count116
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count117
+\MPscratchDim=\dimen128
+\MPnumerator=\count118
+\makeMPintoPDFobject=\count119
+\everyMPtoPDFconversion=\toks30
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfigure package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box32
+LaTeX Font Info:    Try loading font information for U+lasy on input line 72.
+ ("C:\Disk D\Program Files\MiKTeX\tex\latex\base\ulasy.fd"
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 72.
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 72.
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 73.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 75.
+
+("C:\Disk D\Program Files\MiKTeX\tex\latex\psnfss\ot1pcr.fd"
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 78.
+LaTeX Font Info:    Font shape `OT1/phv/bx/it' in size <12> not available
+(Font)              Font shape `OT1/phv/b/it' tried instead on input line 78.
+LaTeX Font Info:    Font shape `OT1/phv/b/it' in size <12> not available
+(Font)              Font shape `OT1/phv/b/sl' tried instead on input line 78.
+ [1
+
+{C:/Users/Jason/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <12> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 90.
+ [3] [4]
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 104.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 104.
+ [5] [6]
+[7] [8]
+Overfull \hbox (26.12543pt too wide) in paragraph at lines 195--196
+\OT1/phv/m/n/12 ob-served se-quence (or mul-ti-ple se-quences in some ap-pli-ca
+-tions) of out-puts $[] \OT1/cmr/m/n/12 = ([][]\OML/cmm/m/it/12 ; [] ; [][]\OT1
+/cmr/m/n/12 )$\OT1/phv/m/n/12 ,
+ []
+
+[9]
+LaTeX Font Info:    Try loading font information for U+bbm on input line 205.
+ (C:\Users\Jason\AppData\Roaming\MiKTeX\2.9\tex\latex\bbm\ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
+)
+Overfull \hbox (52.1881pt too wide) detected at line 206
+ $\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; []\OT1/cmr/m/n/12 ) =
+ \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]\OMS/cmsy/m/n/12 j[]\OT1/cmr/m/n/12 )\OML
+/cmm/m/it/12 P\OT1/cmr/m/n/12 ([]) = \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([][]) [
+] \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([][]\OMS/cmsy/m/n/12 j[][]\OT1/cmr/m/n/12 
+) [] \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([][]\OMS/cmsy/m/n/12 j[][]\OT1/cmr/m/n/
+12 ) = [] \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([][]\OMS/cmsy/m/n/12 j[][]\OT1/cmr
+/m/n/12 ) [] \OML/cmm/m/it/12 P\OT1/cmr/m/n/12 ([][]\OMS/cmsy/m/n/12 j[][]\OT1/
+cmr/m/n/12 )\U/bbm/m/n/12 1[]\OT1/cmr/m/n/12 ([][])$ 
+ []
+
+[10] [11]
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 243.
+
+Overfull \hbox (16.84935pt too wide) in paragraph at lines 244--245
+[]\OT1/phv/m/n/12 The E step of EM re-quires com-put-ing the ex-pected log like
+-li-hood, $\OT1/cmr/m/n/12   = \OML/cmm/m/it/12 E\OT1/cmr/m/n/12 [[] \OML/cmm/m
+/it/12 P\OT1/cmr/m/n/12 ([]\OML/cmm/m/it/12 ; []\OMS/cmsy/m/n/12 j[]\OT1/cmr/m/
+n/12 )]$\OT1/phv/m/n/12 .
+ []
+
+[12] [13] [14] [15] [16] [17] [18] [19]
+<./figures/low-d-simulation.pdf, id=82, 505.89pt x 505.89pt>
+File: ./figures/low-d-simulation.pdf Graphic file (type pdf)
+
+<use ./figures/low-d-simulation.pdf>
+Package pdftex.def Info: ./figures/low-d-simulation.pdf used on input line 432.
+
+(pdftex.def)             Requested size: 217.52844pt x 217.52844pt.
+
+<./figures/high-d-simulation.pdf, id=83, 505.89pt x 505.89pt>
+File: ./figures/high-d-simulation.pdf Graphic file (type pdf)
+
+<use ./figures/high-d-simulation.pdf>
+Package pdftex.def Info: ./figures/high-d-simulation.pdf used on input line 435
+.
+(pdftex.def)             Requested size: 217.52844pt x 217.52844pt.
+
+<./figures/heatmap-figure-1.pdf, id=84, 722.7pt x 505.89pt>
+File: ./figures/heatmap-figure-1.pdf Graphic file (type pdf)
+
+<use ./figures/heatmap-figure-1.pdf>
+Package pdftex.def Info: ./figures/heatmap-figure-1.pdf used on input line 444.
+
+(pdftex.def)             Requested size: 433.62334pt x 303.53633pt.
+ [20] [21 <C:/Ubuntu/Github/PLDS/Draft/figures/low-d-simulation.pdf> <C:/Ubuntu
+/Github/PLDS/Draft/figures/high-d-simulation.pdf>] [22 <C:/Ubuntu/Github/PLDS/D
+raft/figures/heatmap-figure-1.pdf>]
+<./figures/est-pred-accuracy.pdf, id=116, 505.89pt x 505.89pt>
+File: ./figures/est-pred-accuracy.pdf Graphic file (type pdf)
+
+<use ./figures/est-pred-accuracy.pdf>
+Package pdftex.def Info: ./figures/est-pred-accuracy.pdf used on input line 471
+.
+(pdftex.def)             Requested size: 202.3524pt x 202.3524pt.
+ [23] [24 <C:/Ubuntu/Github/PLDS/Draft/figures/est-pred-accuracy.pdf>] [25]
+<./figures/EigenValues.pdf, id=134, 505.89pt x 505.89pt>
+File: ./figures/EigenValues.pdf Graphic file (type pdf)
+
+<use ./figures/EigenValues.pdf>
+Package pdftex.def Info: ./figures/EigenValues.pdf used on input line 495.
+(pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
+
+<./figures/profileLikelihood.pdf, id=135, 505.89pt x 505.89pt>
+File: ./figures/profileLikelihood.pdf Graphic file (type pdf)
+
+<use ./figures/profileLikelihood.pdf>
+Package pdftex.def Info: ./figures/profileLikelihood.pdf used on input line 495
+.
+(pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
+
+Overfull \hbox (13.0268pt too wide) detected at line 497
+ $[]$ 
+ []
+
+[26 <C:/Ubuntu/Github/PLDS/Draft/figures/EigenValues.pdf> <C:/Ubuntu/Github/PLD
+S/Draft/figures/profileLikelihood.pdf>]
+<./figures/ConnectivityGraph_11_all.pdf, id=151, 505.89pt x 505.89pt>
+File: ./figures/ConnectivityGraph_11_all.pdf Graphic file (type pdf)
+
+<use ./figures/ConnectivityGraph_11_all.pdf>
+Package pdftex.def Info: ./figures/ConnectivityGraph_11_all.pdf used on input l
+ine 508.
+(pdftex.def)             Requested size: 354.12057pt x 354.12057pt.
+
+<./figures/A-matrices-similarity.pdf, id=152, 505.89pt x 505.89pt>
+File: ./figures/A-matrices-similarity.pdf Graphic file (type pdf)
+
+<use ./figures/A-matrices-similarity.pdf>
+Package pdftex.def Info: ./figures/A-matrices-similarity.pdf used on input line
+ 545.
+(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
+ [27] [28 <C:/Ubuntu/Github/PLDS/Draft/figures/ConnectivityGraph_11_all.pdf>]
+<./figures/view1.png, id=166, 404.51125pt x 401.5pt>
+File: ./figures/view1.png Graphic file (type png)
+ <use ./figures/view1.png>
+Package pdftex.def Info: ./figures/view1.png used on input line 556.
+(pdftex.def)             Requested size: 145.62393pt x 144.53989pt.
+
+<./figures/view2.png, id=167, 404.51125pt x 401.5pt>
+File: ./figures/view2.png Graphic file (type png)
+ <use ./figures/view2.png>
+Package pdftex.def Info: ./figures/view2.png used on input line 556.
+(pdftex.def)             Requested size: 133.48912pt x 132.4954pt.
+
+<./figures/view3.png, id=168, 404.51125pt x 401.5pt>
+File: ./figures/view3.png Graphic file (type png)
+ <use ./figures/view3.png>
+Package pdftex.def Info: ./figures/view3.png used on input line 556.
+(pdftex.def)             Requested size: 133.48912pt x 132.4954pt.
+
+[29 <C:/Ubuntu/Github/PLDS/Draft/figures/A-matrices-similarity.pdf>] [30 <C:/Ub
+untu/Github/PLDS/Draft/figures/view1.png (PNG copy)> <C:/Ubuntu/Github/PLDS/Dra
+ft/figures/view2.png (PNG copy)> <C:/Ubuntu/Github/PLDS/Draft/figures/view3.png
+ (PNG copy)>] <./figures/hcp_pred_accy.pdf, id=181, 505.89pt x 505.89pt>
+File: ./figures/hcp_pred_accy.pdf Graphic file (type pdf)
+
+<use ./figures/hcp_pred_accy.pdf>
+Package pdftex.def Info: ./figures/hcp_pred_accy.pdf used on input line 570.
+(pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
+
+<./figures/newSampleTS.pdf, id=182, 505.89pt x 505.89pt>
+File: ./figures/newSampleTS.pdf Graphic file (type pdf)
+
+<use ./figures/newSampleTS.pdf>
+Package pdftex.def Info: ./figures/newSampleTS.pdf used on input line 571.
+(pdftex.def)             Requested size: 227.64839pt x 227.64839pt.
+ [31 <C:/Ubuntu/Github/PLDS/Draft/figures/hcp_pred_accy.pdf> <C:/Ubuntu/Github/
+PLDS/Draft/figures/newSampleTS.pdf>] [32]
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 623--625
+
+ []
+
+[34]
+Overfull \hbox (113.5149pt too wide) in paragraph at lines 659--674
+[][] 
+ []
+
+[35]
+Overfull \hbox (33.40018pt too wide) in paragraph at lines 677--693
+[][] 
+ []
+
+[36] [37] ("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.bbl"
+Missing character: There is no Å in font phvr7t!
+Missing character: There is no ™ in font phvr7t!
+ [38] [39] [40]
+[41]) [42] ("C:\Ubuntu\Github\PLDS\Draft\JASA Manuscript.aux") ) 
+Here is how much of TeX's memory you used:
+ 5295 strings out of 493921
+ 80207 string characters out of 3146079
+ 144037 words of memory out of 3000000
+ 8426 multiletter control sequences out of 15000+200000
+ 41584 words of font info for 104 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 42i,16n,38p,1372b,331s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Jaso
+n\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\public\bbm\dpi600\bbm12.pk>{C:/Disk 
+D/Program Files/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<C:/Disk D/Program Files
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Disk D/Program Files/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Disk D/Program Files/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Disk D/Program Files/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmmi12.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmmi6.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/
+amsfonts/cm/cmmi8.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmmib10.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmr12.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6
+.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C
+:/Disk D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Disk
+ D/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Disk D/Pr
+ogram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Disk D/Program 
+Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Disk D/Program Files/
+MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Disk D/Program Files/
+MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts
+/type1/urw/helvetic/uhvb8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/
+helvetic/uhvbo8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvetic/u
+hvr8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
+
+Output written on "JASA Manuscript.pdf" (42 pages, 723454 bytes).
+PDF statistics:
+ 300 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+
