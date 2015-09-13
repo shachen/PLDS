@@ -497,7 +497,7 @@ A flexible method to choose the number of latent states involves the profile lik
 
 
 % One can group the scans correctly with the $A$ matrices.
-Denote the $A$ matrix estimation for the second scan of subject one as $A_{12}$. Similar notations apply to the other scans. Then the similarities among the four matrices are summarized in Table \oldref{tab:similarity}. The distance measure in Equation \ref{eq:distance} is used. Another permutation invariant measure of distance between two square matrices, the Amari error \citep{amari1996new}, is also provided in the table. The Amari error between $A$ and $\hat{A}$: $E(A,\hat{A}) = \sum\limits_{i=1}^n(\sum\limits_{j=1}^n\frac{|p_{ij}|}{\max_k |p_{ik}|}-1) + \sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{|p_{ij}|}{\max_k|p_{kj}|}-1)$, where $P =(p_{ij})=A^{-1}\hat{A}$. Notice a smaller $d(A,B)$ or Amari error means more similarity. Among the six pairs from $A_{11},A_{12},A_{21}$ and $A_{22}$, it is expected that the pairs $(A_{11},A_{12})$ and $(A_{21},A_{22})$ give the smallest distances, as each pair comes from two scans of the same subject. This idea is validated by Table \oldref{tab:similarity}. A direct application of this result is to correctly cluster the four scans into two group, each group corresponding to a subject. This implies that the A matrices contains subject-specific information. %The similarities among $A$ matrices are also shown in Figure \oldref{fig:matsim} as a heatmap.The $A$ matrices as connectivity graphs are plotted in Figure \oldref{fig:cgraph}.
+Denote the $A$ matrix estimation for the second scan of subject one as $A_{12}$. Similar notations apply to the other scans. Then the similarities among the four matrices are summarized in Table \oldref{tab:similarity}. The distance measure in Equation \ref{eq:distance} is used. Another permutation invariant measure of distance between two square matrices, the Amari error \citep{amari1996new}, is also provided in the table. The Amari error between $A$ and $\hat{A}$: $E(A,\hat{A}) = \sum\limits_{i=1}^n(\sum\limits_{j=1}^n\frac{|p_{ij}|}{\max_k |p_{ik}|}-1) + \sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{|p_{ij}|}{\max_k|p_{kj}|}-1)$, where $P =(p_{ij})=A^{-1}\hat{A}$. Notice a smaller $d(A,B)$ or Amari error means more similarity. Among the six pairs from $A_{11},A_{12},A_{21}$ and $A_{22}$, it is expected that the pairs $(A_{11},A_{12})$ and $(A_{21},A_{22})$ give the smallest distances, as each pair comes from two scans of the same subject. This idea is validated by Table \oldref{tab:similarity}. A direct application of this result is to correctly cluster the four scans into two group, each group corresponding to a subject. This implies that the A matrices contains subject-specific information. The similarities among $A$ matrices are also shown in Figure \oldref{fig:matsim} as a heatmap. %The $A$ matrices as connectivity graphs are plotted in Figure \oldref{fig:cgraph}.
 
 \begin{table}
 \centering
@@ -515,11 +515,11 @@ $A_{22}$ & $0.095(1.02)$ & $0.095(1.09)$ & $\mathbf{0.085(0.98)}$ & $0$ \\
 \end{tabular}
 \end{table}
 
-%\begin{center}
-%\includegraphics[scale=.4]{./figures/A-matrices-similarity.pdf}
-%\captionof{figure}{Similarities among the four estimated $A$ matrices. The distance $d(\cdot,\cdot)$ is used in this figure. As one can see, the two red/orange off-diagonal pixels has the minimum distances, which correspond to the pairs of $(A_{11},A_{12})$ and $(A_{21},A_{22})$ respectively. With this similarity map, one can tell which two scans are from the same subject.}
-%\label{fig:matsim}
-%\end{center}
+\begin{center}
+\includegraphics[scale=.4]{./figures/A-matrices-similarity.pdf}
+\captionof{figure}{Similarities among the four estimated $A$ matrices. The distance $d(\cdot,\cdot)$ is used in this figure. As one can see, the two red/orange off-diagonal pixels has the minimum distances, which correspond to the pairs of $(A_{11},A_{12})$ and $(A_{21},A_{22})$ respectively. With this similarity map, one can tell which two scans are from the same subject.}
+\label{fig:matsim}
+\end{center}
 
 In addition, the 3D renderings of the columns of matrix $C$ from the first scan of subject one are shown in Figure \oldref{fig:3d} (after thresholding).
 % The biological meaning of those regions needs to be further validated.

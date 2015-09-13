@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.30)  13 SEP 2015 14:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.1.30)  13 SEP 2015 14:39
 entering extended mode
 **C:/Ubuntu/Github/PLDS/Draft/JASA*Manuscript.tex
 ("C:/Ubuntu/Github/PLDS/Draft/JASA Manuscript.tex"
@@ -458,7 +458,7 @@ File: ./figures/est-pred-accuracy.pdf Graphic file (type pdf)
 <use ./figures/est-pred-accuracy.pdf>
 Package pdftex.def Info: ./figures/est-pred-accuracy.pdf used on input line 465
 .
-(pdftex.def)             Requested size: 202.3524pt x 202.3524pt.
+(pdftex.def)             Requested size: 232.71222pt x 232.71222pt.
  [20] [21 <C:/Ubuntu/Github/PLDS/Draft/figures/est-pred-accuracy.pdf>]
 <./figures/A-matrices-similarity.pdf, id=121, 505.89pt x 505.89pt>
 File: ./figures/A-matrices-similarity.pdf Graphic file (type pdf)
@@ -538,7 +538,7 @@ MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Disk D/Program Files/MiKTeX
 /urw/helvetic/uhvb8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvet
 ic/uhvbo8a.pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.
 pfb><C:/Disk D/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on "JASA Manuscript.pdf" (30 pages, 679041 bytes).
+Output written on "JASA Manuscript.pdf" (30 pages, 678865 bytes).
 PDF statistics:
  238 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -432,7 +432,7 @@ Estimation accuracies are plotted against penalty size $\lambda_C$ in Figure \ol
 \end{figure}
 
 
-As a concrete example, estimations from both methods are compared to the true values of parameters in Figure \oldref{fig:heatmap}. One can see that true values in each column of $C$ matrix are decreasing smoothly. $\hat{C}_{\lambda_m}$, which is estimated with optimal penalties $\lambda_C = \lambda_m$ and $\lambda_A = k\lambda_m$, shows similar pattern. In terms of $A$, the true value is sparse with many $0$ (blue) values. \mrsid~estimation $\hat{A}_{\lambda_m}$ is also sparse, denoted by the off-diagonal blue values. However, LDS estimation $\hat{A}_{\lambda_{-\infty}}$ is not sparse, with many yellow and red off-diagonal values.
+As a concrete example, estimations from both methods are compared to the true values of parameters in Figure \oldref{fig:heatmap}. One can see that true values in each column of $C$ matrix are decreasing smoothly. $\hat{C}_{\lambda_m}$, which is estimated with optimal penalties $\lambda_C = \lambda_m$ and $\lambda_A = k\lambda_m$, shows similar pattern. In terms of $A$, the true value is sparse with many $0$ (blue) values. \mrsid~estimation $\hat{A}_{\lambda_m}$ is also sparse, denoted by the off-diagonal 0 (blue) values. However, LDS estimation $\hat{A}_{\lambda_{-\infty}}$ is not sparse, with many positive (yellow and red) off-diagonal values.
 \begin{figure}
  \centering
  \includegraphics[scale=.6]{./figures/heatmap-figure-1}
@@ -462,7 +462,7 @@ Another perspective when considering \mrsid~model is its ability to make predict
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.4]{./figures/est-pred-accuracy.pdf}
+\includegraphics[scale=0.46]{./figures/est-pred-accuracy.pdf}
 \captionof{figure}{Estimation and prediction accuracies. The x-axis is the penalty size under log scale, while y-axis is the estimation and prediction accuracies. One can see that the penalty that yields the most accurate estimation also gives the best predictions.}
 \label{fig:estpredaccuracy}
 \end{figure}
