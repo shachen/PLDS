@@ -273,7 +273,7 @@ Estimation for $C$ matrix also has closed form. Terms involving $C$ in equation 
 f_{\lambda_2}(C;\bX,\bY) = \sum\limits_{t=1}^{T}\left(\frac{1}{2}[\by_t-C\bx_t]^{\T}R^{-1}[\by_t-C\bx_t]\right)+\lambda_2 \|C\|_2.
 \end{equation*}
 
-In $f_{\lambda_2}(C;\bX,\bY)$, $C$ is a matrix, to simplify notation and optimization, we vectorized it to a vector $\mathbf{c}$ following the methods of \citet{turlach2005simultaneous}. A closed form solution for $\mathbf{c}$, $\mathbf{c}^{\text{new}}$, is given by the Tikhonov regularization \citep{tikhonov1943stability}. Rearrange the elements in $\mathbf{c}^{\text{new}}$, one gets an estimation of matrix $C$. That is, 
+In $f_{\lambda_2}(C;\bX,\bY)$, $C$ is a matrix, to simplify notation and optimization, we vectorized it to a vector $\mathbf{c}$ following the methods of \citet{turlach2005simultaneous}. A closed form solution for $\mathbf{c}$, $\mathbf{c}^{\text{new}}$, is given by the Tikhonov regularization \citep{tikhonov1943stability}. Rearrange the elements in $\mathbf{c}^{\text{new}}$, one gets an estimation of matrix $C$. That is,
 \begin{equation}\label{eq:updatec}
 C^{\text{new}} =\text{Rearrange } \mathbf{c}^{\text{new}}
 \end{equation}
@@ -288,7 +288,7 @@ Similar to what we have done to $C$, $f_{\lambda_1}(A;\bX,\bY)$ is equivalent to
 \begin{equation*}
 f_{\lambda_1}(A;\bX,\bY) =  \|\mathbf{z}  - \mathbf{Za}\|_2^2 + \lambda_1\|\mathbf{a}\|_1.
 \end{equation*}
-where $\mathbf{z}$ is a $Td \times 1$ vector from rearranging $\bX$ and $\mathbf{Z}$ is a block diagonal matrix with diagonal component $Z^{\T} =(\bx_0,\ldots,\bx_{T-1})^{\T}$. 
+where $\mathbf{z}$ is a $Td \times 1$ vector from rearranging $\bX$ and $\mathbf{Z}$ is a block diagonal matrix with diagonal component $Z^{\T} =(\bx_0,\ldots,\bx_{T-1})^{\T}$.
 
 
 $f_{\lambda_1}(A;\bX,\bY)$ does not have closed form solution due to the $\ell_1$ term. Fortunately, it can be solved numerically with a Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) \citep{beck2009fast}. The FISTA algorithm is detailed in the Appendix on the Git Repo.
@@ -447,7 +447,7 @@ When applied to fMRI data, the model has very good interpretability. Each $\by_t
 
 In this application, the number of voxels, $p = 7396$ and number of scans, $T = 210$. Tuning parameters: $\lambda_A = \lambda_C = 10^{-5}$. Number of latent states, $d = 11$. Max number of iterations for EM and the regularized subproblems are both 30 steps.
 
-To pick optimal penalty size, different combinations of $\lambda_A$ and $\lambda_C$, where $\lambda_A = \lambda_C$ are tried. The values range from $10^{-10}$ to $10^{4}$. Then the estimations from each combination are used to make predictions. The combination that gives the best prediction is used. One can also use a grid of combinations to search for even better penalties. 
+To pick optimal penalty size, different combinations of $\lambda_A$ and $\lambda_C$, where $\lambda_A = \lambda_C$ are tried. The values range from $10^{-10}$ to $10^{4}$. Then the estimations from each combination are used to make predictions. The combination that gives the best prediction is used. One can also use a grid of combinations to search for even better penalties.
 
 To determine the number of latent states, the profile likelihood method proposed by Zhu et al. \citep{zhu2006automatic} is adopted. The method assumes eigenvalues of the data matrix come from a mixed Gaussian and use profile likelihood to pick the optimal number of latent states. Apply the method to all four scans, the numbers of latent states are 11, 6, 14 and 15 respectively. Their average, $d=11$, is used.
 
@@ -491,9 +491,9 @@ As a summary, \mrsid~ gives a spatial decomposition of the motor cortex, as well
 
 As a second application, \mrsid~is applied to the HCP data to predict brain activities.
 
-Using the profile likelihood method, $d=149$ is picked. HCP data has $T=1200$ time points. The first $N = 1000$ are used as training data, while the rest are used for test. 
+Using the profile likelihood method, $d=149$ is picked. HCP data has $T=1200$ time points. The first $N = 1000$ are used as training data, while the rest are used for test.
 
-\mrsid~is used to predict brain activity from training data. As a comparison, the SVD method in Section \oldref{sec:initial} is also tried. Both methods are first used for parameter estimations, then the estimated parameters are fed into equations \ref{eq:model0} to make $k$-step ahead predictions. Pseudocode for $k$-step ahead predictions is given in Appendix on Git Repo. 
+\mrsid~is used to predict brain activity from training data. As a comparison, the SVD method in Section \oldref{sec:initial} is also tried. Both methods are first used for parameter estimations, then the estimated parameters are fed into equations \ref{eq:model0} to make $k$-step ahead predictions. Pseudocode for $k$-step ahead predictions is given in Appendix on Git Repo.
 
 The prediction accuracies are shown in Figure \oldref{fig:predaccy} (left panel). One can see \mrsid~algorithm is giving significantly better predictions for the first 150 predictions compared to the SVD method. Considering the SVD method is also used to intialize \mrsid~algorithm, this observation shows that \mrsid~algorithm improves estimation accuracy significantly on top of the SVD method. Another observation is, \mrsid~algorithm's performance get worse when one predicts into the ``long" future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate and yields deteriorating predictions as the number of steps increase.
 
@@ -517,7 +517,7 @@ By applying the proposed model to fMRI scans of the motor cortex of healthy adul
 
 In the future, this work could be extended in two important directions. First, assumptions on the covariance structures in the observation equation could be generalized. Prior knowledge could be incorporated to covariance $R$ \citep{allen2014generalized}. The general rule is that $R$ should be general enough to be flexible while sufficiently restricted to make the model useful. A lot of other platforms such as tridiagnol and upper triangular could also be considered. Mohammad et al. have discussed the impact of auto correlation on functional connectivity, which also provides us a direction for extension \citep{arbabshirani2014impact}.
 
-Finally, the work can also be extended on the application side. Currently, only data from a single subject is analyzed. As a next step, the model can be extended to a group version and be used to analyze more subjects. The coefficients from the algorithm could be used to measure the reproducibility of the scans.
+Finally, the work can also be extended on the application side. Currently, only data from a few subjects are analyzed. As a next step, the model can be extended to a group version and be used to analyze more subjects. In addition, $A$ matrix estimated by \mrsid~is a potential candidate as a measure of fMRI scan reproducibility.
 
 
 %\bibliographystyle{ieeetr}
