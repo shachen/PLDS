@@ -1,0 +1,120 @@
+\begin{thebibliography}{11}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Banerjee et~al.(2013)Banerjee, Vogelstein and Dunson}]{Banerjee2013a}
+\bibinfo{author}{Banerjee, A.}, \bibinfo{author}{Vogelstein, J.T.},
+  \bibinfo{author}{Dunson, D.B.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{{Parallel inversion of huge covariance matrices}}.
+\newblock \bibinfo{journal}{arXiv preprint} \URLprefix
+  \url{http://arxiv.org/abs/1312.1869},
+  \href{http://arxiv.org/abs/1312.1869}{\tt arXiv:1312.1869}.
+%Type = Article
+\bibitem[{CHEN et~al.(1989)CHEN, BILLINGS and LUO}]{CHEN1989}
+\bibinfo{author}{CHEN, S.}, \bibinfo{author}{BILLINGS, S.A.},
+  \bibinfo{author}{LUO, W.}, \bibinfo{year}{1989}.
+\newblock \bibinfo{title}{{Orthogonal least squares methods and their
+  application to non-linear system identification}}.
+\newblock \bibinfo{journal}{International Journal of Control}
+  \bibinfo{volume}{50}, \bibinfo{pages}{1873--1896}.
+\newblock \URLprefix
+  \url{http://www.tandfonline.com/doi/abs/10.1080/00207178908953472},
+  \DOIprefix\doi{10.1080/00207178908953472}.
+%Type = Article
+\bibitem[{Friston et~al.(2003)Friston, Harrison and Penny}]{Friston2003a}
+\bibinfo{author}{Friston, K.}, \bibinfo{author}{Harrison, L.},
+  \bibinfo{author}{Penny, W.}, \bibinfo{year}{2003}.
+\newblock \bibinfo{title}{{Dynamic causal modelling}}.
+\newblock \bibinfo{journal}{NeuroImage} \bibinfo{volume}{19},
+  \bibinfo{pages}{1273--1302}.
+\newblock \URLprefix
+  \url{http://www.sciencedirect.com/science/article/pii/S1053811903002027},
+  \DOIprefix\doi{10.1016/S1053-8119(03)00202-7}.
+%Type = Inproceedings
+\bibitem[{Hsieh et~al.(2013)Hsieh, Sustik, Dhillon, Ravikumar and
+  Poldrack}]{Hsieh2013}
+\bibinfo{author}{Hsieh, C.J.}, \bibinfo{author}{Sustik, M.A.},
+  \bibinfo{author}{Dhillon, I.S.}, \bibinfo{author}{Ravikumar, P.K.},
+  \bibinfo{author}{Poldrack, R.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{{BIG \& QUIC: Sparse Inverse Covariance Estimation
+  for a Million Variables}}, in: \bibinfo{booktitle}{Advances in Neural
+  Information Processing Systems}, pp. \bibinfo{pages}{3165--3173}.
+\newblock \URLprefix \url{http://papers.nips.cc/paper/4923-big}.
+%Type = Article
+\bibitem[{Johansen(1988)}]{Johansen1988}
+\bibinfo{author}{Johansen, S.r.}, \bibinfo{year}{1988}.
+\newblock \bibinfo{title}{{Statistical analysis of cointegration vectors}}.
+\newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
+  \bibinfo{volume}{12}, \bibinfo{pages}{231--254}.
+\newblock \URLprefix
+  \url{http://www.sciencedirect.com/science/article/pii/0165188988900413},
+  \DOIprefix\doi{10.1016/0165-1889(88)90041-3}.
+%Type = Article
+\bibitem[{Kalman(1960)}]{Kalman1960a}
+\bibinfo{author}{Kalman, R.E.}, \bibinfo{year}{1960}.
+\newblock \bibinfo{title}{{A New Approach to Linear Filtering and Prediction
+  Problems}}.
+\newblock \bibinfo{journal}{Journal of Basic Engineering} \bibinfo{volume}{82},
+  \bibinfo{pages}{35}.
+\newblock \URLprefix
+  \url{http://fluidsengineering.asmedigitalcollection.asme.org/article.aspx?articleid=1430402},
+  \DOIprefix\doi{10.1115/1.3662552}.
+%Type = Article
+\bibitem[{Kalman(1963)}]{Kalman1963}
+\bibinfo{author}{Kalman, R.E.}, \bibinfo{year}{1963}.
+\newblock \bibinfo{title}{{Mathematical Description of Linear Dynamical
+  Systems}}.
+\newblock \bibinfo{journal}{Journal of the Society for Industrial and Applied
+  Mathematics Series A Control} \bibinfo{volume}{1}, \bibinfo{pages}{152--192}.
+\newblock \URLprefix \url{http://epubs.siam.org/doi/abs/10.1137/0301010},
+  \DOIprefix\doi{10.1137/0301010}.
+%Type = Incollection
+\bibitem[{Ljung(1998)}]{Ljung1998}
+\bibinfo{author}{Ljung, L.}, \bibinfo{year}{1998}.
+\newblock \bibinfo{title}{{System Identification}}, in:
+  \bibinfo{editor}{Proch\'{a}zka, A.}, \bibinfo{editor}{Uhl\'{\i}ř, J.},
+  \bibinfo{editor}{Rayner, P.W.J.}, \bibinfo{editor}{Kingsbury, N.G.} (Eds.),
+  \bibinfo{booktitle}{Signal Analysis and Prediction}.
+  \bibinfo{publisher}{Birkh\"{a}user Boston}, \bibinfo{address}{Boston, MA}.
+  Applied and Numerical Harmonic Analysis.
+\newblock \URLprefix \url{http://link.springer.com/10.1007/978-1-4612-1768-8},
+  \DOIprefix\doi{10.1007/978-1-4612-1768-8}.
+%Type = Article
+\bibitem[{Rabiner(1989)}]{rabiner1989tutorial}
+\bibinfo{author}{Rabiner, L.R.}, \bibinfo{year}{1989}.
+\newblock \bibinfo{title}{A tutorial on hidden markov models and selected
+  applications in speech recognition}.
+\newblock \bibinfo{journal}{Proceedings of the IEEE} \bibinfo{volume}{77},
+  \bibinfo{pages}{257--286}.
+%Type = Article
+\bibitem[{Xie et~al.(2013)Xie, Huang and Willett}]{Xie2013a}
+\bibinfo{author}{Xie, Y.}, \bibinfo{author}{Huang, J.},
+  \bibinfo{author}{Willett, R.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{{Change-Point Detection for High-Dimensional Time
+  Series With Missing Data}}.
+\newblock \bibinfo{journal}{IEEE Journal of Selected Topics in Signal
+  Processing} \bibinfo{volume}{7}, \bibinfo{pages}{12--27}.
+\newblock \URLprefix
+  \url{http://ieeexplore.ieee.org/articleDetails.jsp?arnumber=6381435},
+  \DOIprefix\doi{10.1109/JSTSP.2012.2234082}.
+%Type = Inproceedings
+\bibitem[{Zaharia et~al.(2010)Zaharia, Chowdhury, Franklin, Shenker and
+  Stoica}]{Zaharia2010}
+\bibinfo{author}{Zaharia, M.}, \bibinfo{author}{Chowdhury, M.},
+  \bibinfo{author}{Franklin, M.J.}, \bibinfo{author}{Shenker, S.},
+  \bibinfo{author}{Stoica, I.}, \bibinfo{year}{2010}.
+\newblock \bibinfo{title}{Spark: cluster computing with working sets}, in:
+  \bibinfo{booktitle}{Proceedings of the 2nd USENIX conference on Hot topics in
+  cloud computing}, p.~\bibinfo{pages}{10}.
+
+\end{thebibliography}

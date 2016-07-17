@@ -207,7 +207,7 @@ These three techniques combined enable us to obtain highly accurate estimates in
 % ^ <joshuav@gmail.com> 2016-05-12T04:33:19.678Z.
 
 This work presents a new analysis of a model which has only been implemented in low-dimensional settings,
-and paves the way for high-dimensional implementation. Though primitive, it is a first step for essentially any high-dimensional time series analysis, control system identification, and spatiotemporal analysis. To enable extensions, generalizations, and additional applications, the code for the core functions and generating each of the figures is freely available on Github (\url{https://github.com/shachen/PLDS/}).
+and paves the way for high-dimensional implementation. Though primitive, it is a first step for essentially any high-dimensional time series analysis, control system identification, and spatiotemporal analysis. To enable extensions, generalizations, and additional applications, the code for the core functions and generating each of the figures is freely available on Github \url{https://github.com/shachen/PLDS/}.
 % * <stefaniejacinto@gmail.com> 2016-03-31T22:06:44.365Z:
 %
 % > functions
@@ -754,7 +754,7 @@ When applied to fMRI data, the model has very good interpretability. Each $\by_t
 To summarize, \mrsid~ gives a spatial decomposition of the motor cortex, as well as the sparse connectivity among the decomposed regions. The connectivity graph contains subject-specific information and can correctly group scans by subject. The decomposed regions are spatially smooth and are comparable to existing parcellations of the motor cortex.
 
 For the second application, \mrsid~was applied to the HCP data to predict brain activities.
-Using the profile likelihood method, $d=149$ is picked. HCP data has $T=1200$ time points. The first $N = 1000$ (about $80\%$) were used as training data, while the rest were used as out-of-sample test data.
+Using the profile likelihood method, $d=149$ is picked. HCP data has $T=1200$ time points. The first $N = 1000$ were used as training data, while the rest were used as test data.
 \mrsid~was used to predict brain activity from the training data. As a comparison, the SVD method from Section \oldref{sec:initial} was also attempted. Both methods were first used for parameter estimations, then the estimated parameters were fed into equations \ref{eq:model0} to make $k$-step ahead predictions. Pseudocode for $k$-step ahead predictions is given in the Appendix.
 
 The prediction accuracies are shown in Figure \oldref{fig:predaccy} (left panel). One can see that the \mrsid~algorithm gives significantly better predictions for the first 150 predictions compared to the SVD method. Considering the SVD method is also used to intialize the \mrsid~algorithm, this observation shows that the \mrsid~algorithm improves estimation accuracy significantly compared to using the SVD method alone. Another observation is that the performance of the \mrsid~algorithm suffers when one predicts too far into the future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate, yielding deteriorating predictions as the number of steps increase.

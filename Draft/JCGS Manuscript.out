@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{The Model}{}% 2
+\BOOKMARK [1][-]{section.3}{Parameter Estimation}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{E Step}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{M Step}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Initialization}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Improving Computational Efficiency}{section.3}% 7
+\BOOKMARK [1][-]{section.4}{Simulations}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{Simulation Setup}{section.4}% 9
+\BOOKMARK [1][-]{section.5}{Application}{}% 10
+\BOOKMARK [2][-]{subsection.5.1}{Data and Motivation}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.2}{Results}{section.5}% 12
+\BOOKMARK [1][-]{section.6}{Discussion}{}% 13

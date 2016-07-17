@@ -1,237 +1,258 @@
-\documentclass[fleqn,12pt]{article}
-\usepackage{latexsym}
-\usepackage[usenames]{color}
+%% This is file `prletters-template.tex',
+%%
+%% Copyright 2013 Elsevier Ltd
+%%
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%%
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%%
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%%
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+%%
+%% $Id: prletters-template-with-authorship.tex 69 2013-07-15 10:15:25Z rishi $
+%%
+%% This template has no review option
+%%
+%% Use the options `twocolumn,final' to obtain the final layout
+\documentclass[times,twocolumn,final,authoryear]{elsarticle}
+
+%% Stylefile to load PR Letters template
+\usepackage{prletters}
+\usepackage{framed,multirow}
+
+%% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
-\usepackage{times}
-\usepackage{graphicx}
-\usepackage{caption}
+\usepackage{latexsym}
+
+% Following three lines are needed for this document.
+% If you are not loading colors or url, then these are
+% not required.
+\usepackage{url}
+\usepackage{xcolor}
+
+\usepackage{natbib}
+\usepackage{bbm}
+\usepackage{amssymb}
 \usepackage{amsmath,amsfonts,amsthm}
 \usepackage{graphicx}
-\usepackage{setspace}
-\usepackage{pdfpages}
-\usepackage{enumitem}
-\usepackage{indentfirst}
-\doublespacing
-\usepackage{bbm}
-\usepackage{nameref}
+\usepackage{caption}
 \usepackage{subfigure}
-\usepackage{authblk}
-\usepackage{helvet}
-\usepackage{url}
-\usepackage{natbib}
-\usepackage{geometry}
-\usepackage{marginnote}
-\usepackage{color}
-\usepackage[colorlinks=true,pagebackref,linkcolor=magenta]{hyperref}
-\usepackage[markup=underlined]{changes}
-
-\definechangesauthor[color=red]{jv}
-
-%%% Alternative definition to have the remarks
-%%% in the margins instead of footnotes
-\usepackage{todonotes}
-\setlength{\marginparwidth}{1.5cm}
-\makeatletter
-\setremarkmarkup{\todo[color=Changes@Color#1!20,size=\scriptsize]{#1: #2}}
-\makeatother
-\newcommand{\note}[2][]{\added[#1,remark={#2}]{}}
-
-
-\renewcommand{\familydefault}{\sfdefault}
-
-\addtolength{\oddsidemargin}{-.6in}%
-\addtolength{\evensidemargin}{-.6in}%
-\addtolength{\textwidth}{1.2in}%
-\addtolength{\textheight}{0.4in}%
-\addtolength{\topmargin}{-.8in}%
-
-
-\let\oldref\ref
-\renewcommand{\ref}[1]{(\oldref{#1})}
-
-%\newcommand{\T}{^{\ensuremath{\mathsf{T}}}} % transpose
-\newcommand{\T}{^{\ensuremath{\mathsf{T}}}}           % transpose
 \newcommand{\mrsid}{{\sc \texttt{Mr}.~\texttt{Sid}}}
-\newcommand{\argmax}{\operatornamewithlimits{argmax}}
-\newcommand{\argmin}{\operatornamewithlimits{argmin}}
-\newcommand{\diag}{\operatornamewithlimits{diag}}
-
 \providecommand{\mb}[1]{\boldsymbol{#1}}
 \newcommand{\bx}{\mb{x}}
 \newcommand{\by}{\mb{y}}
 \newcommand{\bX}{\mb{X}}
 \newcommand{\bY}{\mb{Y}}
+\newcommand{\T}{^{\ensuremath{\mathsf{T}}}}           % transpose
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\diag}{\operatornamewithlimits{diag}}
+\let\oldref\ref
+\renewcommand{\ref}[1]{(\oldref{#1})}
 
-\newcommand{\jovo}[1]{{\color{red}{\it jovo: #1}}}
-
+\definecolor{newcolor}{rgb}{.8,.349,.1}
+\journal{Pattern Recognition Letters}
 
 \begin{document}
 
-\title{An M-Estimator for Reduced-Rank
-System Identification
+\thispagestyle{empty}
+
+\begin{table*}[!th]
+
+\begin{minipage}{.9\textwidth}
+\baselineskip12pt
+\ifpreprint
+  \vspace*{1pc}
+\else
+  \vspace*{-6pc}
+\fi
+
+\noindent {\LARGE\itshape Pattern Recognition Letters}
+\vskip6pt
+
+\noindent {\Large\bfseries Authorship Confirmation}
+
+\vskip1pc
+
+
+{\bf Please save a copy of this file, complete and upload as the
+``Confirmation of Authorship'' file.}
+
+\vskip1pc
+
+As corresponding author
+I, \underline{  Shaojie Chen  }, hereby confirm on behalf of all authors that:
+
+\vskip1pc
+
+\begin{enumerate}
+\itemsep=3pt
+\item This manuscript, or a large part of it, \underline {has not been
+published,  was not, and is not being submitted to} any other journal.
+
+\item If \underline {presented} at or \underline {submitted} to or
+\underline  {published }at a conference(s), the conference(s) is (are)
+identified and  substantial \underline {justification for
+re-publication} is presented  below. A \underline {copy of
+conference paper(s) }is(are) uploaded with the  manuscript.
+
+\item If the manuscript appears as a preprint anywhere on the web, e.g.
+arXiv,  etc., it is identified below. The \underline {preprint should
+include a  statement that the paper is under consideration at Pattern
+Recognition  Letters}.
+
+\item All text and graphics, except for those marked with sources, are
+\underline  {original works} of the authors, and all necessary
+permissions for  publication were secured prior to submission of the
+manuscript.
+
+\item All authors each made a significant contribution to the research
+reported  and have \underline {read} and \underline {approved} the
+submitted  manuscript.
+\end{enumerate}
+
+Signature\underline{  Shaojie Chen  } Date: \underline{  07/17/2016  }
+\vskip1pc
+
+\rule{\textwidth}{2pt}
+\vskip1pc
+
+{\bf List any pre-prints:}
+arXiv
+\vskip5pc
+
+
+\rule{\textwidth}{2pt}
+\vskip1pc
+
+{\bf Relevant Conference publication(s) (submitted, accepted, or published):}
+Not available
+\vskip5pc
+
+
+
+{\bf Justification for re-publication: }
+Not available
+\end{minipage}
+\end{table*}
+
+\clearpage
+\thispagestyle{empty}
+\ifpreprint
+  \vspace*{-1pc}
+\fi
+
+\begin{table*}[!th]
+\ifpreprint\else\vspace*{-5pc}\fi
+
+\section*{Research Highlights}
+
+\vskip1pc
+
+\fboxsep=6pt
+\fbox{
+\begin{minipage}{.95\textwidth}
+\vskip1pc
+\begin{itemize}
+
+ \item The proposed model generalizes the traditional linear dynamical system model
+
+ \item An efficient algorithm is designed for parameter estimation
+
+ \item The model works very well on high-dimensional neuro-imaging data
+
+ \item It is also a standard tool for big time-series data analysis in many domains
+
+\end{itemize}
+\vskip1pc
+\end{minipage}
 }
-%  on Big Time Series Data
- % * <joshuav@gmail.com> 2016-05-15T17:36:08.619Z:
-%
-% ^.
-% High-Dimensional Linear Dynamical
-% A Sparse High Dimensional State-Space Model with an Application to Neuroimaging Data
 
-%\author{}
-\author[a]{Shaojie Chen}
-\author[b]{Kai Liu}
-\author[c]{Yuguang Yang}
-\author[a]{Yuting Xu}
-\author[d]{Seonjoo Lee}
-\author[a]{Martin Lindquist}
-\author[a]{Brian S. Caffo}
-\author[e,f]{Joshua T. Vogelstein}
-\affil[a]{\small Dept. of Biostatistics, Johns Hopkins Bloomberg School of Public Health}
-\affil[b]{Dept. of Neuroscience, Johns Hopkins University}
-\affil[c]{Dept. of Chemical and Biomolecular Engineering, Johns Hopkins University}
-\affil[d]{Dept. of Psychiatry and Department of Biostatistics, Columbia University}
-\affil[e]{Child Mind Institute}
-\affil[f]{Dept. of Biomedical Engineering and Institute for Computational Medicine, Johns Hopkins University}
-\date{}
-\maketitle
-\section*{Abstract}
+\end{table*}
+
+\clearpage
+
+
+\ifpreprint
+  \setcounter{page}{1}
+\else
+  \setcounter{page}{1}
+\fi
+
+\begin{frontmatter}
+
+\title{An M-Estimator for Reduced-Rank System Identification}
+
+\author[a]{Shaojie \snm{Chen} \corref{cor1}}
+\cortext[cor1]{Corresponding author:+1-410-409-8132; pzcsj76@gmail.com}
+\author[b]{Kai \snm{Liu}}
+\author[c]{Yuguang \snm{Yang}}
+\author[a]{Yuting \snm{Xu}}
+\author[d]{Seonjoo \snm{Lee}}
+\author[a]{Martin \snm{Lindquist}}
+\author[a]{Brian S. \snm{Caffo}}
+\author[e,f]{Joshua T. \snm{Vogelstein}}
+\address[a]{\small Dept. of Biostatistics, Johns Hopkins Bloomberg School of Public Health, Baltimore 21205, USA}
+\address[b]{Dept. of Neuroscience, Johns Hopkins University, Baltimore 21205, USA}
+\address[c]{Dept. of Chemical and Biomolecular Engineering, Johns Hopkins University, Baltimore 21205, USA}
+\address[d]{Dept. of Psychiatry and Department of Biostatistics, Columbia University, New York City 10027, USA}
+\address[e]{Child Mind Institute, Baltimore 21205, USA}
+\address[f]{Dept. of Biomedical Engineering and Institute for Computational Medicine, Johns Hopkins University, Baltimore 21205, USA}
+
+\received{1 May 2013}
+\finalform{10 May 2013}
+\accepted{13 May 2013}
+\availableonline{15 May 2013}
+\communicated{S. Sarkar}
+
+
+\begin{abstract}
 High-dimensional time-series data from a wide variety of domains, such as neuroscience, are being generated every day. Fitting statistical models to such data, to enable parameter estimation and time-series prediction, is an important computational primitive. Existing methods, however, are unable to cope with the high-dimensional nature of these data, due to both computational and statistical reasons.  We mitigate both kinds of issues by proposing an M-estimator for Reduced-rank System IDentification (\mrsid). A combination of low-rank approximations, $\ell_1$ and $\ell_2$ penalties, and some numerical linear algebra tricks, yields an estimator that is computationally efficient and numerically stable.  Simulations and real data examples demonstrate the usefulness of this approach in a variety of problems.  In particular, we demonstrate that \mrsid~can accurately estimate spatial filters, connectivity graphs, and time-courses from native resolution functional magnetic resonance imaging data. \mrsid~therefore enables big time-series data to be analyzed using standard methods, readying the field for further generalizations including nonlinear and non-Gaussian state-space models.
+\end{abstract}
 
-% * <stefaniejacinto@gmail.com> 2016-03-31T21:41:32.287Z:
-%
-% > Filter-Smoother
-%
-% Discuss with client. I feel it's clearer to use Filter/Smoother, but I've seen both Filter-Smoother and Filter/Smoother used in previous papers.
-%
-% ^ <joshuav@gmail.com> 2016-05-12T03:41:45.888Z.
-% * <stefaniejacinto@gmail.com> 2016-03-31T21:37:18.592Z:
-%
-% > Reduced-Rank System Identification
-%
-% I understand the former version (i.e. "Reduced-rank System IDentification") makes the chosen acronym more obvious, but I feel it's better to capitalize this in the same way as the paper's title.
-%
-% ^ <joshuav@gmail.com> 2016-05-12T03:59:18.863Z.
-% In the past decade functional magnetic resonance imaging (fMRI) has facilitated major advances in our understanding of human brain function. The data that arise from a standard fMRI experiment are both high dimensional and complex in nature, making statistical analysis challenging. Matrix decomposition methods, such as factor analysis, principal component analysis (PCA) and independent component analysis (ICA), are commonly used to investigate spatio-temporal patterns present in fMRI data. It can be shown that the linear time-invariant state-space model, commonly used in time series analysis, unifies this broad class of models. While state-space models have been applied to fMRI data, these applications have been limited by constraints on the amount of data that can be included in the analysis. This is primarily because analysis in modern high-dimensional settings, such as neuroimaging, parameter estimation is challenging. This issue is addressed by introducing a penalized state-space model that applies $\ell_1$ and $\ell_2$ penalties to model coefficients. In addition, an Expectation-Maximization algorithm is provided that allows for efficient estimation of the model parameters. To illustrate our approach, we apply it to fMRI data measured over the motor cortex.
+\begin{keyword}
+%\MSC 41A05\sep 41A10\sep 65D05\sep 65D17
+%\KWD Keyword1\sep Keyword2\sep Keyword3
+ high dimension\sep image processing\sep parameter estimation \sep state-space model \sep time series analysis
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+\end{keyword}
 
-% \\
+\end{frontmatter}
 
-\textbf{\emph{keywords}: high dimension, image processing, parameter estimation, state-space model, time series analysis}
-% * <stefaniejacinto@gmail.com> 2016-03-31T21:43:08.290Z:
-%
-% > imaging processing
-%
-% Discuss: image processing or imaging processing?
-%
-% ^ <joshuav@gmail.com> 2016-05-12T03:41:18.896Z.
-%\newpage
+%\linenumbers
+
+%% main text
 \section{Introduction}
-
-%\begin{itemize}
-%\item proposed a penalized linear dynamical system model (\mrsid)
-%\item designed an expectation-maximization algorithm to solve the proposed model
-%\item used the model for neuroimage data analysis and explored the primary motor cortex of human brain
-%\end{itemize}
 High-dimensional  time-series data are becoming increasingly  abundant across a wide variety of domains, spanning economics \citep{Johansen1988}, neuroscience \citep{Friston2003a},   and cosmology \citep{Xie2013a}. Fitting statistical models to such data, to enable parameter estimation and time-series prediction, is an important computational primitive.
 Linear dynamical system (LDS) models are amongst the most popular and powerful, because of their intuitive nature and ease of implementation \citep{Kalman1963}.   The famous Kalman Filter-Smoother is one of the most popular and powerful tools for time-series prediction with an LDS, given known parameters \citep{Kalman1960a}.
-% * <stefaniejacinto@gmail.com> 2016-03-31T21:44:25.404Z:
-%
-% > Filter Smoother
-%
-% Edit to be consistent with whatever we decide for the term used earlier in the abstract (Filter-Smoother or Filter/Smoother)
-%
-% ^ <joshuav@gmail.com> 2016-05-12T03:59:31.456Z.
+
 In practice, however, for many LDS's, the parameters are unknown and must be estimated in a process often called \emph{system identification} \citep{Ljung1998}.  To the best of our knowledge, currently there does not exist a methodology that provides parameter estimates and predictions from ultra-high-dimensional time-series data (e.g. $p > 10$,$000$).
-% * <stefaniejacinto@gmail.com> 2016-04-03T00:48:26.597Z:
-%
-% > system identification
-%
-% Discuss: I removed "in this domain" after system identification because I felt it was unnecessary. But is there a specific reason why that needs to be mentioned?
-%
-% ^ <joshuav@gmail.com> 2016-05-12T03:59:54.536Z.
 
 The challenges associated with high-dimensional time-series estimation and prediction are multifold.  First, na\"ively, such models include dense $p \times p$ matrices, which are often too large to store, much less invert in memory.  Several recent efforts to invert large sparse matrices using a series of computational tricks show promise, though they are still extremely computationally expensive  \citep{Hsieh2013, Banerjee2013a}.
-% * <stefaniejacinto@gmail.com> 2016-03-31T21:49:30.704Z:
-%
-% > such naive
-%
-% Discuss: This was originally "naively such models...", need to confirm if this language is equivalent.
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:00:40.851Z.
+
 Second, estimators behave poorly due to numerical instability.
 Reduced-rank LDS models can partially address this problem by reducing the number of latent states.  \citep{CHEN1989}.  However, without further constraints, the dimensionality of the latent states would be reduced to such an extent  that it would significantly decrease the predictive capacity of the resulting model.  Third, even after addressing these problems, the time to compute all the necessary quantities can be overly burdensome. Distributed memory implementations, such as those built with Spark, might help overcome this problem. However, it would lead to additional costs and set-up burden, as it would require a Spark cluster \citep{Zaharia2010}.
-% * <stefaniejacinto@gmail.com> 2016-04-03T00:47:14.625Z:
-%
-% > However, without further constraints, the dimensionality of the latent states would be reduced to such an extent  that it would significantly decrease the predictive capacity of the resulting model.
-%
-% Discuss: I reworded this sentence to make it clearer, need to confirm it now reflects what the authors intended.
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:01:00.944Z.
-% * <stefaniejacinto@gmail.com> 2016-03-31T21:52:32.570Z:
-%
-% > CHEN
-%
-% Is there a reason for this reference to be in all capital letters? It looks like this is the same Chen who is the first author of this paper. But I'm pretty sure that we need to have a consistent format for all the references.
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:06:49.405Z.
 
 We address all three of these issues with our M-estimator for Reduced-rank  System IDentification (\mrsid).  By assuming the dimensionality of the latent state space is small (i.e. reduced-rank), relative to the observed space dimensionality, we can significantly improve computational tractability and estimation accuracy. By further penalizing the estimators, with $\ell_1$ and/or $\ell_2$ penalties, via utilizing prior knowledge on the structure of the parameters, we gain further estimation accuracy in this high-dimensional but relatively low-sample size regime.  Finally, by employing several numerical linear algebra tricks, we can reduce the computational burden significantly.
-% * <stefaniejacinto@gmail.com> 2016-03-31T22:01:38.412Z:
-%
-% > and
-%
-% Need more clarification on this sentence. Is the "prior knowledge" used for the l1 and l2 penalties? Or does it refer to other things? This would affect how we'd rewrite this sentence.
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:08:31.470Z.
-% * <stefaniejacinto@gmail.com> 2016-03-31T21:58:55.027Z:
-%
-% > ambient
-%
-% I don't think we need "or observed" here. We are already clarifying another term earlier in the sentence, so it would be awkward to do the same to explain ambient. Would everyone understand what we mean when we say "ambient"? If yes, maybe we don't need to say "observed".
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:09:21.456Z.
-% * <stefaniejacinto@gmail.com> 2016-03-31T21:56:56.140Z:
-%
-% > Reduced-Rank  System Identification
-%
-% Edit to be consistent with whatever we decide for the term used earlier in the abstract
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:09:45.654Z.
 
 These three techniques combined enable us to obtain highly accurate estimates in a variety of simulation settings.  \mrsid~is, in fact, a generalization of the now classic Baum-Welch expectation maximization algorithm, commonly used for system identification in much lower dimensional linear dynamical systems \citep{rabiner1989tutorial}. We show numerically that the hyperparameters can be selected to minimize prediction error on held-out data.  Finally, we use \mrsid~to estimate functional connectomes from the motor cortex.  \mrsid~enables us to estimate the regions, rather than imposing some prior parcellation on the data, as well as estimate sparse connectivity between regions.  \mrsid~reliably estimates these connectomes, as well as predicts the held-out time-series data.  To our knowledge, this is the first time a single unified approach has been used to estimate partitions and functional connectomes directly from the high-dimensional data.
-% * <stefaniejacinto@gmail.com> 2016-03-31T22:04:07.548Z:
-%
-% > selected to minimize
-%
-% Discuss with client: is this what the author intended to say?
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:33:19.678Z.
 
 This work presents a new analysis of a model which has only been implemented in low-dimensional settings,
 and paves the way for high-dimensional implementation. Though primitive, it is a first step for essentially any high-dimensional time series analysis, control system identification, and spatiotemporal analysis. To enable extensions, generalizations, and additional applications, the code for the core functions and generating each of the figures is freely available on Github (\url{https://github.com/shachen/PLDS/}).
-% * <stefaniejacinto@gmail.com> 2016-03-31T22:06:44.365Z:
-%
-% > functions
-%
-% Do we really need to say "functions"? Aren't functions part of the overall code?
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:34:17.550Z.
-
-
 
 \section{The Model}
-
 In statistical data analysis, one often encounters some observed variables, as well as some unobserved latent variables, which we denote as $\bY=(\by_1,\ldots,\by_T)$ and $\bX=(\bx_1,\ldots,\bx_T)$ respectively. By the Bayes rule, the joint probability of $\bX$ and $\bY$ is $P(\bX,\bY)=P(\bY|\bX) P(\bX)$. The conditional distribution $P(\mb{Y}|\mb{X})$ and prior $P(\mb{X})$ can both be represented as a product of marginals:
-% * <stefaniejacinto@gmail.com> 2016-03-31T22:09:13.105Z:
-%
-% > represented
-%
-% Discuss: ok to remove commas and periods after formulas that are not within a paragraph?
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:35:21.364Z:
-%
-% no.
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:35:32.606Z.
+
 \begin{equation*}
 \begin{aligned}
 P(\mb{Y}|\mb{X}) &= \prod_{t=1}^T P(\by_t | \by_0,\ldots,\by_{t-1}, \bx_0,\ldots,\bx_{t-1}), \\
@@ -249,14 +270,6 @@ P(\bx_t | \bx_0,\ldots,\bx_{t-1}) &\approx P(\bx_t | \bx_{t-1}).
 \end{equation}
 
 A linear dynamical system (LDS) further assumes that both terms in \ref{eq:genericssm} are linear Gaussian functions, which when written as an iterative random process, yield the standard matrix update rules:
-% * <stefaniejacinto@gmail.com> 2016-03-31T22:14:06.781Z:
-%
-% > rules
-%
-% Discuss commas in the following formulas
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:35:57.781Z.
-% or LDS, further assumes that the latent variables follow a vector autoregressive model and the observed variables are normally distributed given the latent variables, as follows:
 \begin{equation*}
 \begin{aligned}
 &\bx_{t+1}=A\bx_t+\mathbf{w}_t, \quad \mathbf{w}_t\sim N(\mathbf{0},Q),\quad \bx_0 \sim N(\mathbf{\pi}_0,V_0), \\
@@ -270,14 +283,12 @@ The output noise covariance $R$ is $p\times p$, while the state noise covariance
 The model can be thought of as a continuous version of the hidden Markov model (HMM), where the columns of $C$ stand for the hidden states and one observes a single state at time $t$. Unlike HMM, LDS \ref{eq:genericssm} allows one to observe a linear combination of multiple states. $A$ is the analogy of the state transition matrix, which describes how the weights $\bx_t$ evolve over time. Another difference is that LDS contains two white noise terms, which are captured by the $Q$ and $R$ matrices.
 
 Without applying further constraints, the LDS model itself is unidentifiable. Three minimal constraints are introduced for identifiability:
-\vspace*{-3mm}
-\begin{equation*}\label{eq:constraints1}
-\begin{aligned}
+\vspace*{-1mm}
+\begin{flalign*}
 &\text{Constraint 1: }Q \text{ is the identity matrix}\\
-&\text{\text{Constraint 2:} the ordering of the columns of } C \text{ is fixed based on their norms}\\
-&\text{Constraint 3: } V_0=\mathbf{0}
-\end{aligned}
-\end{equation*}
+&\text{\text{Constraint 2:} the order of } C \text{'s columns is fixed based on their norms}\\
+&\text{Constraint 3: } V_0=\mathbf{0} &
+\end{flalign*}
 Note that the first two constraints follow directly from Roweis and Ghahramani (1999).
 
 The logic for Constraint 1 is as follows. Since the covariance matrix $Q$ is symmetric and positive semidefinite, it can be decomposed as $E\Lambda E^T$, where $E$ is a rotation matrix of eigenvectors and $\Lambda$ is a diagonal matrix of eigenvalues. Then for any model whose $Q$ is not the identity matrix, one can always generate an equivalent model using a new state vector $\mathbf{z}=\Lambda^{-1/2} E^T \bx$, with $A_{\mathbf{z}}=(\Lambda^{-1/2}E^T)A(E\Lambda^{1/2})$ and $C_{\mathbf{z}}=C(E\Lambda^{1/2})$. The covariance of new vector $\mathbf{z}$ is the identity matrix, i.e. $Q_{\mathbf{z}}=\mathbf{I}$. Thus one can constrain $Q=\mathbf{I}$ without loss of generality.
@@ -288,23 +299,14 @@ Additionally, $V_0$ is set to zero, meaning the starting state $\bx_0=\mathbf{\p
 %%While it is not necessary to constrain $\mathbf{\pi_0}=\mathbf{0}$, one can do so as the observed data can always be centered. When we center the observed data, we implicitly enforced $\mathbf{\pi_0}=\mathbf{0}$.
 
 The following three constraints are further applied to achieve a more useful model:
-\vspace*{-3mm}
-\begin{equation*}\label{eqn:constraints2}
-\begin{aligned}
-&\text{Constraint 4: }R\text{ is a diagonal matrix}\\
+\vspace*{-1mm}
+\begin{flalign*}\label{eqn:constraints2}
+&\text{Constraint 4: }R\text{ is a diagonal matrix} \\
 &\text{Constraint 5: }A\text{ is sparse}\\
-&\text{Constraint 6: }C\text{ has smooth columns}
-\end{aligned}
-\end{equation*}
+&\text{Constraint 6: }C\text{ has smooth columns} &
+\end{flalign*}
 
 Consider the case where the observed data are high dimensional, which means that the  $R$ matrix is very large. One cannot accurately estimate the many free parameters in $R$ with a limited amount of observations. Therefore, some constraints on $R$ will help with inferential accuracy, by virtue of significantly reducing variance while not adding too much bias. In the simplest case, $R$ is set to an identity matrix or its multiple. More generally, one can also constrain $R$ to be diagonal. In the static model with no temporal dynamics, a diagonal $R$ is equivalent to the generic Factor Analysis method, while multiples of the identity $R$ matrix lead to Principal Component Analysis (PCA) \citep{roweis1999unifying}.
-% * <stefaniejacinto@gmail.com> 2016-03-31T22:28:22.540Z:
-%
-% > and as such the $R$ matrix can also be very large
-%
-% Confirm with client
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:37:46.561Z.
 
 The $A$ matrix is the transition matrix of the hidden states. In many applications, it is desirable for $A$ to be sparse. In this work, an $\ell_1$ penalty on $A$ is used to impose the sparsity constraint. In the applications that follow, $A$ is a central construct of interest representing a so-called connectivity graph, and the graph is expected to be sparse.
 
@@ -319,17 +321,9 @@ With all those constraints, the model becomes:
 \end{equation}
 
 where $A$ is a sparse matrix and $C$ has smooth columns.
-% For notational convenience, a sequence of $T$ output vectors $(\by_1,\ldots,\by_T)$ is denoted by $\bY$. %; a subsequence $(\by_{t_0},\by_{t_0 + 1},\ldots,\by_{t_1})$ by $\bY_{t_0}^{t_1}$.
-% Similarly for the latent states.
-% In addition, l
+
 Let $\theta =\{A,C,R,\mathbf{\pi}_0\}$ represent all unknown parameters, while $P(\bX,\bY)$ represents the full likelihood. Then, combining model \ref{eq:model0} and the constraints on $A$ and $C$ leads us to an optimization problem:
-% * <stefaniejacinto@gmail.com> 2016-03-31T22:37:10.963Z:
-%
-% > combining
-%
-% Discuss: This used to be "combing"
-%
-% ^ <joshuav@gmail.com> 2016-05-12T04:38:11.012Z.
+
 \begin{equation}\label{eqn:penaltylik}
 \hat{\theta}=\argmin_{\substack{\theta}}\left\{-\log P_\theta(\bX,\bY)+\lambda_1\|A\|_1+\lambda_2\|C\|_2^2\right\}
 \end{equation}
@@ -349,20 +343,8 @@ Parameter estimation requires solving optimization problem \ref{eqn:penaltylik}:
 Parameter estimation for LDS has been investigated extensively in statistics, machine learning, control theory, and signal processing research. For example, in machine learning, exact and variational inference algorithms for general Bayesian networks can be applied to LDS. In control theory, the corresponding area of study is known as system identification.
 
 Specifically, one way to search for the maximum likelihood estimation (MLE) is through iterative methods such as Expectation-Maximization (EM) \citep{shumway1982approach}. The EM algorithm for a standard LDS is detailed in Zoubin and Geoffrey (1996) \citep{ghahramani1996parameter}. An alternative is to use subspace identification methods such as N4SID and PCA-ID, which give asymptotically unbiased closed-form solutions \citep{van1994n4sid,doretto2003dynamic}. In practice, determining an initial solution with subspace identification and then refining it with EM is an effective approach \citep{bootslearning}.
-% * <stefaniejacinto@gmail.com> 2016-03-31T22:42:57.009Z:
-%
-% Is there only one reference or two?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:36:51.085Z.
 
 However, the above approaches are not directly applicable to optimization problem \ref{eqn:penaltylik} due to the introduced penalty terms. We therefore developed an algorithm called M-estimation for Reduced-rank System IDentification (\mrsid), as detailed in the following.
-% * <stefaniejacinto@gmail.com> 2016-03-31T22:46:40.886Z:
-%
-% > Reduced-Rank System Identification
-%
-% Edit to be consistent with whatever we decide for the term used earlier in the abstract
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:37:06.714Z.
 
 By the chain rule, the full likelihood is
 \begin{equation*}\label{eqn:likelihood}
@@ -382,17 +364,11 @@ P(\bx_t|\bx_{t-1})
 \end{equation*}
 
 Then the log-likelihood, after dropping a constant, is just a sum of quadratic terms:
-%\begin{equation}\label{eqn: loglik}
-%\begin{split}
-%\text{log} P(\bX,\bY)=&-\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{y_t}-C\mathbf{x_t}]^{\prime}R^{-1}[\mathbf{y_t}-C\mathbf{x_t}]\big)-\frac{T}{2}\text{log}|R|\\
-%&-\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\mathbf{x_t}-A\mathbf{x_{t-1}}]^{\prime}\mathbf{Q}^{-1}[\mathbf{x_t}-A\mathbf{x_{t-1}}]\big)-\frac{T}{2}\text{log}|\mathbf{Q}|\\
-%&-\frac{1}{2}[\mathbf{x_0}-\mathbf{\pi_0}]^{\prime}\mathbf{V_0}^{-1}[\mathbf{x_0}-\mathbf{\pi_0}]-\frac{1}{2}\text{log}|\mathbf{V_0}|-\frac{T(p+d+1)}{2}\text{log}2\pi
-%\end{split}
-%\end{equation}
 \begin{equation}\label{eqn:loglik}
 \begin{split}
 \log  P(\bX,\bY)=&-\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\by_t-C\bx_t]^{\T}R^{-1}[\by_t-C\bx_t]\big)-\frac{T}{2}\text{log}|R|\\
-&-\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\bx_t-A\bx_{t-1}]^{\T}[\bx_t-A\bx_{t-1}]\big)-\frac{T}{2}\text{log}|\mathbf{I}|+ \text{log}(\mathbbm{1}_{\mathbf{\pi}_0}(\bx_0)).
+&-\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\bx_t-A\bx_{t-1}]^{\T}[\bx_t-A\bx_{t-1}]\big)-\frac{T}{2}\text{log}|\mathbf{I}|\\
+&+ \text{log}(\mathbbm{1}_{\mathbf{\pi}_0}(\bx_0)).
 \end{split}
 \end{equation}
 
@@ -400,8 +376,8 @@ By replacing $\log  P(\bX,\bY)$ in problem \ref{eqn:penaltylik} with Eq.~\ref{eq
 \begin{equation}\label{eqn:penaltylik2}
 \begin{split}
 \hat{\theta}=\argmin_{\substack{\theta}}\biggl\{&\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\by_t-C\bx_t]^{\T}R^{-1}[\by_t-C\bx_t]\big)-\frac{T}{2}\text{log}|R|\\
-&+\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\bx_t-A\bx_{t-1}]^{\T}[\bx_t-A\bx_{t-1}]\big)-\frac{T}{2}\text{log}|\mathbf{I}| - \text{log}(\mathbbm{1}_{\mathbf{\pi}_0}(\bx_0))\\
-&+\lambda_1\|A\|_1+\lambda_2\|C\|_2^2\biggr\}
+&+\sum\limits_{t=1}^{T}\big(\frac{1}{2}[\bx_t-A\bx_{t-1}]^{\T}[\bx_t-A\bx_{t-1}]\big)-\frac{T}{2}\text{log}|\mathbf{I}|\\
+&- \text{log}(\mathbbm{1}_{\mathbf{\pi}_0}(\bx_0))+\lambda_1\|A\|_1+\lambda_2\|C\|_2^2\biggr\}\\
 \end{split}
 \end{equation}
 
@@ -409,24 +385,13 @@ Let the target function in the curly braces be denoted  as $\mathbf{\Phi}(\theta
 
 \subsection{E Step}
 The E step of EM requires computation of the expected log likelihood, $\Gamma = E[\log P(\bX,\bY|\bY)]$. This quantity depends on three expectations: $E[\bx_t|\bY]$, $E[\bx_t\bx_t^{\T}|\bY]$ and $E[\bx_t\bx_{t-1}^{\T}|\bY]$. For simplicity, we denote their finite sample estimators by:
-% * <stefaniejacinto@gmail.com> 2016-03-31T22:56:39.310Z:
-%
-% > expected log likelihood
-%
-% Discuss: It's not clear to me why this is a conditional expectation, whereas in Eq 4 it wasn't.
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:38:16.778Z:
-%
-% that's how the EM algorithm works.  the E step conditions on Y.
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:38:19.213Z.
 \begin{equation}\label{eq:expecs}
 %\begin{aligned}
 \hat{\bx}_t \equiv E[\mathbf{x_t}|\bY],\  \hat{P}_t  \equiv E[\bx_t\bx_t^{\T}|\bY],\  \hat{P}_{t,t-1}  \equiv E[\bx_t\bx_{t-1}^{\T}|\bY].
 %\end{aligned}
 \end{equation}
 
-Expectations \ref{eq:expecs} are estimated with a Kalman filter/smoother, which is detailed in the Appendix. Notice that all expectations are taken with respect to the current estimations of parameters.
+Expectations \ref{eq:expecs} are estimated with a Kalman filter/smoother (KFS), which is detailed in the Appendix. Notice that all expectations are taken with respect to the current estimations of parameters.
 \subsection{M Step}
 Each of the parameters in $\theta =\{A,C,R,\mathbf{\pi}_0\}$ is estimated by taking the corresponding partial derivatives of $\mathbf{\Phi}(\theta,\bY,\bx)$, setting them to zero, and then solving the equations.
 
@@ -463,18 +428,6 @@ Similar to what we have done to $C$, $f_{\lambda_1}(A;\bX,\bY)$ is equivalent to
 f_{\lambda_1}(A;\bX,\bY) =  \|\mathbf{z}  - \mathbf{Za}\|_2^2 + \lambda_1\|\mathbf{a}\|_1
 \end{equation*}
 where $\mathbf{z}$ is a $Td \times 1$ vector obtained by rearranging $\bX$, and $\mathbf{Z}$ is a block diagonal matrix with diagonal component $Z^{\T} =(\bx_0,\ldots,\bx_{T-1})^{\T}$.
-% * <stefaniejacinto@gmail.com> 2016-03-31T23:14:46.669Z:
-%
-% > Td
-%
-% Is this T*d?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:39:18.924Z:
-%
-% yah, i think this is the most clear & succinct way to put it.
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:39:20.605Z.
-
 
 $f_{\lambda_1}(A;\bX,\bY)$ does not have a closed form solution due to the $\ell_1$ term. However, it can be solved numerically with a Fast Iterative Shrinkage-Thresholding Algorithm (FISTA) \citep{beck2009fast}. The FISTA algorithm is detailed in the Appendix.
 
@@ -485,9 +438,7 @@ A^{\text{new}} = \text{FISTA}(\|\mathbf{Z}^{\T}\mathbf{a}^{\text{old}} -\mathbf{
 
 \subsection{Initialization}\label{sec:initial}
 The $R$ matrix is initialized as the identity matrix, while $\mathbf{\pi}_0$  is initialized as the $\mathbf{0}$ vector. For $A$ and $C$, denote $\bY = \left[\mathbf{y_1},\cdots,\mathbf{y_T}\right]$, a $p\times T$ matrix, then the singular value decomposition (SVD) of $\bY$ is $\bY = \mathbf{UDV^{\T}} \approx \mathbf{U}_{p \times d} \mathbf{D}_{d \times d} \mathbf{V}_{d \times T}^{\T} =\mathbf{U}_{p\times d}\bX_{d \times T}$, where $\mathbf{U}_{p \times d}$ is the first $d$ columns of $\mathbf{U}$ and $\mathbf{D}_{d\times d}$ is the upper left block of $\mathbf{D}$. This notation also applies to $\mathbf{V}^{\T}_{d \times T}$.
-%\begin{equation}\label{eq:initial}
-%    \bY = \mathbf{UDV^{\T}} \approx \mathbf{U}_{p \times d} \mathbf{D}_{d \times d} \mathbf{V}_{d \times T}^{\T} =\mathbf{U}_{p\times d}\bX_{d \times T}
-%\end{equation}
+
 $C$ is then initialized as $\mathbf{U}_{p\times d}$, while the columns of $\bX_{d \times T}$ are used as input for a vector autoregressive (VAR) model to estimate the initial value for $A$.
 
 Combining the initialization, E-step, and M-step, a complete EM algorithm for \mrsid~is addressed in Table \oldref{tab:em}. Notice that all the terms involving $\bX$ in the M-step are approximated with the conditional expectations calculated in the E-step.\\
@@ -501,27 +452,13 @@ Combining the initialization, E-step, and M-step, a complete EM algorithm for \m
 1. Initialize $\theta =\{A,C,R,\mathbf{\pi}_0\}$ as in Section \oldref{sec:initial}\\
 
 2. While convergence criteria are unmet \\
-% * <stefaniejacinto@gmail.com> 2016-03-31T23:23:32.220Z:
-%
-% > 0.
-%
-% Is it standard to have a step 0?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:40:10.671Z.
-% \hline
+
 \textbf{E Step}\\
-3. Update the expectations in Eq. \ref{eq:expecs} with the Kalman filter-smoother\\
+3. Update the expectations in Eq. \ref{eq:expecs} with the KFS\\
 % \hline
 
 \textbf{M Step}\\
-% * <stefaniejacinto@gmail.com> 2016-03-31T23:28:17.759Z:
-%
-% > M Step
-%
-% Can we put the E Step before the M Step, to be consistent with how we introduced it in the text?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:43:00.996Z.
-%1. Replace all $\bx_t$ in \eqref{eqn: penaltylik2} with E$(\bx_t|\{\by_t\}_1^T)$ from E step\\
+
 4. $R^{\text{new}}=\diag\biggl\{\frac{1}{T}\sum\limits_{t=1}^{T}(\by_t\by_t^{\T}-C^{\text{old}} \hat{\bx}_t\by_t^{\T})\biggr\}$, as in Eq.~\ref{eq:updateR}\\
 5. $\mathbf{\pi}_0^{\text{new}}=\hat{\bx}_0$\\
 6. Update $C^{\text{new}}$, as in Eq.~\ref{eq:updatec}\\
@@ -530,22 +467,12 @@ Combining the initialization, E-step, and M-step, a complete EM algorithm for \m
 \hline
 \end{tabular}
 \end{table}
-
-
 \subsection{Improving Computational Efficiency}
 The major factors that affect the efficiency and scalability of the above EM algorithm involve the storage and computations of the covariance matrix $R$, which is a ${p \times p}$ matrix. The following computational techniques are utilized to make the code highly efficient and scalable.
 For the covariance matrix $R$, with constraint 4 (i.e. the diagonal assumption), we employ a sparse matrix to represent $R$, and only the diagonal elements are directly calculated.
 In the E-step, the term $K_t=V_t^{t-1}C^{\T}(CV_t^{t-1}C^{\T}+R)^{-1}$ involves the inverse of a large square $p \times p$ matrix, which might be intractable. The Woodbury Matrix Identity is employed to turn a high dimensional matrix inverse to a low dimensional one: $(CV_t^{t-1}C^{\T}+R)^{-1} = R^{-1} - R^{-1}C[(V_t^{t-1})^{-1} + C^{\T}R^{-1}C]^{-1}C^{\T}R^{-1}$.
-% * <stefaniejacinto@gmail.com> 2016-03-31T23:34:15.992Z:
-%
-% > $p \times p$ matrix
-%
-% Confirm with client
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:50:09.143Z.
+
 Note that quantities like $R^{-1}$ and $C^{\T}R^{-1}C$ can be pre-computed and reused throughout the E step. With the above three techniques, the EM algorithm can scale to very high dimensions in terms of $p$, $d$, and $T$, without causing any computational issues.
-
-
 \section{Simulations}
 \subsection{Simulation Setup}
 \label{sec:simsetup}
@@ -553,161 +480,56 @@ Two simulations of different dimensions are performed to demonstrate the paramet
 In the low dimensional setting, $p = 300$, $d = 10$, and $T = 100$. $A$ is first generated from a random matrix, then elements with small absolute values are truncated to zero to make it sparse. Afterwards, a multiple of the identity matrix is added to $A$. Finally, $A$ is scaled to make sure its eigenvalues fall within $[-1,1]$, thus avoiding diverging time series. Matrix $C$ is then generated as follows. Each column contains random samples from a standard Gaussian. Then, each column is sorted in ascending order. Covariance $Q$ is the identity matrix and covariance $R$ is a multiple of the identity matrix. Initial state $\mathbf{\pi}_0 = \mathbf{0}$ is a zero vector. Pseudocode for data generation can be found in the Appendix.
 
 In the high-dimensional setting, $p = 10000$, $d = 30$, and $T = 100$. The parameters are generated in the same manner. To evaluate the accuracy of estimations, we elect to define the distance between two matrices $A$ and $B$ as
-%\begin{equation}\label{eq:distance}
-%d( A,B) = -\log(\frac{1}{n}\max_{P\in P(n)} \text{ Tr}\bigl(P\times C_{A,B}\bigr))
-%\end{equation}
 \begin{equation}\label{eq:distance}
-d(A,B) = \argmin_{P\in P(n)}\left\{\log\bigl[\frac{n}{\text{\footnotesize Trace}(P\times C_{A,B})}\bigr]\right\}
+d_{A,B} = \argmin_{P\in P(n)}\left\{\log\bigl[\frac{n}{\text{\footnotesize Trace}(P\times C_{A,B})}\bigr]\right\}
 \end{equation}
 where $C_{A,B}$ is the correlation matrix between columns of A and B, $P(n)$ is a collection of all the permutation matrices of order n, and $P$ is a permutation matrix.
 
 \begin{figure}
 \centering
 \subfigure[Low dimensional setting]{%
-\includegraphics[scale=.43]{./figures/low-d-simulation.pdf}
+\includegraphics[scale=.43]{../figures/low-d-simulation.pdf}
 }
 \subfigure[High dimensional setting]{%
-\includegraphics[scale=.43]{./figures/high-d-simulation.pdf}
+\includegraphics[scale=.43]{../figures/high-d-simulation.pdf}
 }
 \caption{$x$ axis is tuning parameter $\lambda_C$ under log scale and $y$ axis is the distance between truth and estimations; $\lambda_A$ is increasing proportionally with $\lambda_C$. One can see that in both the low dimensional and hight dimensional setting, estimation accuracies for $A$ and $C$ first increase then decrease as penalty increases.}
 \label{fig:low-high-d-sim}
 \end{figure}
 
-% * <joshuav@gmail.com> 2016-05-15T17:49:34.014Z:
-%
-% ^.
-% > Another perspective when considering \mrsid~is its ability to make predictions.
-%
-% This line might not be necessary.
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:51:39.265Z.
-
 \begin{figure}
 \centering
-\includegraphics[scale=0.46]{./figures/est-pred-accuracy.pdf}
+\includegraphics[scale=0.46]{../figures/est-pred-accuracy.pdf}
 \captionof{figure}{Estimation and prediction accuracies. The $x$-axis represents the penalty size on a $\log$ scale. The $y$-axis represents the estimation and prediction accuracies. Note that the penalty which yields the most accurate estimation also gives the best prediction.}
-% * <stefaniejacinto@gmail.com> 2016-04-01T01:51:59.732Z:
-%
-% > $\log$
-%
-% Make this consistent with Figure 1 description. Do we want to show log in normal text or mathematical text?
-%
-% ^.
+
 \label{fig:estpredaccuracy}
 \end{figure}
 
 Both the standard LDS and \mrsid~  are applied to the simulation data. Estimation accuracies are plotted against penalty sizes in Figure \oldref{fig:low-high-d-sim}. From the plot, one sees that the prediction accuracy first improves, then drops when the penalties increase. \mrsid~  is also used for time series prediction, and the result is plotted in Figure \oldref{fig:estpredaccuracy}. The prediction accuracy peaks when the penalty coefficients $\lambda_A$ and $\lambda_C$ are around $10^{-3}$. This makes sense, as the same $(\lambda_A,\lambda_C)$ pair also gives the best estimations of $A$ and $C$, as seen in Figure \oldref{fig:low-high-d-sim}. The latter observation provides us a way to pick tuning parameters in real applications: one can use a collection of tuning parameter pairs $(\lambda_A,\lambda_C)$ for estimations (with train data) and subsequently for predictions (with test data). The pair that gives the most accurate out-of-sample predictions is picked. This trick is used in Section \oldref{sec:application}.
-% * <stefaniejacinto@gmail.com> 2016-04-01T01:38:58.961Z:
-%
-% > subsequently for predictions. The pair
-%
-% Confirm with client whether this is the original intent.
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:55:11.716Z.
-% * <stefaniejacinto@gmail.com> 2016-04-01T00:08:03.779Z:
-%
-% > \lambda_A
-%
-% Where is lambda A in Figure 3?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:55:53.476Z:
-%
-% not sure what you mean.
-%
-% ^.
 
 \section{Application}
 \label{sec:application}
 
 \subsection{Data and Motivation}
-
 \mrsid~is applied to two datasets in this section: the Kirby 21 data and the Human Connectome Project (HCP) data.
 
 The Kirby 21 data were acquired from the FM Kirby Research Center at the Kennedy Krieger Institute, an affiliate of Johns Hopkins University \citep{landman2011multi}. Twenty-one healthy volunteers with no history of neurological disease each underwent two separate resting state fMRI sessions on the same scanner: a 3T MR scanner utilizing a body coil with a 2D echoplanar (EPI) sequence, and an eight-channel phased-array coil with SENSitivity Encoding (SENSE; factor of 2) with the following parameters: TR 2s; 3mm$\times$3mm in plane resolution; slice gap 1mm; and total imaging time of 7 minutes and 14 seconds. The imaging data were first preprocessed with FSL, a comprehensive library of analysis tools for fMRI, MRI, and DTI brain imaging data \citep{smith2004advances}. FSL was used for spatial smoothing with a Gaussian kernel. Then \mrsid~was applied on the smoothed data.  The number of scans was $T = 210$.
-% * <stefaniejacinto@gmail.com> 2016-04-01T02:20:14.778Z:
-%
-% > Then \mrsid~was applied on the smoothed data.
-%
-% General comment about this section: it seems like we are just talking about how the Kirby 21 data was collected by other people, not what the authors actually did. So maybe we should move this last sentence about Mr. Sid to the last paragraph of 5.1.
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:58:20.933Z.
-% * <stefaniejacinto@gmail.com> 2016-04-01T01:56:43.924Z:
-%
-% > SENSitivity Encoding
-%
-% Same comment as Mr. Sid. Do we need to capitalize it this way instead of just saying "Sensitivity Encoding"?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:58:18.501Z.
 
 The Human Connectome Project (HCP) is a systematic effort to map macroscopic human brain circuits and their relationship to behavior in a large population of healthy adults \citep{van2013wu,moeller2010multiband,feinberg2010multiplexed}. MR scanning includes four imaging modalities, acquired at high resolutions: structural MRI, resting-state fMRI (rfMRI), task fMRI (tfMRI), and diffusion MRI (dMRI). All 1,200 subjects were scanned using all four of these modalities on a customized 3T scanner.  All scans consist of 1,200 time points. A comprehensive introduction of the dataset is given by \cite{van2013wu}.
 
-
 Extensive research has been done to analyze the above datasets. Methods such as PCA and ICA (Independent Component Analysis) have been applied to obtain spatial decompositions of the brain, as well as the functional connectivity among the decomposed regions.  Thus, for our first application, we applied \mrsid~to the Kirby 21 data with the intent of obtaining both a spatial decomposition graph and a connectivity graph. As a second application, \mrsid~ was applied to the HCP data to predict brain activities. For both datasets, the motor cortex, which contains $p=7396$ voxels, is analyzed instead of the whole brain.
-
-% * <stefaniejacinto@gmail.com> 2016-04-01T02:24:19.760Z:
-%
-% > As
-%
-% Confirm with client whether it's ok that I removed the entire sentence before this one.
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:58:00.933Z.
-
 \subsection{Results}
-
 \mrsid~was first applied to the Kirby 21 data.
 The max number of iterations for EM and the regularized subproblems were both 30 steps. To pick the optimal penalty size, different values of  $\lambda_A = \lambda_C$, were attempted. The values ranged from $10^{-10}$ to $10^{4}$. Then the estimations from each combination were used to make predictions. We determined that the best value was $10^{-5}$, as it gives the most accurate out-of-sample predictions. One can also try a grid of combinations to search for even better penalties. To determine the number of latent states, the profile likelihood method proposed by Zhu et al. \citep{zhu2006automatic} was adopted. The method assumes eigenvalues of the data matrix come from a mixed Gaussian, and uses profile likelihood to pick the optimal number of latent states. Apply the method to all four scans, the numbers of latent states are 11, 6, 14 and 15 respectively. Their average, $d=11$, was used.
 
-
-% * <stefaniejacinto@gmail.com> 2016-04-01T02:26:59.670Z:
-%
-% > data.
-%
-% Was this data already previously smoothed using FSL? Or did the authors do that?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T17:59:25.722Z.
-
-% * <stefaniejacinto@gmail.com> 2016-04-01T02:44:31.113Z:
-%
-% > is
-%
-% Past or present tense? Did the authors set these values or were these characteristics of the data they obtained?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T18:00:09.768Z.
-
-
-% * <stefaniejacinto@gmail.com> 2016-04-01T02:54:01.569Z:
-%
-% > One can also use a grid of combinations to search for even better penalties.
-%
-% How is this different from what the authors did in the previous two sentences?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T18:01:22.932Z.
-
-
-% * <stefaniejacinto@gmail.com> 2016-04-01T02:55:58.652Z:
-%
-% > Apply the method to all four scans, the numbers of latent states are 11, 6, 14 and 15 respectively.
-%
-% Is the number of latent states a result of applying the method to all four scans?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T18:01:27.422Z.
-
 First, we will consider estimations of the $A$ matrix. Let $A_{12}$ stand for the estimated $A$ matrix for the second scan of subject 1. Similar logic applies to the $A_{11}, A_{21}$, $A_{22}$, and $C$ matrices. These matrices contain subject-specific information. There are $6$ different pairs among the $4$ matrices. Intuitively, the pair $(A_{11},A_{12})$ and $(A_{21},A_{22})$ should have the highest similarity, as each comes from two scans of the same subject. This idea is validated by Table \oldref{tab:similarity} and Figure \oldref{fig:matsim}, which summarize similarities among the  $4$ matrices. The distance measure in Eq.~\ref{eq:distance} was used. The Amari error \citep{amari1996new}, which is another permutation-invariant measure of similarity, is also provided. The Amari error between matrices $A$ and $\hat{A}$ is defined as: $E(A,\hat{A}) = \sum\limits_{i=1}^n(\sum\limits_{j=1}^n\frac{|p_{ij}|}{\max_k |p_{ik}|}-1) + \sum\limits_{j=1}^n(\sum\limits_{i=1}^n\frac{|p_{ij}|}{\max_k|p_{kj}|}-1)$, where $P =(p_{ij})=A^{-1}\hat{A}$. Notice a smaller $d(A,B)$ or Amari error means higher similarity.
-% * <stefaniejacinto@gmail.com> 2016-04-01T02:58:17.944Z:
-%
-% > 1
-%
-% Changed to 1 (used to be "one"). Since we are numbering the  subjects it is clearer to use numbers.
-%
-% ^ <joshuav@gmail.com> 2016-05-15T18:02:21.725Z.
-
 \begin{table}
 \centering
 \captionof{table}{Similarities Among Estimated $A$ Matrices}
 \label{tab:similarity}
 \begin{tabular}{c|cccc}
 \hline
-$d(\cdot,\cdot)$(Amari Error) & $A_{11}$&$A_{12}$ & $A_{21}$&$A_{22}$ \\
+$d_{A,B}$ & $A_{11}$&$A_{12}$ & $A_{21}$&$A_{22}$ \\
 \hline
 $A_{11}$ & $0$ &  &  &\\
 $A_{12}$ & $\mathbf{0.076(0.88)}$& $0$ & &\\
@@ -716,33 +538,20 @@ $A_{22}$ & $0.095(1.02)$ & $0.095(1.09)$ & $\mathbf{0.085(0.98)}$ & $0$ \\
 \hline
 \end{tabular}
 \end{table}
-
-\begin{center}
-\includegraphics[scale=.4]{./figures/A-matrices-similarity.pdf}
+\begin{figure}
+\centering
+\includegraphics[scale=.4]{../figures/A-matrices-similarity.pdf}
 \captionof{figure}{Similarities among the four estimated $A$ matrices. The distance $d(\cdot,\cdot)$ was used in this figure. The two off-diagonal pixels that have the minimum distances, i.e. the red pixel and the orange pixel, correspond to the pairs of $(A_{11},A_{12})$ and $(A_{21},A_{22})$ respectively. With this similarity map, one can tell which two scans are from the same subject.}
 \label{fig:matsim}
-\end{center}
+\end{figure}
 
 Next, consider the $C$ matrix. 3D renderings of the columns of $C_{11}$ after thresholding are shown in Figure \oldref{fig:3d}. These regions are comparable to existing parcellations of the motor cortex. As an example, the blue region in Figure \oldref{fig:3d} accurately matches the dorsomedial (DM) parcel of the five-region parcellation proposed by Nebel MB et al. \citep{nebel2014disruption}.
-% * <stefaniejacinto@gmail.com> 2016-04-03T01:09:20.060Z:
-%
-% > dorsomedial
-%
-%  Please verify. (This was formerly "dorselmedical")
-%
-% ^ <joshuav@gmail.com> 2016-05-15T18:02:31.289Z.
-% * <stefaniejacinto@gmail.com> 2016-04-01T03:13:23.644Z:
-%
-% > after thresholding
-%
-% Discuss: is this a better way to arrange this sentence?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T18:02:50.799Z.
+
 \begin{center}
 \[
 \begin{array}{lll}
-\includegraphics[scale = 0.36]{./figures/view1.png} & \includegraphics[scale = 0.33]{./figures/view2.png} & \includegraphics[scale = 0.33]{./figures/view3.png}
-%\includegraphics[scale = 0.21]{view1-26.png} & \includegraphics[scale = 0.21]{view2-26.png} & \includegraphics[scale = 0.21]{view3-26.png}
+\includegraphics[scale = 0.18]{../figures/view1.png} & \includegraphics[scale = 0.165]{../figures/view2.png} & \includegraphics[scale = 0.165]{../figures/view3.png}
+
 \end{array}
 \]
 \captionof{figure}{3D rendering of columns of matrix $C_{11}$: estimation for the first scan of subject one.}
@@ -758,59 +567,36 @@ Using the profile likelihood method, $d=149$ is picked. HCP data has $T=1200$ ti
 \mrsid~was used to predict brain activity from the training data. As a comparison, the SVD method from Section \oldref{sec:initial} was also attempted. Both methods were first used for parameter estimations, then the estimated parameters were fed into equations \ref{eq:model0} to make $k$-step ahead predictions. Pseudocode for $k$-step ahead predictions is given in the Appendix.
 
 The prediction accuracies are shown in Figure \oldref{fig:predaccy} (left panel). One can see that the \mrsid~algorithm gives significantly better predictions for the first 150 predictions compared to the SVD method. Considering the SVD method is also used to intialize the \mrsid~algorithm, this observation shows that the \mrsid~algorithm improves estimation accuracy significantly compared to using the SVD method alone. Another observation is that the performance of the \mrsid~algorithm suffers when one predicts too far into the future ($>150$ steps). This is reasonable because the prediction errors from each step will accumulate, yielding deteriorating predictions as the number of steps increase.
-
-\begin{center}
-\includegraphics[scale=0.45]{./figures/hcp_pred_accy.pdf}
-\includegraphics[scale=0.45]{./figures/newSampleTS.pdf}
+\begin{figure}
+\centering
+\subfigure[]{
+\includegraphics[scale=0.45]{../figures/hcp_pred_accy.pdf}
+}
+\subfigure[]{
+\includegraphics[scale=0.4]{../figures/newSampleTS.pdf}
+}
 \captionof{figure}{Comparison of prediction accuracies on HCP data.
-\emph{Left:} Accuracies of \mrsid~and SVD predictions over time, with accuracy measured through mean squared error (MSE).
-\emph{Right:} Sample time series plot. The dotted green curve represents the $60\%$ confidence band given by the \mrsid~model. The true time series consists of averaged signals from a subsample of voxels. The predictions were also averaged over the same subsample. The confidence band was estimated based on the covariance matrix of these voxels. A subsample of 20 voxels were selected for this experiment, to avoid the calculation of large covariance matrices. All values were log-scaled for plotting purposes.
+\emph{(a):} Accuracies of \mrsid~and SVD predictions over time, with accuracy measured through mean squared error (MSE).
+\emph{(b):} Sample time series plot. The dotted green curve represents the $60\%$ confidence band given by the \mrsid~model. The true time series consists of averaged signals from a subsample of voxels. The predictions were also averaged over the same subsample. The confidence band was estimated based on the covariance matrix of these voxels. A subsample of 20 voxels were selected for this experiment, to avoid the calculation of large covariance matrices. All values were log-scaled for plotting purposes.
 }
 \label{fig:predaccy}
-\end{center}
-
-
+\end{figure}
 A sample plot of the true time series and predicted values are shown in Figure \oldref{fig:predaccy} (right panel). We see that \mrsid~gives more accurate predictions, and the true signal lies in the confidence band given by the \mrsid~model. Note that the confidence band is wider for predictions farther into the future, which is a result of the accumulated errors discussed previously.
-
-
 \section{Discussion}
-
-
 We have taken a first step towards the modeling and estimation of high-dimensional time-series data. The proposed method balances both statistical and computational considerations.  Indeed, much like the Kalman Filter-Smoother for modeling time-series data, and the Baum-Welch algorithm for system identification act as ``primitives'' for time-series data analysis, \mrsid~can act as a primitive for similar time-series analysis when the dimensionality is significantly larger than the number of time steps.  Via simulations we demonstrated the efficacy of our methods.  Then, by applying the proposed approach to fMRI scans of the motor cortex of healthy adults, we identified limited sub-regions (networks) from the motor cortex.
 
-
 In the future, this work could be extended in two important directions. First, assumptions on the covariance structures in the observation equation could be generalized. Prior knowledge could be incorporated into the covariance matrix $R$ \citep{allen2014generalized}. The idea is that $R$ should be general enough to be flexible, but sufficiently restricted to make the model useful. Many other methods, e.g. those that use tridiagonal and upper triangular matrices, could also be considered. Mohammad et al. have discussed the impact of autocorrelation on functional connectivity, which also provides some direction for extension \citep{arbabshirani2014impact}.
-% * <stefaniejacinto@gmail.com> 2016-04-03T00:31:20.670Z:
-%
-% > Mohammad
-%
-% Confirm with client: Arbabshirani?
-%
-% ^ <joshuav@gmail.com> 2016-05-15T18:04:15.333Z.
 
 Finally, the work can also be extended on the application side. Currently, only data from a few subjects have been analyzed. As a next step, the model can be extended to a group version and be used to analyze more subjects. In addition, the $A$ matrix estimated by \mrsid~could potentially be used as a measure of fMRI scan reproducibility.
-% * <stefaniejacinto@gmail.com> 2016-04-03T00:40:59.527Z:
-%
-% > reproducibility.
-%
-% We need a better way to wrap up this paper, and make a more convincing case for the impact of this work. Right now it ends too abruptly.
-%
-% ^ <joshuav@gmail.com> 2016-05-15T18:24:32.646Z.
+
 All of the work presented herein is available from our github repository,
 
-
 \section*{Acknowledgements}
-
 This work is graciously supported by the Defense Advanced Research Projects Agency (DARPA) SIMPLEX program through SPAWAR contract N66001-15-C-4041 and DARPA GRAPHS N66001-14-1-4028.
 
-%\bibliographystyle{ieeetr}
 \bibliographystyle{Chicago}
 \bibliography{reference}
-% * <stefaniejacinto@gmail.com> 2016-04-03T00:38:43.173Z:
-%
-% > reference
-%
-% Style is inconsistent throughout the Reference section, e.g. some have first initials listed before the last names. Some references are incomplete, e.g. Boots, B.
-%
-% ^.
+
 \end{document}
+
+%%

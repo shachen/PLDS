@@ -1,0 +1,211 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Allen, Grosenick, and Taylor}{Allen
+  et~al.}{2014}]{allen2014generalized}
+Allen, G.~I., L.~Grosenick, and J.~Taylor (2014).
+\newblock A generalized least-square matrix decomposition.
+\newblock {\em Journal of the American Statistical Association\/}~{\em
+  109\/}(505), 145--159.
+
+\bibitem[\protect\citeauthoryear{Amari, Cichocki, Yang, et~al.}{Amari
+  et~al.}{1996}]{amari1996new}
+Amari, S.-i., A.~Cichocki, H.~H. Yang, et~al. (1996).
+\newblock A new learning algorithm for blind signal separation.
+\newblock {\em Advances in neural information processing systems\/}, 757--763.
+
+\bibitem[\protect\citeauthoryear{Arbabshirani, Damaraju, Phlypo, Plis, Allen,
+  Ma, Mathalon, Preda, Vaidya, Adali, et~al.}{Arbabshirani
+  et~al.}{2014}]{arbabshirani2014impact}
+Arbabshirani, M.~R., E.~Damaraju, R.~Phlypo, S.~Plis, E.~Allen, S.~Ma,
+  D.~Mathalon, A.~Preda, J.~G. Vaidya, T.~Adali, et~al. (2014).
+\newblock Impact of autocorrelation on functional connectivity.
+\newblock {\em NeuroImage\/}.
+
+\bibitem[\protect\citeauthoryear{Banerjee, Vogelstein, and Dunson}{Banerjee
+  et~al.}{2013}]{Banerjee2013a}
+Banerjee, A., J.~T. Vogelstein, and D.~B. Dunson (2013, December).
+\newblock {Parallel inversion of huge covariance matrices}.
+\newblock {\em arXiv preprint\/}.
+
+\bibitem[\protect\citeauthoryear{Beck and Teboulle}{Beck and
+  Teboulle}{2009}]{beck2009fast}
+Beck, A. and M.~Teboulle (2009).
+\newblock A fast iterative shrinkage-thresholding algorithm for linear inverse
+  problems.
+\newblock {\em SIAM Journal on Imaging Sciences\/}~{\em 2\/}(1), 183--202.
+
+\bibitem[\protect\citeauthoryear{Boots}{Boots}{}]{bootslearning}
+Boots, B.
+\newblock Learning stable linear dynamical systems.
+
+\bibitem[\protect\citeauthoryear{CHEN, BILLINGS, and LUO}{CHEN
+  et~al.}{1989}]{CHEN1989}
+CHEN, S., S.~A. BILLINGS, and W.~LUO (1989, November).
+\newblock {Orthogonal least squares methods and their application to non-linear
+  system identification}.
+\newblock {\em International Journal of Control\/}~{\em 50\/}(5), 1873--1896.
+
+\bibitem[\protect\citeauthoryear{Doretto, Chiuso, Wu, and Soatto}{Doretto
+  et~al.}{2003}]{doretto2003dynamic}
+Doretto, G., A.~Chiuso, Y.~N. Wu, and S.~Soatto (2003).
+\newblock Dynamic textures.
+\newblock {\em International Journal of Computer Vision\/}~{\em 51\/}(2),
+  91--109.
+
+\bibitem[\protect\citeauthoryear{Feinberg, Moeller, Smith, Auerbach, Ramanna,
+  Gunther, Glasser, Miller, Ugurbil, and Yacoub}{Feinberg
+  et~al.}{2010}]{feinberg2010multiplexed}
+Feinberg, D.~A., S.~Moeller, S.~M. Smith, E.~Auerbach, S.~Ramanna, M.~Gunther,
+  M.~F. Glasser, K.~L. Miller, K.~Ugurbil, and E.~Yacoub (2010).
+\newblock Multiplexed echo planar imaging for sub-second whole brain fmri and
+  fast diffusion imaging.
+\newblock {\em PloS one\/}~{\em 5\/}(12), e15710.
+
+\bibitem[\protect\citeauthoryear{Friston, Harrison, and Penny}{Friston
+  et~al.}{2003}]{Friston2003a}
+Friston, K., L.~Harrison, and W.~Penny (2003, August).
+\newblock {Dynamic causal modelling}.
+\newblock {\em NeuroImage\/}~{\em 19\/}(4), 1273--1302.
+
+\bibitem[\protect\citeauthoryear{Ghahramani and Hinton}{Ghahramani and
+  Hinton}{1996}]{ghahramani1996parameter}
+Ghahramani, Z. and G.~E. Hinton (1996).
+\newblock Parameter estimation for linear dynamical systems.
+\newblock Technical report, Technical Report CRG-TR-96-2, University of
+  Totronto, Dept. of Computer Science.
+
+\bibitem[\protect\citeauthoryear{Hsieh, Sustik, Dhillon, Ravikumar, and
+  Poldrack}{Hsieh et~al.}{2013}]{Hsieh2013}
+Hsieh, C.-J., M.~A. Sustik, I.~S. Dhillon, P.~K. Ravikumar, and R.~Poldrack
+  (2013).
+\newblock {BIG \& QUIC: Sparse Inverse Covariance Estimation for a Million
+  Variables}.
+\newblock In {\em Advances in Neural Information Processing Systems}, pp.\
+  3165--3173.
+
+\bibitem[\protect\citeauthoryear{Johansen}{Johansen}{1988}]{Johansen1988}
+Johansen, S.~r. (1988, June).
+\newblock {Statistical analysis of cointegration vectors}.
+\newblock {\em Journal of Economic Dynamics and Control\/}~{\em 12\/}(2-3),
+  231--254.
+
+\bibitem[\protect\citeauthoryear{Kalman}{Kalman}{1960}]{Kalman1960a}
+Kalman, R.~E. (1960, March).
+\newblock {A New Approach to Linear Filtering and Prediction Problems}.
+\newblock {\em Journal of Basic Engineering\/}~{\em 82\/}(1), 35.
+
+\bibitem[\protect\citeauthoryear{Kalman}{Kalman}{1963}]{Kalman1963}
+Kalman, R.~E. (1963, January).
+\newblock {Mathematical Description of Linear Dynamical Systems}.
+\newblock {\em Journal of the Society for Industrial and Applied Mathematics
+  Series A Control\/}~{\em 1\/}(2), 152--192.
+
+\bibitem[\protect\citeauthoryear{Landman, Huang, Gifford, Vikram, Lim, Farrell,
+  Bogovic, Hua, Chen, Jarso, et~al.}{Landman et~al.}{2011}]{landman2011multi}
+Landman, B.~A., A.~J. Huang, A.~Gifford, D.~S. Vikram, I.~A.~L. Lim, J.~A.
+  Farrell, J.~A. Bogovic, J.~Hua, M.~Chen, S.~Jarso, et~al. (2011).
+\newblock Multi-parametric neuroimaging reproducibility: A 3-t resource study.
+\newblock {\em Neuroimage\/}~{\em 54\/}(4), 2854--2866.
+
+\bibitem[\protect\citeauthoryear{Ljung}{Ljung}{1998}]{Ljung1998}
+Ljung, L. (1998).
+\newblock {System Identification}.
+\newblock In A.~Proch\'{a}zka, J.~Uhl\'{\i}ř, P.~W.~J. Rayner, and N.~G.
+  Kingsbury (Eds.), {\em Signal Analysis and Prediction}, Applied and Numerical
+  Harmonic Analysis. Boston, MA: Birkh\"{a}user Boston.
+
+\bibitem[\protect\citeauthoryear{Moeller, Yacoub, Olman, Auerbach, Strupp,
+  Harel, and U{\u{g}}urbil}{Moeller et~al.}{2010}]{moeller2010multiband}
+Moeller, S., E.~Yacoub, C.~A. Olman, E.~Auerbach, J.~Strupp, N.~Harel, and
+  K.~U{\u{g}}urbil (2010).
+\newblock Multiband multislice ge-epi at 7 tesla, with 16-fold acceleration
+  using partial parallel imaging with application to high spatial and temporal
+  whole-brain fmri.
+\newblock {\em Magnetic Resonance in Medicine\/}~{\em 63\/}(5), 1144--1153.
+
+\bibitem[\protect\citeauthoryear{Nebel, Joel, Muschelli, Barber, Caffo, Pekar,
+  and Mostofsky}{Nebel et~al.}{2014}]{nebel2014disruption}
+Nebel, M.~B., S.~E. Joel, J.~Muschelli, A.~D. Barber, B.~S. Caffo, J.~J. Pekar,
+  and S.~H. Mostofsky (2014).
+\newblock Disruption of functional organization within the primary motor cortex
+  in children with autism.
+\newblock {\em Human brain mapping\/}~{\em 35\/}(2), 567--580.
+
+\bibitem[\protect\citeauthoryear{Rabiner}{Rabiner}{1989}]{rabiner1989tutorial}
+Rabiner, L.~R. (1989).
+\newblock A tutorial on hidden markov models and selected applications in
+  speech recognition.
+\newblock {\em Proceedings of the IEEE\/}~{\em 77\/}(2), 257--286.
+
+\bibitem[\protect\citeauthoryear{Roweis and Ghahramani}{Roweis and
+  Ghahramani}{1999}]{roweis1999unifying}
+Roweis, S. and Z.~Ghahramani (1999).
+\newblock A unifying review of linear gaussian models.
+\newblock {\em Neural computation\/}~{\em 11\/}(2), 305--345.
+
+\bibitem[\protect\citeauthoryear{Shumway and Stoffer}{Shumway and
+  Stoffer}{1982}]{shumway1982approach}
+Shumway, R.~H. and D.~S. Stoffer (1982).
+\newblock An approach to time series smoothing and forecasting using the em
+  algorithm.
+\newblock {\em Journal of time series analysis\/}~{\em 3\/}(4), 253--264.
+
+\bibitem[\protect\citeauthoryear{Smith, Jenkinson, Woolrich, Beckmann, Behrens,
+  Johansen-Berg, Bannister, De~Luca, Drobnjak, Flitney, et~al.}{Smith
+  et~al.}{2004}]{smith2004advances}
+Smith, S.~M., M.~Jenkinson, M.~W. Woolrich, C.~F. Beckmann, T.~E. Behrens,
+  H.~Johansen-Berg, P.~R. Bannister, M.~De~Luca, I.~Drobnjak, D.~E. Flitney,
+  et~al. (2004).
+\newblock Advances in functional and structural mr image analysis and
+  implementation as fsl.
+\newblock {\em Neuroimage\/}~{\em 23}, S208--S219.
+
+\bibitem[\protect\citeauthoryear{Tikhonov}{Tikhonov}{1943}]{tikhonov1943stability}
+Tikhonov, A.~N. (1943).
+\newblock On the stability of inverse problems.
+\newblock In {\em Dokl. Akad. Nauk SSSR}, Volume~39, pp.\  195--198.
+
+\bibitem[\protect\citeauthoryear{Turlach, Venables, and Wright}{Turlach
+  et~al.}{2005}]{turlach2005simultaneous}
+Turlach, B.~A., W.~N. Venables, and S.~J. Wright (2005).
+\newblock Simultaneous variable selection.
+\newblock {\em Technometrics\/}~{\em 47\/}(3), 349--363.
+
+\bibitem[\protect\citeauthoryear{Van~Essen, Smith, Barch, Behrens, Yacoub,
+  Ugurbil, Consortium, et~al.}{Van~Essen et~al.}{2013}]{van2013wu}
+Van~Essen, D.~C., S.~M. Smith, D.~M. Barch, T.~E. Behrens, E.~Yacoub,
+  K.~Ugurbil, W.-M.~H. Consortium, et~al. (2013).
+\newblock The wu-minn human connectome project: an overview.
+\newblock {\em Neuroimage\/}~{\em 80}, 62--79.
+
+\bibitem[\protect\citeauthoryear{Van~Overschee and De~Moor}{Van~Overschee and
+  De~Moor}{1994}]{van1994n4sid}
+Van~Overschee, P. and B.~De~Moor (1994).
+\newblock N4sid: Subspace algorithms for the identification of combined
+  deterministic-stochastic systems.
+\newblock {\em Automatica\/}~{\em 30\/}(1), 75--93.
+
+\bibitem[\protect\citeauthoryear{Xie, Huang, and Willett}{Xie
+  et~al.}{2013}]{Xie2013a}
+Xie, Y., J.~Huang, and R.~Willett (2013, February).
+\newblock {Change-Point Detection for High-Dimensional Time Series With Missing
+  Data}.
+\newblock {\em IEEE Journal of Selected Topics in Signal Processing\/}~{\em
+  7\/}(1), 12--27.
+
+\bibitem[\protect\citeauthoryear{Zaharia, Chowdhury, Franklin, Shenker, and
+  Stoica}{Zaharia et~al.}{2010}]{Zaharia2010}
+Zaharia, M., M.~Chowdhury, M.~J. Franklin, S.~Shenker, and I.~Stoica (2010).
+\newblock Spark: cluster computing with working sets.
+\newblock In {\em Proceedings of the 2nd USENIX conference on Hot topics in
+  cloud computing}, Volume~10, pp.\ ~10.
+
+\bibitem[\protect\citeauthoryear{Zhu and Ghodsi}{Zhu and
+  Ghodsi}{2006}]{zhu2006automatic}
+Zhu, M. and A.~Ghodsi (2006).
+\newblock Automatic dimensionality selection from the scree plot via the use of
+  profile likelihood.
+\newblock {\em Computational Statistics \& Data Analysis\/}~{\em 51\/}(2),
+  918--930.
+
+\end{thebibliography}

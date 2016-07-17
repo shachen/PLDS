@@ -1,0 +1,294 @@
+%%
+%% This is file `prletters.sty',
+%% generated with the docstrip utility.
+%%
+%% Copyright 2013 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% -------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%%
+%% $Id: prletters.sty 66 2013-05-28 10:33:39Z rishi $
+%%
+ \def\RCSfile{prletters}%
+ \def\RCSversion{0.1}%
+ \def\RCSdate{2013/05/13}%
+ \def\@shortjnl{\relax}
+ \def\@journal{Pattern Recognition Letters}
+ \def\@company{Elsevier Ltd}
+ \def\@issn{000-0000}
+ \def\@shortjid{prletters}
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+
+\@ifclassloaded{elsarticle}
+{\typeout{elsarticle.cls is loaded...}}
+{\errmessage{This package will work only with 
+  elsarticle.cls. So please load elsarticle.cls 
+  and try.}}
+
+ \RequirePackage{geometry}
+ \geometry{twoside,
+  paperwidth=210mm,
+  paperheight=280mm,
+  textheight=693pt,
+  textwidth=522pt,
+  inner=15mm,
+  top=15mm,
+  headheight=50pt,
+  headsep=10pt,
+  footskip=12pt,
+  footnotesep=28pt plus 2pt minus 6pt,
+  columnsep=18pt
+ }
+ \global\let\bibfont=\footnotesize
+ \global\bibsep=0pt
+ \input{fleqn.clo}
+\ifpreprint
+\else
+   \global\@twocolumntrue
+\fi
+
+
+\usepackage{multirow}
+\usepackage{color}
+
+\AtBeginDocument{
+\def\elsarticletitlealign{flushleft}
+}
+
+%%
+\def\snm#1{\textcolor{red}{#1}}
+
+%% Title page header
+\def\ps@PRlettersTitle{%
+  \def\@oddhead{
+\noindent\parbox[t]
+  {\textwidth}{
+  ~\hfill\thepage\\
+  \rule{.8\textwidth}{.2pt}\\[.8ex]
+   \includegraphics[scale=.8]{elsevier-logo}
+   \hfill
+    \raisebox{14pt}{\parbox{.5\textwidth}%
+    {\centering {\large Pattern Recognition Letters}\\
+    {\sf journal homepage: www.elsevier.com}}}
+   \hfill
+   \hspace*{.15\textwidth}\\[-4pt]
+   \rule{\textwidth}{2pt}
+}}
+     \let\@evenhead\@empty
+     \def\@oddfoot{}
+     \let\@evenfoot\@oddfoot
+}
+
+\def\ps@headings{%
+   \def\@oddhead{\mbox{~}\hfill\thepage}
+   \let\@evenhead\@oddhead
+   \let\@oddfoot\relax
+   \let\@evenfoot\@oddfoot
+}
+
+% Header for other than title page.
+\pagestyle{myheadings}
+
+% History info
+\let\@received\@empty
+\let\@finalform\@empty
+\let\@accepted\@empty
+\let\@availableonline\@empty
+\let\@communicated\@empty
+\def\received#1{\gdef\@received{#1}}
+\def\finalform#1{\gdef\@finalform{#1}}
+\def\accepted#1{\gdef\@accepted{#1}}
+\def\availableonline#1{\gdef\@availableonline{#1}}
+\def\communicated#1{\gdef\@communicated{#1}}
+
+\def\receivedhead{Received}
+\def\acceptedhead{Accepted}
+\def\finalformhead{Received in final form}
+\def\availableonlinehead{Available online}
+\def\communicatedhead{Communicated by}
+
+% Article info
+\def\articleinfobox{
+    \parbox[t]{.35\textwidth}{%
+    \fontsize{8pt}{10pt}\selectfont%
+    \textit{Article history}:\\
+    \ifx\@received\@empty\relax
+    \else
+    \receivedhead~\@received\\
+    \fi
+    \ifx\@finalform\@empty\relax
+    \else
+    \finalformhead~\@finalform\\
+    \fi
+    \ifx\@accepted\@empty\relax
+    \else
+    \acceptedhead~\@accepted\\
+    \fi
+    \ifx\@availableonline\@empty\relax
+    \else
+    \availableonlinehead~\@availableonline
+    \fi
+    \ifx\@communicated\@empty\relax
+    \\[-2pt]
+    \else
+    \par
+    \vspace*{10pt}
+    \communicatedhead~\@communicated
+    \vspace*{12pt}
+    \fi
+    \hrule
+    \vspace*{1pc}
+    \unhbox\keybox}
+}
+
+% Preprint Maketitle
+\long\def\pprintMaketitle{%
+  \resetTitleCounters
+  \def\baselinestretch{1}%
+  \begin{\elsarticletitlealign}%
+   \def\baselinestretch{1}%
+    \vspace*{5pc}
+    \Large\@title\par\vskip18pt
+    \normalsize
+  \ifdoubleblind
+    \vspace*{2pc}
+  \else
+    \elsauthors\par\vskip10pt
+    {\footnotesize\itshape\elsaddress}\par\vskip12pt
+  \fi
+\vspace*{-\baselineskip}%
+\rule{.8\textwidth}{.2pt}\vskip10pt
+    \begin{tabular*}{.8\textwidth}{c@{}p{.9\textwidth}}
+     \hspace*{7pt}&ABSTRACT\\[8pt]
+    \hline\\[-8pt]
+    \end{tabular*}
+    \hspace*{13.5pt}\parbox[t]{.777\textwidth}{\unhbox\absbox}
+  \end{\elsarticletitlealign}%
+\rule{.8\textwidth}{.2pt}%\vskip10pt%
+  \vspace*{2pc}
+    \printFirstPageNotes
+}
+
+
+% Maketitle 
+\long\def\MaketitleBox{%
+  \resetTitleCounters
+  \def\baselinestretch{1}%
+  \begin{\elsarticletitlealign}%
+   \def\baselinestretch{1}%
+    \vspace*{7.5pc}
+    \Large\@title\par\vskip18pt
+    \normalsize
+  \ifdoubleblind
+    \vspace*{2pc}
+  \else
+    \elsauthors\par\vskip10pt
+    {\footnotesize\itshape\elsaddress}\par\vskip12pt
+  \fi
+\vspace*{-\baselineskip}%
+\rule{.8\textwidth}{.2pt}\vskip10pt
+    \begin{tabular*}{.8\textwidth}{c@{}p{.9\textwidth}}
+     \hspace*{7pt}&ABSTRACT\\[8pt]
+    \hline\\[-8pt]
+    \end{tabular*}
+    \hspace*{13.5pt}\parbox[t]{.777\textwidth}{\unhbox\absbox}
+  \end{\elsarticletitlealign}%
+\rule{.8\textwidth}{.2pt}%\vskip10pt%
+  \vspace*{2pc}
+    \printFirstPageNotes
+}
+
+\long\def\finalMaketitle{%
+  \resetTitleCounters
+  \def\baselinestretch{1}%
+   \MaketitleBox
+   \thispagestyle{PRlettersTitle}%
+  \gdef\thefootnote{\arabic{footnote}}%
+  }
+
+ 
+\def\printFirstPageNotes{%
+  \def\snm##1{##1}%
+  \iflongmktitle
+   \let\columnwidth=\textwidth\fi
+  \ifdoubleblind
+  \else
+  \ifx\@tnotes\@empty\else\@tnotes\fi
+  \ifx\@nonumnotes\@empty\else\@nonumnotes\fi
+  \ifx\@cornotes\@empty\else\@cornotes\fi
+  \ifx\@elseads\@empty\relax\else
+   \let\thefootnote\relax
+   \footnotetext{\ifnum\theead=1\relax
+      \textit{e-mail:\space}\else
+      \textit{e-mail:\space}\fi
+     \@elseads}\fi
+  \ifx\@elsuads\@empty\relax\else
+   \let\thefootnote\relax
+   \footnotetext{\textit{URL:\space}%
+     \@elsuads}\fi
+ \fi
+  \ifx\@fnotes\@empty\else\@fnotes\fi
+  \iflongmktitle\if@twocolumn
+   \let\columnwidth=\Columnwidth\fi\fi
+}
+
+% Abstract
+\renewenvironment{abstract}{%
+  \global\setbox\absbox=\hbox\bgroup%
+  \hsize=.4\textwidth%
+  \hskip-1pt}
+ {\newline 
+   \mbox{~}\hfill\copyright~\the\year\  
+   Elsevier~Ltd.~All~rights~reserved.\egroup%
+ }
+
+
+
+% Keyword
+\def\keyword{%
+  \def\sep{\newline}%
+  \def\MSC{\@ifnextchar[{\@MSC}{\@MSC[2000]}}%
+  \def\@MSC[##1]{\leavevmode\hbox {\it ##1~MSC:}\newline}%
+  \def\JEL{\newline\leavevmode\hbox {\it JEL:\space}}%
+  \def\KWD{%
+   \vspace*{10pt}\newline
+   \leavevmode\hbox {\it Keywords:}\newline}%
+  \global\setbox\keybox=\hbox\bgroup\hsize=.3\textwidth%
+  \fontsize{8pt}{10pt}\selectfont%
+  \parskip\z@%
+  \noindent%
+  \ignorespaces}
+\def\endkeyword{\egroup}
+
+%% Other customization
+
+% Enumerate
+\def\labelenumii{\labelenumi.\arabic{enumii}}
+
+% Caption
+\def\figurename{Fig.}
+
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip\footnotesize\bfseries
+  \sbox\@tempboxa{#1.~#2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1.~#2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+\AtBeginDocument{\ifpreprint
+ \advance\baselineskip by 12pt
+\fi}
+
+\def\TM{$^{\rm TM}$}

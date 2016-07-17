@@ -1,0 +1,87 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdftex 2013.5.14)  17 JUL 2016 16:20
+entering extended mode
+**C:/Ubuntu/Github/PLDS/Draft/prl/reference.bib
+(C:/Ubuntu/Github/PLDS/Draft/prl/reference.bib
+Missing character: There is no Å in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+
+Overfull \hbox (25.07953pt too wide) in paragraph at lines 1--137
+\tenrm tion,data di-men-sion-al-ity,detection re-li-a-bil-ity,dynamic distribut
+ion,high-dimensional data analysis,high-dimensional|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenrm t
+.\tenrm i
+.\tenrm o
+.\tenrm n
+.\tenrm ,
+.etc.
+
+
+Overfull \hbox (25.91281pt too wide) in paragraph at lines 1--137
+\tenrm tion,point clouds,signal de-tec-tion,signal pro-cess-ing al-go-rithms,st
+reaming data,submanifold ap-prox-i-ma-tion,subspace|
+
+\hbox(6.94444+1.94444)x469.75499, glue set - 1.0
+.\tenrm t
+.\tenrm i
+.\tenrm o
+.\tenrm n
+.\tenrm ,
+.etc.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active
+\vbox(643.20255+1.94444)x469.75499
+.\glue(\topskip) 3.05556
+.\hbox(6.94444+1.94444)x469.75499, glue set 0.80533
+..\hbox(0.0+0.0)x20.0
+..\tenrm @
+..\tenrm i
+..\tenrm n
+..\tenrm p
+..etc.
+.\penalty 150
+.\glue(\baselineskip) 3.11111
+.\hbox(6.94444+1.94444)x469.75499, glue set 0.38806
+..\tenrm a
+..\tenrm n
+..\tenrm d
+..\glue 3.33333 plus 1.66666 minus 1.11111
+..\tenrm R
+..etc.
+.etc.
+
+ [1{C:/Users/Jason/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+! Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \delimiter 
+\backslash ->\delimiter 
+                        "26E30F 
+l.154 ...k up to a logarithmic factor \$\backslash
+                                                   log p\$. Their innovative...
+
+? 
+! Emergency stop.
+<inserted text> 
+                $
+<to be read again> 
+                   \delimiter 
+\backslash ->\delimiter 
+                        "26E30F 
+l.154 ...k up to a logarithmic factor \$\backslash
+                                                   log p\$. Their innovative...
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!

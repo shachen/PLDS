@@ -54,21 +54,21 @@
 \title{An M-Estimator for Reduced-Rank High-Dimensional Linear Dynamical System Identification
 % A Sparse High Dimensional State-Space Model with an Application to Neuroimaging Data
 }
-%\author{}
-\author[a]{Shaojie Chen}
-\author[b]{Kai Liu}
-\author[c]{Yuguang Yang}
-\author[a]{Yuting Xu}
-\author[d]{Seonjoo Lee}
-\author[a]{Martin Lindquist}
-\author[a]{Brian S. Caffo}
-\author[e,f]{Joshua T. Vogelstein}
-\affil[a]{\small Dept. of Biostatistics, Johns Hopkins Bloomberg School of Public Health}
-\affil[b]{Dept. of Neuroscience, Johns Hopkins University}
-\affil[c]{Dept. of Chemical and Biomolecular Engineering, Johns Hopkins University}
-\affil[d]{Dept. of Psychiatry and Department of Biostatistics, Columbia University}
-\affil[e]{Child Mind Institute}
-\affil[f]{Dept. of Biomedical Enginnering and Institute for Computational Medicine, Johns Hopkins University}
+\author{}
+%\author[a]{Shaojie Chen}
+%\author[b]{Kai Liu}
+%\author[c]{Yuguang Yang}
+%\author[a]{Yuting Xu}
+%\author[d]{Seonjoo Lee}
+%\author[a]{Martin Lindquist}
+%\author[a]{Brian S. Caffo}
+%\author[e,f]{Joshua T. Vogelstein}
+%\affil[a]{\small Dept. of Biostatistics, Johns Hopkins Bloomberg School of Public Health}
+%\affil[b]{Dept. of Neuroscience, Johns Hopkins University}
+%\affil[c]{Dept. of Chemical and Biomolecular Engineering, Johns Hopkins University}
+%\affil[d]{Dept. of Psychiatry and Department of Biostatistics, Columbia University}
+%\affil[e]{Child Mind Institute}
+%\affil[f]{Dept. of Biomedical Enginnering and Institute for Computational Medicine, Johns Hopkins University}
 \date{}
 \maketitle
 \section*{Abstract}
@@ -96,7 +96,7 @@ Reduced rank LDS models reduce the number of latent dimensions, and therefore pa
 
 We address all three of these issues with our M-estimator for Reduced-rank  System IDentification (\mrsid).  By assuming the dimensionality of the latent state space is small (reduced rank), relative to the ambient, or observed, space dimensionality, we can significantly improve computational tractability and estimation accuracy. By further penalizing the estimators, with $\ell_1$ and/or $\ell_2$ penalties, utilizing prior knowledge on the structure of the parameters, we gain further estimation accuracy in this high-dimensional but relatively low-sample size regime.  Finally, by employing several numerical linear algebra tricks, we can bring the computational burden down significantly.
 
-These three techniques together enable us to obtain highly accurate estimates in a variety of simulation settings.  \mrsid~is, in fact, a generalization of the now classic Baum-Welch expectation maximization algorithm, commonly used for system identification in much lower dimensional linear dynamical systems \citep{rabiner1989tutorial}. We numerically show that the hyper-parameters can be selected minimizing prediction error on held-out data.  Finally, we use \mrsid~to estimate functional connectomes from motor cortex.  \mrsid~enables us to estimate the regions, rather than imposing some prior parcellation on the data, as well as estimate sparse connectivity between regions.  \mrsid~reliably estimates these connectomes, as well as predicts the held-out time-series data.  To our knowledge, this is the first time anybody has been able to estimate partitions and functional connectomes directly from the high-dimensional data, with a single unified approach.  To enable extensions, generalizations, and additional applications, the functions and code for generating each of the figures is freely available from \url{https://github.com/shachen/PLDS/} (referred to as the PLDS Git Repo in following sections).
+These three techniques together enable us to obtain highly accurate estimates in a variety of simulation settings.  \mrsid~is, in fact, a generalization of the now classic Baum-Welch expectation maximization algorithm, commonly used for system identification in much lower dimensional linear dynamical systems \citep{rabiner1989tutorial}. We numerically show that the hyper-parameters can be selected minimizing prediction error on held-out data.  Finally, we use \mrsid~to estimate functional connectomes from motor cortex.  \mrsid~enables us to estimate the regions, rather than imposing some prior parcellation on the data, as well as estimate sparse connectivity between regions.  \mrsid~reliably estimates these connectomes, as well as predicts the held-out time-series data.  To our knowledge, this is the first time anybody has been able to estimate partitions and functional connectomes directly from the high-dimensional data, with a single unified approach.  To enable extensions, generalizations, and additional applications, the functions and code for generating each of the figures is freely available on Github. %from \url{https://github.com/shachen/PLDS/} (referred to as the PLDS Git Repo in following sections).
 
 
 
@@ -432,7 +432,7 @@ Estimation accuracies are plotted against penalty size $\lambda_C$ in Figure \ol
 \end{figure}
 
 
-As a concrete example, estimations from both methods are compared to the true values of parameters in Figure \oldref{fig:heatmap}. One can see that true values in each column of $C$ matrix are decreasing smoothly. $\hat{C}_{\lambda_m}$, which is estimated with optimal penalties $\lambda_C = \lambda_m$ and $\lambda_A = k\lambda_m$, shows similar pattern. In terms of $A$, the true value is sparse with many $0$ (blue) values. \mrsid~estimation $\hat{A}_{\lambda_m}$ is also sparse, denoted by the off-diagonal blue values. However, LDS estimation $\hat{A}_{\lambda_{-\infty}}$ is not sparse, with many yellow and red off-diagonal values.
+As a concrete example, estimations from both methods are compared to the true values of parameters in Figure \oldref{fig:heatmap}. One can see that true values in each column of $C$ matrix are decreasing smoothly. $\hat{C}_{\lambda_m}$, which is estimated with optimal penalties $\lambda_C = \lambda_m$ and $\lambda_A = k\lambda_m$, shows similar pattern. In terms of $A$, the true value is sparse with many $0$ (blue) values. \mrsid~estimation $\hat{A}_{\lambda_m}$ is also sparse, denoted by the off-diagonal 0 (blue) values. However, LDS estimation $\hat{A}_{\lambda_{-\infty}}$ is not sparse, with many positive (yellow and red) off-diagonal values.
 \begin{figure}
  \centering
  \includegraphics[scale=.6]{./figures/heatmap-figure-1}
@@ -462,7 +462,7 @@ Another perspective when considering \mrsid~model is its ability to make predict
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.4]{./figures/est-pred-accuracy.pdf}
+\includegraphics[scale=0.46]{./figures/est-pred-accuracy.pdf}
 \captionof{figure}{Estimation and prediction accuracies. The x-axis is the penalty size under log scale, while y-axis is the estimation and prediction accuracies. One can see that the penalty that yields the most accurate estimation also gives the best predictions.}
 \label{fig:estpredaccuracy}
 \end{figure}
@@ -561,6 +561,7 @@ By applying the proposed model to fMRI scans of the motor cortex of healthy adul
 In the future, this work could be extended in two important directions. First, assumptions on the covariance structures in the observation equation could be generalized. Prior knowledge could be incorporated to covariance $R$ \citep{allen2014generalized}. The general rule is that $R$ should be general enough to be flexible while sufficiently restricted to make the model useful. A lot of other platforms such as tridiagnol and upper triangular could also be considered. Mohammad et al. have discussed the impact of auto correlation on functional connectivity, which also provides us a direction for extension \citep{arbabshirani2014impact}.
 
 Finally, the work can also be extended on the application side. Currently, only data from a single subject is analyzed. As a next step, the model can be extended to a group version and be used to analyze more subjects. The coefficients from the algorithm could be used to measure the reproducibility of the scans.
+
 
 %\bibliographystyle{ieeetr}
 \bibliographystyle{Chicago}
