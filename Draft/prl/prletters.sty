@@ -3,17 +3,17 @@
 %% generated with the docstrip utility.
 %%
 %% Copyright 2013 Elsevier Ltd
-%% 
+%%
 %% This file is part of the 'Elsarticle Bundle'.
 %% -------------------------------------------
-%% 
+%%
 %% It may be distributed under the conditions of the LaTeX Project Public
 %% License, either version 1.2 of this license or (at your option) any
 %% later version.  The latest version of this license is in
 %%    http://www.latex-project.org/lppl.txt
 %% and version 1.2 or later is part of all distributions of LaTeX
 %% version 1999/12/01 or later.
-%% 
+%%
 %%
 %% $Id: prletters.sty 66 2013-05-28 10:33:39Z rishi $
 %%
@@ -29,8 +29,8 @@
 
 \@ifclassloaded{elsarticle}
 {\typeout{elsarticle.cls is loaded...}}
-{\errmessage{This package will work only with 
-  elsarticle.cls. So please load elsarticle.cls 
+{\errmessage{This package will work only with
+  elsarticle.cls. So please load elsarticle.cls
   and try.}}
 
  \RequirePackage{geometry}
@@ -178,7 +178,7 @@
 }
 
 
-% Maketitle 
+% Maketitle
 \long\def\MaketitleBox{%
   \resetTitleCounters
   \def\baselinestretch{1}%
@@ -214,7 +214,7 @@
   \gdef\thefootnote{\arabic{footnote}}%
   }
 
- 
+
 \def\printFirstPageNotes{%
   \def\snm##1{##1}%
   \iflongmktitle
@@ -245,8 +245,8 @@
   \global\setbox\absbox=\hbox\bgroup%
   \hsize=.4\textwidth%
   \hskip-1pt}
- {\newline 
-   \mbox{~}\hfill\copyright~\the\year\  
+ {\newline
+   \mbox{~}\hfill\copyright~\the\year\
    Elsevier~Ltd.~All~rights~reserved.\egroup%
  }
 
