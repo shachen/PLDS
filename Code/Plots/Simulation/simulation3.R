@@ -43,7 +43,8 @@ pdf("../../../Figures/pdf/p-300-d-10-T-100-sim3-accuracy.pdf")
 # plot both accuracies in one graph
 par(mar=c(5,4,4,4)+0.1)
 # plot estimation accuracy
-plot(log(penaltyCe[-1],4),smooth(cancor[-1,4]),axes=F,ylim=c(0,0.4),xlab="",ylab="",type="l",lwd=3,col="red",main="Prediction/Estimation Accuracy vs Penalty")
+plot(log(penaltyCe[-1],4),smooth.spline(cancor[-1,4], df = 7)$y,axes=F,ylim=c(0,0.4),xlab="",ylab="",
+     type="l",lwd=3,col="orange",main="Prediction/Estimation Accuracy vs Penalty", lty = 1)
 axis(2,ylim=c(0,0.4),col="black")
 mtext("Estimation Accuracy",side=2,line=2.5,adj=1)
 
@@ -51,7 +52,8 @@ mtext("Estimation Accuracy",side=2,line=2.5,adj=1)
 par(new=T)
 
 # plot pred accuracy
-plot(log(penaltyCp[-1],4),smooth(pred_accuracy[-1]),axes=F,type="l",ylab="",xlab="",col="blue",ylim=c(4,9),lwd=3)
+plot(log(penaltyCp[-1],4),smooth.spline(pred_accuracy[-1], df = 7)$y,axes=F,type="l",ylab="",
+     xlab="",col="blue",ylim=c(4,9),lwd=3, lty = 2)
 axis(4,ylim=c(4,10),col="black")
 mtext("Prediction Accuracy",side=4,line=2.5,adj=1)
 
@@ -61,6 +63,6 @@ box(bty="o")
 mtext(expression(paste("log10(",lambda[C],")")),side=1,line=2.5)
 
 # legend
-legend("topright",legend=c("Estimation","Prediction"),lwd=3,col=c("red","blue"),bty="n")
+legend("topright",legend=c("Estimation","Prediction"),lwd=3,col=c("orange","blue"),bty="n", lty = c(1,2))
 dev.off()
 
